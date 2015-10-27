@@ -1,0 +1,13 @@
+deployment:
+  staging:
+    branch: master
+    heroku: 
+      appname: circlecidemo
+
+test:
+  post:
+    - mvn site
+    - mkdir $CIRCLE_ARTIFACTS/reports
+    - exec cp -R target/site/* $CIRCLE_ARTIFACTS/reports
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
