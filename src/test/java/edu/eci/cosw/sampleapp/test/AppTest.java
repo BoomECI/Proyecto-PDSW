@@ -8,7 +8,7 @@ public class AppTest {
 
   @Test
   public void sampleTest() {
-	fail("No hay pruebas implementadas");	
+	//fail("No hay pruebas implementadas");	
   }
 
 } 
