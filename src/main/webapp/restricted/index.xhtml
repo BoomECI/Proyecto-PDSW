@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+    <h1>RESTRICTED PAGE!</h1>
+    <h:outputLink value="../logout">logout</h:outputLink>
+    <pre>     
+    subject = <p:outputLabel value="#{loginBean.subject}"/>
+    principal = <p:outputLabel value="#{loginBean.subject.principal}"/>
+    session = <p:outputLabel value="#{loginBean.subject.session}"/>
+    role user = <p:outputLabel value="#{loginBean.subject.hasRole('user')}"/>
+    role admin = <p:outputLabel value="#{loginBean.subject.hasRole('admin')}"/>
+    role employee = <p:outputLabel value="#{loginBean.subject.hasRole('employee')}"/>
+    </pre>
+        
+    
+</h:body>
+</html>
