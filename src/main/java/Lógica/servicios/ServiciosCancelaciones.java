@@ -14,10 +14,18 @@ public interface ServiciosCancelaciones {
      * Consultar un estudiante dado su carnet.
      * @param idEstudiante carnet del estudiante
      * @return el paciente con el carnet dado
-     * @throws ExcepcionServiciosEstudiante si el estudiante no existe
+     * @throws ExcepcionServiciosCancelaciones si el estudiante no existe
      */
-    public abstract Estudiante consultarPaciente(int idEstudiante) throws ExcepcionServiciosEstudiante;
+    public abstract Estudiante consultarEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones;
     
+    /**
+     * Agrega una consulta a un paciente ya registrado
+     * @param idEstudiante el identificador del paciente
+     * @param solicitudCancelacion la solicitud de cancelación a ser agregada
+     * @throws ExcepcionServiciosCancelaciones si se presenta algún error de persistencia o si el paciente no existe.
+     */
+    public abstract void agregarSolicitudCancelacionEstudiante(int idEstudiante, SolicitudCancelacion solicitudCancelacion) throws ExcepcionServiciosCancelaciones;
+        
 }
 
 
