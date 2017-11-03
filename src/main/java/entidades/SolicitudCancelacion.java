@@ -15,12 +15,12 @@ public class SolicitudCancelacion {
     
     private Date fecha;
     private String razon;
-    private String materia;
+    private Materia materia;
     private String avalConsejero;
     private String avalAcudiente;
 
         
-    public SolicitudCancelacion(Date fecha, String razon, String materia){
+    public SolicitudCancelacion(Date fecha, String razon, Materia materia){
         this.fecha = fecha;
         this.razon = razon;
         this.materia = materia;
@@ -42,11 +42,11 @@ public class SolicitudCancelacion {
         this.razon = razon;
     }
 
-    public String getMateria() {
+    public Materia getMateria() {
         return materia;
     }
 
-    public void setMateria(String materia) {
+    public void setMateria(Materia materia) {
         this.materia = materia;
     }
     

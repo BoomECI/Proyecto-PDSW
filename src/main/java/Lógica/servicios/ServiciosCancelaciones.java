@@ -6,6 +6,7 @@
 package Lógica.servicios;
 
 import entidades.Estudiante;
+import entidades.PlanDeEstudios;
 import entidades.SolicitudCancelacion;
 import java.util.List;
 
@@ -64,6 +65,13 @@ public interface ServiciosCancelaciones {
      * @throws ExcepcionServiciosCancelaciones Si el estudiante no existe o se genere un error de persistencia
      */
     public abstract List<SolicitudCancelacion> consultarSolicitudesNoTramitadas() throws  ExcepcionServiciosCancelaciones;
+    
+    /**
+     * Consulta plan de estudios si se cancela la asignatura.
+     * @return plan de estudios con la materia cancelada
+     * @throws ExcepcionServiciosCancelaciones Si la materia no se puede cancelar o no existe o si se genera un error de persistencia
+     */
+    public abstract PlanDeEstudios consultarImpactoPlanDeEstudios() throws  ExcepcionServiciosCancelaciones;
     
     
         
