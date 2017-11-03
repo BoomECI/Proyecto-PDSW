@@ -25,24 +25,49 @@ import javax.faces.bean.SessionScoped;
 public class EstudianteBean implements Serializable {
     
     private final CancelacionesEstudiantes cancEstudiantes = CancelacionesEstudiantesFactory.getInstance().getCancelacionesEstudiantes();
-    private Estudiante estudianteActual;
+    private String nombreEstudiante = "Juan Perez";
+    private int idEstudiante;
     private Materia materiaSeleccionada;
     private String fechaCancelacion;
     private String descripcionCancelacion;
-    
-    
-    
-    public void setEstudianteActual(Estudiante estudianteActual){
-        this.estudianteActual = estudianteActual;
+
+    public int getIdEstudiante() {
+        return idEstudiante;
+    }
+
+    public void setIdEstudiante(int idEstudiante) {
+        this.idEstudiante = idEstudiante;
+    }
+
+    public String getFechaCancelacion() {
+        return fechaCancelacion;
+    }
+
+    public void setFechaCancelacion(String fechaCancelacion) {
+        this.fechaCancelacion = fechaCancelacion;
+    }
+
+    public String getDescripcionCancelacion() {
+        return descripcionCancelacion;
+    }
+
+    public void setDescripcionCancelacion(String descripcionCancelacion) {
+        this.descripcionCancelacion = descripcionCancelacion;
     }
     
-    public Estudiante getEstudianteActual(){
-        return estudianteActual;
+    
+    
+    public void setNombreEstudiante(String nombreEstudiante){
+        this.nombreEstudiante = nombreEstudiante;
+    }
+    
+    public String getNombreEstudiante(){
+        return nombreEstudiante;
     }
     
     
     public void cancelarMateria(){
-        cancEstudiantes.agregarSolicitudCancelacionEstudiante(estudianteActual.getId(), new SolicitudCancelacion(materiaSeleccionada, descripcionCancelacion, fechaCancelacion));
+        cancEstudiantes.agregarSolicitudCancelacionEstudiante(idEstudiante, new SolicitudCancelacion(materiaSeleccionada, descripcionCancelacion, fechaCancelacion));
     }
     
     public void setMateriaSeleccionada(Materia materiaSeleccionada){

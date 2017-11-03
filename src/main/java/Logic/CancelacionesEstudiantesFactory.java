@@ -5,14 +5,39 @@
  */
 package Logic;
 
+import com.google.inject.AbstractModule;
+import static com.google.inject.Guice.createInjector;
+import com.google.inject.Injector;
+
 /**
  *
  * @author camil
  */
 public class CancelacionesEstudiantesFactory {
+    private static Injector injector;
 
-    public static Object getInstance() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    private static CancelacionesEstudiantesFactory instance = new CancelacionesEstudiantesFactory();
+
+    
+    
+    public CancelacionesEstudiantesFactory(){
+        injector = createInjector(new AbstractModule() {
+
+            @Override
+            protected void configure() {
+               
+            }
+
+        }
+        );
     }
     
+    public CancelacionesEstudiantes getCancelacionesEstudiantes() {
+        return injector.getInstance(CancelacionesEstudiantes.class);
+    }
+    
+    public static CancelacionesEstudiantesFactory getInstance() {
+        return instance;
+    }
 }
