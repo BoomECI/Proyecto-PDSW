@@ -5,6 +5,8 @@
  */
 package Logic;
 
+import java.util.List;
+
 /**
  *
  * @author camil
@@ -12,6 +14,24 @@ package Logic;
 public class Estudiante {
     
     private int id;
+    private String nombre;
+    private List<Materia> materiasCursando;
+
+    public List<Materia> getMateriasCursando() {
+        return materiasCursando;
+    }
+
+    public void setMateriasCursando(List<Materia> materiasCursando) {
+        this.materiasCursando = materiasCursando;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
     
     
     public int getId(){

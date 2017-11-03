@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head></h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="2">
+                <p:outputLabel for="nombre" value="Estudiante:" />
+                <p:outputLabel id="nombre" value="#{beanSolicitudEstudiante.estudianteActual.nombre}" />
+                <p:outputLabel value="Solicitud de cancelacion" />
+                <p:outputLabel value="" />
+                <p:outputLabel for="listadoAsignaturas" value="Asignatura a cancelar   " />
+                <p:selectOneMenu id="listadoAsignaturas" value="#{beanSolicitudEstudiante.nemonicoMateriaSeleccionada}" style="width:150px">
+                    <f:selectItem itemLabel="Asignatura" itemValue="" noSelectionOption="true" />
+                    <f:selectItems value="#{beanSolicitudEstudiante.estudianteActual.materiasCursando}"  var="materiasEstudiante" itemValue="#{materiasEstudiante.nemonico}" itemLabel="#{materiasEstudiante.nemonico}" />
+                </p:selectOneMenu>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
