@@ -17,14 +17,18 @@ public class Estudiante {
     private String correo;
     private Consejero consejero;
     private Acudiente acudiente;
-    
-    public Estudiante(int id, String nombre, String carrera, String correo, Consejero consejero, Acudiente acudiente){
+    private PlanDeEstudios planDeEstudios;
+    private int telefono;
+
+        
+    public Estudiante(int id, String nombre, String carrera, String correo, Consejero consejero, Acudiente acudiente, int telefono){
         this.id = id;
         this.nombre = nombre;
         this.carrera = carrera;
         this.correo = correo;
         this.consejero = consejero;
-        this.acudiente = acudiente;    
+        this.acudiente = acudiente;  
+        this.telefono = telefono;
     }    
 
     public int getId() {
@@ -75,6 +79,22 @@ public class Estudiante {
         this.acudiente = acudiente;
     }
     
-       
+    public PlanDeEstudios getPlanDeEstudios() {
+        return planDeEstudios;
+    }
+
+    public void setPlanDeEstudios(PlanDeEstudios planDeEstudios) {
+        this.planDeEstudios = planDeEstudios;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+    
+    
     
 }

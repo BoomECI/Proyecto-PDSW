@@ -21,6 +21,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
 
   /*  @Inject
     private EstudianteDao daoEst;*/
+    
     @Override
     public Estudiante consultarEstudiante(int idEstudiante) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

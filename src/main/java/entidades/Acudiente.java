@@ -14,11 +14,14 @@ class Acudiente {
     private int id;
     private String nombre;
     private String correo;
-    
-    public Acudiente(int id, String nombre, String correo){
+    private int telefono;
+
+        
+    public Acudiente(int id, String nombre, String correo, int telefono){
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;    
+        this.telefono = telefono;
     }
 
     public int getId() {
@@ -43,6 +46,14 @@ class Acudiente {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+    
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
     
 }
