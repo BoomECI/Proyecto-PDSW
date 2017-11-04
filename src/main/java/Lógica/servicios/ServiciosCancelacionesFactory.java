@@ -13,7 +13,7 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 
 /**
  *
- * @author Nicolás
+ * @author BoomEci
  */
 public class ServiciosCancelacionesFactory {
     private static ServiciosCancelacionesFactory instance = new ServiciosCancelacionesFactory();
@@ -48,11 +48,11 @@ public class ServiciosCancelacionesFactory {
         );
     }
     
-    public ServiciosCancelaciones getServiciosPaciente() {
+    public ServiciosCancelaciones getServiciosCancelaciones() {
         return injector.getInstance(ServiciosCancelaciones.class);
     }    
     
-     public ServiciosCancelaciones getTestingServiciosPaciente() {
+     public ServiciosCancelaciones getTestingServiciosCancelaciones() {
         return testInjector.getInstance(ServiciosCancelaciones.class);
     }
      
