@@ -14,15 +14,15 @@ import java.sql.Date;
 public class SolicitudCancelacion {
     
     private Date fecha;
-    private String razon;
+    private String justificacion;
     private Materia materia;
     private String avalConsejero;
     private String avalAcudiente;
-
+    private String comentarioConsejero;
         
-    public SolicitudCancelacion(Date fecha, String razon, Materia materia){
+    public SolicitudCancelacion(Date fecha, String justificacion, Materia materia){
         this.fecha = fecha;
-        this.razon = razon;
+        this.justificacion = justificacion;
         this.materia = materia;
     }
 
@@ -34,12 +34,12 @@ public class SolicitudCancelacion {
         this.fecha = fecha;
     }
 
-    public String getRazon() {
-        return razon;
+    public String getjustificacion() {
+        return justificacion;
     }
 
-    public void setRazon(String razon) {
-        this.razon = razon;
+    public void setjustificacion(String justificacion) {
+        this.justificacion = justificacion;
     }
 
     public Materia getMateria() {
@@ -64,6 +64,14 @@ public class SolicitudCancelacion {
 
     public void setAvalAcudiente(String avalAcudiente) {
         this.avalAcudiente = avalAcudiente;
+    }
+
+    public String getComentarioConsejero() {
+        return comentarioConsejero;
+    }
+
+    public void setComentarioConsejero(String comentarioConsejero) {
+        this.comentarioConsejero = comentarioConsejero;
     }
     
     

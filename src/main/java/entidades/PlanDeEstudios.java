@@ -14,10 +14,20 @@ import java.util.List;
 public class PlanDeEstudios {
     
     int numeroDeCreditosTotales;
+    int numeroDeAsignaturas;
+    int numeroPlanDeEstudio;
     List<Materia> materiasActuales;
     List<Materia> materiasAprovadas;
     List<Materia> materiasPorVer;
 
+    public int getNumeroDeAsignaturas() {
+        return numeroDeAsignaturas;
+    }
+
+    public void setNumeroDeAsignaturas(int numeroDeAsignaturas) {
+        this.numeroDeAsignaturas = numeroDeAsignaturas;
+    }
+    
     public int getNumeroDeCreditosTotales() {
         return numeroDeCreditosTotales;
     }
@@ -49,4 +59,14 @@ public class PlanDeEstudios {
     public void setMateriasPorVer(List<Materia> materiasPorVer) {
         this.materiasPorVer = materiasPorVer;
     }
+
+    public int getNumeroPlanDeEstudio() {
+        return numeroPlanDeEstudio;
+    }
+
+    public void setNumeroPlanDeEstudio(int numeroPlanDeEstudio) {
+        this.numeroPlanDeEstudio = numeroPlanDeEstudio;
+    }
+    
+    
 }
