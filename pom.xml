@@ -67,6 +67,12 @@
             <artifactId>mybatis</artifactId>
             <version>3.2.7</version>
         </dependency>
+        <!-- MyBatis, Mybatis-Guice -->       
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-guice</artifactId>
+            <version>3.4</version>
+        </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -83,6 +89,12 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.184</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>4.1.0</version>
+            <classifier>classes</classifier>
         </dependency>
         
     </dependencies>

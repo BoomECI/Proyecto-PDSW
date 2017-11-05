@@ -17,11 +17,12 @@ public class Estudiante {
     private Consejero consejero;
     private int identificacion;
     private String tipo_id;
-    private xmltype plan_de_estudio;
+    //En String por ahora para que no salga error:
+    private String plan_de_estudio;
     private Acudiente acudiente;
    
     
-    public Estudiente(int codigo,String nombre,String correo,int telefono,Consejero consejero,int identificacion,String tipo_id,xmltype plan_de_estudio,Acudiente acudiente){
+    public Estudiante(int codigo,String nombre,String correo,int telefono,Consejero consejero,int identificacion,String tipo_id,String plan_de_estudio,Acudiente acudiente){
         this.codigo=codigo;
         this.nombre=nombre;
         this.correo=correo;
