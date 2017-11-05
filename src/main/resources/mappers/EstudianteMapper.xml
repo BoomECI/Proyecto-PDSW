@@ -5,5 +5,18 @@
 
 
 <mapper namespace="edu.eci.pdsw.persistence.mappers.EstudianteMapper">
+    <resultMap type='Estudiante' id='EstudianteResult'>
+        <id property='codigo' column='codigo'/>        
+        <result property='nombre' column='nombre'/>
+        <result property='telefono' column='telefono'/> 
+        <result property='correo' column='correo'/>
+        <result property='identificacion' column='identificacion'/> 
+        <result property='tipo_id' column='tipo_id'/>
+        <result property='plan_de_estudio' column='plan_de_estudio'/> 
+        <association property="consejero" javaType="Consejero"></association>
+        <association property="acudiente" javaType="Acudiente"></association>   
+        
+            
+    </resultMap>
     
 </mapper>
