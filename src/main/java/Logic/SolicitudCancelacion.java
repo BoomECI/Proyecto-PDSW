@@ -11,7 +11,7 @@ package Logic;
  */
 public class SolicitudCancelacion {
 
-    public SolicitudCancelacion(Materia materiaSeleccionada, String descripcionCancelacion, String fechaCancelacion) {
+    public SolicitudCancelacion(String nemonicoMateriaSeleccionada, String descripcionCancelacion, String fechaCancelacion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

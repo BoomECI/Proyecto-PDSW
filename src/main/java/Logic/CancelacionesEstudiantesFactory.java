@@ -26,15 +26,15 @@ public class CancelacionesEstudiantesFactory {
 
             @Override
             protected void configure() {
-               
+               bind(CancelacionesEstudiantes.class).to(CancelacionesEstudiantesImpl.class);
             }
 
         }
         );
     }
     
-    public CancelacionesEstudiantes getCancelacionesEstudiantes() {
-        return injector.getInstance(CancelacionesEstudiantes.class);
+    public CancelacionesEstudiantesImpl getCancelacionesEstudiantes() {
+        return injector.getInstance(CancelacionesEstudiantesImpl.class);
     }
     
     public static CancelacionesEstudiantesFactory getInstance() {

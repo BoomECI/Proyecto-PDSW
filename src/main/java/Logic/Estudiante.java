@@ -16,6 +16,11 @@ public class Estudiante {
     private int id;
     private String nombre;
     private List<Materia> materiasCursando;
+    
+    public Estudiante(int id, String nombre){
+        this.id = id;
+        this.nombre = nombre;
+    }
 
     public List<Materia> getMateriasCursando() {
         return materiasCursando;

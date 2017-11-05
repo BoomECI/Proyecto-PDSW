@@ -7,12 +7,10 @@ package Logic;
 
 /**
  *
- * @author camil
+ * @author Juan David
  */
-public class CancelacionesEstudiantes {
-
-    public void agregarSolicitudCancelacionEstudiante(int id, SolicitudCancelacion solicitudCancelacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+public interface CancelacionesEstudiantes {
+    public void agregarSolicitudCancelacionEstudiante(int id, SolicitudCancelacion solicitudCancelacion);
+    public Estudiante consultarEstudiante(int idEstudiante);
+    public int calcularImpacto(Estudiante estudianteActual, Materia materiaSeleccionada);
 }
