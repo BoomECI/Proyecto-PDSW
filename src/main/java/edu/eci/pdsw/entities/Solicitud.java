@@ -5,6 +5,8 @@
  */
 package edu.eci.pdsw.entities;
 
+import java.util.Date;
+
 /**
  *
  * @author user
