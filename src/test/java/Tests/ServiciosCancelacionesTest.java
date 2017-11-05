@@ -11,45 +11,46 @@ import org.junit.Test;
 
 /**
  *
- * @author Nicolás
- */
-public class ServiciosCancelacionesImpl {
-    
-/**
- * Diseño de pruebas:
- * 
- * Clases de equivalencia:
- *  
- *      CE1: Descripción. El estudiante no existe
- *           Resultado esperado: No agrega la solicitud de cancelacion.
- *          
- *      CE2: Descripción. Se agrega una consulta de un paciente
- *           Resultado esperado: La lista de consultas del paciente debe aumentar
- *   
- *      CE3: Solo se pueden agregar pacientes al sistema.
- *           Resultado esperado: Es verdadero si el parametro de entrada es de tipo paciente.
- *          
- *      CE5: Cuando se agrega un paciente, la lista de pacientes aumenta en 1.
- *           Resultado esperado: el tamaño de pacientes aumente en 1 cuando se agrege un paciente
- * 
- *      CE5: Error en la persistencia al momento de registrar un nuevo paciente.
- *           Resultado esperado: ExcepcionOperacionConPaciente
- * 
- * 
- *  
- * Condiciones de frontera:
- * 
- *      CF1: Se registra una persona creada. 
- *           Clases de equivalencia relacionadas: CE3,CE4
- *           Resultado esperado: la longuitud de los pacientes aumentó en 1.
- * 
+ * @author BoomEci
  */
 
-
-public class ServiciosPacientesTest {
+public class ServiciosCancelacionesTest {
+    /**
+     * Diseño de pruebas:
+     * 
+     * Clases de equivalencia:
+     *  
+     *      CE1: Descripción. El estudiante no existe.
+     *           Resultado esperado: No agrega la solicitud de cancelacion.
+     *          
+     *      CE2: Descripción. Solicitar una nueva cancelacion.
+     *           Resultado esperado: La lista de cancelaciones generales y del estudiante debe aumentar
+     *   
+     *      CE3: Las solicitudes de cancelacion tramitadas deben tener el aval del consejero y 
+     *           del acudiente.
+     *           Resultado esperado: Solicitudes de cancelacion deben cumplir con la condicion.
+     *          
+     *      CE5: Las solicitudes de cancelacion NO tramitadas, son las que le falta el aval del consejero
+     *           y/o la del acudiente.
+     *           Resultado esperado: Todas las solicitudes deben cumplir con la condicion.
+     * 
+     *      CE5: Si la solicitud de cancelacion se acepta, los creditos faltantes deben aumentar en los creditos
+     *           de la materia cancelada
+     *           Resultado esperado: Creditos faltantes mas los de materia cancelada
+     *  
+     * Condiciones de frontera:
+     * 
+     *      CF1: Una materia cancelada anteriormente no puede ser cancelada de nuevo.
+     *           Clases de equivalencia relacionadas: 
+     *           Resultado esperado: No se puede realizar la cancelacion solicitada 
+     *      
+     *         
+     * 
+     */
 
     private ServiciosCancelaciones factory;
-    public ServiciosPacientesTest() {
+    
+    public ServiciosCancelacionesTest() {
         factory = ServiciosCancelacionesFactory.getInstance().getTestingServiciosCancelaciones();
     }
     
@@ -99,4 +100,4 @@ public class ServiciosPacientesTest {
 }
 */
 }
-}
+

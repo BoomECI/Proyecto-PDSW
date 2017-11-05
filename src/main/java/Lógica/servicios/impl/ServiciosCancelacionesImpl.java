@@ -47,7 +47,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
 
     @Override
     public void consultarSolicitudCancelacionEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override

@@ -13,5 +13,5 @@ import javax.persistence.PersistenceException;
  * @author Nicolás
  */
 public interface EstudianteDao {
-    public Estudiante load(int id) throws PersistenceException;
+    public Estudiante load(int id) throws PersistenceException;    
 }
