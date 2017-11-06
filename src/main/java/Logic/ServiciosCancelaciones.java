@@ -9,7 +9,7 @@ package Logic;
  *
  * @author Juan David
  */
-public interface CancelacionesEstudiantes {
+public interface ServiciosCancelaciones {
     public void agregarSolicitudCancelacionEstudiante(int id, SolicitudCancelacion solicitudCancelacion);
     public Estudiante consultarEstudiante(int idEstudiante);
     public int calcularImpacto(Estudiante estudianteActual, Materia materiaSeleccionada);

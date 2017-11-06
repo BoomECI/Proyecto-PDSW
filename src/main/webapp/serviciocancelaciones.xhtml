@@ -33,8 +33,27 @@
                 <br />
                 <br />
                 <h:panelGrid columns="2" cellpadding="5">
-                    <h:commandButton value="Anular operacion" action="#{beanSolicitudEstudiante.cancelarSolicitud()}"></h:commandButton>
-                    <h:commandButton value="Enviar la solicitud" actionListener="#{beanSolicitudEstudiante.cancelarMateria()}"></h:commandButton>
+                    <p:commandButton value="Anular operacion" action="#{beanSolicitudEstudiante.cancelarSolicitud()}" />
+                    <p:commandButton id="sol" value="Llenar la solicitud" type="button" />
+                    <p:overlayPanel id="detalleSolicitud" for="sol" hideEffect="fade">
+                        <p:outputLabel for="fec" value="Fecha:   " />
+                        <p:calendar id="fec" value="#{beanSolicitudEstudiante.fechaCancelacion}" locale="de" navigator="true" pattern="dd-MM-yyyy" />
+                        <br />
+                        <br />
+                        <p:outputLabel for="des" value="Descripcion:   " />
+                        <p:inputText id="des" title="Descripcion" value="#{beanSolicitudEstudiante.descripcionCancelacion}"/>
+                        <br />
+                        <br />
+                        <p:commandButton value ="enviar" actionListener="#{beanSolicitudEstudiante.cancelarMateria()}" update="estudianteCancelacion" action="#{beanSolicitudEstudiante.finalizar()}">
+                            <p:confirm header="Confirmation" message="Estas seguro de que quieres cancelar #{beanSolicitudEstudiante.materiaSeleccionada}?" icon="ui-icon-alert" />
+                        </p:commandButton>
+                        
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+                    </p:overlayPanel>
+                    
                 </h:panelGrid>
         </h:body>
     </h:form>

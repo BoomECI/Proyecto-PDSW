@@ -5,14 +5,48 @@
  */
 package Logic;
 
+import java.util.Date;
+
 /**
  *
  * @author camil
  */
 public class SolicitudCancelacion {
-
-    public SolicitudCancelacion(String nemonicoMateriaSeleccionada, String descripcionCancelacion, String fechaCancelacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    private Materia materiaSolicitada;
+    private String descripcion;
+    private Date fecha;
+    
+    public SolicitudCancelacion(Materia materiaSolicitada, String descripcion, Date fecha) {
+        this.materiaSolicitada = materiaSolicitada;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
     }
+    
+
+    public Materia getMateriaSolicitada() {
+        return materiaSolicitada;
+    }
+
+    public void setMateriaSolicitada(Materia materiaSolicitada) {
+        this.materiaSolicitada = materiaSolicitada;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
     
 }

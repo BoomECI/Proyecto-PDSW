@@ -13,31 +13,31 @@ import com.google.inject.Injector;
  *
  * @author camil
  */
-public class CancelacionesEstudiantesFactory {
+public class ServiciosCancelacionesFactory {
     private static Injector injector;
 
     
-    private static CancelacionesEstudiantesFactory instance = new CancelacionesEstudiantesFactory();
+    private static ServiciosCancelacionesFactory instance = new ServiciosCancelacionesFactory();
 
     
     
-    public CancelacionesEstudiantesFactory(){
+    public ServiciosCancelacionesFactory(){
         injector = createInjector(new AbstractModule() {
 
             @Override
             protected void configure() {
-               bind(CancelacionesEstudiantes.class).to(CancelacionesEstudiantesImpl.class);
+               bind(ServiciosCancelaciones.class).to(ServiciosCancelacionesImpl.class);
             }
 
         }
         );
     }
     
-    public CancelacionesEstudiantesImpl getCancelacionesEstudiantes() {
-        return injector.getInstance(CancelacionesEstudiantesImpl.class);
+    public ServiciosCancelacionesImpl getServiciosCancelaciones() {
+        return injector.getInstance(ServiciosCancelacionesImpl.class);
     }
     
-    public static CancelacionesEstudiantesFactory getInstance() {
+    public static ServiciosCancelacionesFactory getInstance() {
         return instance;
     }
 }

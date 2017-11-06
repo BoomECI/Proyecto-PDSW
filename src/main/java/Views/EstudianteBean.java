@@ -1,7 +1,6 @@
 package Views;
-import Logic.CancelacionesEstudiantesImpl;
-import Logic.CancelacionesEstudiantes;
-import Logic.CancelacionesEstudiantesFactory;
+import Logic.ServiciosCancelacionesImpl;
+import Logic.ServiciosCancelacionesFactory;
 import Logic.Estudiante;
 import Logic.Materia;
 import Logic.SolicitudCancelacion;
@@ -10,13 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import Logic.ServiciosCancelaciones;
+import java.util.Date;
 
 
 @ManagedBean(name="beanSolicitudEstudiante")
 @SessionScoped
 public class EstudianteBean implements Serializable {
     
-    private final CancelacionesEstudiantes cancEstudiantes = CancelacionesEstudiantesFactory.getInstance().getCancelacionesEstudiantes();
+    private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
     private Estudiante estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza");
     //private Materia materiaSeleccionada;
     private String materiaSeleccionada;
@@ -25,15 +26,15 @@ public class EstudianteBean implements Serializable {
     private String nombreEstudiante;
     private String nemonicoMateriaSeleccionada;
     private String nombreMateriaSeleccionada;*/
-    private String fechaCancelacion;
+    private Date fechaCancelacion;
     private String descripcionCancelacion;
     private List<Materia> materiasCursando;
     private int creditosRestantes = 56;
     
     
     
-    public CancelacionesEstudiantes getCancEstudiantes(){
-        return cancEstudiantes;
+    public ServiciosCancelaciones getServCanc(){
+        return servCanc;
     }
 
     public int getCreditosRestantes() {
@@ -97,11 +98,11 @@ public class EstudianteBean implements Serializable {
         this.idEstudiante = idEstudiante;
     }
 */
-    public String getFechaCancelacion() {
+    public Date getFechaCancelacion() {
         return fechaCancelacion;
     }
 
-    public void setFechaCancelacion(String fechaCancelacion) {
+    public void setFechaCancelacion(Date fechaCancelacion) {
         this.fechaCancelacion = fechaCancelacion;
     }
 
@@ -145,7 +146,7 @@ public class EstudianteBean implements Serializable {
     */
     
     public void cancelarMateria(){
-        cancEstudiantes.agregarSolicitudCancelacionEstudiante(estudianteActual.getId(), new SolicitudCancelacion(comparar().getNemonico(), descripcionCancelacion, fechaCancelacion));
+        servCanc.agregarSolicitudCancelacionEstudiante(estudianteActual.getId(), new SolicitudCancelacion(comparar(), descripcionCancelacion, fechaCancelacion));
     }
     
     public void analizarSolicitud(){
@@ -154,6 +155,10 @@ public class EstudianteBean implements Serializable {
     
     public String cancelarSolicitud(){
         return "solicitudcancelada.xhtml";
+    }
+    
+    public String finalizar(){
+        return "esperarsolicitud.xhtml";
     }
 
     public Materia comparar(){

@@ -9,11 +9,10 @@ package Logic;
  *
  * @author camil
  */
-public class CancelacionesEstudiantesImpl implements CancelacionesEstudiantes{
+public class ServiciosCancelacionesImpl implements ServiciosCancelaciones{
 
     @Override
     public void agregarSolicitudCancelacionEstudiante(int id, SolicitudCancelacion solicitudCancelacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -23,7 +22,7 @@ public class CancelacionesEstudiantesImpl implements CancelacionesEstudiantes{
 
     @Override
     public int calcularImpacto(Estudiante estudianteActual, Materia materiaSeleccionada) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 0;
     }
     
 }
