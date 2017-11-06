@@ -33,6 +33,59 @@ public class Estudiante {
         this.plan_de_estudio=plan_de_estudio;
         this.acudiente=acudiente;
     }
-   
+    public void setNombre (String nombre){
+        this.nombre=nombre;        
+    }
+    public String getNombre (){
+        return nombre;        
+    }
+    public void setCodigo (int codigo){
+        this.codigo=codigo;        
+    }
+    public int getCodigo (){
+        return codigo;
+    }    
+    public void setCorreo (String correo){
+        this.correo=correo;       
+    }
+    public String getCorreo (){
+        return correo;        
+    }
+    public void setTelefono (int telefono){
+        this.telefono=telefono;        
+    }
+    public int getTelefono (){
+        return telefono;
+    }  
+    public void setConsejero (Consejero consejero){
+        this.consejero=consejero;        
+    }
+    public Consejero getConsejero(){
+        return consejero;
+    }  
+    public void setIdentificacion (int identificacion){
+        this.identificacion=identificacion;        
+    }
+    public int getIdentificacion(){
+        return identificacion;
+    }  
+    public void setTipo_id (String tipo_id){
+        this.tipo_id=tipo_id;        
+    }
+    public String getTipo_id (){
+        return tipo_id;        
+    }
+    public void setPlan_de_estudio (String plan_de_estudio){
+        this.plan_de_estudio=plan_de_estudio;        
+    }
+    public String getPlan_de_estudio (){
+        return plan_de_estudio;        
+    }
+    public void setAcudiente (Acudiente acudiente){
+        this.acudiente=acudiente;        
+    }
+    public Acudiente getAcudiente(){
+        return acudiente;
+    } 
     
 }

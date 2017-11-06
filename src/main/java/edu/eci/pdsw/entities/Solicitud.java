@@ -28,5 +28,40 @@ public class Solicitud {
         this.fecha=fecha;
         this.estudiante=estudiante;        
     }
-    
+     public void setEstado (String estado){
+        this.estado=estado;        
+    }
+    public String getEstado (){
+        return estado;        
+    }
+    public void setJustificacion  (String justificacion){
+        this.justificacion=justificacion;        
+    }
+    public String getJustificacion (){
+        return justificacion;
+    }    
+    public void setMateria(String materia){
+        this.materia=materia;       
+    }
+    public String getMateria (){
+        return materia;        
+    }
+    public void setId (int id){
+        this.id=id;        
+    }
+    public int getId (){
+        return id;
+    } 
+    public void setFecha(Date fecha){
+        this.fecha=fecha;        
+    }
+    public Date getFecha (){
+        return fecha;
+    } 
+    public void setEstudiante (Estudiante estudiante){
+        this.estudiante=estudiante;        
+    }
+    public Estudiante getEstudiante (){
+        return estudiante;
+    }
 }

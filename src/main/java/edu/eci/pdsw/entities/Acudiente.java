@@ -21,6 +21,29 @@ public class Acudiente {
         this.telefono=telefono;
         this.cedula=cedula;
     }
-    
+    public void setNombre (String nombre){
+        this.nombre=nombre;        
+    }
+    public String getNombre (){
+        return nombre;        
+    }
+    public void setCedula (int cedula){
+        this.cedula=cedula;        
+    }
+    public int getCedula (){
+        return cedula;
+    }    
+    public void setCorreo (String correo){
+        this.correo=correo;       
+    }
+    public String getCorreo (){
+        return correo;        
+    }
+    public void setTelefono (int telefono){
+        this.telefono=telefono;        
+    }
+    public int getTelefono (){
+        return telefono;
+    }  
     
 }

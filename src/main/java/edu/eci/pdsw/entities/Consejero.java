@@ -20,5 +20,23 @@ public class Consejero {
         this.nombre=correo;
         
     }
+    public void setNombre (String nombre){
+        this.nombre=nombre;        
+    }
+    public String getNombre (){
+        return nombre;        
+    }
+    public void setCodigo (int cedula){
+        this.codigo=cedula;        
+    }
+    public int getCodigo (){
+        return codigo;
+    }    
+    public void setCorreo (String correo){
+        this.correo=correo;       
+    }
+    public String getCorreo (){
+        return correo;        
+    }   
     
 }

@@ -5,6 +5,7 @@
 
 
 <mapper namespace="edu.eci.pdsw.persistence.mappers.EstudianteMapper">
+    
     <resultMap type='Estudiante' id='EstudianteResult'>
         <id property='codigo' column='codigo'/>        
         <result property='nombre' column='nombre'/>
@@ -14,9 +15,29 @@
         <result property='tipo_id' column='tipo_id'/>
         <result property='plan_de_estudio' column='plan_de_estudio'/> 
         <association property="consejero" javaType="Consejero"></association>
-        <association property="acudiente" javaType="Acudiente"></association>   
-        
-            
-    </resultMap>
+        <association property="acudiente" javaType="Acudiente"></association>              
+    </resultMap>  
+      
+     <resultMap type='Consejero' id='ConsejeroResult'>
+        <id property='codigo' column='codigo'/>
+        <result property='nombre' column='nombre' />
+        <result property='correo' column='correo' />         
+     </resultMap>
+     
+      <resultMap type='Acudiente' id='AcuedienteResult'>
+        <id property='cedula' column='cedula'/>
+        <result property='nombre' column='nombre' />
+        <result property='correo' column='correo' />
+        <result property='telefono' column='telefono' />           
+     </resultMap>
+     
+     <resultMap type='Solucitud' id='SolucitudResult'>
+        <id property='id' column='id'/>                
+        <result property='fecha' column='fecha'/>
+        <result property='estado' column='estado'/> 
+        <result property='materia' column='materia'/>
+        <result property='justificacion' column='justificacion'/>         
+        <association property="estudiante" javaType="Estudiante"></association>              
+    </resultMap>   
     
 </mapper>
