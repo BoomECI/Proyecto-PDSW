@@ -34,7 +34,7 @@
                 <br />
                 <h:panelGrid columns="2" cellpadding="5">
                     <p:commandButton value="Anular operacion" action="#{beanSolicitudEstudiante.cancelarSolicitud()}" />
-                    <p:commandButton id="sol" value="Llenar la solicitud" type="button" />
+                    <p:commandButton id="sol" value="Llenar la solicitud" type="button" update="detalleSolicitud"/>
                     <p:overlayPanel id="detalleSolicitud" for="sol" hideEffect="fade">
                         <p:outputLabel for="fec" value="Fecha:   " />
                         <p:calendar id="fec" value="#{beanSolicitudEstudiante.fechaCancelacion}" locale="de" navigator="true" pattern="dd-MM-yyyy" />

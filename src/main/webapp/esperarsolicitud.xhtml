@@ -7,7 +7,34 @@
     <h:form id="solicitudFinalizada">
         <h:body>
             <div style="text-align:center">
-                AQUI VA EL DETALLE DE LA CANCELACION.
+                <h3>Detalle solicitud</h3>
+                <p:panelGrid columns="2" style="margin: 0 auto">
+                    
+                    <h:outputText value="Codigo:" />
+                    <h:outputText value="#{beanSolicitudEstudiante.estudianteActual.id}" />
+
+                    <h:outputText value="Nombre:" />
+                    <h:outputText value="#{beanSolicitudEstudiante.estudianteActual.nombre}" />
+
+                    <h:outputText value="Asignatura(nemonico):" />
+                    <h:outputText value="#{beanSolicitudEstudiante.materiaSeleccionada}" />                 
+                    
+                    <h:outputText value="Asignatura(nombre):" />
+                    <h:outputText value="#{beanSolicitudEstudiante.comparar().nombre}" />
+
+                    <h:outputText value="Creditos restantes:" />
+                    <h:outputText value="#{beanSolicitudEstudiante.creditosRestantes}" />
+                    
+                    
+                    <h:outputText value="Fecha:" />
+                    <h:outputText value="#{beanSolicitudEstudiante.fechaCancelacion}" />
+                    
+                    <h:outputText value="Descripcion:" />
+                    <h:outputText value="#{beanSolicitudEstudiante.descripcionCancelacion}" />
+
+                    <h:outputText value="Estado de la solicitud:" />
+                    <h:outputText value="Esperando respuesta..." />
+                </p:panelGrid>
             </div>
         </h:body>
     </h:form>
