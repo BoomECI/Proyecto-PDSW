@@ -13,10 +13,11 @@
                 <h:panelGrid columns="3" cellpadding="5">
                     <p:outputLabel for="listadoAsignaturas" value="Asignatura a cancelar   " />
                     <p:selectOneMenu id="listadoAsignaturas" value="#{beanSolicitudEstudiante.materiaSeleccionada}"  style="width:100px">
+                        <p:ajax listener="#{beanSolicitudEstudiante.analizarSolicitud()}" update="estudianteCancelacion"/> 
                         <f:selectItem itemLabel="Asignatura" itemValue="" />
                         <f:selectItems value="#{beanSolicitudEstudiante.materiasCursando}"  var="materiasEstudiante" itemValue="#{materiasEstudiante.nemonico}" itemLabel="#{materiasEstudiante.nemonico}" />
                     </p:selectOneMenu>
-                    <p:commandButton value="Analizar cancelacion" update="estudianteCancelacion" actionListener="#{beanSolicitudEstudiante.analizarSolicitud()}" styleClass="ui-priority-primary" />
+                    
                 </h:panelGrid>
                 
                 <br />
@@ -36,10 +37,6 @@
                     <p:commandButton value="Anular operacion" action="#{beanSolicitudEstudiante.cancelarSolicitud()}" />
                     <p:commandButton id="sol" value="Llenar la solicitud" type="button" update="detalleSolicitud"/>
                     <p:overlayPanel id="detalleSolicitud" for="sol" hideEffect="fade">
-                        <p:outputLabel for="fec" value="Fecha:   " />
-                        <p:calendar id="fec" value="#{beanSolicitudEstudiante.fechaCancelacion}" locale="de" navigator="true" pattern="dd-MM-yyyy" />
-                        <br />
-                        <br />
                         <p:outputLabel for="des" value="Descripcion:   " />
                         <p:inputText id="des" title="Descripcion" value="#{beanSolicitudEstudiante.descripcionCancelacion}"/>
                         <br />

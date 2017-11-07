@@ -13,6 +13,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones{
 
     @Override
     public void agregarSolicitudCancelacionEstudiante(int id, SolicitudCancelacion solicitudCancelacion) {
+        
     }
 
     @Override

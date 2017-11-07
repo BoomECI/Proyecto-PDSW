@@ -26,7 +26,7 @@ public class EstudianteBean implements Serializable {
     private String nombreEstudiante;
     private String nemonicoMateriaSeleccionada;
     private String nombreMateriaSeleccionada;*/
-    private Date fechaCancelacion;
+    private Date fechaCancelacion = new Date();
     private String descripcionCancelacion;
     private List<Materia> materiasCursando;
     private int creditosRestantes = 56;
@@ -99,6 +99,7 @@ public class EstudianteBean implements Serializable {
     }
 */
     public Date getFechaCancelacion() {
+        System.out.println(fechaCancelacion);
         return fechaCancelacion;
     }
 
