@@ -1,15 +1,17 @@
-package Views;
-import Logic.ServiciosCancelacionesImpl;
-import Logic.ServiciosCancelacionesFactory;
-import Logic.Estudiante;
-import Logic.Materia;
-import Logic.SolicitudCancelacion;
+package controlador.managedbeans;
+
+
+import servicios.impl.ServiciosCancelacionesImpl;
+import servicios.ServiciosCancelacionesFactory;
+import entidades.Estudiante;
+import entidades.Materia;
+import entidades.SolicitudCancelacion;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import Logic.ServiciosCancelaciones;
+import servicios.ServiciosCancelaciones;
 import java.util.Date;
 
 
@@ -30,7 +32,15 @@ public class EstudianteBean implements Serializable {
     private String descripcionCancelacion;
     private List<Materia> materiasCursando;
     private int creditosRestantes = 56;
-    
+    private SolicitudCancelacion solicitudEstudiante;
+
+    public SolicitudCancelacion getSolicitudEstudiante() {
+        return solicitudEstudiante;
+    }
+
+    public void setSolicitudEstudiante(SolicitudCancelacion solicitudEstudiante) {
+        this.solicitudEstudiante = solicitudEstudiante;
+    }
     
     
     public ServiciosCancelaciones getServCanc(){
@@ -99,7 +109,6 @@ public class EstudianteBean implements Serializable {
     }
 */
     public Date getFechaCancelacion() {
-        System.out.println(fechaCancelacion);
         return fechaCancelacion;
     }
 
@@ -147,7 +156,8 @@ public class EstudianteBean implements Serializable {
     */
     
     public void cancelarMateria(){
-        servCanc.agregarSolicitudCancelacionEstudiante(estudianteActual.getId(), new SolicitudCancelacion(comparar(), descripcionCancelacion, fechaCancelacion));
+        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando respuesta", 1, estudianteActual, descripcionCancelacion, comparar(), "nada");
+        servCanc.agregarSolicitudCancelacionEstudiante(estudianteActual.getId(), solicitudEstudiante);
     }
     
     public void analizarSolicitud(){

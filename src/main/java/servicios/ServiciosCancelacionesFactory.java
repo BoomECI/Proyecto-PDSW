@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logic;
+package servicios;
 
+import servicios.impl.ServiciosCancelacionesImpl;
+import servicios.ServiciosCancelaciones;
 import com.google.inject.AbstractModule;
 import static com.google.inject.Guice.createInjector;
 import com.google.inject.Injector;

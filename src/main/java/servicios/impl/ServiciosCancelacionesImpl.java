@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logic;
+package servicios.impl;
+
+import entidades.Estudiante;
+import entidades.Materia;
+import entidades.SolicitudCancelacion;
+import servicios.ServiciosCancelaciones;
 
 /**
  *

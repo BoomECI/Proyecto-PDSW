@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logic;
+package entidades;
 
 import java.util.Date;
 
@@ -16,11 +16,52 @@ public class SolicitudCancelacion {
     private Materia materiaSolicitada;
     private String descripcion;
     private Date fecha;
+    private String estado;
+    private int id;
+    private String comentario;
+    private Estudiante estudiante;
+
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
     
-    public SolicitudCancelacion(Materia materiaSolicitada, String descripcion, Date fecha) {
+    
+    public SolicitudCancelacion(Date fecha, String estado, int id, Estudiante estudiante, String descripcion, Materia materiaSolicitada, String comentario) {
         this.materiaSolicitada = materiaSolicitada;
         this.descripcion = descripcion;
         this.fecha = fecha;
+        this.estado = estado;
+        this.id = id;
+        this.estudiante = estudiante;
+        this.comentario = comentario;
     }
     
 

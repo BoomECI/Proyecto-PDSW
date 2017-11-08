@@ -11,28 +11,34 @@
                 <p:panelGrid columns="2" style="margin: 0 auto">
                     
                     <h:outputText value="Codigo:" />
-                    <h:outputText value="#{beanSolicitudEstudiante.estudianteActual.id}" />
+                    <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.estudiante.id}" />
 
                     <h:outputText value="Nombre:" />
-                    <h:outputText value="#{beanSolicitudEstudiante.estudianteActual.nombre}" />
+                    <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.estudiante.nombre}" />
 
                     <h:outputText value="Asignatura(nemonico):" />
-                    <h:outputText value="#{beanSolicitudEstudiante.materiaSeleccionada}" />                 
+                    <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.materiaSolicitada.nemonico}" />                 
                     
                     <h:outputText value="Asignatura(nombre):" />
-                    <h:outputText value="#{beanSolicitudEstudiante.comparar().nombre}" />
+                    <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.materiaSolicitada.nombre}" />
 
                     <h:outputText value="Creditos restantes:" />
                     <h:outputText value="#{beanSolicitudEstudiante.creditosRestantes}" />
                                     
                     <h:outputText value="Fecha:" />
-                    <h:outputText value="#{beanSolicitudEstudiante.fechaCancelacion}" />
+                    <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.fecha}" />
                     
                     <h:outputText value="Descripcion:" />
-                    <h:outputText value="#{beanSolicitudEstudiante.descripcionCancelacion}" />
+                    <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.descripcion}" />
 
                     <h:outputText value="Estado de la solicitud:" />
-                    <h:outputText value="Esperando respuesta..." />
+                    <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.estado}" />
+                    
+                    <h:outputText value="Identificador de la solicitud" />
+                    <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.id}" />
+                    
+                    <h:outputText value="Comentario del consejero" />
+                    <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.comentario}" />
                 </p:panelGrid>
             </div>
         </h:body>

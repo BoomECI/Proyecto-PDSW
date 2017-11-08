@@ -41,8 +41,8 @@
                         <p:inputText id="des" title="Descripcion" value="#{beanSolicitudEstudiante.descripcionCancelacion}"/>
                         <br />
                         <br />
-                        <p:commandButton value ="enviar" actionListener="#{beanSolicitudEstudiante.cancelarMateria()}" update="estudianteCancelacion" action="#{beanSolicitudEstudiante.finalizar()}">
-                            <p:confirm header="Confirmation" message="Estas seguro de que quieres cancelar #{beanSolicitudEstudiante.materiaSeleccionada}?" icon="ui-icon-alert" />
+                        <p:commandButton value ="enviar" actionListener="#{beanSolicitudEstudiante.cancelarMateria()}" update="detalleSolicitud" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()">
+                            <p:confirm  header="Confirmacion" message="Estas seguro de que quieres realizar esta cancelacion?" icon="ui-icon-alert" />
                         </p:commandButton>
                         
                         <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
