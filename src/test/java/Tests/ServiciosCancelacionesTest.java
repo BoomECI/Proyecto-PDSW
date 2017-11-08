@@ -1,6 +1,7 @@
 
 package Tests;
 
+import Lógica.servicios.ExcepcionServiciosCancelaciones;
 import Lógica.servicios.ServiciosCancelaciones;
 import Lógica.servicios.ServiciosCancelacionesFactory;
 import java.util.Date;
@@ -58,46 +59,37 @@ public class ServiciosCancelacionesTest {
     public void setUp() {
     }
     
- /*   
+  
     @Test
-    public void noDeberiaAgregarUnaConsultaCuandoElPacienteNoExisteEnLaBaseDeDatos() throws ExcepcionServiciosPacientes{
-        Paciente p = new Paciente();
-        p.setId(10000);
-        p.setTipoId("CC");
-        try{
-            factory.agregarConsultaPaciente(p.getId(), p.getTipoId(), new Consulta(new Date("2017/09/21 12:22 PM"), "Chequeo general", 23000 ));
-            fail("Ha fallado la prueba");
-        }catch(ExcepcionServiciosPacientes e){
-            assertEquals("Paciente "+p.getId()+" no esta registrado" , e.getMessage());
-        }
-    }
-    
+    public void testNoDeberiaAgregarUnaSolicitudSiElEstudianteNoExiste() throws ExcepcionServiciosCancelaciones{
+        
+    } 
     
     @Test
-    public void deberiaAgregarUnaConsultaAlPaciente() throws ExcepcionServiciosPacientes{
-        Paciente pac1 = new Paciente();
-        pac1.setId(10203041);
-        pac1.setTipoId("CC");
-        Consulta consulta = new Consulta(new Date("2017/09/21 12:22 PM"), "Chequeo general", 23000 );
-        factory.registrarNuevoPaciente(pac1);
-        factory.agregarConsultaPaciente(pac1.getId(), pac1.getTipoId(), consulta);       
-        assertEquals(1, pac1.getConsultas().size());
-    }
+    public void testDeberiaPoderSolicitarUnaCancelacion() throws ExcepcionServiciosCancelaciones{
+        
+    } 
     
-    
-
-    //CF1:
     @Test
-    public void testRegistrarNuevoPaciente() throws ExcepcionServiciosPacientes{
-        int sizeClientes= factory.consultarPacientes().size();
-        Paciente pac=new Paciente();
-        pac.setId(101234455);
-        pac.setTipoId("CC");
-        factory.registrarNuevoPaciente(pac);
-        assertEquals(sizeClientes+1,factory.consultarPacientes().size());
-    }
+    public void testLasSolicitudesTramitadasDeberianTenerElAvalDelConsejeroAcudiente() throws ExcepcionServiciosCancelaciones{
+        
+    } 
     
-}
-*/
+    @Test
+    public void testLasSolicitudesNoTramitadasNoDebenTenerAlgunAval() throws ExcepcionServiciosCancelaciones{
+        
+    } 
+    
+    @Test
+    public void testLosCreditosDebenCoincidirCorrectamente() throws ExcepcionServiciosCancelaciones{
+        
+    } 
+    
+    @Test
+    public void testUnaMateriaCanceladaAnteriormenteNoPuedeVolverHacerCancelada() throws ExcepcionServiciosCancelaciones{
+        
+    } 
+    
+    
 }
 
