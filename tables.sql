@@ -10,7 +10,7 @@ CREATE TABLE `ESTUDIANTE`(
   `materiasCursadas` varchar(4) NOT NULL,
   `PlanDeEstudioCarrera` varchar(200) NOT NULL,
   `PlanDeEstudioID` int(4) NOT NULL,
-  `Acudiente_identificacion int(4) NOT NULL,
+  `Acudiente_identificacion` int(4) NOT NULL,
   PRIMARY KEY (`codigo`)  
 );
 
