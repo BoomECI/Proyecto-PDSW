@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.pdsw.persistence;
+package persistencia;
+
+import entidades.Estudiante;
 
 /**
  *
- * @author 2120656
+ * @author BOOMECI
  */
 public interface EstudianteDAO {
     public void loadAll();
-    //public Estudiante loadByID(int id, String tipoi);
+    public Estudiante loadByID(int id);
     //public void actualizarEstudiante(Estudiante p);
     
     

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.pdsw.persistence.mappers;
+package persistencia.mybatis.mappers;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 /**
  *
- * @author 2120656
+ * @author BOOMECI
  */
 public interface EstudianteMapper {
     //public Estudiante loadEstudianteById(@Param("idp")int id);
