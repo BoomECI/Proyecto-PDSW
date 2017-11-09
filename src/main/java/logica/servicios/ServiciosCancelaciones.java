@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lógica.servicios;
+package logica.servicios;
 
 import entidades.Estudiante;
 import entidades.PlanDeEstudios;
