@@ -17,8 +17,8 @@ public class SolicitudCancelacion {
     private String descripcion;
     private Date fecha;
     private String estado;
-    private String avalConsejero;
-    private String avalAcudiente;
+    private Boolean avalConsejero;
+    private Boolean avalAcudiente;
     private int id;
     private String comentario;
     private Estudiante estudiante;
@@ -33,7 +33,6 @@ public class SolicitudCancelacion {
         this.estudiante = estudiante;
         this.comentario = comentario;
     }
-    
 
     public Materia getMateriaSolicitada() {
         return materiaSolicitada;
@@ -67,19 +66,19 @@ public class SolicitudCancelacion {
         this.estado = estado;
     }
 
-    public String getAvalConsejero() {
+    public Boolean getAvalConsejero() {
         return avalConsejero;
     }
 
-    public void setAvalConsejero(String avalConsejero) {
+    public void setAvalConsejero(Boolean avalConsejero) {
         this.avalConsejero = avalConsejero;
     }
 
-    public String getAvalAcudiente() {
+    public Boolean getAvalAcudiente() {
         return avalAcudiente;
     }
 
-    public void setAvalAcudiente(String avalAcudiente) {
+    public void setAvalAcudiente(Boolean avalAcudiente) {
         this.avalAcudiente = avalAcudiente;
     }
 
@@ -106,6 +105,11 @@ public class SolicitudCancelacion {
     public void setEstudiante(Estudiante estudiante) {
         this.estudiante = estudiante;
     }
+    
+    
+    
+
+    
     
     
 
