@@ -9,14 +9,22 @@
     <resultMap type='Estudiante' id='EstudianteResult'>
         <id property='codigo' column='codigo'/>        
         <result property='nombre' column='nombre'/>
-        <result property='telefono' column='telefono'/> 
         <result property='correo' column='correo'/>
+        <result property='telefono' column='telefono'/>         
         <result property='identificacion' column='identificacion'/> 
         <result property='tipo_id' column='tipo_id'/>
-        <result property='plan_de_estudio' column='plan_de_estudio'/> 
+        <association property="planDeEstudios" javaType="PlanDeEstudios"></association>         
         <association property="consejero" javaType="Consejero"></association>
         <association property="acudiente" javaType="Acudiente"></association>              
     </resultMap>  
+    
+    <resultMap type='PlanDeEstudios' id='PlanDeEstudiosResult'>
+        <id property='carrera' column='Carrera'/>
+        <id property='numeroPlanDeEstudio' column='ID'/>
+        <result property='grafo' column='Grafo' />
+        <result property='numeroDeCreditosTotales' column='creditos' />   
+        <result property='numeroDeAsignaturas' column='nummaterias' />         
+     </resultMap>
       
      <resultMap type='Consejero' id='ConsejeroResult'>
         <id property='codigo' column='codigo'/>
@@ -34,10 +42,14 @@
      <resultMap type='Solucitud' id='SolucitudResult'>
         <id property='id' column='id'/>                
         <result property='fecha' column='fecha'/>
-        <result property='estado' column='estado'/> 
-        <result property='materia' column='materia'/>
-        <result property='justificacion' column='justificacion'/>         
-        <association property="estudiante" javaType="Estudiante"></association>              
-    </resultMap>   
+        <result property='estado' column='estado'/>       
+        <result property='justificacion' column='justificacion'/>   
+        <result property='comentario' column='comentarioConsejero'/>   
+        <result property='avalConsejero' column='avalConsejero'/>   
+        <result property='avalAcudiente' column='avalAcudiente'/>   
+        <association property="estudiante" javaType="Estudiante"></association>                  
+    </resultMap>    
+   
+    
     
 </mapper>

@@ -6,13 +6,15 @@
 package entidades;
 
 import java.util.List;
-
+import javax.json.JsonObject;
 /**
  *
  * @author BoomEci
  */
 public class PlanDeEstudios {
     
+    String carrera;
+    JsonObject grafo;
     int numeroDeCreditosTotales;
     int numeroDeAsignaturas;
     int numeroPlanDeEstudio;
