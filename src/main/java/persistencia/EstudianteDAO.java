@@ -12,8 +12,8 @@ import entidades.Estudiante;
  * @author BOOMECI
  */
 public interface EstudianteDAO {
-    public void loadAll();
     public Estudiante loadByID(int id);
+    public void loadAll();
     //public void actualizarEstudiante(Estudiante p);
     
     
