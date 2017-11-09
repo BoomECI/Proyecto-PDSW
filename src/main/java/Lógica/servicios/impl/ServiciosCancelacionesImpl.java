@@ -27,7 +27,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Override
     public Estudiante consultarEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones {
         try {
-            return daoEst.load(idEstudiante);
+            return daoEst.loadByID(idEstudiante);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosCancelaciones("Error al realizar la consulta del estudiante:  "+idEstudiante+"..........."+ex.getLocalizedMessage(), ex);
         }
@@ -40,9 +40,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
             //estudiante.getSolicitudCancelaciones().add(solicitudCancelacion);
         }catch(ExcepcionServiciosCancelaciones e){
           //  throw new ExcepcionServiciosCancelaciones("Error al realizar la consulta del estudiante:  "+idEstudiante+"..........."+ex.getLocalizedMessage(), ex);
-        }
-            
-         
+        }       
     }
 
     @Override

@@ -6,6 +6,7 @@
 package ClasesVacias;
 
 import entidades.Estudiante;
+import java.util.List;
 import javax.persistence.PersistenceException;
 
 /**
@@ -13,5 +14,12 @@ import javax.persistence.PersistenceException;
  * @author Nicolás
  */
 public interface EstudianteDao {
-    public Estudiante load(int id) throws PersistenceException;    
+    public Estudiante loadByID(int id) throws PersistenceException;    
+    public  List<Estudiante> loadAll();
+    
+    public Estudiante load();
+        
+    public void save();
+    
+    public void update(Estudiante paciente) throws PersistenceException;
 }
