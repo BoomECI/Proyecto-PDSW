@@ -7,55 +7,64 @@ package entidades;
 
 import java.util.List;
 
-/**
- *
- * @author Nicolás
- */
 public class Materia {
     private String nemonico;
     private String nombre;
     private int creditos;
     List<Materia> prerequisitos;
-    List<Materia> coorequisitos;
+    List<Materia> corequisitos;
 
-    public void setNemonico(String nemonico) {
+
+    public Materia(String nemonico, String nombre, int creditos, List<Materia> prerequisitos, List<Materia> corequisitos ){
         this.nemonico = nemonico;
-    }
-
-    public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public void setCreditos(int creditos) {
         this.creditos = creditos;
-    }
-
-    public void setPrerequisitos(List<Materia> prerequisitos) {
         this.prerequisitos = prerequisitos;
-    }
-
-    public void setCoorequisitos(List<Materia> coorequisitos) {
-        this.coorequisitos = coorequisitos;
+        this.corequisitos = corequisitos;
     }
 
     public String getNemonico() {
         return nemonico;
     }
 
+    public void setNemonico(String nemonico) {
+        this.nemonico = nemonico;
+    }
+
     public String getNombre() {
         return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getCreditos() {
         return creditos;
     }
 
+    public void setCreditos(int creditos) {
+        this.creditos = creditos;
+    }
+
     public List<Materia> getPrerequisitos() {
         return prerequisitos;
     }
 
-    public List<Materia> getCoorequisitos() {
-        return coorequisitos;
+    public void setPrerequisitos(List<Materia> prerequisitos) {
+        this.prerequisitos = prerequisitos;
     }
+
+    public List<Materia> getCorequisitos() {
+        return corequisitos;
+    }
+
+    public void setCorequisitos(List<Materia> corequisitos) {
+        this.corequisitos = corequisitos;
+    }
+    
+    
+
+
     
 }

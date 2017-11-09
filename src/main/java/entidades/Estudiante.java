@@ -7,10 +7,6 @@ package entidades;
 
 import java.util.List;
 
-/**
- *
- * @author boomEci
- */
 public class Estudiante {
     
     private int codigo;
@@ -44,103 +40,106 @@ public class Estudiante {
         this.planDeEstudios = planDeEstudios;
         this.carrera = carrera; // NO SE SABE SI VA O NO
         
-    }    
+    }
 
     public int getCodigo() {
         return codigo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public Consejero getConsejero() {
-        return consejero;
-    }
-
-    public Acudiente getAcudiente() {
-        return acudiente;
-    }
-
-    public int getIdentificacion() {
-        return identificacion;
-    }
-
-    public String getTipo_id() {
-        return tipo_id;
-    }
-
-    public List<Materia> getMateriasActuales() {
-        return materiasActuales;
-    }
-
-    public List<Materia> getMateriasCursadas() {
-        return materiasCursadas;
-    }
-
-    public PlanDeEstudios getPlanDeEstudios() {
-        return planDeEstudios;
-    }
-
-    public String getCarrera() {
-        return carrera;
     }
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getCorreo() {
+        return correo;
     }
 
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
+    public int getTelefono() {
+        return telefono;
+    }
+
     public void setTelefono(int telefono) {
         this.telefono = telefono;
+    }
+
+    public Consejero getConsejero() {
+        return consejero;
     }
 
     public void setConsejero(Consejero consejero) {
         this.consejero = consejero;
     }
 
+    public Acudiente getAcudiente() {
+        return acudiente;
+    }
+
     public void setAcudiente(Acudiente acudiente) {
         this.acudiente = acudiente;
+    }
+
+    public int getIdentificacion() {
+        return identificacion;
     }
 
     public void setIdentificacion(int identificacion) {
         this.identificacion = identificacion;
     }
 
+    public String getTipo_id() {
+        return tipo_id;
+    }
+
     public void setTipo_id(String tipo_id) {
         this.tipo_id = tipo_id;
+    }
+
+    public List<Materia> getMateriasActuales() {
+        return materiasActuales;
     }
 
     public void setMateriasActuales(List<Materia> materiasActuales) {
         this.materiasActuales = materiasActuales;
     }
 
+    public List<Materia> getMateriasCursadas() {
+        return materiasCursadas;
+    }
+
     public void setMateriasCursadas(List<Materia> materiasCursadas) {
         this.materiasCursadas = materiasCursadas;
+    }
+
+    public PlanDeEstudios getPlanDeEstudios() {
+        return planDeEstudios;
     }
 
     public void setPlanDeEstudios(PlanDeEstudios planDeEstudios) {
         this.planDeEstudios = planDeEstudios;
     }
 
+    public String getCarrera() {
+        return carrera;
+    }
+
     public void setCarrera(String carrera) {
         this.carrera = carrera;
     }
-
-   
+    
+    
+    
+    
 }
+

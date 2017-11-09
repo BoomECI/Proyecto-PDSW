@@ -9,7 +9,7 @@ package entidades;
  *
  * @author BoomEci
  */
-class Acudiente {
+public class Acudiente {
     
     private int id;
     private String nombre;

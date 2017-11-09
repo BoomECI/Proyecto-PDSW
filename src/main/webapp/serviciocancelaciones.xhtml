@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head></h:head>
+    <h:form id="estudianteCancelacion">
+        <h:body>
+                <p:outputLabel value="Estudiante: #{beanSolicitudEstudiante.estudianteActual.nombre}" />
+                <br />
+                <p:outputLabel value="Solicitud de cancelacion" />
+                <br />
+                <h:panelGrid columns="3" cellpadding="5">
+                    <p:outputLabel for="listadoAsignaturas" value="Asignatura a cancelar   " />
+                    <p:selectOneMenu id="listadoAsignaturas" required="true" value="#{beanSolicitudEstudiante.materiaSeleccionada}"  style="width:100px">
+                        <p:ajax listener="#{beanSolicitudEstudiante.analizarSolicitud()}" update="estudianteCancelacion"/> 
+                        <f:selectItem itemLabel="Asignatura" itemValue="" />
+                        <f:selectItems value="#{beanSolicitudEstudiante.materiasActuales}"  var="materiasEstudiante" itemValue="#{materiasEstudiante.nemonico}" itemLabel="#{materiasEstudiante.nemonico}" />
+                    </p:selectOneMenu>
+                    <p:message for="listadoAsignaturas" />
+                    
+                </h:panelGrid>
+                
+                <br />
+                <br />
+                <p:panel id="cursoSeleccionado" header="Curso seleccionado">
+                    <h:outputText value="Curso seleccionado: #{beanSolicitudEstudiante.materiaSeleccionada} - #{beanSolicitudEstudiante.comparar().nombre}" />
+                </p:panel>
+ 
+                <br />
+                <p:panel id="impacto" header="Impacto">
+                    <h:outputText value="Si cancela #{beanSolicitudEstudiante.materiaSeleccionada} le quedarian #{beanSolicitudEstudiante.creditosRestantes} creditos restantes"  />
+                </p:panel>
+                
+                <br />
+                <br />
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:commandButton value="Anular operacion" action="#{beanSolicitudEstudiante.cancelarSolicitud()}" />
+                    <p:commandButton id="sol" value="Llenar la solicitud" type="button" update="detalleSolicitud" />
+                    <p:overlayPanel id="detalleSolicitud" for="sol" hideEffect="fade">
+                        <p:outputLabel for="des" value="Descripcion:   " />
+                        <p:inputText id="des" title="Descripcion" value="#{beanSolicitudEstudiante.descripcionCancelacion}" required="true"/>
+                        <p:message for="des" />
+                        <br />
+                        <br />
+                        <p:commandButton value ="enviar" actionListener="#{beanSolicitudEstudiante.cancelarMateria()}" update="detalleSolicitud" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()">
+                            <p:confirm  header="Confirmacion" message="Estas seguro de que quieres realizar esta cancelacion?" icon="ui-icon-alert" />
+                        </p:commandButton>
+                        
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+                    </p:overlayPanel>
+                    
+                </h:panelGrid>
+        </h:body>
+    </h:form>
+</html>
