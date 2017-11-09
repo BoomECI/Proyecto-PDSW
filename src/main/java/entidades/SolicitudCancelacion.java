@@ -12,7 +12,6 @@ import java.sql.Date;
  * @author BOOMECI
  */
 public class SolicitudCancelacion {
-    
     private Date fecha;
     private String justificacion;
     private Materia materia;

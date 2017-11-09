@@ -10,6 +10,9 @@ import static com.google.inject.Guice.createInjector;
 import com.google.inject.Injector;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
+import persistencia.EstudianteDAO;
+import persistencia.mybatis.EstudianteDAOMyBatis;
+import static com.google.inject.Guice.createInjector;
 
 /**
  *
@@ -28,7 +31,8 @@ public class ServiciosCancelacionesFactory {
                 install(JdbcHelper.MySQL);              
                 setClassPathResource("mybatis-config.xml");
                 bind(ServiciosCancelaciones.class).to(ServiciosCancelacionesImpl.class);
-                //Falta injectar los DAOS
+                bind(EstudianteDAO.class).to(EstudianteDAOMyBatis.class);
+                bind(ParserGrafo.class).to(ParserJSON.class);
             }
 
         }
@@ -41,7 +45,8 @@ public class ServiciosCancelacionesFactory {
                 install(JdbcHelper.PostgreSQL);
                 setClassPathResource("mybatis-config-h2.xml");
                 bind(ServiciosCancelaciones.class).to(ServiciosCancelacionesImpl.class);
-                //Falta injectar los DAOS
+                bind(EstudianteDAO.class).to(EstudianteDAOMyBatis.class);
+                bind(ParserGrafo.class).to(ParserJSON.class);
             }
 
         }
