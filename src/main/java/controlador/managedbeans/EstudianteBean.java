@@ -182,4 +182,8 @@ public class EstudianteBean implements Serializable {
         return mt;
     }
     
+    public void escribirDescripcion(){
+        if
+    }
+    
 }
