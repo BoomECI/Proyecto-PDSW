@@ -20,13 +20,13 @@ public class Estudiante {
     private List<Materia> materiasActuales;
     private List<Materia> materiasCursadas;
     private PlanDeEstudios planDeEstudios;
+    private List<SolicitudCancelacion> solicitudes;
     
-    private String carrera;
         
     public Estudiante(int codigo, String nombre, String correo,
                       int telefono,Consejero consejero, Acudiente acudiente,
                       int identificacion,String tipo_id,List<Materia> materiasActuales,
-                      List<Materia> materiasCursadas, PlanDeEstudios planDeEstudios,String carrera){
+                      List<Materia> materiasCursadas, PlanDeEstudios planDeEstudios,List<SolicitudCancelacion> solicitudes){
         this.codigo = codigo;
         this.nombre = nombre;
         this.correo = correo;
@@ -38,7 +38,7 @@ public class Estudiante {
         this.materiasActuales = materiasActuales;
         this.materiasCursadas = materiasCursadas;
         this.planDeEstudios = planDeEstudios;
-        this.carrera = carrera; // NO SE SABE SI VA O NO
+        this.solicitudes=solicitudes;
         
     }
 
@@ -130,12 +130,12 @@ public class Estudiante {
         this.planDeEstudios = planDeEstudios;
     }
 
-    public String getCarrera() {
-        return carrera;
+    public List<SolicitudCancelacion> getSolicitudes() {
+        return solicitudes;
     }
 
-    public void setCarrera(String carrera) {
-        this.carrera = carrera;
+    public void setSolicitudes(List<SolicitudCancelacion> solicitudes) {
+        this.solicitudes = solicitudes;
     }
     
     

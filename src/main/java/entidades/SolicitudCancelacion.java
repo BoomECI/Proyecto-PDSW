@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class SolicitudCancelacion {
     
-    private Materia materiaSolicitada;
+    private String materiaSolicitada;
     private String descripcion;
     private Date fecha;
     private String estado;
@@ -21,24 +21,23 @@ public class SolicitudCancelacion {
     private Boolean avalAcudiente;
     private int id;
     private String comentario;
-    private Estudiante estudiante;
+   
 
     
-    public SolicitudCancelacion(Date fecha, String estado, int id, Estudiante estudiante, String descripcion, Materia materiaSolicitada, String comentario) {
+    public SolicitudCancelacion(Date fecha, String estado, int id, String descripcion, String materiaSolicitada, String comentario) {
         this.materiaSolicitada = materiaSolicitada;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.estado = estado;
-        this.id = id;
-        this.estudiante = estudiante;
+        this.id = id;        
         this.comentario = comentario;
     }
 
-    public Materia getMateriaSolicitada() {
+    public String getMateriaSolicitada() {
         return materiaSolicitada;
     }
 
-    public void setMateriaSolicitada(Materia materiaSolicitada) {
+    public void setMateriaSolicitada(String materiaSolicitada) {
         this.materiaSolicitada = materiaSolicitada;
     }
 
@@ -97,14 +96,7 @@ public class SolicitudCancelacion {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-
-    public Estudiante getEstudiante() {
-        return estudiante;
-    }
-
-    public void setEstudiante(Estudiante estudiante) {
-        this.estudiante = estudiante;
-    }
+    
     
     
     

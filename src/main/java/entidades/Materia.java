@@ -22,6 +22,9 @@ public class Materia {
         this.prerequisitos = prerequisitos;
         this.corequisitos = corequisitos;
     }
+    public Materia (String nemonico){
+        this.nemonico=nemonico;
+    }
 
     public String getNemonico() {
         return nemonico;

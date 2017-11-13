@@ -23,12 +23,12 @@ import java.util.Date;
 public class EstudianteBean implements Serializable {
     
     private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
-    
+    private List<SolicitudCancelacion> solicitudes=new ArrayList<SolicitudCancelacion>();
     private List<Materia> materiasActuales=new ArrayList<Materia>();                          
     private List<Materia> materiasCursadas=new ArrayList<Materia>();
     private PlanDeEstudios planDeEstudios= new PlanDeEstudios();
     private Estudiante estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com"), new Acudiente(23,"Giovanni","gio.com",1234),
-                                                            1019138849,"cc",materiasActuales,materiasCursadas,planDeEstudios,"sistemas");
+                                                            1019138849,"cc",materiasActuales,materiasCursadas,planDeEstudios,solicitudes);
 
     
    
@@ -166,7 +166,7 @@ public class EstudianteBean implements Serializable {
     */
     
     public void cancelarMateria(){
-        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando respuesta", 1, estudianteActual, descripcionCancelacion, comparar(), "nada");
+        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando respuesta", 1, descripcionCancelacion, comparar().getNemonico() , "nada");
         servCanc.agregarSolicitudCancelacionEstudiante(estudianteActual.getCodigo(), solicitudEstudiante);
     }
     
