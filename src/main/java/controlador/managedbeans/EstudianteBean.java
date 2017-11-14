@@ -166,7 +166,7 @@ public class EstudianteBean implements Serializable {
     */
     
     public void cancelarMateria(){
-        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando respuesta", 1, descripcionCancelacion, comparar().getNemonico() , "nada");
+        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando respuesta", 1, descripcionCancelacion, materiaSeleccionada , "nada");
         servCanc.agregarSolicitudCancelacionEstudiante(estudianteActual.getCodigo(), solicitudEstudiante);
     }
     
