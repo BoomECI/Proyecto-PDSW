@@ -7,8 +7,10 @@ package logica.servicios.impl;
 
 import logica.servicios.ExcepcionServiciosCancelaciones;
 import logica.servicios.ServiciosCancelaciones;
+import logica.servicios.CalculoDeImpacto;
 import com.google.inject.Inject;
 import entidades.Estudiante;
+import entidades.Materia;
 import entidades.PlanDeEstudios;
 import entidades.SolicitudCancelacion;
 import java.util.List;
@@ -23,6 +25,9 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
 
     @Inject
     private EstudianteDAO daoEst;
+    
+    @Inject
+    private CalculoDeImpacto impacto;
     
     @Override
     public Estudiante consultarEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones {
@@ -70,8 +75,8 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     }
 
     @Override
-    public PlanDeEstudios consultarImpactoPlanDeEstudios() throws ExcepcionServiciosCancelaciones {        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int consultarImpacto(Materia cancelada, Estudiante estudiante, PlanDeEstudios plan) throws ExcepcionServiciosCancelaciones {        
+        return impacto.CalculoImpacto(cancelada, estudiante, plan);
     }
     
 }

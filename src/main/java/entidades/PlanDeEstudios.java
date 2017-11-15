@@ -18,10 +18,8 @@ public class PlanDeEstudios {
     int numeroDeCreditosTotales;
     int numeroDeAsignaturas;
     int numeroPlanDeEstudio;
-    List<Materia> materiasActuales;
-    List<Materia> materiasAprovadas;
-    List<Materia> materiasPorVer;
-
+    List<Materia> materias;
+    
     public int getNumeroDeAsignaturas() {
         return numeroDeAsignaturas;
     }
@@ -38,28 +36,28 @@ public class PlanDeEstudios {
         this.numeroDeCreditosTotales = numeroDeCreditosTotales;
     }
 
-    public List<Materia> getMateriasActuales() {
-        return materiasActuales;
+    public String getCarrera() {
+        return carrera;
     }
 
-    public void setMateriasActuales(List<Materia> materiasActuales) {
-        this.materiasActuales = materiasActuales;
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
     }
 
-    public List<Materia> getMateriasAprovadas() {
-        return materiasAprovadas;
+    public JsonObject getGrafo() {
+        return grafo;
     }
 
-    public void setMateriasAprovadas(List<Materia> materiasAprovadas) {
-        this.materiasAprovadas = materiasAprovadas;
+    public void setGrafo(JsonObject grafo) {
+        this.grafo = grafo;
     }
 
-    public List<Materia> getMateriasPorVer() {
-        return materiasPorVer;
+    public List<Materia> getMaterias() {
+        return materias;
     }
 
-    public void setMateriasPorVer(List<Materia> materiasPorVer) {
-        this.materiasPorVer = materiasPorVer;
+    public void setMaterias(List<Materia> materias) {
+        this.materias = materias;
     }
 
     public int getNumeroPlanDeEstudio() {

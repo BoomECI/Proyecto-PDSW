@@ -5,6 +5,7 @@
  */
 package logica.servicios;
 
+import entidades.Estudiante;
 import entidades.Materia;
 import entidades.PlanDeEstudios;
 import java.util.List;
@@ -14,17 +15,21 @@ import java.util.List;
  * @author BoomEci
  */
 public class CalculoPorCreditos implements CalculoDeImpacto{
-
+    private int creditosPorVer=0;
     @Override
-    public int CalculoImpacto(Materia cancelada, List<Materia> vistas, PlanDeEstudios plan){
-        int impacto = 0;
-        for(Materia m: vistas){
-            impacto += m.getCreditos();
-        }        
-        impacto += cancelada.getCreditos();        
-        impacto = plan.getNumeroDeCreditosTotales() - impacto;
+    public int CalculoImpacto(Materia cancelada, Estudiante estudiante, PlanDeEstudios plan){
         
-        return impacto;        
+        for(Materia m: estudiante.getMateriasCursadas()){
+            creditosPorVer += m.getCreditos();
+        } 
+        for(Materia m: estudiante.getMateriasActuales()){
+            creditosPorVer += m.getCreditos();
+        }  
+        creditosPorVer -= cancelada.getCreditos();        
+        creditosPorVer = plan.getNumeroDeCreditosTotales() - creditosPorVer;
+        
+        return creditosPorVer;        
     }
+
     
 }

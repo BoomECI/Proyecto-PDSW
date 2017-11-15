@@ -5,6 +5,7 @@
  */
 package logica.servicios;
 
+import entidades.Estudiante;
 import entidades.Materia;
 import entidades.PlanDeEstudios;
 import java.util.List;
@@ -13,8 +14,8 @@ import java.util.List;
  *
  * @author boomEci
  */
-interface CalculoDeImpacto {
+public interface CalculoDeImpacto {
     
-    public int CalculoImpacto(Materia cancelada, List<Materia> vistas, PlanDeEstudios plan);
+    public int CalculoImpacto(Materia cancelada, Estudiante estudiante, PlanDeEstudios plan);
     
 }

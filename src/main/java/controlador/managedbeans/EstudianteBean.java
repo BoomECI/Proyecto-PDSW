@@ -130,9 +130,8 @@ public class EstudianteBean implements Serializable {
         servCanc.agregarSolicitudCancelacionEstudiante(estudianteActual.getCodigo(), solicitudEstudiante);
     }
     
-    public void analizarSolicitud(){
-       CalculoPorCreditos calculo = new CalculoPorCreditos();
-       creditosRestantes = calculo.CalculoImpacto(comparar(), materiasCursadas, planDeEstudios);
+    public void analizarSolicitud() throws ExcepcionServiciosCancelaciones{
+       creditosRestantes = servCanc.consultarImpacto(comparar(), estudianteActual, planDeEstudios);
     }
 
     public PlanDeEstudios getPlanDeEstudios() {
