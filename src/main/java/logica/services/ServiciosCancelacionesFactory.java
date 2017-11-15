@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package logica.servicios;
+
+package logica.services;
 
 import logica.servicios.impl.ServiciosCancelacionesImpl;
 import com.google.inject.Injector;
@@ -27,7 +23,7 @@ public class ServiciosCancelacionesFactory {
 
             @Override
             protected void initialize() {
-                install(JdbcHelper.PostgreSQL);              
+                install(JdbcHelper.MySQL);              
                 setClassPathResource("mybatis-config.xml");
                 bind(ServiciosCancelaciones.class).to(ServiciosCancelacionesImpl.class);
                 bind(EstudianteDAO.class).to(EstudianteDAOMyBatis.class);
@@ -47,6 +43,7 @@ public class ServiciosCancelacionesFactory {
                 bind(ServiciosCancelaciones.class).to(ServiciosCancelacionesImpl.class);
                 bind(EstudianteDAO.class).to(EstudianteDAOMyBatis.class);
                 bind(ParserGrafo.class).to(ParserJSON.class);
+                bind(CalculoDeImpacto.class).to(CalculoPorCreditos.class);
             }
 
         }

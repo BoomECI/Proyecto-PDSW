@@ -7,21 +7,20 @@ import entidades.Estudiante;
 import entidades.Materia;
 import entidades.PlanDeEstudios;
 import entidades.SolicitudCancelacion;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.util.Date;
-import logica.servicios.CalculoPorCreditos;
-import logica.servicios.ExcepcionServiciosCancelaciones;
-import logica.servicios.ServiciosCancelaciones;
-import logica.servicios.ServiciosCancelacionesFactory;
+import logica.services.ExcepcionServiciosCancelaciones;
+import logica.services.ServiciosCancelaciones;
+import logica.services.ServiciosCancelacionesFactory;
+
 
 
 @ManagedBean(name="beanSolicitudEstudiante")
 @SessionScoped
-public class EstudianteBean implements Serializable {
+public class EstudianteBean {
     
     private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
     private Date fechaCancelacion;                         

@@ -5,9 +5,9 @@
  */
 package logica.servicios.impl;
 
-import logica.servicios.ExcepcionServiciosCancelaciones;
-import logica.servicios.ServiciosCancelaciones;
-import logica.servicios.CalculoDeImpacto;
+import logica.services.ExcepcionServiciosCancelaciones;
+import logica.services.ServiciosCancelaciones;
+import logica.services.CalculoDeImpacto;
 import com.google.inject.Inject;
 import entidades.Estudiante;
 import entidades.Materia;

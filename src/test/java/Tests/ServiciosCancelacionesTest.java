@@ -1,9 +1,9 @@
 
 package Tests;
 
-import logica.servicios.ExcepcionServiciosCancelaciones;
-import logica.servicios.ServiciosCancelaciones;
-import logica.servicios.ServiciosCancelacionesFactory;
+import logica.services.ExcepcionServiciosCancelaciones;
+import logica.services.ServiciosCancelaciones;
+import logica.services.ServiciosCancelacionesFactory;
 import java.util.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
