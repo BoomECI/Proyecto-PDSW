@@ -6,6 +6,7 @@
 package persistencia.mybatis;
 
 import entidades.Estudiante;
+import entidades.SolicitudCancelacion;
 import persistencia.EstudianteDAO;
 
 /**
@@ -21,6 +22,11 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
 
     @Override
     public Estudiante loadByID(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void save(int idEstudiante, SolicitudCancelacion solicitudCancelacion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

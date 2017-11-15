@@ -6,6 +6,7 @@
 package persistencia;
 
 import entidades.Estudiante;
+import entidades.SolicitudCancelacion;
 
 /**
  *
@@ -15,6 +16,7 @@ public interface EstudianteDAO {
     public Estudiante loadByID(int id);
     public void loadAll();
     //public void actualizarEstudiante(Estudiante p);
+    public void save(int idEstudiante, SolicitudCancelacion solicitudCancelacion);
     
     
 }

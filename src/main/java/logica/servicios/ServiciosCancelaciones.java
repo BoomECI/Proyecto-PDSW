@@ -38,7 +38,7 @@ public interface ServiciosCancelaciones {
      * @param idEstudiante el identificador del paciente     
      * @throws ExcepcionServiciosCancelaciones Si el estudiante no existe o se genere un error de persistencia
      */
-    public abstract void consultarSolicitudCancelacionEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones;
+    public abstract List<SolicitudCancelacion> consultarSolicitudCancelacionEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones;
     
     
     /**

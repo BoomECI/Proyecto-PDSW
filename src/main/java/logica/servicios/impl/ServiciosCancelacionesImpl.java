@@ -36,21 +36,27 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Override
     public void agregarSolicitudCancelacionEstudiante(int idEstudiante, SolicitudCancelacion solicitudCancelacion) throws ExcepcionServiciosCancelaciones{
         try{
-            Estudiante estudiante = consultarEstudiante(idEstudiante);
-            //estudiante.getSolicitudCancelaciones().add(solicitudCancelacion);
-        }catch(ExcepcionServiciosCancelaciones e){
-          //  throw new ExcepcionServiciosCancelaciones("Error al realizar la consulta del estudiante:  "+idEstudiante+"..........."+ex.getLocalizedMessage(), ex);
+            Estudiante estudiante = daoEst.loadByID(idEstudiante);
+            estudiante.getSolicitudes().add(solicitudCancelacion);
+            daoEst.save(idEstudiante,solicitudCancelacion);
+        }catch(PersistenceException e){
+            throw new ExcepcionServiciosCancelaciones("Error al agregar la solicitud de cancelacion del estudiante:  "+idEstudiante+"..........."+e.getLocalizedMessage(), e);
         }       
     }
 
     @Override
-    public void consultarSolicitudCancelacionEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones {
-        
+    public List<SolicitudCancelacion> consultarSolicitudCancelacionEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones {
+        try{
+            Estudiante estudiante = daoEst.loadByID(idEstudiante);
+            return estudiante.getSolicitudes();            
+        }catch(PersistenceException e){
+            throw new ExcepcionServiciosCancelaciones("Error al realizar la consulta del estudiante:  "+idEstudiante+"..........."+e.getLocalizedMessage(), e);
+        }   
     }
 
     @Override
     public List<SolicitudCancelacion> consultarTodasLasSolicitudesCancelacion() throws ExcepcionServiciosCancelaciones {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
@@ -64,8 +70,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     }
 
     @Override
-    public PlanDeEstudios consultarImpactoPlanDeEstudios() throws ExcepcionServiciosCancelaciones {
-        
+    public PlanDeEstudios consultarImpactoPlanDeEstudios() throws ExcepcionServiciosCancelaciones {        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
