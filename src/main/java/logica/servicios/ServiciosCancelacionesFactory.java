@@ -28,7 +28,7 @@ public class ServiciosCancelacionesFactory {
 
             @Override
             protected void initialize() {
-                install(JdbcHelper.MySQL);              
+                install(JdbcHelper.PostgreSQL);              
                 setClassPathResource("mybatis-config.xml");
                 bind(ServiciosCancelaciones.class).to(ServiciosCancelacionesImpl.class);
                 bind(EstudianteDAO.class).to(EstudianteDAOMyBatis.class);

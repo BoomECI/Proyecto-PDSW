@@ -18,10 +18,10 @@
         <environment id="development">
             <transactionManager type="JDBC" />
             <dataSource type="POOLED">
-                <property name="driver" value="org.h2.Driver" />
-                <property name="url" value="jdbc:h2:file:./target/db/testdb;MODE=PostgreSQL" />
-                <property name="username" value="anonymous" />
-                <property name="password" value="" />
+                <property name="driver" value="org.postgresql.Driver" />
+                <property name="url" value="jdbc:postgresql://ec2-54-225-70-53.compute-1.amazonaws.com:5432/de2c6qgiud727a?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory"/> 
+                <property name="username" value="qsidsbqrwdhvnm" />
+                <property name="password" value="2421de2f9da04d37fa2e10a394d437af6a96e41fee5afe4938a90ca1018fc358" />
             </dataSource>
         </environment>
     </environments>
