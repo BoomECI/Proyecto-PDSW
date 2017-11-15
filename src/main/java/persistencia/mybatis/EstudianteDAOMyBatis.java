@@ -5,24 +5,44 @@
  */
 package persistencia.mybatis;
 
+import com.google.inject.Inject;
 import entidades.Estudiante;
 import entidades.SolicitudCancelacion;
+import java.util.List;
+import javax.persistence.PersistenceException;
 import persistencia.EstudianteDAO;
+import persistencia.mybatis.mappers.EstudianteMapper;
 
 /**
  *
  * @author BOOMECI 
  */
 public class EstudianteDAOMyBatis implements EstudianteDAO {
-
+    
+    @Inject
+    EstudianteMapper Estmaper;
+    
     @Override
-    public void loadAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+    public List<Estudiante> loadAll() {
+        try{
+        
+            return Estmaper.consultarEstudiantes();
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al cargar los estudienates:"+e.getLocalizedMessage(), e);
+        }
+    }    
 
     @Override
     public Estudiante loadByID(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+        
+            return Estmaper.loadEstudianteById(id);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al cargar el estudiante:"+e.getLocalizedMessage(), e);
+        }
     }
 
     @Override
