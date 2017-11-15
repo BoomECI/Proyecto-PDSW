@@ -6,7 +6,6 @@
 package logica.servicios;
 
 import logica.servicios.impl.ServiciosCancelacionesImpl;
-import static com.google.inject.Guice.createInjector;
 import com.google.inject.Injector;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
