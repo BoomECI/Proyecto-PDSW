@@ -13,6 +13,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.util.Date;
+import logica.servicios.CalculoPorCreditos;
 import logica.servicios.ExcepcionServiciosCancelaciones;
 import logica.servicios.ServiciosCancelaciones;
 import logica.servicios.ServiciosCancelacionesFactory;
@@ -23,26 +24,44 @@ import logica.servicios.ServiciosCancelacionesFactory;
 public class EstudianteBean implements Serializable {
     
     private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
-    private List<SolicitudCancelacion> solicitudes=new ArrayList<SolicitudCancelacion>();
-    private List<Materia> materiasActuales=new ArrayList<Materia>();                          
-    private List<Materia> materiasCursadas=new ArrayList<Materia>();
-    private PlanDeEstudios planDeEstudios= new PlanDeEstudios();
-    private Estudiante estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com"), new Acudiente(23,"Giovanni","gio.com",1234),
-                                                            1019138849,"cc",materiasActuales,materiasCursadas,planDeEstudios,solicitudes);
-
-    
-   
-    //private Materia materiaSeleccionada;
+    private Date fechaCancelacion;                         
+    private List<SolicitudCancelacion> solicitudes;
+    private PlanDeEstudios planDeEstudios;
+    private List<Materia> materiasCursadas;
+    private List<Materia> materiasActuales;
+    private Estudiante estudianteActual;
     private String materiaSeleccionada;
-
-    /*private int idEstudiante;
-    private String nombreEstudiante;
-    private String nemonicoMateriaSeleccionada;
-    private String nombreMateriaSeleccionada;*/
-    private Date fechaCancelacion = new Date();
     private String descripcionCancelacion;
-    private int creditosRestantes = 56;
+    private int creditosRestantes;
     private SolicitudCancelacion solicitudEstudiante;
+    
+    
+    public EstudianteBean(){
+        fechaCancelacion = new Date();
+        ArrayList<Materia> mA = new ArrayList<Materia>();
+        mA.add(new Materia("APMU","Apreciacion musical", 3, null, null));
+        mA.add(new Materia("FRED","Fundamentos de redes", 3, null, null));
+        mA.add(new Materia("PRON","Procesos de negocios", 3, null, null));
+        mA.add(new Materia("ACFI","Analisis contable y financiero", 3, null, null));
+        mA.add(new Materia("PDSW","Procesos de desarrollo de software", 4, null, null));
+        ArrayList<Materia> mC = new ArrayList<Materia>();
+        mC.add(new Materia("IINS","Introduccion a la ingenieria de sistemas",3,null,null));
+        mC.add(new Materia("MMIN","Modelos matematicos para la informatica",3,null,null));
+        mC.add(new Materia("DEPD","Deporte dirigido",3,null,null));
+        mC.add(new Materia("ALLI","Algebra lineal",4,null,null));
+        PlanDeEstudios PDE = new PlanDeEstudios();
+        PDE.setNumeroDeCreditosTotales(154);
+        estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com"), new Acudiente(23,"Giovanni","gio.com",1234),
+                                                            1019138849,"cc",mA,mC,PDE,null);
+        materiasCursadas = estudianteActual.getMateriasCursadas();
+        materiasActuales = estudianteActual.getMateriasActuales();
+        planDeEstudios = estudianteActual.getPlanDeEstudios();
+        solicitudes = estudianteActual.getSolicitudes();
+    }
+    
+    public EstudianteBean(Estudiante estudianteActual){
+        this.estudianteActual = estudianteActual;
+    }
 
     public SolicitudCancelacion getSolicitudEstudiante() {
         return solicitudEstudiante;
@@ -65,15 +84,6 @@ public class EstudianteBean implements Serializable {
         this.creditosRestantes = creditosRestantes;
     }
     
-    public EstudianteBean(){
-      
-        materiasActuales.add(new Materia("ACFI","Analisis contable y financiero",3,null,null));
-        materiasActuales.add(new Materia("PRON","Procesos de negocios",3,null,null));
-        materiasActuales.add(new Materia("PDSW","Procesos de desarrollo de software",4,null,null));
-        materiasActuales.add(new Materia("FRED","Fundamentos de redes",3,null,null));
-        materiasActuales.add(new Materia("APMU","Apreciacion musical",3,null,null));
-        //materiasCursando = cancEstudiantes.consultarEstudiante(estudianteActual.getId()).getMateriasCursando();
-    }
 
     public Estudiante getEstudianteActual() {
         return estudianteActual;
@@ -121,7 +131,32 @@ public class EstudianteBean implements Serializable {
     }
     
     public void analizarSolicitud(){
-       
+       CalculoPorCreditos calculo = new CalculoPorCreditos();
+       creditosRestantes = calculo.CalculoImpacto(comparar(), materiasCursadas, planDeEstudios);
+    }
+
+    public PlanDeEstudios getPlanDeEstudios() {
+        return planDeEstudios;
+    }
+
+    public void setPlanDeEstudios(PlanDeEstudios planDeEstudios) {
+        this.planDeEstudios = planDeEstudios;
+    }
+
+    public List<Materia> getMateriasCursadas() {
+        return materiasCursadas;
+    }
+
+    public void setMateriasCursadas(List<Materia> materiasCursadas) {
+        this.materiasCursadas = materiasCursadas;
+    }
+
+    public List<SolicitudCancelacion> getSolicitudes() {
+        return solicitudes;
+    }
+
+    public void setSolicitudes(List<SolicitudCancelacion> solicitudes) {
+        this.solicitudes = solicitudes;
     }
     
     public String cancelarSolicitud(){
@@ -130,6 +165,10 @@ public class EstudianteBean implements Serializable {
     
     public String finalizar(){
         return "esperarsolicitud.xhtml";
+    }
+    
+    public String irAtras(){
+        return "serviciocancelaciones.xhtml";
     }
 
     public Materia comparar(){

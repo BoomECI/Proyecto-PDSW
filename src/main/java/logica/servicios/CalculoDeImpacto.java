@@ -15,6 +15,6 @@ import java.util.List;
  */
 interface CalculoDeImpacto {
     
-    public abstract int CalculoImpacto(Materia cancelada, List<Materia> vistas, PlanDeEstudios plan);
+    public int CalculoImpacto(Materia cancelada, List<Materia> vistas, PlanDeEstudios plan);
     
 }
