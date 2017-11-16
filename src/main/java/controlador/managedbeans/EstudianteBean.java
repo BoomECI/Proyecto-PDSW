@@ -59,7 +59,7 @@ public class EstudianteBean implements Serializable{
         solicitudes = estudianteActual.getSolicitudes();
     }
     
-    public EstudianteBean(Estudiante estudianteActual){
+    public EstudianteBean(Estudiante estudianteActual) throws ExcepcionServiciosCancelaciones{
         this.estudianteActual = estudianteActual;
     }
 
@@ -179,5 +179,4 @@ public class EstudianteBean implements Serializable{
         }
         return mt;
     }
-    
 }
