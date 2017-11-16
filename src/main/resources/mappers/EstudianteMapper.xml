@@ -63,7 +63,7 @@
         JOIN Plan_de_Estudio as pl ON (est.Plan_ID=pl.ID)
         JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 
         JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante
-        JOIN SolicitudResult AS sol ON est.solicitudCancelacion=sol.id
+        JOIN solicitud_de_cancelacion AS sol ON est.solicitudCancelacion=sol.id
         WHERE est.codigo=#{ide}
     </select>  
     
@@ -74,7 +74,7 @@
         JOIN Plan_de_Estudio as pl ON (est.Plan_ID=pl.ID)
         JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 
         JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante
-        JOIN SolicitudResult AS sol ON est.solicitudCancelacion=sol.id      
+        JOIN solicitud_de_cancelacion AS sol ON est.solicitudCancelacion=sol.id      
     </select>      
    
   
