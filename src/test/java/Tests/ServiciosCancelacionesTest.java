@@ -109,7 +109,7 @@ public class ServiciosCancelacionesTest{
     
     
     @Test
-    public void pruebaCeroTest() throws SQLException, ExcepcionServiciosCancelaciones {
+    public void primeraPruebaTest() throws SQLException, ExcepcionServiciosCancelaciones {
         //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
         //de equivalencia correspondiente
         Connection conn=getConnection();
@@ -137,6 +137,35 @@ public class ServiciosCancelacionesTest{
     }      
      
     
+    @Test
+    public void testNoDeberiaAgregarUnaSolicitudSiElEstudianteNoExiste() throws ExcepcionServiciosCancelaciones{
+        
+    } 
+    
+    @Test
+    public void testDeberiaPoderSolicitarUnaCancelacion() throws ExcepcionServiciosCancelaciones{
+        
+    } 
+    
+    @Test
+    public void testLasSolicitudesTramitadasDeberianTenerElAvalDelConsejeroAcudiente() throws ExcepcionServiciosCancelaciones{
+        
+    } 
+    
+    @Test
+    public void testLasSolicitudesNoTramitadasNoDebenTenerAlgunAval() throws ExcepcionServiciosCancelaciones{
+        
+    } 
+    
+    @Test
+    public void testLosCreditosDebenCoincidirCorrectamente() throws ExcepcionServiciosCancelaciones{
+        
+    } 
+    
+    @Test
+    public void testUnaMateriaCanceladaAnteriormenteNoPuedeVolverHacerCancelada() throws ExcepcionServiciosCancelaciones{
+        
+} 
 /*
     @Test
     public void prueba(){
