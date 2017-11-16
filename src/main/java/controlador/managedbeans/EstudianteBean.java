@@ -59,7 +59,7 @@ public class EstudianteBean implements Serializable{
         solicitudes = estudianteActual.getSolicitudes();
     }
     
-    public EstudianteBean(Estudiante estudianteActual){
+    public EstudianteBean(Estudiante estudianteActual) throws ExcepcionServiciosCancelaciones{
         this.estudianteActual = estudianteActual;
     }
 
@@ -131,7 +131,7 @@ public class EstudianteBean implements Serializable{
     }
     
     public void analizarSolicitud() throws ExcepcionServiciosCancelaciones{
-       creditosRestantes = servCanc.consultarImpacto(comparar(), estudianteActual, planDeEstudios);
+       creditosRestantes = servCanc.consultarImpacto(comparar(), estudianteActual);
     }
 
     public PlanDeEstudios getPlanDeEstudios() {
@@ -179,5 +179,4 @@ public class EstudianteBean implements Serializable{
         }
         return mt;
     }
-    
 }
