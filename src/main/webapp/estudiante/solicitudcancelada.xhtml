@@ -6,10 +6,8 @@
     <h:head></h:head>
     <h:form id="cancelacionDeSolicitud">
         <h:body>
-            <div style="text-align:center">
-                Su transaccion ha sido cancelada exitosamente.
-                <p:commandButton value="Atras" action="#{beanSolicitudEstudiante.irAtras()}" />
-            </div>
+            <h:outputText value="Su transaccion ha sido cancelada exitosamente." />
+            <p:commandButton value="GO BACK!" onclick="window.history.back();"/>
         </h:body>
     </h:form>
 </html>
