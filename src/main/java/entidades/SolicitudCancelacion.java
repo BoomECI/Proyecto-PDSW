@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author camil
+ * @author BoomECI
  */
 public class SolicitudCancelacion {
     

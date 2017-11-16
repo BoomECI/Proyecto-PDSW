@@ -84,7 +84,7 @@ public class EstudianteBean implements Serializable{
         this.creditosRestantes = creditosRestantes;
     }
     
-
+    
     public Estudiante getEstudianteActual() {
         return estudianteActual;
     }
