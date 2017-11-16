@@ -18,7 +18,9 @@ public interface EstudianteMapper {
     
     public Estudiante loadEstudianteById(@Param("ide")int id);
     
-    public List<Estudiante> consultarEstudiantes();   
+    public List<Estudiante> consultarEstudiantes();
+    
+    public void insertarSolicitud(@Param("idEst") int id, @Param("sol") SolicitudCancelacion sol);
     
     //public void insertarEstudiante(@Param("est")Estudiante e);
     
