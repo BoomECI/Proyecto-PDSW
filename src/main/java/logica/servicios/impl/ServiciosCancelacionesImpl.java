@@ -79,8 +79,8 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     }
 
     @Override
-    public int consultarImpacto(Materia cancelada, Estudiante estudiante, PlanDeEstudios plan) throws ExcepcionServiciosCancelaciones {        
-        return impacto.CalculoImpacto(cancelada, estudiante, plan);
+    public int consultarImpacto(Materia cancelada, Estudiante estudiante) throws ExcepcionServiciosCancelaciones {        
+        return impacto.CalculoImpacto(cancelada, estudiante);
     }    
        
 }
