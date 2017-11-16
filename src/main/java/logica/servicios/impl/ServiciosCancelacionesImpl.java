@@ -47,7 +47,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         try{
             Estudiante estudiante = daoEst.loadByID(idEstudiante);
             estudiante.getSolicitudes().add(solicitudCancelacion);
-            daoEst.save(idEstudiante,solicitudCancelacion);
+            daoEst.save(estudiante,solicitudCancelacion);
         }catch(PersistenceException e){
             throw new ExcepcionServiciosCancelaciones("Error al agregar la solicitud de cancelacion del estudiante:  "+idEstudiante+"..........."+e.getLocalizedMessage(), e);
         }       

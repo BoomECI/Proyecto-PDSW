@@ -17,7 +17,7 @@ public interface EstudianteDAO {
     public Estudiante loadByID(int id);
     public List<Estudiante> loadAll();
     //public void actualizarEstudiante(Estudiante p);
-    public void save(int idEstudiante, SolicitudCancelacion solicitudCancelacion);
+    public void save(Estudiante estudiante, SolicitudCancelacion solicitudCancelacion);
     
     
 }

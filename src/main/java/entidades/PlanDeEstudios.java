@@ -14,7 +14,7 @@ import javax.json.JsonObject;
 public class PlanDeEstudios {
     
     String carrera;
-    JsonObject grafo;
+    String grafo;
     int numeroDeCreditosTotales;
     int numeroDeAsignaturas;
     int numeroPlanDeEstudio;
@@ -44,11 +44,11 @@ public class PlanDeEstudios {
         this.carrera = carrera;
     }
 
-    public JsonObject getGrafo() {
+    public String getGrafo() {
         return grafo;
     }
 
-    public void setGrafo(JsonObject grafo) {
+    public void setGrafo(String grafo) {
         this.grafo = grafo;
     }
 

@@ -16,7 +16,8 @@ public class Acudiente {
     private String correo;
     private int telefono;
 
-        
+    public Acudiente(){
+    }
     public Acudiente(int id, String nombre, String correo, int telefono){
         this.id = id;
         this.nombre = nombre;

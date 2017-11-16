@@ -22,7 +22,7 @@ public class Estudiante {
     private PlanDeEstudios planDeEstudios;
     private List<SolicitudCancelacion> solicitudes;
     
-        
+    public Estudiante(){}
     public Estudiante(int codigo, String nombre, String correo,
                       int telefono,Consejero consejero, Acudiente acudiente,
                       int identificacion,String tipo_id,List<Materia> materiasActuales,

@@ -17,6 +17,7 @@
 package Tests;
 
 import entidades.Estudiante;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -25,6 +26,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import logica.services.ExcepcionServiciosCancelaciones;
 import logica.services.ServiciosCancelacionesFactory;
 import org.junit.After;
@@ -135,5 +137,25 @@ public class ServiciosCancelacionesTest{
     }      
      
     
+/*
+    @Test
+    public void prueba(){
+        ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        try{
+            Estudiante x = a.consultarEstudiante(1);
+            System.out.println(x.getNombre());
+            System.out.println(x.getCodigo());
+            System.out.println(x.getCorreo());
+            //System.out.println(x.getAcudiente().getNombre());
+            System.out.println(x.getConsejero().getNombre());
 
+        }catch(Exception e){
+            e.printStackTrace();
+            fail();
+        }
+    }
+   
+}
+
+*/
 }
