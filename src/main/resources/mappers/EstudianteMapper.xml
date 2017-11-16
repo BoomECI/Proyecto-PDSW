@@ -58,9 +58,9 @@
      
     <select id="loadEstudianteById" resultMap="EstudianteResult">
         select  est.codigo,est.nombre,est.correo,est.telefono,est.identificacion,est.tipo_id,acu.nombre AS acu_nombre,acu.cedula AS acu_cedula,acu.correo AS acu_correo,acu.telefono AS acu_telefono,con.nombre AS con_nombre,con.codigo AS con_codigo, con.correo AS con_correo,pl.Carrera AS pl_Carrera,pl.ID AS pl_ID,pl.Grafo AS pl_Grafo,pl.creditos AS pl_creditos,pl.nummaterias AS pl_nummaterias,mac.Materia AS mac_Materia,maa.Materia AS maa_Materia,sol.id AS sol_id, sol.fecha AS sol_fecha,sol.estado AS sol_estado, sol.justificacion AS sol_justificacion,sol.comentario AS sol_comentario,sol.avalAcudiente AS sol_avalAcudiente,sol.avalConsejero AS sol_avalConsejero,sol.Materia AS sol_Materia 
-        from  Estudiante AS est Join Acudiente AS acu ON  est.`Acudiente`=acu.`cedula`  
+        from  Estudiante AS est Join Acudiente AS acu ON  est.Acudiente=acu.cedula  
         JOIN Consejero AS con ON est.consejero=con.codigo 
-        JOIN Plan_de_Estudio as pl ON (est.`carrera`=pl.`carrera` and est.`Plan_ID`=pl.`ID`)
+        JOIN Plan_de_Estudio as pl ON (est.Plan_ID=pl.ID)
         JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 
         JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante
         JOIN SolicitudResult AS sol ON est.solicitudCancelacion=sol.id
@@ -69,9 +69,9 @@
     
     <select id="consultarEstudiantes" resultMap="EstudianteResult">
         select  est.codigo,est.nombre,est.correo,est.telefono,est.identificacion,est.tipo_id,acu.nombre AS acu_nombre,acu.cedula AS acu_cedula,acu.correo AS acu_correo,acu.telefono AS acu_telefono,con.nombre AS con_nombre,con.codigo AS con_codigo, con.correo AS con_correo,pl.Carrera AS pl_Carrera,pl.ID AS pl_ID,pl.Grafo AS pl_Grafo,pl.creditos AS pl_creditos,pl.nummaterias AS pl_nummaterias,mac.Materia AS mac_Materia,maa.Materia AS maa_Materia,sol.id AS sol_id, sol.fecha AS sol_fecha,sol.estado AS sol_estado, sol.justificacion AS sol_justificacion,sol.comentario AS sol_comentario,sol.avalAcudiente AS sol_avalAcudiente,sol.avalConsejero AS sol_avalConsejero,sol.Materia AS sol_Materia 
-        from  Estudiante AS est Join Acudiente AS acu ON  est.`Acudiente`=acu.`cedula`  
+        from  Estudiante AS est Join Acudiente AS acu ON  est.Acudiente=acu.cedula  
         JOIN Consejero AS con ON est.consejero=con.codigo 
-        JOIN Plan_de_Estudio as pl ON (est.`carrera`=pl.`carrera` and est.`Plan_ID`=pl.`ID`)
+        JOIN Plan_de_Estudio as pl ON (est.Plan_ID=pl.ID)
         JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 
         JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante
         JOIN SolicitudResult AS sol ON est.solicitudCancelacion=sol.id      
