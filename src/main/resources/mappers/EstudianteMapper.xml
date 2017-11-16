@@ -22,8 +22,9 @@
     </resultMap>  
     
     <resultMap type='PlanDeEstudios' id='PlanDeEstudiosResult'>
-        <id property='carrera' column='Carrera'/>
+        <id property='carrera' column='carrera'/>
         <id property='numeroPlanDeEstudio' column='ID'/>
+        <result property='grafo' column='grafo'/>
         <result property='numeroDeCreditosTotales' column='creditos' />   
         <result property='numeroDeAsignaturas' column='nummaterias' />         
      </resultMap>

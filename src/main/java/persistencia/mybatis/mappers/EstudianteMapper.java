@@ -20,7 +20,7 @@ public interface EstudianteMapper {
     
     public List<Estudiante> consultarEstudiantes();
     
-    public void insertarSolicitud(@Param("idEst") int id, @Param("sol") SolicitudCancelacion sol);
+    public void insertarSolicitud(@Param("est") Estudiante est, @Param("sol") SolicitudCancelacion sol);
     
     //public void insertarEstudiante(@Param("est")Estudiante e);
     

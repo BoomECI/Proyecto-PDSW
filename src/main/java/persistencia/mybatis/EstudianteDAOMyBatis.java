@@ -46,8 +46,13 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
     }
 
     @Override
-    public void save(int idEstudiante, SolicitudCancelacion solicitudCancelacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void save(Estudiante estudiante, SolicitudCancelacion solicitudCancelacion) {
+        try{
+            Estmaper.insertarSolicitud(estudiante, solicitudCancelacion);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al cargar el estudiante:"+e.getLocalizedMessage(), e);
+        }
     }
     
 }

@@ -1,6 +1,7 @@
 
 package Tests;
 
+import entidades.Estudiante;
 import logica.services.ExcepcionServiciosCancelaciones;
 import logica.services.ServiciosCancelaciones;
 import logica.services.ServiciosCancelacionesFactory;
@@ -113,6 +114,18 @@ public class ServiciosCancelacionesTest {
     }
     */ 
     
+    @Test
+    public void prueba(){
+        ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        try{
+            Estudiante x = a.consultarEstudiante(0);
+            System.out.println(x.getNombre());
+        }catch(Exception e){
+            System.out.println("teest");
+            e.printStackTrace();
+            fail();
+        }
+    }
    
 }
 
