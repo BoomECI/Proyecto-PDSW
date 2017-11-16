@@ -131,7 +131,7 @@ public class EstudianteBean implements Serializable{
     }
     
     public void analizarSolicitud() throws ExcepcionServiciosCancelaciones{
-       creditosRestantes = servCanc.consultarImpacto(comparar(), estudianteActual, planDeEstudios);
+       creditosRestantes = servCanc.consultarImpacto(comparar(), estudianteActual);
     }
 
     public PlanDeEstudios getPlanDeEstudios() {

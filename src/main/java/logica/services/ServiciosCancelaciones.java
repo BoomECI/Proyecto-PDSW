@@ -71,11 +71,10 @@ public interface ServiciosCancelaciones {
      * Consulta plan de estudios si se cancela la asignatura.
      * @param cancelada materia para simular cancelar
      * @param estudiante estudiante que va consultar el impacto
-     * @param plan plan de estudios relacionado
      * @return Entero que e
      * @throws ExcepcionServiciosCancelaciones Si la materia no se puede cancelar o no existe o si se genera un error de persistencia
      */
-    public abstract int consultarImpacto(Materia cancelada, Estudiante estudiante, PlanDeEstudios plan) throws ExcepcionServiciosCancelaciones;
+    public abstract int consultarImpacto(Materia cancelada, Estudiante estudiante) throws ExcepcionServiciosCancelaciones;
     
     
         
