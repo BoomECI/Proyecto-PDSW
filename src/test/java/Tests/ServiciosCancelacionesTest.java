@@ -118,10 +118,14 @@ public class ServiciosCancelacionesTest {
     public void prueba(){
         ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
         try{
-            Estudiante x = a.consultarEstudiante(0);
+            Estudiante x = a.consultarEstudiante(1);
             System.out.println(x.getNombre());
+            System.out.println(x.getCodigo());
+            System.out.println(x.getCorreo());
+            //System.out.println(x.getAcudiente().getNombre());
+            System.out.println(x.getConsejero().getNombre());
+
         }catch(Exception e){
-            System.out.println("teest");
             e.printStackTrace();
             fail();
         }

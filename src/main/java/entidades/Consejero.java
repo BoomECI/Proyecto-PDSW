@@ -14,6 +14,7 @@ public class Consejero {
     private int id;
     private String nombre;
     private String correo;
+    public Consejero(){}
     
     public Consejero(int id, String nombre, String correo){
         this.id = id;
