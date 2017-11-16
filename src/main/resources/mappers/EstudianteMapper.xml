@@ -16,8 +16,8 @@
         <association property="planDeEstudios" columnPrefix="pl_" javaType="PlanDeEstudios"></association>         
         <association property="consejero" columnPrefix="con_" javaType="Consejero"></association>
         <association property="acudiente" columnPrefix="acu_" javaType="Acudiente"></association>  
-        <collection property="materiasActuales" ofType="Materia" columnPrefix="maa_" resultMap="Materiaresult"></collection> 
-        <collection property="materiasCursadas" ofType="Materia" columnPrefix="mac_" resultMap="Materiaresult"></collection> 
+        <collection property="materiasActuales" ofType="Materia" columnPrefix="maa_" resultMap="MateriaResult"></collection> 
+        <collection property="materiasCursadas" ofType="Materia" columnPrefix="mac_" resultMap="MateriaResult"></collection> 
         <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"></collection>                     
     </resultMap>  
     
