@@ -20,6 +20,8 @@ public class PlanDeEstudios {
     int numeroPlanDeEstudio;
     List<Materia> materias;
     
+    public PlanDeEstudios(){}
+    
     public int getNumeroDeAsignaturas() {
         return numeroDeAsignaturas;
     }

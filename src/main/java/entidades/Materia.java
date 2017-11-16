@@ -9,6 +9,7 @@ public class Materia {
     private int creditos;
     List<Materia> prerequisitos;
     List<Materia> corequisitos;
+    public Materia(){}
 
 
     public Materia(String nemonico, String nombre, int creditos, List<Materia> prerequisitos, List<Materia> corequisitos ){

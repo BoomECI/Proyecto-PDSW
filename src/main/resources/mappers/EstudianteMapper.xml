@@ -15,7 +15,7 @@
         <result property='tipo_id' column='tipo_id'/>
         <association property="planDeEstudios" javaType="PlanDeEstudios" columnPrefix="pl_"  resultMap="PlanDeEstudiosResult"/>         
         <association property="consejero" javaType="Consejero" columnPrefix="con_"  resultMap="ConsejeroResult"/>
-        <association property="acudiente" javaType="Acudiente" columnPrefix="acu_"  resultMap="AcudienteResult"/>  
+        <association property="acudiente" javaType="Acudiente"  columnPrefix="acu_" resultMap="AcudienteResult"/>  
         <collection property="materiasActuales" ofType="Materia" columnPrefix="maa_" resultMap="MateriaResult"/> 
         <collection property="materiasCursadas" ofType="Materia" columnPrefix="mac_" resultMap="MateriaResult"/>
         <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"/>                    
@@ -36,7 +36,7 @@
      </resultMap>
      
       <resultMap type='Acudiente' id='AcudienteResult'>
-        <id property='id' column='cedula'/>
+        <id property='cedula' column='cedula'/>
         <result property='nombre' column='nombre' />
         <result property='correo' column='correo' />
         <result property='telefono' column='telefono' />           
@@ -57,9 +57,45 @@
         <id property='id' column='nemonico'/>                     
     </resultMap> 
      
-    <select parameterType="map" id="loadEstudianteById" resultType="Estudiante">
-        select  est.codigo,est.nombre,est.correo,est.telefono,est.identificacion,est.tipo_id,acu.nombre AS acu_nombre,acu.cedula AS acu_cedula,acu.correo AS acu_correo,acu.telefono AS acu_telefono,con.nombre AS con_nombre,con.codigo AS con_codigo, con.correo AS con_correo,pl.Carrera AS pl_Carrera,pl.ID AS pl_ID,pl.Grafo AS pl_Grafo,pl.creditos AS pl_creditos,pl.nummaterias AS pl_nummaterias,mac.Materia AS mac_Materia,maa.Materia AS maa_Materia,sol.id AS sol_id, sol.fecha AS sol_fecha,sol.estado AS sol_estado, sol.justificacion AS sol_justificacion,sol.comentario AS sol_comentario,sol.avalAcudiente AS sol_avalAcudiente,sol.avalConsejero AS sol_avalConsejero,sol.Materia AS sol_Materia 
-        from  Estudiante AS est LEFT OUTER Join Acudiente AS acu ON  est.Acudiente=acu.cedula  
+    <select parameterType="map" id="loadEstudianteById" resultMap="EstudianteResult">
+        select  
+        est.codigo,
+        est.nombre,
+        est.correo,
+        est.telefono,
+        est.identificacion,
+        est.tipo_id,
+        
+        acu.nombre AS acu_nombre,
+        acu.cedula AS acu_cedula,
+        acu.correo AS acu_correo,
+        acu.telefono AS acu_telefono,
+        
+        con.nombre AS con_nombre,
+        con.codigo AS con_codigo, 
+        con.correo AS con_correo,
+        
+        pl.Carrera AS pl_Carrera,
+        pl.ID AS pl_ID,
+        pl.Grafo AS pl_Grafo,
+        pl.creditos AS pl_creditos,
+        pl.nummaterias AS pl_nummaterias,
+        
+        mac.Materia AS mac_Materia,
+        maa.Materia AS maa_Materia,
+        
+        sol.id AS sol_id, 
+        sol.fecha AS sol_fecha,
+        sol.estado AS sol_estado, 
+        sol.justificacion AS sol_justificacion,
+        sol.comentario AS sol_comentario,
+        sol.avalAcudiente AS sol_avalAcudiente,
+        sol.avalConsejero AS sol_avalConsejero,
+        sol.Materia AS sol_Materia 
+        
+        from  
+        Estudiante AS est 
+        LEFT OUTER Join Acudiente AS acu ON  est.Acudiente=acu.cedula  
         LEFT OUTER JOIN Consejero AS con ON est.consejero=con.codigo 
         LEFT OUTER JOIN Plan_de_Estudio as pl ON (est.Plan_ID=pl.ID)
         LEFT OUTER JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 
@@ -69,8 +105,43 @@
     </select>  
     
     <select id="consultarEstudiantes" resultMap="EstudianteResult">
-        select  est.codigo,est.nombre,est.correo,est.telefono,est.identificacion,est.tipo_id,acu.nombre AS acu_nombre,acu.cedula AS acu_cedula,acu.correo AS acu_correo,acu.telefono AS acu_telefono,con.nombre AS con_nombre,con.codigo AS con_codigo, con.correo AS con_correo,pl.Carrera AS pl_Carrera,pl.ID AS pl_ID,pl.Grafo AS pl_Grafo,pl.creditos AS pl_creditos,pl.nummaterias AS pl_nummaterias,mac.Materia AS mac_Materia,maa.Materia AS maa_Materia,sol.id AS sol_id, sol.fecha AS sol_fecha,sol.estado AS sol_estado, sol.justificacion AS sol_justificacion,sol.comentario AS sol_comentario,sol.avalAcudiente AS sol_avalAcudiente,sol.avalConsejero AS sol_avalConsejero,sol.Materia AS sol_Materia 
-        from  Estudiante AS est Join Acudiente AS acu ON  est.Acudiente=acu.cedula  
+        select  est.codigo,
+        est.nombre,
+        est.correo,
+        est.telefono,
+        est.identificacion,
+        est.tipo_id,
+        
+        acu.nombre AS acu_nombre,
+        acu.cedula AS acu_cedula,
+        acu.correo AS acu_correo,
+        acu.telefono AS acu_telefono,
+        
+        con.nombre AS con_nombre,
+        con.codigo AS con_codigo, 
+        con.correo AS con_correo,
+        
+        pl.Carrera AS pl_Carrera,
+        pl.ID AS pl_ID,
+        pl.Grafo AS pl_Grafo,
+        pl.creditos AS pl_creditos,
+        pl.nummaterias AS pl_nummaterias,
+        
+        mac.Materia AS mac_Materia,
+        maa.Materia AS maa_Materia,
+        
+        sol.id AS sol_id, 
+        sol.fecha AS sol_fecha,
+        sol.estado AS sol_estado, 
+        sol.justificacion AS sol_justificacion,
+        sol.comentario AS sol_comentario,
+        sol.avalAcudiente AS sol_avalAcudiente,
+        sol.avalConsejero AS sol_avalConsejero,
+        sol.Materia AS sol_Materia 
+        
+        from  
+        Estudiante AS est 
+        LEFT OUTER Join Acudiente AS acu ON  est.Acudiente=acu.cedula  
         LEFT OUTER JOIN Consejero AS con ON est.consejero=con.codigo 
         LEFT OUTER JOIN Plan_de_Estudio as pl ON (est.Plan_ID=pl.ID)
         LEFT OUTER JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 

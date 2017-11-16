@@ -23,7 +23,7 @@ public class SolicitudCancelacion {
     private String comentario;
    
 
-    
+    public SolicitudCancelacion(){}
     public SolicitudCancelacion(Date fecha, String estado, int id, String descripcion, String materiaSolicitada, String comentario) {
         this.materiaSolicitada = materiaSolicitada;
         this.descripcion = descripcion;

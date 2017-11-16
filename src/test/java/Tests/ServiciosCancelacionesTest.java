@@ -28,9 +28,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import logica.services.ExcepcionServiciosCancelaciones;
+import logica.services.ServiciosCancelaciones;
 import logica.services.ServiciosCancelacionesFactory;
 import org.junit.After;
 import org.junit.Assert;
+import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,7 +52,7 @@ public class ServiciosCancelacionesTest{
 
     @After
     public void clearDB() throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");
+        /*Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");
         Statement stmt = conn.createStatement();
         stmt.execute("delete from Acudiente");
         stmt.execute("delete from Conserjero");
@@ -62,7 +64,7 @@ public class ServiciosCancelacionesTest{
         stmt.execute("delete from solicitud_de_cancelacion");
         
         conn.commit();
-        conn.close();
+        conn.close();*/
     }
 
     /**
@@ -70,9 +72,9 @@ public class ServiciosCancelacionesTest{
      * @return
      * @throws SQLException 
      */
-    private Connection getConnection() throws SQLException{
+    /*private Connection getConnection() throws SQLException{
         return DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");        
-    }
+    }*/
 
    /**
      * Diseño de pruebas:
@@ -108,7 +110,7 @@ public class ServiciosCancelacionesTest{
      */
     
     
-    @Test
+    /*@Test
     public void primeraPruebaTest() throws SQLException, ExcepcionServiciosCancelaciones {
         //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
         //de equivalencia correspondiente
@@ -134,7 +136,7 @@ public class ServiciosCancelacionesTest{
             System.out.println(estudiante);
             
         Assert.assertEquals(estudiante.getNombre(),"YESMAN");
-    }      
+    }  */    
      
     
     @Test
@@ -166,7 +168,7 @@ public class ServiciosCancelacionesTest{
     public void testUnaMateriaCanceladaAnteriormenteNoPuedeVolverHacerCancelada() throws ExcepcionServiciosCancelaciones{
         
 } 
-/*
+    /*
     @Test
     public void prueba(){
         ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
@@ -175,16 +177,15 @@ public class ServiciosCancelacionesTest{
             System.out.println(x.getNombre());
             System.out.println(x.getCodigo());
             System.out.println(x.getCorreo());
-            //System.out.println(x.getAcudiente().getNombre());
+            System.out.println(x.getAcudiente().getNombre());
             System.out.println(x.getConsejero().getNombre());
 
         }catch(Exception e){
             e.printStackTrace();
             fail();
         }
-    }
+    }*/
    
 }
 
-*/
-}
+

@@ -11,7 +11,7 @@ package entidades;
  */
 public class Acudiente {
     
-    private int id;
+    private int cedula;
     private String nombre;
     private String correo;
     private int telefono;
@@ -19,18 +19,18 @@ public class Acudiente {
     public Acudiente(){
     }
     public Acudiente(int id, String nombre, String correo, int telefono){
-        this.id = id;
+        this.cedula = id;
         this.nombre = nombre;
         this.correo = correo;    
         this.telefono = telefono;
     }
 
     public int getId() {
-        return id;
+        return cedula;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.cedula = id;
     }
 
     public String getNombre() {
