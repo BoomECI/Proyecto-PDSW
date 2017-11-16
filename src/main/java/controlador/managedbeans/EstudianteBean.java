@@ -7,6 +7,7 @@ import entidades.Estudiante;
 import entidades.Materia;
 import entidades.PlanDeEstudios;
 import entidades.SolicitudCancelacion;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -20,7 +21,7 @@ import logica.services.ServiciosCancelacionesFactory;
 
 @ManagedBean(name="beanSolicitudEstudiante")
 @SessionScoped
-public class EstudianteBean {
+public class EstudianteBean implements Serializable{
     
     private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
     private Date fechaCancelacion;                         

@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="edu.eci.pdsw.persistencia.mappers.EstudianteMapper">
+<mapper namespace="persistencia.mybatis.mappers.EstudianteMapper">
     
     <resultMap type='Estudiante' id='EstudianteResult'>
         <id property='codigo' column='codigo'/>        
@@ -18,13 +18,12 @@
         <association property="acudiente" columnPrefix="acu_" javaType="Acudiente"></association>  
         <collection property="materiasActuales" ofType="Materia" columnPrefix="maa_" resultMap="Materiaresult"></collection> 
         <collection property="materiasCursadas" ofType="Materia" columnPrefix="mac_" resultMap="Materiaresult"></collection> 
-        <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolucitudResult"></collection>                     
+        <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"></collection>                     
     </resultMap>  
     
     <resultMap type='PlanDeEstudios' id='PlanDeEstudiosResult'>
         <id property='carrera' column='Carrera'/>
         <id property='numeroPlanDeEstudio' column='ID'/>
-        <result property='grafo' column='Grafo'/>
         <result property='numeroDeCreditosTotales' column='creditos' />   
         <result property='numeroDeAsignaturas' column='nummaterias' />         
      </resultMap>
@@ -35,14 +34,14 @@
         <result property='correo' column='correo' />         
      </resultMap>
      
-      <resultMap type='Acudiente' id='AcuedienteResult'>
+      <resultMap type='Acudiente' id='AcudienteResult'>
         <id property='cedula' column='cedula'/>
         <result property='nombre' column='nombre' />
         <result property='correo' column='correo' />
         <result property='telefono' column='telefono' />           
      </resultMap>
      
-     <resultMap type='SolucitudCancelacion' id='SolucitudResult'>
+     <resultMap type='SolicitudCancelacion' id='SolicitudResult'>
         <id property='id' column='id'/>                
         <result property='fecha' column='fecha'/>
         <result property='estado' column='estado'/>       
@@ -64,7 +63,7 @@
         JOIN Plan_de_Estudio as pl ON (est.`carrera`=pl.`carrera` and est.`Plan_ID`=pl.`ID`)
         JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 
         JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante
-        JOIN SolucitudResult AS sol ON est.solicitudCancelacion=sol.id
+        JOIN SolicitudResult AS sol ON est.solicitudCancelacion=sol.id
         WHERE est.codigo=#{ide}
     </select>  
     
@@ -75,7 +74,7 @@
         JOIN Plan_de_Estudio as pl ON (est.`carrera`=pl.`carrera` and est.`Plan_ID`=pl.`ID`)
         JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 
         JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante
-        JOIN SolucitudResult AS sol ON est.solicitudCancelacion=sol.id      
+        JOIN SolicitudResult AS sol ON est.solicitudCancelacion=sol.id      
     </select>      
    
   
