@@ -15,10 +15,10 @@ import java.util.List;
  * @author BoomEci
  */
 public class CalculoPorCreditos implements CalculoDeImpacto{
-    private int creditosPorVer=0;
+    private int creditosPorVer;
     @Override
     public int CalculoImpacto(Materia cancelada, Estudiante estudiante){
-        
+        creditosPorVer=0;
         for(Materia m: estudiante.getMateriasCursadas()){
             creditosPorVer += m.getCreditos();
         } 
