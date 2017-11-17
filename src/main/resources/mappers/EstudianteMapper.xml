@@ -97,16 +97,18 @@
         LEFT OUTER JOIN solicitud_de_cancelacion AS sol ON est.codigo=sol.estudiante
         WHERE est.codigo=#{ide}
     </select>  
+    
     <select parameterType="map" id="loadMateriasCursadasById" resultMap="MateriaResult">
         select  
-        mac.materia AS mac_materia        
+        mac.materia AS nemonico       
         from  
         Estudiante AS est LEFT OUTER JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante         
         WHERE est.codigo=#{ide}
     </select> 
+    
     <select parameterType="map" id="loadMateriasActualesById" resultMap="MateriaResult">
         select  
-        maa.materia AS maa_materia        
+        maa.materia AS nemonico       
         from  
         Estudiante AS est LEFT OUTER JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante         
         WHERE est.codigo=#{ide}

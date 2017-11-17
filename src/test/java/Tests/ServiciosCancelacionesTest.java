@@ -176,7 +176,7 @@ public class ServiciosCancelacionesTest{
         try{
             List<Estudiante> x = a.consultarEstudiantes();
             
-            System.out.println(x.get(0).getMateriasActuales().size());
+            System.out.println(x.get(0).getMateriasActuales().get(0).getNemonico());
           
 
         }catch(Exception e){

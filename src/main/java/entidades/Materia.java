@@ -4,6 +4,7 @@ package entidades;
 import java.util.List;
 
 public class Materia {
+    
     private String nemonico;
     private String nombre;
     private int creditos;
