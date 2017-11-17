@@ -156,9 +156,9 @@
         LEFT OUTER JOIN solicitud_de_cancelacion AS sol ON est.codigo=sol.estudiante  
     </select>  
       
-    <insert id="insertarSolicitud" useGeneratedKeys="true" keyProperty="sol.id">
+    <insert id="insertarSolicitud" >
         insert into solicitud_de_cancelacion (fecha,estado,id,justificacion,comentario,avalAcudiente,avalConsejero,Materia,Estudiante)
-            VALUES(TO_DATE('2016-01-30 16:58:01','YYYY-MM-DD HH24:MI:SS'),#{sol.estado},#{sol.id},#{sol.descripcion},#{sol.comentario},#{sol.avalAcudiente},#{sol.avalConsejero},#{sol.materiaSolicitada},#{sol.Estudiante})
+            VALUES(#{sol.fecha},#{sol.estado},#{sol.id},#{sol.descripcion},#{sol.comentario},#{sol.avalAcudiente},#{sol.avalConsejero},#{sol.materiaSolicitada},#{sol.Estudiante})
     </insert>
       
    
