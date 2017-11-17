@@ -34,6 +34,15 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     
     @Transactional
     @Override
+    public List<Estudiante> consultarEstudiantes() throws ExcepcionServiciosCancelaciones {
+        try {
+            return daoEst.loadAll();
+        } catch (PersistenceException ex) {
+            throw new ExcepcionServiciosCancelaciones("Error al realizar la consulta de los estudiantes:"+ex.getLocalizedMessage(), ex);
+        }
+    }
+    @Transactional
+    @Override
     public Estudiante consultarEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones {
         try {
             return daoEst.loadByID(idEstudiante);
@@ -82,5 +91,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     public int consultarImpacto(Materia cancelada, Estudiante estudiante) throws ExcepcionServiciosCancelaciones {        
         return impacto.CalculoImpacto(cancelada, estudiante);
     }    
+    
+    
        
 }

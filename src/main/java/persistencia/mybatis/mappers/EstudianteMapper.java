@@ -6,6 +6,7 @@
 package persistencia.mybatis.mappers;
 
 import entidades.Estudiante;
+import entidades.Materia;
 import entidades.SolicitudCancelacion;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -14,11 +15,15 @@ import org.apache.ibatis.annotations.Param;
  *
  * @author BOOMECI
  */
-public interface EstudianteMapper {    
+public interface EstudianteMapper {   
     
     public Estudiante loadEstudianteById(@Param("ide")int id);
     
     public List<Estudiante> consultarEstudiantes();
+    
+    public List<Materia> loadMateriasActualesById (@Param("ide")int id);
+    
+    public List<Materia> loadMateriasCursadasById (@Param("ide")int id);
     
     public void insertarSolicitud(@Param("est") Estudiante est, @Param("sol") SolicitudCancelacion sol);
     

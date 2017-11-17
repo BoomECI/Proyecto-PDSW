@@ -7,6 +7,7 @@ package persistencia.mybatis;
 
 import com.google.inject.Inject;
 import entidades.Estudiante;
+import entidades.Materia;
 import entidades.SolicitudCancelacion;
 import java.util.List;
 import javax.persistence.PersistenceException;
@@ -25,9 +26,13 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
     @Override
     
     public List<Estudiante> loadAll() {
-        try{
-        
-            return Estmaper.consultarEstudiantes();
+        try{        
+            List<Estudiante> estudiantes= Estmaper.consultarEstudiantes();
+            for(Estudiante i : estudiantes){
+                i.setMateriasActuales(Estmaper.loadMateriasActualesById(i.getCodigo())); 
+                i.setMateriasCursadas(Estmaper.loadMateriasCursadasById(i.getCodigo()));
+            }
+            return estudiantes;
         }
         catch(Exception e){
             throw new PersistenceException("Error al cargar los estudienates:"+e.getLocalizedMessage(), e);
@@ -53,6 +58,27 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
         catch(Exception e){
             throw new PersistenceException("Error al cargar el estudiante:"+e.getLocalizedMessage(), e);
         }
+    }
+    
+    @Override
+    public List<Materia> loadMateriasActuales(int id){
+       try{
+           return Estmaper.loadMateriasActualesById(id);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al cargar el estudiante:"+e.getLocalizedMessage(), e);
+        } 
+    }
+    
+    @Override
+    
+    public List<Materia> loadMateriasCursadas(int id){
+       try{
+           return Estmaper.loadMateriasCursadasById(id);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al cargar el estudiante:"+e.getLocalizedMessage(), e);
+        } 
     }
     
 }

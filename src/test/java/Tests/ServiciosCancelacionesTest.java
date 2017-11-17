@@ -17,6 +17,7 @@
 package Tests;
 
 import entidades.Estudiante;
+import entidades.Materia;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -173,15 +174,10 @@ public class ServiciosCancelacionesTest{
     public void prueba(){
         ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
         try{
-            Estudiante x = a.consultarEstudiante(1);
-            System.out.println(x.getNombre());
-            System.out.println(x.getCodigo());
-            System.out.println(x.getCorreo());
-            System.out.println(x.getAcudiente().getNombre());
-            System.out.println(x.getConsejero().getNombre());
+            List<Estudiante> x = a.consultarEstudiantes();
             
-            System.out.println(x.getMateriasCursadas());
-            
+            System.out.println(x.get(0).getMateriasActuales().size());
+          
 
         }catch(Exception e){
             e.printStackTrace();
