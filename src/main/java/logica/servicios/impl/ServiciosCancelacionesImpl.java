@@ -52,13 +52,11 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     }
     @Transactional
     @Override
-    public void agregarSolicitudCancelacionEstudiante(int idEstudiante, SolicitudCancelacion solicitudCancelacion) throws ExcepcionServiciosCancelaciones{
-        try{
-            Estudiante estudiante = daoEst.loadByID(idEstudiante);
-            estudiante.getSolicitudes().add(solicitudCancelacion);
-            daoEst.save(estudiante,solicitudCancelacion);
+    public void agregarSolicitudCancelacionEstudiante(SolicitudCancelacion solicitudCancelacion) throws ExcepcionServiciosCancelaciones{
+        try{            
+            daoEst.save(solicitudCancelacion);
         }catch(PersistenceException e){
-            throw new ExcepcionServiciosCancelaciones("Error al agregar la solicitud de cancelacion del estudiante:  "+idEstudiante+"..........."+e.getLocalizedMessage(), e);
+            throw new ExcepcionServiciosCancelaciones("Error al agregar la solicitud de cancelacion del estudiante:  "+solicitudCancelacion.getId()+"..........."+e.getLocalizedMessage(), e);
         }       
     }
     @Transactional

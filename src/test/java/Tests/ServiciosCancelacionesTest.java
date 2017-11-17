@@ -18,6 +18,7 @@ package Tests;
 
 import entidades.Estudiante;
 import entidades.Materia;
+import entidades.SolicitudCancelacion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -174,10 +175,10 @@ public class ServiciosCancelacionesTest{
     public void prueba(){
         ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
         try{
-            List<Estudiante> x = a.consultarEstudiantes();
+           SolicitudCancelacion  x = new SolicitudCancelacion(java.sql.Date.valueOf("2000-2-2"), "Esperando", 3, "me duele la vida", "sopc" , "muy mal panita",1,true,false);
+           a.agregarSolicitudCancelacionEstudiante(x);    
             
-            System.out.println(x.get(0).getMateriasActuales().get(0).getNemonico());
-          
+           
 
         }catch(Exception e){
             e.printStackTrace();

@@ -20,7 +20,7 @@ public interface EstudianteDAO {
     public List<Materia> loadMateriasActuales(int id);
     public List<Materia> loadMateriasCursadas(int id);    
     //public void actualizarEstudiante(Estudiante p);
-    public void save(Estudiante estudiante, SolicitudCancelacion solicitudCancelacion);
+    public void save(SolicitudCancelacion solicitudCancelacion);
     
     
 }

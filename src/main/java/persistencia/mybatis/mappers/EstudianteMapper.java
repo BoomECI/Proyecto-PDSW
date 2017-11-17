@@ -25,7 +25,7 @@ public interface EstudianteMapper {
     
     public List<Materia> loadMateriasCursadasById (@Param("ide")int id);
     
-    public void insertarSolicitud(@Param("est") Estudiante est, @Param("sol") SolicitudCancelacion sol);
+    public void insertarSolicitud(@Param("sol") SolicitudCancelacion solicitud);
     
     //public void insertarEstudiante(@Param("est")Estudiante e);
     

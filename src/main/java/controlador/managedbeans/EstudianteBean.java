@@ -125,10 +125,10 @@ public class EstudianteBean implements Serializable{
         this.descripcionCancelacion = descripcionCancelacion;
     }
     
-    public void cancelarMateria() throws ExcepcionServiciosCancelaciones{
-        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando respuesta", 1, descripcionCancelacion, materiaSeleccionada , "nada");
-        servCanc.agregarSolicitudCancelacionEstudiante(estudianteActual.getCodigo(), solicitudEstudiante);
-    }
+   // public void cancelarMateria() throws ExcepcionServiciosCancelaciones{
+       // solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando respuesta", 1, descripcionCancelacion, materiaSeleccionada , "nada",2110805);
+     //   servCanc.agregarSolicitudCancelacionEstudiante( solicitudEstudiante);
+   // }
     
     public void analizarSolicitud() throws ExcepcionServiciosCancelaciones{
        creditosRestantes = servCanc.consultarImpacto(comparar(), estudianteActual);

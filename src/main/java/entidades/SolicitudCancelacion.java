@@ -5,7 +5,9 @@
  */
 package entidades;
 
-import java.util.Date;
+import java.sql.Date;
+
+
 
 /**
  *
@@ -21,16 +23,20 @@ public class SolicitudCancelacion {
     private Boolean avalAcudiente;
     private int id;
     private String comentario;
+    private int Estudiante;
    
 
     public SolicitudCancelacion(){}
-    public SolicitudCancelacion(Date fecha, String estado, int id, String descripcion, String materiaSolicitada, String comentario) {
+    public SolicitudCancelacion(Date fecha, String estado, int id, String descripcion, String materiaSolicitada, String comentario,int Estudiante,Boolean avalConsejero,Boolean avalAcudiente ) {
         this.materiaSolicitada = materiaSolicitada;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.estado = estado;
         this.id = id;        
         this.comentario = comentario;
+        this.Estudiante=Estudiante;
+        this.avalAcudiente=avalAcudiente;
+        this.avalConsejero=avalConsejero;
     }
 
     public String getMateriaSolicitada() {

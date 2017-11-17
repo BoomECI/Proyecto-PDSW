@@ -31,7 +31,7 @@ public interface ServiciosCancelaciones {
      * @param solicitudCancelacion la solicitud de cancelación a ser agregada
      * @throws ExcepcionServiciosCancelaciones si se presenta algún error de persistencia o si el paciente no existe.
      */
-    public abstract void agregarSolicitudCancelacionEstudiante(int idEstudiante, SolicitudCancelacion solicitudCancelacion) throws ExcepcionServiciosCancelaciones;
+    public abstract void agregarSolicitudCancelacionEstudiante(SolicitudCancelacion solicitudCancelacion) throws ExcepcionServiciosCancelaciones;
     
     
     /**

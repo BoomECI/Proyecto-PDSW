@@ -43,7 +43,10 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
     public Estudiante loadByID(int id) {
         try{
         
-            return Estmaper.loadEstudianteById(id);
+            Estudiante x = Estmaper.loadEstudianteById(id);
+            x.setMateriasActuales(Estmaper.loadMateriasActualesById(x.getCodigo()));
+            x.setMateriasCursadas(Estmaper.loadMateriasCursadasById(x.getCodigo()));
+            return x;
         }
         catch(Exception e){
             throw new PersistenceException("Error al cargar el estudiante:"+e.getLocalizedMessage(), e);
@@ -51,9 +54,9 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
     }
 
     @Override
-    public void save(Estudiante estudiante, SolicitudCancelacion solicitudCancelacion) {
+    public void save(SolicitudCancelacion solicitudCancelacion) {
         try{
-            Estmaper.insertarSolicitud(estudiante, solicitudCancelacion);
+            Estmaper.insertarSolicitud(solicitudCancelacion);
         }
         catch(Exception e){
             throw new PersistenceException("Error al cargar el estudiante:"+e.getLocalizedMessage(), e);
