@@ -6,55 +6,53 @@
     <h:head></h:head>
     <h:form id="estudianteCancelacion">
         <h:body>
-                <p:outputLabel value="Estudiante: #{beanSolicitudEstudiante.estudianteActual.nombre}" />
-                <br />
-                <p:outputLabel value="Solicitud de cancelacion" />
-                <br />
-                <h:panelGrid columns="3" cellpadding="5">
-                    <p:outputLabel for="listadoAsignaturas" value="Asignatura a cancelar   " />
-                    <p:selectOneMenu id="listadoAsignaturas" required="true" value="#{beanSolicitudEstudiante.materiaSeleccionada}"  style="width:100px">
-                        <p:ajax listener="#{beanSolicitudEstudiante.analizarSolicitud()}" update="estudianteCancelacion"/> 
-                        <f:selectItem itemLabel="Asignatura" itemValue="" />
-                        <f:selectItems value="#{beanSolicitudEstudiante.materiasActuales}"  var="materiasEstudiante" itemValue="#{materiasEstudiante.nemonico}" itemLabel="#{materiasEstudiante.nemonico}" />
-                    </p:selectOneMenu>
-                    <p:message for="listadoAsignaturas" />
-                    
-                </h:panelGrid>
+            <p:outputLabel value="Estudiante: #{beanSolicitudEstudiante.estudianteActual.nombre}" style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br />
+            <p:outputLabel value="Solicitud de cancelacion" style="margin-left:39%; font-size: 150%; font-weight:bold" />
+            <br />
+            <br />
+            <p:outputLabel for="listadoAsignaturas" value="Asignatura a cancelar" style="margin-left:37%; font-size: 150%; font-weight:bold" />
+            <p:selectOneMenu id="listadoAsignaturas" required="true" value="#{beanSolicitudEstudiante.materiaSeleccionada}" style="width:7%;margin-left: 1%;" >
+                <p:ajax listener="#{beanSolicitudEstudiante.analizarSolicitud()}" update="estudianteCancelacion"/> 
+                <f:selectItem itemLabel="Asignatura" itemValue="" />
+                <f:selectItems value="#{beanSolicitudEstudiante.materiasActuales}"  var="materiasEstudiante" itemValue="#{materiasEstudiante.nemonico}" itemLabel="#{materiasEstudiante.nemonico}" />
+            </p:selectOneMenu>
+                <p:message for="listadoAsignaturas" />
                 
                 <br />
                 <br />
-                <p:panel id="cursoSeleccionado" header="Curso seleccionado">
-                    <h:outputText value="Curso seleccionado: #{beanSolicitudEstudiante.materiaSeleccionada} - #{beanSolicitudEstudiante.comparar().nombre}" />
+                <p:panel id="cursoSeleccionado" header="Curso seleccionado" style="text-align:center; width: 40%; margin: 0 auto">
+                    <h:outputText value="#{beanSolicitudEstudiante.materiaSeleccionada} - #{beanSolicitudEstudiante.comparar().nombre}"/>
                 </p:panel>
  
                 <br />
-                <p:panel id="impacto" header="Impacto">
+                <p:panel id="impacto" header="Impacto" style="text-align:center; width: 40%; margin: 0 auto">
                     <h:outputText value="Si cancela #{beanSolicitudEstudiante.materiaSeleccionada} le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} créditos restantes"  />
                 </p:panel>
                 
                 <br />
                 <br />
-                <h:panelGrid columns="2" cellpadding="5">
-                    <p:commandButton value="Anular operacion" action="#{beanSolicitudEstudiante.cancelarSolicitud()}" />
-                    <p:commandButton id="sol" value="Llenar la solicitud" type="button" update="detalleSolicitud" />
-                    <p:overlayPanel id="detalleSolicitud" for="sol" hideEffect="fade">
-                        <p:outputLabel for="des" value="Descripcion:   " />
-                        <p:inputText id="des" title="Descripcion" value="#{beanSolicitudEstudiante.descripcionCancelacion}"/>
-                        <p:message for="des" />
-                        <br />
-                        <br />
-                        <p:commandButton value ="enviar" actionListener="#{beanSolicitudEstudiante.cancelarMateria()}" update="detalleSolicitud" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()">
-                            <p:confirm  header="Confirmacion" message="Estas seguro de que quieres realizar esta cancelacion?" icon="ui-icon-alert" />
-                        </p:commandButton>
-                        
-                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-                        </p:confirmDialog>
+                <p:commandButton id="sol" value="Continuar con la cancelacion" type="button" update="detalleSolicitud" style="margin-left:38%" />
+                    <p:overlayPanel id="detalleSolicitud" for="sol" hideEffect="fade" style="margin: 0 auto">
+                    <p:outputLabel for="jus" value="Justificacion:   " />
+                    <br />
+                    <p:inputTextarea id="jus" counter="display" maxlength="400" counterTemplate="{0} caracteres restantes." title="¿Por que quiero cancelar?" value="#{beanSolicitudEstudiante.justificacionCancelacion}" rows="6" cols="33" autoResize="true"/>
+                    <br />
+                    <h:outputText id="display" />
+                    <br />
+                    <br/>
+                    <p:commandButton value ="enviar" actionListener="#{beanSolicitudEstudiante.cancelarMateria()}" update="detalleSolicitud" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()" style="margin-left:38%">
+                        <p:confirm  header="Confirmacion" message="Estas seguro de que quieres realizar esta cancelacion?" icon="ui-icon-alert" />
+                    </p:commandButton>
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:confirmDialog>
                     </p:overlayPanel>
-                    
-                </h:panelGrid>
-                <h:outputLink value="/logout">Logout</h:outputLink>
+                <br />
+                <br />
+                <br />
+                <h:outputLink value="/logout" style="font-size: 180%; margin-left:47%; font-weight:bold">Logout</h:outputLink>
         </h:body>
     </h:form>
 </html>

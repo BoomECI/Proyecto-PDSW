@@ -16,7 +16,7 @@ import java.util.Date;
 public class SolicitudCancelacion {
     
     private String materiaSolicitada;
-    private String descripcion;
+    private String justificacion;
     private Date fecha;
     private String estado;
     private Boolean avalConsejero;
@@ -27,9 +27,9 @@ public class SolicitudCancelacion {
    
 
     public SolicitudCancelacion(){}
-    public SolicitudCancelacion(Date fecha, String estado, int id, String descripcion, String materiaSolicitada, String comentario,int Estudiante,Boolean avalConsejero,Boolean avalAcudiente ) {
+    public SolicitudCancelacion(Date fecha, String estado, int id, String justificacion, String comentario,Boolean avalAcudiente,Boolean avalConsejero,String materiaSolicitada,int Estudiante ) {
         this.materiaSolicitada = materiaSolicitada;
-        this.descripcion = descripcion;
+        this.justificacion = justificacion;
         this.fecha = fecha;
         this.estado = estado;
         this.id = id;        
@@ -47,12 +47,12 @@ public class SolicitudCancelacion {
         this.materiaSolicitada = materiaSolicitada;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getJustificacion() {
+        return justificacion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setJustificacion(String justificacion) {
+        this.justificacion = justificacion;
     }
 
     public Date getFecha() {
@@ -102,6 +102,15 @@ public class SolicitudCancelacion {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
+
+    public int getEstudiante() {
+        return Estudiante;
+    }
+
+    public void setEstudiante(int Estudiante) {
+        this.Estudiante = Estudiante;
+    }
+    
     
     
     

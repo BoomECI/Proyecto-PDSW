@@ -31,7 +31,7 @@ public class EstudianteBean implements Serializable{
     private List<Materia> materiasActuales;
     private Estudiante estudianteActual;
     private String materiaSeleccionada;
-    private String descripcionCancelacion;
+    private String justificacionCancelacion;
     private int creditosRestantes;
     private SolicitudCancelacion solicitudEstudiante;
     
@@ -117,18 +117,18 @@ public class EstudianteBean implements Serializable{
         this.fechaCancelacion = fechaCancelacion;
     }
 
-    public String getDescripcionCancelacion() {
-        return descripcionCancelacion;
+    public String getJustificacionCancelacion() {
+        return justificacionCancelacion;
     }
 
-    public void setDescripcionCancelacion(String descripcionCancelacion) {
-        this.descripcionCancelacion = descripcionCancelacion;
+    public void setJustificacionCancelacion(String justificacionCancelacion) {
+        this.justificacionCancelacion = justificacionCancelacion;
     }
     
-   // public void cancelarMateria() throws ExcepcionServiciosCancelaciones{
-       // solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando respuesta", 1, descripcionCancelacion, materiaSeleccionada , "nada",2110805);
-     //   servCanc.agregarSolicitudCancelacionEstudiante( solicitudEstudiante);
-   // }
+   public void cancelarMateria() throws ExcepcionServiciosCancelaciones{
+       solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando", 10, justificacionCancelacion, "nada", false, false, materiaSeleccionada ,2110805);
+       servCanc.agregarSolicitudCancelacionEstudiante( solicitudEstudiante);
+   }
     
     public void analizarSolicitud() throws ExcepcionServiciosCancelaciones{
        creditosRestantes = servCanc.consultarImpacto(comparar(), estudianteActual);
@@ -158,9 +158,6 @@ public class EstudianteBean implements Serializable{
         this.solicitudes = solicitudes;
     }
     
-    public String cancelarSolicitud(){
-        return "solicitudcancelada.xhtml";
-    }
     
     public String finalizar(){
         return "esperarsolicitud.xhtml";
