@@ -4,7 +4,6 @@
  */
 package seguridad.bean;
 
-import java.io.File;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
@@ -17,6 +16,10 @@ import javax.faces.context.FacesContext;
 import java.io.IOException;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import org.apache.shiro.authc.credential.DefaultPasswordService;
+import org.apache.shiro.crypto.hash.DefaultHashService;
+import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.apache.shiro.util.SimpleByteSource;
 
 
 @ManagedBean(name = "loginBean")
@@ -41,17 +44,17 @@ public class ShiroLoginBean implements Serializable {
      */
     public void doLogin() {
         Subject subject = SecurityUtils.getSubject();
-
+        
         UsernamePasswordToken token = new UsernamePasswordToken(getUsername(), getPassword(), getRememberMe());
 
         try {
             subject.login(token);
 
-            if (subject.hasRole("estudiante")) {
+            if (subject.hasRole("directivo")) {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("directivo/ajustarparametros.xhtml");
+            }
+            else if(subject.hasRole("estudiante")){
                 FacesContext.getCurrentInstance().getExternalContext().redirect("estudiante/serviciocancelaciones.xhtml");
-            }  
-            else if(subject.hasRole("employee")){
-                FacesContext.getCurrentInstance().getExternalContext().redirect("employees/index.xhtml");
             }
             else {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("open/index.xhtml");
@@ -60,23 +63,27 @@ public class ShiroLoginBean implements Serializable {
         catch (UnknownAccountException ex) {
             facesError("Unknown account");
             log.error(ex.getMessage(), ex);
+            ex.printStackTrace();
         }
         catch (IncorrectCredentialsException ex) {
             facesError("Wrong password");
             log.error(ex.getMessage(), ex);
+            ex.printStackTrace();
         }
         catch (LockedAccountException ex) {
             facesError("Locked account");
             log.error(ex.getMessage(), ex);
+            ex.printStackTrace();
         }
         catch (AuthenticationException ex) {
             facesError("Unknown error: " + ex.getMessage());
             log.error(ex.getMessage(), ex);
+            ex.printStackTrace();
         }
         catch (IOException ex){
             facesError("Unknown error: " + ex.getMessage());
             log.error(ex.getMessage(), ex);
-            
+            ex.printStackTrace();
         }
         finally {
             token.clear();
@@ -114,4 +121,22 @@ public class ShiroLoginBean implements Serializable {
     public void setRememberMe(Boolean lembrar) {
         this.rememberMe = lembrar;
     }
+    
+    public static String generateHash(String password){
+        DefaultHashService hashService = new DefaultHashService();
+        hashService.setHashIterations(500000); // 500000
+        hashService.setHashAlgorithmName(Sha256Hash.ALGORITHM_NAME);
+        
+        // Same salt as in shiro.ini, but NOT base64-encoded!!
+        hashService.setPrivateSalt(new SimpleByteSource("myprivatesalt")); 
+        hashService.setGeneratePublicSalt(true);
+
+        DefaultPasswordService passwordService = new DefaultPasswordService();
+        passwordService.setHashService(hashService);
+        String encryptedPassword = passwordService.encryptPassword(password);
+        
+        return encryptedPassword;
+        
+    }
+        
 }

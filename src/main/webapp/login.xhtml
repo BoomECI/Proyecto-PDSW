@@ -5,17 +5,17 @@
 </h:head>
 <h:body>
     <h:form prependId="false">
-        <h:panelGrid columns="2" style="margin: 0 auto;margin-top: 15%">
-            <p:outputLabel value="Login:" for="username"/>
+        <h:panelGrid columns="2">
+            <h:outputText value="Login:"/>
             <p:inputText id="username" required="true" value="#{loginBean.username}"/>
 
-            <p:outputLabel value="Password:" for="password"/>
+            <h:outputText value="Password:"/>
             <p:password id="password" required="true" value="#{loginBean.password}"/>
 
-            <p:outputLabel value="Remember me:" for="rememberMe"/>
+            <h:outputText value="Remember me:"/>
             <p:selectBooleanCheckbox id="rememberMe" value="#{loginBean.rememberMe}"/>
 
-            <br />
+            <h:outputText/>
             <p:commandButton value="Login" action="#{loginBean.doLogin}" />
         </h:panelGrid>
 
