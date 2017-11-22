@@ -5,6 +5,8 @@
  */
 package entidades;
 
+import java.util.List;
+
 /**
  *
  * @author boomEci
@@ -14,12 +16,14 @@ public class Consejero {
     private int id;
     private String nombre;
     private String correo;
+    private List<Estudiante> estudiantesAconsejados;
     public Consejero(){}
     
-    public Consejero(int id, String nombre, String correo){
+    public Consejero(int id, String nombre, String correo, List<Estudiante> estudiantesAconsejados){
         this.id = id;
         this.nombre = nombre;
-        this.correo = correo;                
+        this.correo = correo;
+        this.estudiantesAconsejados = estudiantesAconsejados;
     }    
 
     public int getId() {
@@ -45,6 +49,15 @@ public class Consejero {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public List<Estudiante> getEstudiantesAconsejados() {
+        return estudiantesAconsejados;
+    }
+
+    public void setEstudiantesAconsejados(List<Estudiante> estudiantesAconsejados) {
+        this.estudiantesAconsejados = estudiantesAconsejados;
+    }
+    
     
     
     

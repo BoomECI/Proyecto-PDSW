@@ -51,7 +51,7 @@ public class EstudianteBean implements Serializable{
         mC.add(new Materia("ALLI","Algebra lineal",4,null,null));
         PlanDeEstudios PDE = new PlanDeEstudios();
         PDE.setNumeroDeCreditosTotales(154);
-        estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com"), new Acudiente(23,"Giovanni","gio.com",1234),
+        estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com",null), new Acudiente(23,"Giovanni","gio.com",1234),
                                                             1019138849,"cc",mA,mC,PDE,null);
         materiasCursadas = estudianteActual.getMateriasCursadas();
         materiasActuales = estudianteActual.getMateriasActuales();

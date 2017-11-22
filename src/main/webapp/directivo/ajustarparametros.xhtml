@@ -4,13 +4,13 @@
       xmlns:p="http://primefaces.org/ui" 
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head></h:head>
-    <h:form id="solicitudFinalizada">
+    <h:form id="directivoSolicitud">
         <h:body>
             <p:outputLabel value="Bienvenido Decano"/>
             <br/>
             <p:outputLabel value="Numero maximo de creditos(por semestre)" for="cred"/>
             <p:spinner id="cred" value="#{beanSolicitudDirectivo.creditosActuales}" min="3" max="100" title="Numero maximo de creditos que los estudiantes pueden ver por semestre" size="1">
-                <p:ajax listener="#{beanSolicitudDirectivo.cambiar()}" update="solicitudFinalizada" /> 
+                <p:ajax listener="#{beanSolicitudDirectivo.cambiar()}" update="directivoSolicitud" /> 
             </p:spinner> 
             <br/>
             <p:outputLabel value="Actualizar grafo de plan de estudios"/>
