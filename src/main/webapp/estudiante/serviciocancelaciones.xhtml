@@ -34,20 +34,20 @@
                 <br />
                 <p:commandButton id="sol" value="Continuar con la cancelacion" type="button" update="detalleSolicitud" style="margin-left:38%" />
                     <p:overlayPanel id="detalleSolicitud" for="sol" hideEffect="fade" style="margin: 0 auto">
-                    <p:outputLabel for="jus" value="Justificacion:   " />
-                    <br />
-                    <p:inputTextarea id="jus" counter="display" maxlength="400" counterTemplate="{0} caracteres restantes." title="¿Por que quiero cancelar?" value="#{beanSolicitudEstudiante.justificacionCancelacion}" rows="6" cols="33" autoResize="true"/>
-                    <br />
-                    <h:outputText id="display" />
-                    <br />
-                    <br/>
-                    <p:commandButton value ="enviar" actionListener="#{beanSolicitudEstudiante.cancelarMateria()}" update="detalleSolicitud" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()" style="margin-left:38%">
-                        <p:confirm  header="Confirmacion" message="Estas seguro de que quieres realizar esta cancelacion?" icon="ui-icon-alert" />
-                    </p:commandButton>
-                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-                    </p:confirmDialog>
+                        <p:outputLabel for="jus" value="Justificacion:   " />
+                        <br />
+                        <p:inputTextarea id="jus" counter="display" maxlength="400" counterTemplate="{0} caracteres restantes." title="¿Por que quiero cancelar?" value="#{beanSolicitudEstudiante.justificacionCancelacion}" rows="6" cols="26" autoResize="true"/>
+                        <br />
+                        <h:outputText id="display" />
+                        <br />
+                        <br/>
+                        <p:commandButton value ="enviar" actionListener="#{beanSolicitudEstudiante.cancelarMateria()}" update="detalleSolicitud" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()" style="margin-left:38%">
+                            <p:confirm  header="Confirmacion" message="Estas seguro de que quieres realizar esta cancelacion?" icon="ui-icon-alert" />
+                        </p:commandButton>
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
                     </p:overlayPanel>
                 <br />
                 <br />

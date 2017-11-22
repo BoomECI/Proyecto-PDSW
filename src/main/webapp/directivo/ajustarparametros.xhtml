@@ -6,6 +6,16 @@
     <h:head></h:head>
     <h:form id="solicitudFinalizada">
         <h:body>
-            
+            <p:outputLabel value="Bienvenido Decano"/>
+            <br/>
+            <p:outputLabel value="Numero maximo de creditos(por semestre)" for="cred"/>
+            <p:spinner id="cred" value="#{beanSolicitudDirectivo.creditosActuales}" min="3" max="100" title="Numero maximo de creditos que los estudiantes pueden ver por semestre" size="1">
+                <p:ajax listener="#{beanSolicitudDirectivo.cambiar()}" update="solicitudFinalizada" /> 
+            </p:spinner> 
+            <br/>
+            <p:outputLabel value="Actualizar grafo de plan de estudios"/>
+            <br/>
+            <p:outputLabel value="Grafo valido: False"/>
         </h:body>
     </h:form>
+</html>

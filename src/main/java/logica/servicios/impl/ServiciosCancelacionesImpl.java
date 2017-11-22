@@ -108,6 +108,10 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     public List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones {
         return daoCon.loadMSolicitudesNoTramitadas(id);
     }
+
+    @Override
+    public void cambiarCreditosTotalesPorSemestre(int creditos) {
+    }
     
     
        

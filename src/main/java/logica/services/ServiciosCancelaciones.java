@@ -109,6 +109,8 @@ public interface ServiciosCancelaciones {
      * @throws ExcepcionServiciosCancelaciones 
      */
     public abstract List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones;
+
+    public void cambiarCreditosTotalesPorSemestre(int creditosActuales);
     
         
 }    
