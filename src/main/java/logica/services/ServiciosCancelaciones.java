@@ -77,6 +77,38 @@ public interface ServiciosCancelaciones {
     public abstract int consultarImpacto(Materia cancelada, Estudiante estudiante) throws ExcepcionServiciosCancelaciones;    
    
     
+    
+    /**
+     * Consulta todos los estudiantes registrados
+     * @return lista de los estudiantes
+     * @throws ExcepcionServiciosCancelaciones 
+     */
     public abstract List<Estudiante> consultarEstudiantes() throws ExcepcionServiciosCancelaciones;
+    
+    
+    /**
+     * Consultar todas las solicitudes de cancelacion de los aconsejados dado el
+     * id del consejero
+     * @return Lista de solicitudes de cancelaciones
+     * @throws ExcepcionServiciosCancelaciones 
+     */
+    public abstract List<SolicitudCancelacion> consultarCancelacionesAconsejados(int id) throws ExcepcionServiciosCancelaciones;
+    
+    /**
+     * Consulta todas las solicitudes de cancelacion tramitadas de los aconsejados dado el
+     * id del consejero
+     * @return Lista de solicitudes de cancelaciones
+     * @throws ExcepcionServiciosCancelaciones 
+     */
+    public abstract List<SolicitudCancelacion> consultarCancelacionesTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones;
+    
+    /**
+     * Consultar todas las solicitudes de cancelacion no tramitadas de los aconsejados dado el
+     * id del consejero
+     * @return Lista de solicitudes de cancelaciones
+     * @throws ExcepcionServiciosCancelaciones 
+     */
+    public abstract List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones;
+    
         
 }    

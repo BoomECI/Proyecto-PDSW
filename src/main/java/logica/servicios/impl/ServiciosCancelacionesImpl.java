@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.PersistenceException;
 import org.mybatis.guice.transactional.Transactional;
+import persistencia.ConsejeroDAO;
 import persistencia.EstudianteDAO;
 import persistencia.mybatis.mappers.EstudianteMapper;
 
@@ -31,6 +32,9 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     
     @Inject
     private CalculoDeImpacto impacto;
+    
+    @Inject
+    private ConsejeroDAO daoCon;
     
     @Transactional
     @Override
@@ -89,6 +93,21 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     public int consultarImpacto(Materia cancelada, Estudiante estudiante) throws ExcepcionServiciosCancelaciones {        
         return impacto.CalculoImpacto(cancelada, estudiante);
     }    
+
+    @Override
+    public List<SolicitudCancelacion> consultarCancelacionesAconsejados(int id) throws ExcepcionServiciosCancelaciones {
+        return daoCon.loadSolicitudes(id);
+    }
+
+    @Override
+    public List<SolicitudCancelacion> consultarCancelacionesTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones {
+        return daoCon.loadSolicitudesTramitadas(id);
+    }
+
+    @Override
+    public List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones {
+        return daoCon.loadMSolicitudesNoTramitadas(id);
+    }
     
     
        

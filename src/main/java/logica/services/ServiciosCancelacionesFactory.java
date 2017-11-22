@@ -8,6 +8,8 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 import persistencia.EstudianteDAO;
 import persistencia.mybatis.EstudianteDAOMyBatis;
 import static com.google.inject.Guice.createInjector;
+import persistencia.ConsejeroDAO;
+import persistencia.mybatis.ConsejeroDAOMyBatis;
 
 /**
  *
@@ -29,6 +31,7 @@ public class ServiciosCancelacionesFactory {
                 bind(EstudianteDAO.class).to(EstudianteDAOMyBatis.class);
                 bind(ParserGrafo.class).to(ParserJSON.class);
                 bind(CalculoDeImpacto.class).to(CalculoPorCreditos.class);
+                bind(ConsejeroDAO.class).to(ConsejeroDAOMyBatis.class);
             }
 
         }
@@ -44,6 +47,7 @@ public class ServiciosCancelacionesFactory {
                 bind(EstudianteDAO.class).to(EstudianteDAOMyBatis.class);
                 bind(ParserGrafo.class).to(ParserJSON.class);
                 bind(CalculoDeImpacto.class).to(CalculoPorCreditos.class);
+                bind(ConsejeroDAO.class).to(ConsejeroDAOMyBatis.class);
             }
 
         }
