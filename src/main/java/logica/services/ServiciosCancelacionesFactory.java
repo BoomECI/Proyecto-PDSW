@@ -31,7 +31,7 @@ public class ServiciosCancelacionesFactory {
                 bind(EstudianteDAO.class).to(EstudianteDAOMyBatis.class);
                 bind(ParserGrafo.class).to(ParserJSON.class);
                 bind(CalculoDeImpacto.class).to(CalculoPorCreditos.class);
-                bind(ConsejeroDAO.class).to(ConsejeroDAOMyBatis.class);
+                //bind(ConsejeroDAO.class).to(ConsejeroDAOMyBatis.class);
             }
 
         }
@@ -47,7 +47,7 @@ public class ServiciosCancelacionesFactory {
                 bind(EstudianteDAO.class).to(EstudianteDAOMyBatis.class);
                 bind(ParserGrafo.class).to(ParserJSON.class);
                 bind(CalculoDeImpacto.class).to(CalculoPorCreditos.class);
-                bind(ConsejeroDAO.class).to(ConsejeroDAOMyBatis.class);
+                //bind(ConsejeroDAO.class).to(ConsejeroDAOMyBatis.class);
             }
 
         }
