@@ -9,7 +9,11 @@ import entidades.Grafo;
 import entidades.Materia;
 import entidades.PlanDeEstudios;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 import javax.json.Json;
+import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonValue;
@@ -41,6 +45,8 @@ public class ParserJSON implements ParserGrafo{
         for (JsonValue i: jo.getJsonArray("materias")){
             g.addNode(new Materia(i.toString()));
         }
+        System.out.println(jo.getJsonObject("fimf").getJsonString("co").toString());
+        System.out.println(jo.getJsonObject("fimf").getJsonArray("pre").toString());
         
         return g;
     

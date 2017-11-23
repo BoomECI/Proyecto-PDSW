@@ -255,6 +255,7 @@ public class ServiciosCancelacionesTest{
                 "	\"pgr2\": [], \n" +
                 "	\"cosw\": [], \n" +
                 "	\"sosw\": []\n" +
+                
                 "}");
            
             Grafo graph = p.convertJsonToGrafo(o);
