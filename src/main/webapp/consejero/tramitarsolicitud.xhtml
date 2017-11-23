@@ -4,13 +4,35 @@
       xmlns:p="http://primefaces.org/ui" 
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head></h:head>
-    <h:form id="tramitarConsejero">
-        <h:body>
-            <p:outputLabel value="Profesor: #{beanSolicitudConsejero.consejeroActual.nombre}" style="margin-left:37%; font-size: 200%; font-weight:bold" />
-            <br/>
-            <p:outputLabel value="Solicitudes de cancelacion de aconsejados pendientes" style="margin-left:32%; font-size: 150%; font-weight:bold" />
-            <br/>
-            <br/>
+    <h:form id="tramitarConsejero" style="margin: auto">
+        <h:body>  
+            <p:outputPanel id="datos" style="text-align: center; margin: auto">
+                <p:outputLabel value="Profesor: #{beanSolicitudConsejero.consejeroActual.nombre}" style="font-size: 200%; font-weight:bold" />
+                <br/>
+                <p:outputLabel value="Solicitudes de cancelacion de aconsejados pendientes" style="font-size: 150%; font-weight:bold" />
+                <br/>
+                <p:outputLabel value="Nombre: #{beanSolicitudConsejero.nombreEstudianteSolicitud}" style="font-size: 150%; font-weight:bold" />
+                <br/>
+                <p:outputLabel value="Fecha: #{beanSolicitudConsejero.solicitudSeleccionada.fecha}" style="font-size: 150%; font-weight:bold" />
+                <br/>
+                <p:outputLabel value="Codigo estudiante: #{beanSolicitudConsejero.solicitudSeleccionada.estudiante}"  style="font-size: 150%; font-weight:bold" />
+                <br/>
+                <p:outputLabel value="Materia a cancelar: #{beanSolicitudConsejero.solicitudSeleccionada.materiaSolicitada}"  style="font-size: 150%; font-weight:bold" />
+                <br/>
+                <p:outputLabel value="Justificacion: #{beanSolicitudConsejero.solicitudSeleccionada.justificacion}"  style="font-size: 150%; font-weight:bold" />
+                <br/>
+                <p:inputTextarea id="jus" maxlength="400" counterTemplate="{0} caracteres restantes." title="Haga un comentario acerca de la solicitud de cancelacion hecha por el estudiante" value="#{beanSolicitudConsejero.solicitudSeleccionada.comentario}" rows="6" cols="26" autoResize="true" />
+                <br/>
+                <p:outputLabel value="Aprobar la solicitud:" for="avalConsejero" style="font-size: 150%; font-weight:bold"/>
+                <p:selectBooleanButton id="avalConsejero" value="#{beanSolicitudConsejero.solicitudSeleccionada.avalConsejero}" onLabel="Si" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:80px"/>
+                <br/>
+                <br/>
+                <h:panelGrid columns="2" cellpadding="30" style="margin: auto" >
+                    <p:commandButton value="Enviar" actionListener="#{beanSolicitudConsejero.tramitar()}" update="tramitarConsejero"/>
+                    <p:commandButton value="Cancelar" action="#{beanSolicitudConsejero.irAtras()}" update="tramitarConsejero"/>                   
+                </h:panelGrid>
+               
+            </p:outputPanel>
         </h:body>
     </h:form>
 </html>

@@ -28,7 +28,7 @@
                             <h:outputText value="#{solsSi.estado}" />
                         </p:column>
                         <p:column headerText="Accion" style="width:18%;text-align: center">
-                            <h:commandButton  value="Consultar" title="consultar la solicitud seleccionada" action="#{beanSolicitudConsejero.consultarSolicitud()}">
+                            <h:commandButton  value="Consultar" title="consultar la solicitud seleccionada" action="#{beanSolicitudConsejero.consultarSolicitud()}" >
                                 <f:setPropertyActionListener value="#{solsSi}" target="#{beanSolicitudConsejero.solicitudSeleccionada}"/>
                             </h:commandButton>
                         </p:column>
@@ -50,9 +50,9 @@
                             <h:outputText value="#{solsNo.estado}" />
                         </p:column>
                         <p:column headerText="Accion" style="width:18%;text-align: center">
-                            <h:commandButton  value="Tramitar" title="consultar la solicitud seleccionada" action="#{beanSolicitudConsejero.tramitarSolicitud()}">
-                                <f:setPropertyActionListener value="#{solsNo}" target="#{beanSolicitudConsejero.solicitudSeleccionada}"/>
-                            </h:commandButton>
+                            <p:commandButton id="tramitar" value="Tramitar" title="tramitar la solicitud seleccionada" action="#{beanSolicitudConsejero.tramitarSolicitud()}" >
+                                <f:setPropertyActionListener value="#{solsNo}" target="#{beanSolicitudConsejero.solicitudSeleccionada}" />
+                            </p:commandButton>
                         </p:column>
                     </p:dataTable>
                 </p:tab>

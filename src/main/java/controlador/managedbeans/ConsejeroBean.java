@@ -36,14 +36,12 @@ public class ConsejeroBean implements Serializable{
     
     
     public ConsejeroBean() throws ExcepcionServiciosCancelaciones{
+        solicitudSeleccionada = new SolicitudCancelacion();
         solicitudesTramitadas = new ArrayList<SolicitudCancelacion>();
         solicitudesNoTramitadas = new ArrayList<SolicitudCancelacion>();
         solicitudesTramitadas.add(new SolicitudCancelacion(new Date(117,11,22), "Tramitada", 1, "No voy bien y no entiendo nada", "Vaya a clase vago", false, false, "ACFI", 1));
         solicitudesNoTramitadas.add(new SolicitudCancelacion(new Date(116,05,14), "Pendiente", 1, "No tengo tiempo para estudiar la correccion de algoritmos", null, false, false, "TPRO", 2));
         consejeroActual = new Consejero(222340, "Rodrigo Lopez", "rodrigo.lopez@escuelaing.edu.co", null);
-        //solicitudes = servCanc.consultarCancelacionesAconsejados(consejeroActual.getId());
-        //solicitudesNoTramitadas = servCanc.consultarCancelacionesNoTramitadasAconsejados(consejeroActual.getId());
-        //solicitudesTramitadas = servCanc.consultarCancelacionesTramitadasAconsejados(consejeroActual.getId());
     }
 
     public ServiciosCancelaciones getServCanc() {
@@ -82,16 +80,27 @@ public class ConsejeroBean implements Serializable{
         this.nombreEstudianteSolicitud = nombreEstudianteSolicitud;
     }
     
+    public void tramitar() throws ExcepcionServiciosCancelaciones{
+        servCanc.agregarComentarioConsejero(consejeroActual.getId(), solicitudSeleccionada.getComentario());
+        servCanc.cambiarElAvalDeConsejero(consejeroActual.getId(), solicitudSeleccionada.getAvalConsejero());
+        servCanc.cambiarElestadoDeLaSolicitud(consejeroActual.getId(), "Tramitada");
+    }
     
     
-    public String consultarSolicitud(){
+    
+    public String consultarSolicitud() throws ExcepcionServiciosCancelaciones{
+        nombreEstudianteSolicitud = servCanc.consultarEstudiante(solicitudSeleccionada.getEstudiante()).getNombre();
         return "consultarsolicitud.xhtml";
     }
     
-    public String tramitarSolicitud(){
+    public String tramitarSolicitud() throws ExcepcionServiciosCancelaciones{
+        nombreEstudianteSolicitud = servCanc.consultarEstudiante(solicitudSeleccionada.getEstudiante()).getNombre();
         return "tramitarsolicitud.xhtml";
     }
     
+    public String irAtras(){
+        return "listadosolcancel.xhtml";
+    }
     
     
     

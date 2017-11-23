@@ -15,6 +15,12 @@
             <br/>
             <p:outputLabel value="Fecha: #{beanSolicitudConsejero.solicitudSeleccionada.fecha}" style="margin-left:32%; font-size: 150%; font-weight:bold" />
             <br/>
+            <p:outputLabel value="Codigo estudiante: #{beanSolicitudConsejero.solicitudSeleccionada.estudiante}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br/>
+            <p:outputLabel value="Materia a cancelar: #{beanSolicitudConsejero.solicitudSeleccionada.materiaSolicitada}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br/>
+            <p:outputLabel value="Justificacion: #{beanSolicitudConsejero.solicitudSeleccionada.justificacion}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br/>
             <p:outputLabel value="Codigo solicitud: #{beanSolicitudConsejero.solicitudSeleccionada.id}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
             <br/>
             <p:outputLabel value="Aval acudiente: #{beanSolicitudConsejero.solicitudSeleccionada.avalAcudiente.toString()}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
@@ -23,7 +29,7 @@
             <br/>
             <p:outputLabel value="Comentario: #{beanSolicitudConsejero.solicitudSeleccionada.comentario}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
             <br/>
-            <p:outputLabel value="Codigo estudiante: #{beanSolicitudConsejero.solicitudSeleccionada.estudiante}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <p:commandButton value="Atras" action="#{beanSolicitudConsejero.irAtras()}" update="consultarConsejero" />
         </h:body>
     </h:form>
 </html>
