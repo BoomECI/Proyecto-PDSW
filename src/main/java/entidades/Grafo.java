@@ -33,6 +33,12 @@ public class Grafo {
         }
     }
     
+    public void addEdge(Materia m1, Materia m2){
+        if (grafo.get(m1) != null){
+            //grafo.put(m1, grafo.get(m1));
+        }
+    }
+    
     public void printNodes(){
         for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
             System.out.println(entry.getKey().getNemonico() );
