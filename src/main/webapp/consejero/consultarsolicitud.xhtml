@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head></h:head>
+    <h:form id="consultarConsejero">
+        <h:body>
+            <p:outputLabel value="Profesor: #{beanSolicitudConsejero.consejeroActual.nombre}" style="margin-left:37%; font-size: 200%; font-weight:bold" />
+            <br/>
+            <br/>
+            <p:outputLabel value="Solicitudes de cancelacion de aconsejados tramitadas" style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br/>
+            <p:outputLabel value="Nombre: #{beanSolicitudConsejero.nombreEstudianteSolicitud}" style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br/>
+            <p:outputLabel value="Fecha: #{beanSolicitudConsejero.solicitudSeleccionada.fecha}" style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br/>
+            <p:outputLabel value="Codigo solicitud: #{beanSolicitudConsejero.solicitudSeleccionada.id}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br/>
+            <p:outputLabel value="Aval acudiente: #{beanSolicitudConsejero.solicitudSeleccionada.avalAcudiente.toString()}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br/>
+            <p:outputLabel value="Aval profesor: #{beanSolicitudConsejero.solicitudSeleccionada.avalConsejero.toString()}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br/>
+            <p:outputLabel value="Comentario: #{beanSolicitudConsejero.solicitudSeleccionada.comentario}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
+            <br/>
+            <p:outputLabel value="Codigo estudiante: #{beanSolicitudConsejero.solicitudSeleccionada.estudiante}"  style="margin-left:32%; font-size: 150%; font-weight:bold" />
+        </h:body>
+    </h:form>
+</html>
