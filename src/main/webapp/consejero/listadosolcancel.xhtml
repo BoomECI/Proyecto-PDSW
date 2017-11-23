@@ -11,26 +11,52 @@
             <p:outputLabel value="Solicitudes de cancelacion de aconsejados" style="margin-left:32%; font-size: 150%; font-weight:bold" />
             <br/>
             <br/>
-            <p:dataTable id="solicitudess" var="sols" value="#{beanSolicitudConsejero.solicitudes}" style="width: 80%; margin: 0 auto">
-                <f:facet name="header">
-                    Solicitudes
-                </f:facet>
-                <p:column headerText="Fecha Solicitud" style="text-align: center">
-                    <h:outputText value="#{sols.fecha}" />
-                </p:column>
-                <p:column headerText="Codigo solicitante" style="text-align: center">
-                    <h:outputText value="#{sols.estudiante}" />
-                </p:column>
-                <p:column headerText="Nombre solicitante" style="text-align: center">
-                    <h:outputText value="#{beanSolicitudConsejero.servCanc.consultarEstudiante(sols.estudiante).nombre}" />
-                </p:column>
-                <p:column headerText="Estado" style="text-align: center">
-                    <h:outputText value="#{sols.estado}" />
-                </p:column>
-                <p:column headerText="Accion" style="width:18%;text-align: center">
-                    <p:commandButton  value="Tramitar" title="tramitar la solicitud seleccionada" action="#{beanSolicitudConsejero.irASolicitud()}" actionListener="#{beanSolicitudConsejero.setSolicitudSeleccionada(solicitudSeleccionada)}"/>
-                </p:column>
-            </p:dataTable>
+            
+            <p:tabView>
+                <p:tab title="Tramitadas">
+                    <p:dataTable id="sitram" var="solsSi" value="#{beanSolicitudConsejero.solicitudesTramitadas}" style="width: 80%; margin: 0 auto">
+                        <p:column headerText="Fecha Solicitud" style="text-align: center">
+                            <h:outputText value="#{solsSi.fecha}" />
+                        </p:column>
+                        <p:column headerText="Codigo solicitante" style="text-align: center">
+                            <h:outputText value="#{solsSi.estudiante}" />
+                        </p:column>
+                        <p:column headerText="Nombre solicitante" style="text-align: center">
+                            <h:outputText value="#{beanSolicitudConsejero.servCanc.consultarEstudiante(solsSi.estudiante).nombre}" />
+                        </p:column>
+                        <p:column headerText="Estado" style="text-align: center">
+                            <h:outputText value="#{solsSi.estado}" />
+                        </p:column>
+                        <p:column headerText="Accion" style="width:18%;text-align: center">
+                            <h:commandButton  value="Consultar" title="consultar la solicitud seleccionada" action="#{beanSolicitudConsejero.consultarSolicitud()}">
+                                <f:setPropertyActionListener value="#{solsSi}" target="#{beanSolicitudConsejero.solicitudSeleccionada}"/>
+                            </h:commandButton>
+                        </p:column>
+                    </p:dataTable>
+                </p:tab>
+                
+                <p:tab title="No Tramitadas">
+                    <p:dataTable id="notram" var="solsNo" value="#{beanSolicitudConsejero.solicitudesNoTramitadas}" style="width: 80%; margin: 0 auto">
+                        <p:column headerText="Fecha Solicitud" style="text-align: center">
+                            <h:outputText value="#{solsNo.fecha}" />
+                        </p:column>
+                        <p:column headerText="Codigo solicitante" style="text-align: center">
+                            <h:outputText value="#{solsNo.estudiante}" />
+                        </p:column>
+                        <p:column headerText="Nombre solicitante" style="text-align: center">
+                            <h:outputText value="#{beanSolicitudConsejero.servCanc.consultarEstudiante(solsNo.estudiante).nombre}" />
+                        </p:column>
+                        <p:column headerText="Estado" style="text-align: center">
+                            <h:outputText value="#{solsNo.estado}" />
+                        </p:column>
+                        <p:column headerText="Accion" style="width:18%;text-align: center">
+                            <h:commandButton  value="Tramitar" title="consultar la solicitud seleccionada" action="#{beanSolicitudConsejero.tramitarSolicitud()}">
+                                <f:setPropertyActionListener value="#{solsNo}" target="#{beanSolicitudConsejero.solicitudSeleccionada}"/>
+                            </h:commandButton>
+                        </p:column>
+                    </p:dataTable>
+                </p:tab>
+            </p:tabView>
         </h:body>
     </h:form>
 </html>
