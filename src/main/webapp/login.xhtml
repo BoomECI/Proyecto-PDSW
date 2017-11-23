@@ -6,19 +6,21 @@
 <h:body>
     <h:form prependId="false">
         <h:panelGrid columns="2" style="margin: 0 auto;margin-top: 15%">
-            <p:outputLabel value="Login:" for="username"/>
-            <p:inputText id="username" required="true" value="#{loginBean.username}"/>
+            <h:panelGrid columns="2" style="margin: 0 auto;margin-top: 15%">
+                <p:outputLabel value="Carnet :" for="username" style="font-family: Verdana; font-size: 20pt;"/>
+                <p:inputText id="username" required="true" value="#{loginBean.username}"/>
 
-            <p:outputLabel value="Password:" for="password"/>
-            <p:password id="password" required="true" value="#{loginBean.password}"/>
+                <p:outputLabel value="Password:" for="password"  style="font-family: Verdana; font-size: 15pt;"/>
+                <p:password id="password" required="true" value="#{loginBean.password}"/>
 
-            <p:outputLabel value="Remember me:" for="rememberMe"/>
-            <p:selectBooleanCheckbox id="rememberMe" value="#{loginBean.rememberMe}"/>
+                <p:outputLabel value="Recordarme: " for="rememberMe" style="font-family: Verdana; font-size: 15pt;"/>
+                <p:selectBooleanCheckbox id="rememberMe" value="#{loginBean.rememberMe}"/>
 
-            <br />
-            <p:commandButton value="Login" action="#{loginBean.doLogin}" />
+                <br />
+                <p:commandButton value="Login" action="#{loginBean.doLogin}" />
+            </h:panelGrid>
+            <img src="\recursosVisuales\logo-login.jpg" width="512" height="195" alt="Logotipo" /> 
         </h:panelGrid>
-
         <p:messages id="messages" autoUpdate="true" closable="true" />
     </h:form>
 </h:body>
