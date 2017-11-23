@@ -20,7 +20,7 @@ import logica.services.ServiciosCancelacionesFactory;
 
 /**
  *
- * @author camil
+ * @author BoomEci
  */
 
 @ManagedBean(name="beanSolicitudConsejero")
