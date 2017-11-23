@@ -8,6 +8,7 @@ package controlador.managedbeans;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import logica.services.ExcepcionServiciosCancelaciones;
 import logica.services.ServiciosCancelaciones;
 import logica.services.ServiciosCancelacionesFactory;
 
@@ -39,7 +40,7 @@ public class DirectivoBean implements Serializable{
         return servCanc;
     }
     
-    public void cambiar(){
+    public void cambiar() throws ExcepcionServiciosCancelaciones{
         servCanc.cambiarCreditosTotalesPorSemestre(creditosActuales);
     }
     
