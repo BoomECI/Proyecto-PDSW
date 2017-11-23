@@ -35,7 +35,9 @@ public class Grafo {
     
     public void addEdge(Materia m1, Materia m2){
         if (grafo.get(m1) != null){
-            //grafo.put(m1, grafo.get(m1));
+           Set<Materia> materia=grafo.get(m1);
+           materia.add(m2);
+           grafo.put(m1, materia);           
         }
     }
     
