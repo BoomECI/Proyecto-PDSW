@@ -21,6 +21,7 @@ public class Estudiante {
     private List<Materia> materiasCursadas;
     private PlanDeEstudios planDeEstudios;
     private List<SolicitudCancelacion> solicitudes;
+    private int creditos;
     
     public Estudiante(){}
     public Estudiante(int codigo, String nombre, String correo,

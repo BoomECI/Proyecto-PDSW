@@ -6,4 +6,6 @@ deployment:
   staging:
     branch: master
     heroku: 
-      appname: proyectopdsw
+      appname: Proyecto-PDSW
+
+      

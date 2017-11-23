@@ -14,13 +14,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
-    <dependencies>
+    <dependencies>        
+
+    
+        
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.json</artifactId>
             <version>1.0.4</version>
-        
+
         </dependency>
+        
+          
         <dependency>
 		<groupId>cglib</groupId>
 		<artifactId>cglib</artifactId>
@@ -241,7 +246,9 @@
                 </configuration>
             </plugin>
             
-            <plugin>
+            
+            <!-- Plugin configuration for Heroku compatibility. -->
+                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>2.1</version>
@@ -260,13 +267,12 @@
                                         <destFileName>webapp-runner.jar</destFileName>
                                     </artifactItem>
                                 </artifactItems>
-        
+
                             </configuration>
                         </execution>
-        
+
                     </executions>
                 </plugin>
-
             
         </plugins>
     </build>

@@ -87,14 +87,6 @@ public interface ServiciosCancelaciones {
     
     
     /**
-     * Consultar todas las solicitudes de cancelacion de los aconsejados dado el
-     * id del consejero
-     * @return Lista de solicitudes de cancelaciones
-     * @throws ExcepcionServiciosCancelaciones 
-     */
-    public abstract List<SolicitudCancelacion> consultarCancelacionesAconsejados(int id) throws ExcepcionServiciosCancelaciones;
-    
-    /**
      * Consulta todas las solicitudes de cancelacion tramitadas de los aconsejados dado el
      * id del consejero
      * @return Lista de solicitudes de cancelaciones
@@ -110,7 +102,33 @@ public interface ServiciosCancelaciones {
      */
     public abstract List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones;
 
-    public void cambiarCreditosTotalesPorSemestre(int creditosActuales);
+    
+    /**
+     * Agrega el comentario a la solicitud que en el momento este utilizando
+     * @param id_soli de la solicitud
+     * @param comentario del consejero
+     * @throws ExcepcionServiciosCancelaciones 
+     */
+    public abstract void agregarComentarioConsejero(int id_soli, String comentario) throws ExcepcionServiciosCancelaciones;
+            
+    /**
+     * Cambia el estado de la solicitud de cancelacion del estudiante. 
+     * Cambia de pendiente a tramitada.
+     * * @param id_soli de la solicitud
+     * * @param estado de la solicitud
+     * @throws ExcepcionServiciosCancelaciones 
+     */
+    public abstract void cambiarElestadoDeLaSolicitud(int id_soli, String estado) throws ExcepcionServiciosCancelaciones;     
+    
+    /**
+     * Cambia el aval del consejero con respecto a la solicitud de cancelacion
+     * Da la aprobacion(True) o no la aprueba(False)     * 
+     * @param id de la solicitud
+     * @param aval del consejero
+     */
+    public abstract void cambiarElAvalDeConsejero(int id_soli, boolean aval)throws ExcepcionServiciosCancelaciones;
+    
+    public abstract void cambiarCreditosTotalesPorSemestre(int creditosActuales)throws ExcepcionServiciosCancelaciones;
     
         
 }    
