@@ -40,8 +40,7 @@ public class DirectivoBean implements Serializable{
     }
     
     public void cambiar(){
-        servCanc.cambiarCreditosTotalesPorSemestre(creditosActuales);
+        //servCanc.cambiarCreditosTotalesPorSemestre(creditosActuales);
     }
-    
-    
+   
 }

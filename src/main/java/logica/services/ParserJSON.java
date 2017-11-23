@@ -43,10 +43,20 @@ public class ParserJSON implements ParserGrafo{
     public Grafo convertJsonToGrafo(JsonObject jo){
         Grafo g = new Grafo();
         for (JsonValue i: jo.getJsonArray("materias")){
-            g.addNode(new Materia(i.toString()));
+            JsonObject mat = jo.getJsonObject(i.toString().replaceAll("\"",""));
+            g.addNode(new Materia(i.toString().replaceAll("\"",""),mat.getJsonString("nombre").toString().replaceAll("\"",""),Integer.parseInt(mat.getJsonString("creditos").toString().replaceAll("\"",""))));
+            
+            
+            //g.addNode(new Materia(i.toString()));
         }
-        System.out.println(jo.getJsonObject("fimf").getJsonString("co").toString());
-        System.out.println(jo.getJsonObject("fimf").getJsonArray("pre").toString());
+        for (JsonValue i: jo.getJsonArray("materias")){
+            JsonObject mat = jo.getJsonObject(i.toString().replaceAll("\"",""));
+            
+            //g.addEdge(g, m2);
+        }
+            
+        //System.out.println(jo.getJsonObject("fimf").getJsonString("co").toString());
+        //System.out.println(jo.getJsonObject("fimf").getJsonArray("pre").toString());
         
         return g;
     

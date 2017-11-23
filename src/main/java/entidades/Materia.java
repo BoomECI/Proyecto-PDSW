@@ -20,6 +20,11 @@ public class Materia {
         this.prerequisitos = prerequisitos;
         this.corequisitos = corequisitos;
     }
+    public Materia(String nemonico, String nombre, int creditos){
+        this.nemonico = nemonico;
+        this.nombre = nombre;
+        this.creditos = creditos;
+    }
     public Materia (String nemonico){
         this.nemonico=nemonico;
     }

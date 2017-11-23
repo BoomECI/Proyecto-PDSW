@@ -41,10 +41,13 @@ public class Grafo {
         }
     }
     
+    public Materia getMateria(String mat){
+        return null;
+    }
+    
     public void printNodes(){
         for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
             System.out.println(entry.getKey().getNemonico() );
         }
     }
-    
 }
