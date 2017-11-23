@@ -14,10 +14,11 @@ import persistencia.mybatis.mappers.ConsejeroMapper;
 import persistencia.mybatis.mappers.EstudianteMapper;
 /**
  *
- * @author danie
+ * @author BoomEci
  */
 public class ConsejeroDAOMyBatis {       
     
+
     /**@Inject
     ConsejeroMapper Conmaper;
     

@@ -32,6 +32,7 @@ public class ServiciosCancelacionesFactory {
                 bind(ParserGrafo.class).to(ParserJSON.class);
                 bind(CalculoDeImpacto.class).to(CalculoPorCreditos.class);
                 //bind(ConsejeroDAO.class).to(ConsejeroDAOMyBatis.class);
+
             }
 
         }
