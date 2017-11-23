@@ -16,11 +16,7 @@
     
     <dependencies>        
 
-    <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>all-themes</artifactId>
-            <version>1.0.10</version>
-    </dependency>
+    
         
         <dependency>
             <groupId>org.glassfish</groupId>
@@ -249,32 +245,8 @@
                 </configuration>
             </plugin>
             
-            <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.1</version>
-                    <executions>
-                        <execution>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>copy</goal>
-                            </goals>
-                            <configuration>
-                                <artifactItems>
-                                    <artifactItem>
-                                        <groupId>com.github.jsimone</groupId>
-                                        <artifactId>webapp-runner</artifactId>
-                                        <version>8.0.30.2</version>
-                                        <destFileName>webapp-runner.jar</destFileName>
-                                    </artifactItem>
-                                </artifactItems>
-        
-                            </configuration>
-                        </execution>
-        
-                    </executions>
-                </plugin>
-                <!-- Plugin configuration for Heroku compatibility. -->
+            
+            <!-- Plugin configuration for Heroku compatibility. -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>

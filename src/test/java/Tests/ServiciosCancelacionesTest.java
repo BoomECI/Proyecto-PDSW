@@ -175,7 +175,7 @@ public class ServiciosCancelacionesTest{
     public void testUnaMateriaCanceladaAnteriormenteNoPuedeVolverHacerCancelada() throws ExcepcionServiciosCancelaciones{
         
 } 
-    
+    /*
     @Test
     public void prueba(){
         //ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
@@ -407,7 +407,7 @@ public class ServiciosCancelacionesTest{
             e.printStackTrace();
             fail();
         }
-    }
+    }*/
    
 }
 

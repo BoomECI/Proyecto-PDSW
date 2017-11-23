@@ -14,12 +14,13 @@ import persistencia.mybatis.mappers.ConsejeroMapper;
 import persistencia.mybatis.mappers.EstudianteMapper;
 /**
  *
- * @author danie
+ * @author BoomEci
  */
-public class ConsejeroDAOMyBatis implements ConsejeroDAO {       
+public class ConsejeroDAOMyBatis {       
     
-     @Inject
-     ConsejeroMapper Conmaper;
+
+    /**@Inject
+    ConsejeroMapper Conmaper;
     
     
     @Override
@@ -69,7 +70,7 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO {
         }catch(Exception e){
             throw new PersistenceException("Error al cambiar el aval del consejero:"+e.getLocalizedMessage(), e);
         }
-    }
+    }**/
 
     
     
