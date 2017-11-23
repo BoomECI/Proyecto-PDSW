@@ -17,7 +17,9 @@
 package Tests;
 
 import entidades.Estudiante;
+import entidades.Grafo;
 import entidades.Materia;
+import entidades.SolicitudCancelacion;
 import entidades.SolicitudCancelacion;
 
 import java.sql.Connection;
@@ -28,8 +30,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.json.JsonObject;
 
 import logica.services.ExcepcionServiciosCancelaciones;
+import logica.services.ParserGrafo;
 import logica.services.ServiciosCancelaciones;
 import logica.services.ServiciosCancelacionesFactory;
 import org.junit.After;
@@ -170,21 +174,98 @@ public class ServiciosCancelacionesTest{
     public void testUnaMateriaCanceladaAnteriormenteNoPuedeVolverHacerCancelada() throws ExcepcionServiciosCancelaciones{
         
 } 
-    /*
+    
     @Test
     public void prueba(){
         ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
         try{
-           SolicitudCancelacion  x = new SolicitudCancelacion(java.sql.Date.valueOf("2000-2-2"), "Esperando", 3, "me duele la vida", "sopc" , "muy mal panita",1,true,false);
-           a.agregarSolicitudCancelacionEstudiante(x);    
-            
+           //SolicitudCancelacion  x = new SolicitudCancelacion(java.sql.Date.valueOf("2000-2-2"), "Esperando", 3, "me duele la vida" , "muy mal panita",true,false, "sopc", 1);
+           //a.agregarSolicitudCancelacionEstudiante(x);
+           JsonObject o = p.convertStringToGrafo("{\n" +
+                "	\"materias\": [\"iins\",\"fmat\",\"prem\",\"ageo\",\"pimb\",\"depd\",\"ffis\",\"pimo\",\"mmin\",\"exoe\",\"eale\",\"fimf\",\"cald\",\"alli\",\"lcal\",\"ehu1\",\"ehu2\",\"ehu3\",\"crip\",\"poob\",\"cied\",\"fune\",\"mbda\",\"mdis\",\"cle1\",\"cle2\",\"fiem\",\"elcb\",\"tpro\",\"tcom\",\"arqc\",\"pdsw\", \n" +
+                "	\"pdis\", \n" +
+                "	\"tsor\", \n" +
+                "	\"acfi\", \n" +
+                "	\"elea\", \n" +
+                "	\"sopc\", \n" +
+                "	\"fred\", \n" +
+                "	\"esti\", \n" +
+                "	\"pron\", \n" +
+                "	\"fgpr\", \n" +
+                "	\"et01\", \n" +
+                "	\"et02\", \n" +
+                "	\"et03\", \n" +
+                "	\"segi\", \n" +
+                "	\"arsw\", \n" +
+                "	\"arem\", \n" +
+                "	\"pgr1\", \n" +
+                "	\"pgr2\", \n" +
+                "	\"cosw\", \n" +
+                "	\"sosw\"],\n" +
+                "	\"root\": [\"cle1\", \"tsor\", \"et01\", \"iins\", \"exoe\", \"elcb\", \"cle2\", \"fmat\", \"ffis\", \"ageo\", \"et02\", \"pimb\", \"depd\", \"et03\", \"elea\",\"ehu1\",\"ehu2\",\"ehu3\"], \n" +
+                "	\"iins\": [], \n" +
+                "	\"fmat\": [\"prem\"], \n" +
+                "	\"prem\": [\"cald\", \"alli\"], \n" +
+                "	\"ageo\": [\"cald\", \"alli\"], \n" +
+                "	\"pimb\": [\"pimo\", \"mbda\"], \n" +
+                "	\"depd\": [], \n" +
+                "	\"ffis\": [\"fimf\"], \n" +
+                "	\"pimo\": [\"tpro\", \"poob\"], \n" +
+                "	\"mmin\": [\"pimo\", \"lcal\"], \n" +
+                "	\"exoe\": [], \n" +
+                "	\"eale\": [], \n" +
+                "	\"fimf\": {\"co\":\"cald\",\"pre\": [\"fiem\"]}, \n" +
+                "	\"cald\": [\"cied\", \"fune\"], \n" +
+                "	\"alli\": [], \n" +
+                "	\"lcal\": [\"mdis\", \"mbda\"], \n" +
+                "	\"ehu1\": [], \n" +
+                "	\"ehu2\": [], \n" +
+                "	\"ehu3\": [], \n" +
+                "	\"crip\": [], \n" +
+                "	\"poob\": [\"pdsw\", \"tcom\"], \n" +
+                "	\"cied\": [\"pdis\"], \n" +
+                "	\"fune\": [\"acfi\"], \n" +
+                "	\"mbda\": [\"pdsw\"], \n" +
+                "	\"mdis\": [\"tpro\", \"tcom\"], \n" +
+                "	\"cle1\": [], \n" +
+                "	\"cle2\": [], \n" +
+                "	\"fiem\": [\"arqc\"], \n" +
+                "	\"elcb\": [], \n" +
+                "	\"tpro\": [], \n" +
+                "	\"tcom\": [], \n" +
+                "	\"arqc\": [\"sopc\", \"fred\"], \n" +
+                "	\"pdsw\": [\"arsw\"], \n" +
+                "	\"pdis\": [\"esti\"], \n" +
+                "	\"tsor\": [\"pron\"], \n" +
+                "	\"acfi\": [\"fgpr\"], \n" +
+                "	\"elea\": [], \n" +
+                "	\"sopc\": [], \n" +
+                "	\"fred\": [\"arsw\", \"segi\"], \n" +
+                "	\"esti\": [], \n" +
+                "	\"pron\": [\"cosw\", \"arem\"], \n" +
+                "	\"fgpr\": [\"pgr1\"], \n" +
+                "	\"et01\": [], \n" +
+                "	\"et02\": [], \n" +
+                "	\"et03\": [], \n" +
+                "	\"segi\": [], \n" +
+                "	\"arsw\": [\"cosw\", \"sosw\"], \n" +
+                "	\"arem\": [\"sosw\"], \n" +
+                "	\"pgr1\": [\"pgr2\"], \n" +
+                "	\"pgr2\": [], \n" +
+                "	\"cosw\": [], \n" +
+                "	\"sosw\": []\n" +
+                "}");
+           
+            Grafo graph = p.convertJsonToGrafo(o);
+            graph.printNodes();
            
 
         }catch(Exception e){
             e.printStackTrace();
             fail();
         }
-    }*/
+    }
    
 }
 

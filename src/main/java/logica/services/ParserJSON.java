@@ -5,8 +5,15 @@
  */
 package logica.services;
 
+import entidades.Grafo;
+import entidades.Materia;
 import entidades.PlanDeEstudios;
+import java.io.StringReader;
+import javax.json.Json;
 import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.JsonValue;
+
 
 /**
  *
@@ -18,4 +25,25 @@ public class ParserJSON implements ParserGrafo{
     public PlanDeEstudios jsonToPlanDeEstudios(JsonObject js) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }*/
+    @Override
+    public JsonObject convertStringToGrafo(String st){
+        JsonReader jsonReader = Json.createReader(new StringReader(st));
+        JsonObject object = jsonReader.readObject();
+        jsonReader.close();
+        
+        return object;
+
+    }
+    
+    @Override
+    public Grafo convertJsonToGrafo(JsonObject jo){
+        Grafo g = new Grafo();
+        for (JsonValue i: jo.getJsonArray("materias")){
+            g.addNode(new Materia(i.toString()));
+        }
+        
+        return g;
+    
+    }
+
 }

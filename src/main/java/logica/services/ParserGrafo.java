@@ -5,6 +5,7 @@
  */
 package logica.services;
 
+import entidades.Grafo;
 import entidades.PlanDeEstudios;
 import javax.json.JsonObject;
 
@@ -13,5 +14,12 @@ import javax.json.JsonObject;
  * @author Boom
  */
 public interface ParserGrafo {
-    //public PlanDeEstudios jsonToPlanDeEstudios(JsonObject js);
+    public JsonObject convertStringToGrafo(String st);
+
+    /**
+     *
+     * @param jo
+     * @return
+     */
+    public Grafo convertJsonToGrafo(JsonObject jo);
 }

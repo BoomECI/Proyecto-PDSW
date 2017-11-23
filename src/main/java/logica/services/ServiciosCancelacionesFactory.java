@@ -66,4 +66,8 @@ public class ServiciosCancelacionesFactory {
         return instance;
     }
     
+    public ParserGrafo getParserGrafo() {
+        return injector.getInstance(ParserGrafo.class);
+    }
+    
 }
