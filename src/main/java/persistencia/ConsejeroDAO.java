@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author danie
+ * @author BoomEci
  */
 public interface ConsejeroDAO {    
     

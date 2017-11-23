@@ -14,12 +14,12 @@ import persistencia.mybatis.mappers.ConsejeroMapper;
 import persistencia.mybatis.mappers.EstudianteMapper;
 /**
  *
- * @author danie
+ * @author BoomEci
  */
 public class ConsejeroDAOMyBatis implements ConsejeroDAO {       
     
-     @Inject
-     ConsejeroMapper Conmaper;
+    @Inject
+    ConsejeroMapper Conmaper;
     
     
     @Override
