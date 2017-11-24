@@ -42,12 +42,22 @@ public class Grafo {
     }
     
     public Materia getMateria(String mat){
-        return null;
+        Materia res = null;
+        for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
+            if (mat.equals(entry.getKey().getNemonico())){
+                res = entry.getKey();
+            }
+        }
+        return res;
     }
     
     public void printNodes(){
         for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
-            System.out.println(entry.getKey().getNemonico() );
+            System.out.println(entry.getKey().getNemonico() + ": " + entry.getValue().toString() );
         }
+    }
+    
+    public void printGraph(){
+        
     }
 }

@@ -175,7 +175,7 @@ public class ServiciosCancelacionesTest{
     public void testUnaMateriaCanceladaAnteriormenteNoPuedeVolverHacerCancelada() throws ExcepcionServiciosCancelaciones{
         
 } 
-    /*
+    
     @Test
     public void prueba(){
         //ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
@@ -184,7 +184,7 @@ public class ServiciosCancelacionesTest{
         try{
            //SolicitudCancelacion  x = new SolicitudCancelacion(java.sql.Date.valueOf("2000-2-2"), "Esperando", 3, "me duele la vida" , "muy mal panita",true,false, "sopc", 1);
            //a.agregarSolicitudCancelacionEstudiante(x);
-           JsonObject o = p.convertStringToGrafo("{\n" +
+           Grafo graph = p.convertStringToGrafo("{\n" +
                 "	\"materias\": [\"iins\",\"fmat\",\"prem\",\"ageo\",\"pimb\",\"depd\",\"ffis\",\"pimo\",\"mmin\",\"exoe\",\"eale\",\"fimf\",\"cald\",\"alli\",\"lcal\",\"ehu1\",\"ehu2\",\n" +
                 "	\"ehu3\",\"crip\",\"poob\",\"cied\",\"fune\",\"mbda\",\"mdis\",\"cle1\",\"cle2\",\"fiem\",\"elcb\",\"tpro\",\"tcom\",\"arqc\",\"pdsw\", \"pdis\",\"tsor\",\"acfi\", \n" +
                 "	\"elea\", \"sopc\", \"fred\", \"esti\", \"pron\", \"fgpr\", \"et01\", \"et02\", \"et03\", \"segi\", \"arsw\", \"arem\", \"pgr1\", \"pgr2\", \"cosw\", \"sosw\"],\n" +
@@ -399,15 +399,15 @@ public class ServiciosCancelacionesTest{
                 "			\"pre\" : []}\n" +
                 "}");
            
-            Grafo graph = p.convertJsonToGrafo(o);
             graph.printNodes();
+            
            
 
         }catch(Exception e){
             e.printStackTrace();
             fail();
         }
-    }*/
+    }
    
 }
 

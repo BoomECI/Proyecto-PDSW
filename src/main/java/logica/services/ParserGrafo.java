@@ -14,12 +14,11 @@ import javax.json.JsonObject;
  * @author Boom
  */
 public interface ParserGrafo {
-    public JsonObject convertStringToGrafo(String st);
-
+    
     /**
      *
-     * @param jo
+     * @param json
      * @return
      */
-    public Grafo convertJsonToGrafo(JsonObject jo);
+    public Grafo convertStringToGrafo(String str);
 }

@@ -29,8 +29,7 @@ public class ParserJSON implements ParserGrafo{
     public PlanDeEstudios jsonToPlanDeEstudios(JsonObject js) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }*/
-    @Override
-    public JsonObject convertStringToGrafo(String st){
+    public JsonObject convertStringToJson(String st){
         JsonReader jsonReader = Json.createReader(new StringReader(st));
         JsonObject object = jsonReader.readObject();
         jsonReader.close();
@@ -39,7 +38,7 @@ public class ParserJSON implements ParserGrafo{
 
     }
     
-    @Override
+    
     public Grafo convertJsonToGrafo(JsonObject jo){
         Grafo g = new Grafo();
         for (JsonValue i: jo.getJsonArray("materias")){
@@ -51,8 +50,8 @@ public class ParserJSON implements ParserGrafo{
         }
         for (JsonValue i: jo.getJsonArray("materias")){
             JsonObject mat = jo.getJsonObject(i.toString().replaceAll("\"",""));
-            
-            //g.addEdge(g, m2);
+            for (JsonValue j: mat.getJsonArray("pre"))
+            g.addEdge(g.getMateria(i.toString().replaceAll("\"","")),g.getMateria(j.toString().replaceAll("\"","")));
         }
             
         //System.out.println(jo.getJsonObject("fimf").getJsonString("co").toString());
@@ -60,6 +59,17 @@ public class ParserJSON implements ParserGrafo{
         
         return g;
     
+    }
+
+    /**
+     *
+     * @param json
+     * @return
+     */
+    @Override
+    public Grafo convertStringToGrafo(String str) {
+        return convertJsonToGrafo(convertStringToJson(str));
+        
     }
 
 }
