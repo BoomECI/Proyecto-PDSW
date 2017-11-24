@@ -32,7 +32,8 @@ public class ConsejeroBean implements Serializable{
     private List<SolicitudCancelacion> solicitudesTramitadas;
     private SolicitudCancelacion solicitudSeleccionada;
     private String nombreEstudianteSolicitud;
-    
+    private String comentario;
+    private boolean aval;
     
     
     public ConsejeroBean() throws ExcepcionServiciosCancelaciones{
@@ -80,13 +81,29 @@ public class ConsejeroBean implements Serializable{
         this.nombreEstudianteSolicitud = nombreEstudianteSolicitud;
     }
     
-    public void tramitar() throws ExcepcionServiciosCancelaciones{
-        servCanc.agregarComentarioConsejero(consejeroActual.getId(), solicitudSeleccionada.getComentario());
-        servCanc.cambiarElAvalDeConsejero(consejeroActual.getId(), solicitudSeleccionada.getAvalConsejero());
+    public String tramitar() throws ExcepcionServiciosCancelaciones{
+        servCanc.agregarComentarioConsejero(consejeroActual.getId(), comentario);
+        servCanc.cambiarElAvalDeConsejero(consejeroActual.getId(), aval);
         servCanc.cambiarElestadoDeLaSolicitud(consejeroActual.getId(), "Tramitada");
+        return "listadosolcancel.xhtml";
+        
     }
-    
-    
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public boolean isAval() {
+        return aval;
+    }
+
+    public void setAval(boolean aval) {
+        this.aval = aval;
+    }
     
     public String consultarSolicitud() throws ExcepcionServiciosCancelaciones{
         nombreEstudianteSolicitud = servCanc.consultarEstudiante(solicitudSeleccionada.getEstudiante()).getNombre();

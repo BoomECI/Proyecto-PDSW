@@ -21,10 +21,10 @@
                 <br/>
                 <p:outputLabel value="Justificacion: #{beanSolicitudConsejero.solicitudSeleccionada.justificacion}"  style="font-size: 150%; font-weight:bold" />
                 <br/>
-                <p:inputTextarea id="jus" maxlength="400" counterTemplate="{0} caracteres restantes." title="Haga un comentario acerca de la solicitud de cancelacion hecha por el estudiante" value="#{beanSolicitudConsejero.solicitudSeleccionada.comentario}" rows="6" cols="26" autoResize="true" />
+                <p:inputTextarea id="jus" maxlength="400" counterTemplate="{0} caracteres restantes." title="Haga un comentario acerca de la solicitud de cancelacion hecha por el estudiante" value="#{beanSolicitudConsejero.comentario}" rows="6" cols="26" autoResize="true" />
                 <br/>
                 <p:outputLabel value="Aprobar la solicitud:" for="avalConsejero" style="font-size: 150%; font-weight:bold"/>
-                <p:selectBooleanButton id="avalConsejero" value="#{beanSolicitudConsejero.solicitudSeleccionada.avalConsejero}" onLabel="Si" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:80px"/>
+                <p:selectBooleanButton id="avalConsejero" value="#{beanSolicitudConsejero.aval}" onLabel="Si" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:80px"/>
                 <br/>
                 <br/>
                 <h:panelGrid columns="2" cellpadding="30" style="margin: auto" >

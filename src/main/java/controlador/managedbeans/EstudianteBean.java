@@ -36,7 +36,7 @@ public class EstudianteBean implements Serializable{
     private SolicitudCancelacion solicitudEstudiante;
     
     
-    public EstudianteBean(){
+    public EstudianteBean() throws ExcepcionServiciosCancelaciones{
         fechaCancelacion = new Date();
         ArrayList<Materia> mA = new ArrayList<Materia>();
         mA.add(new Materia("APMU","Apreciacion musical", 3, null, null));
@@ -51,8 +51,9 @@ public class EstudianteBean implements Serializable{
         mC.add(new Materia("ALLI","Algebra lineal",4,null,null));
         PlanDeEstudios PDE = new PlanDeEstudios();
         PDE.setNumeroDeCreditosTotales(154);
-        estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com",null), new Acudiente(23,"Giovanni","gio.com",1234),
-                                                            1019138849,"cc",mA,mC,PDE,null);
+        estudianteActual = servCanc.consultarEstudiante(1);
+        /*estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com",null), new Acudiente(23,"Giovanni","gio.com",1234),
+                                                            1019138849,"cc",mA,mC,PDE,null);*/
         materiasCursadas = estudianteActual.getMateriasCursadas();
         materiasActuales = estudianteActual.getMateriasActuales();
         planDeEstudios = estudianteActual.getPlanDeEstudios();
@@ -126,7 +127,7 @@ public class EstudianteBean implements Serializable{
     }
     
    public void cancelarMateria() throws ExcepcionServiciosCancelaciones{
-       solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando", 10, justificacionCancelacion, "nada", false, false, materiaSeleccionada ,2110805);
+       solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando", 10, justificacionCancelacion, "nada", false, false, materiaSeleccionada ,1);
        servCanc.agregarSolicitudCancelacionEstudiante( solicitudEstudiante);
    }
     
