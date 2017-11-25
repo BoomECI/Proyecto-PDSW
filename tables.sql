@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2017-11-16 05:45:11.757
+-- Last modification date: 2017-11-25 02:12:07.089
 
 -- tables
 -- Table: Acudiente
@@ -30,7 +30,7 @@ CREATE TABLE Estudiante (
     identificacion int  NOT NULL,
     tipo_id varchar(3)  NOT NULL,
     Plan_ID int  NOT NULL,
-    solicitudCancelacion int  NOT NULL,
+    creditos int  NOT NULL,
     CONSTRAINT Estudiante_pk PRIMARY KEY (codigo)
 );
 
@@ -64,6 +64,20 @@ CREATE TABLE Plan_de_Estudio (
     CONSTRAINT Plan_de_Estudio_pk PRIMARY KEY (ID)
 );
 
+-- Table: USER
+CREATE TABLE "USER" (
+    username int  NOT NULL,
+    password varchar(50)  NOT NULL,
+    rol varchar(15)  NOT NULL,
+    CONSTRAINT USER_pk PRIMARY KEY (username,password,rol)
+);
+
+-- Table: rol
+CREATE TABLE rol (
+    nombre varchar(15)  NOT NULL,
+    CONSTRAINT rol_pk PRIMARY KEY (nombre)
+);
+
 -- Table: solicitud_de_cancelacion
 CREATE TABLE solicitud_de_cancelacion (
     fecha date  NOT NULL,
@@ -74,6 +88,7 @@ CREATE TABLE solicitud_de_cancelacion (
     avalAcudiente boolean  NULL,
     avalConsejero boolean  NOT NULL,
     Materia varchar(4)  NOT NULL,
+    Estudiante int  NOT NULL,
     CONSTRAINT solicitud_de_cancelacion_pk PRIMARY KEY (id)
 );
 

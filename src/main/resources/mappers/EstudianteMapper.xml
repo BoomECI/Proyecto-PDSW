@@ -13,6 +13,7 @@
         <result property='telefono' column='telefono'/>         
         <result property='identificacion' column='identificacion'/> 
         <result property='tipo_id' column='tipo_id'/>
+        <result property='creditos' column='creditos'/>
         <association property="planDeEstudios" javaType="PlanDeEstudios" columnPrefix="pl_"  resultMap="PlanDeEstudiosResult"/>         
         <association property="consejero" javaType="Consejero" columnPrefix="con_"  resultMap="ConsejeroResult"/>
         <association property="acudiente" javaType="Acudiente"  columnPrefix="acu_" resultMap="AcudienteResult"/>  
@@ -65,7 +66,8 @@
         est.correo,
         est.telefono,
         est.identificacion,
-        est.tipo_id,        
+        est.tipo_id, 
+        est.creditos,       
         acu.nombre AS acu_nombre,
         acu.cedula AS acu_cedula,
         acu.correo AS acu_correo,
