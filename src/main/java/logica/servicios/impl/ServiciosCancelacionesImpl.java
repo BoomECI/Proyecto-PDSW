@@ -15,6 +15,8 @@ import entidades.PlanDeEstudios;
 import entidades.SolicitudCancelacion;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.PersistenceException;
 import org.mybatis.guice.transactional.Transactional;
 import persistencia.ConsejeroDAO;
@@ -42,25 +44,28 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         try {
             return daoEst.loadAll();
         } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosCancelaciones("Error al realizar la consulta de los estudiantes:"+ex.getLocalizedMessage(), ex);
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
     }
+    
     @Transactional
     @Override
     public Estudiante consultarEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones {
         try {
             return daoEst.loadByID(idEstudiante);
         } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosCancelaciones("Error al realizar la consulta del estudiante:  "+idEstudiante+"..........."+ex.getLocalizedMessage(), ex);
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
     }
     @Transactional
     @Override
     public void agregarSolicitudCancelacionEstudiante(SolicitudCancelacion solicitudCancelacion) throws ExcepcionServiciosCancelaciones{
         try{            
             daoEst.save(solicitudCancelacion);
-        }catch(PersistenceException e){
-            throw new ExcepcionServiciosCancelaciones("Error al agregar la solicitud de cancelacion del estudiante:  "+solicitudCancelacion.getId()+"..........."+e.getLocalizedMessage(), e);
+        }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }       
     }
     @Transactional
@@ -69,9 +74,10 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         try{
             Estudiante estudiante = daoEst.loadByID(idEstudiante);
             return estudiante.getSolicitudes();            
-        }catch(PersistenceException e){
-            throw new ExcepcionServiciosCancelaciones("Error al realizar la consulta del estudiante:  "+idEstudiante+"..........."+e.getLocalizedMessage(), e);
+        }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }   
+        return null;
     }
     @Transactional
     @Override
@@ -100,9 +106,10 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         try{
             return null;
             //return daoCon.loadSolicitudesTramitadas(id);
-        }catch(PersistenceException e){
-            throw new ExcepcionServiciosCancelaciones("Error al consultar la solicitud de cancelacion tramitadas" +e.getLocalizedMessage(), e);
+        }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
     }
 
     @Override
@@ -111,9 +118,10 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         try{ 
             return null;
             //return daoCon.loadMSolicitudesNoTramitadas(id);
-        }catch(PersistenceException e){
-            throw new ExcepcionServiciosCancelaciones("Error al consultar la solicitud de cancelacion no tramitadas " +e.getLocalizedMessage(), e);
+        }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
     }
 
     @Override
@@ -124,8 +132,8 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     public void agregarComentarioConsejero(int id_soli, String comentario) throws ExcepcionServiciosCancelaciones {
         try{
             //daoCon.agregarComentarioConsejero(id_soli,comentario);
-        }catch(PersistenceException e){
-            throw new ExcepcionServiciosCancelaciones("Error al agregar el comentario del consejero " +e.getLocalizedMessage(), e);
+        }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -133,8 +141,8 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     public void cambiarElestadoDeLaSolicitud(int id_soli, String estado) throws ExcepcionServiciosCancelaciones {
         try{
             //daoCon.cambiarEstadoSolicitud(id_soli, estado);
-        }catch(PersistenceException e){
-            throw new ExcepcionServiciosCancelaciones("Error al cambiar el estado de la solicitud " +e.getLocalizedMessage(), e);
+        }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -142,11 +150,12 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     public void cambiarElAvalDeConsejero(int id_soli, boolean aval) throws ExcepcionServiciosCancelaciones {
         try{
             //daoCon.cambiarElAvalDeConsejero(id_soli, aval);
-        }catch(PersistenceException e){
-            throw new ExcepcionServiciosCancelaciones("Error al cambiar el aval del consejero " +e.getLocalizedMessage(), e);
+        }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     
        
 }
+ 
