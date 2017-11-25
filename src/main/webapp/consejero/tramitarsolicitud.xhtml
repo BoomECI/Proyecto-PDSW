@@ -28,7 +28,7 @@
                 <br/>
                 <br/>
                 <h:panelGrid columns="2" cellpadding="30" style="margin: auto" >
-                    <p:commandButton value="Enviar" actionListener="#{beanSolicitudConsejero.tramitar()}" update="tramitarConsejero"/>
+                    <p:commandButton value="Enviar" action="#{beanSolicitudConsejero.tramitar()}" update="tramitarConsejero"/>
                     <p:commandButton value="Cancelar" action="#{beanSolicitudConsejero.irAtras()}" update="tramitarConsejero"/>                   
                 </h:panelGrid>
                

@@ -3,11 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.eci.pdsw</groupId>
-    <artifactId>pdsw-project-xx</artifactId>
+    <artifactId>ProyectoPDSW</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-
-    <name>pdsw-project-xx</name>
+    <name>Proyecto PDSW</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
