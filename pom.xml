@@ -103,6 +103,7 @@
             <artifactId>mybatis</artifactId>
             <version>3.2.7</version>
         </dependency>
+        
         <!-- MyBatis, Mybatis-Guice -->       
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -132,6 +133,7 @@
             <version>4.1.0</version>
             <classifier>classes</classifier>
         </dependency>
+        
          <!--security-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -150,6 +152,7 @@
             <artifactId>shiro-ehcache</artifactId>
             <version>1.2.1</version>
         </dependency>
+        
         <!--security-->
         
         <dependency>

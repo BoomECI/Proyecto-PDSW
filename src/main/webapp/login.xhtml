@@ -7,17 +7,17 @@
     <h:form prependId="false">
         <h:panelGrid columns="2" style="margin: 0 auto;margin-top: 15%">
             <h:panelGrid columns="2" style="margin: 0 auto;margin-top: 15%">
-                <p:outputLabel value="Username :" for="username" style="font-family: Verdana; font-size: 20pt;"/>
+                <p:outputLabel value="Usuario :" for="username" style="font-family: Verdana; font-size: 18pt;"/>
                 <p:inputText id="username" required="true" value="#{loginBean.username}"/>
 
-                <p:outputLabel value="Password:" for="password"  style="font-family: Verdana; font-size: 15pt;"/>
+                <p:outputLabel value="Contraseña:" for="password"  style="font-family: Verdana; font-size: 15pt;"/>
                 <p:password id="password" required="true" value="#{loginBean.password}"/>
 
                 <p:outputLabel value="Recordarme: " for="rememberMe" style="font-family: Verdana; font-size: 15pt;"/>
                 <p:selectBooleanCheckbox id="rememberMe" value="#{loginBean.rememberMe}"/>
 
                 <br />
-                <p:commandButton value="Login" action="#{loginBean.doLogin}" />
+                <p:commandButton value="Ingresar" action="#{loginBean.doLogin}" />
             </h:panelGrid>
             <img src="\recursosVisuales\logo-login.jpg" width="512" height="195" alt="Logotipo" /> 
         </h:panelGrid>
