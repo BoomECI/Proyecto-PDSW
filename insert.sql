@@ -1,4 +1,4 @@
-
+﻿
 --Acudiente--
 INSERT INTO Acudiente(nombre, cedula, correo, telefono)
 VALUES ('Diana Mendoza', 134566, 'diana@hotmail.com', 3145673491);
@@ -50,8 +50,8 @@ VALUES (1456763, 2118270, 'Jonathan Mauricio Cuesta Sanchez', 'jonathan.cuesta@m
 INSERT INTO Estudiante(Acudiente, codigo, nombre, correo, telefono, consejero, identificacion, tipo_id, Plan_ID, creditos)
 VALUES (1495412, 2108419, 'Daniel Felipe Moreno D´aleman', 'daniel.moreno-d@mail.escuelaing.edu.co', 3131923496, 2001212, 1019166456, 'CC', 1, 18);
 
-INSERT INTO Estudiante(Acudiente, codigo, nombre, correo, telefono, consejero, identificacion, tipo_id, Plan_ID, creditos)
-VALUES (134566, 2083627, 'Camilo Andres Ramirez Mendoza', 'camilo.ramirez-m@mail.escuelaing.edu.co', 312456818, 2345681, 1018345640, 'CC', 10, 18);
+/*INSERT INTO Estudiante(Acudiente, codigo, nombre, correo, telefono, consejero, identificacion, tipo_id, Plan_ID, creditos)
+VALUES (134566, 2083627, 'Camilo Andres Ramirez Mendoza', 'camilo.ramirez-m@mail.escuelaing.edu.co', 312456818, 2345681, 1018345640, 'CC', 10, 18);*/
 
 
 
