@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2017-11-25 02:12:07.089
+-- Last modification date: 2017-11-26 00:09:55.417
 
 -- tables
 -- Table: Acudiente
@@ -58,7 +58,7 @@ CREATE TABLE MateriasCursadas (
 CREATE TABLE Plan_de_Estudio (
     Carrera varchar(200)  NOT NULL,
     ID int  NOT NULL,
-    Grafo varchar(200)  NOT NULL,
+    Grafo varchar(100000)  NOT NULL,
     creditos int  NOT NULL,
     nummaterias int  NOT NULL,
     CONSTRAINT Plan_de_Estudio_pk PRIMARY KEY (ID)
@@ -91,7 +91,6 @@ CREATE TABLE solicitud_de_cancelacion (
     Estudiante int  NOT NULL,
     CONSTRAINT solicitud_de_cancelacion_pk PRIMARY KEY (id)
 );
-
 
 -- End of file.
 
