@@ -92,219 +92,219 @@ public class SimpleTest {
            //SolicitudCancelacion  x = new SolicitudCancelacion(java.sql.Date.valueOf("2000-2-2"), "Esperando", 3, "me duele la vida" , "muy mal panita",true,false, "sopc", 1);
            //a.agregarSolicitudCancelacionEstudiante(x);
            Grafo graph = p.convertStringToGrafo("{\n" +
-                "	\"materias\": [\"iins\",\"fmat\",\"prem\",\"ageo\",\"pimb\",\"depd\",\"ffis\",\"pimo\",\"mmin\",\"exoe\",\"eale\",\"fimf\",\"cald\",\"alli\",\"lcal\",\"ehu1\",\"ehu2\",\n" +
-                "	\"ehu3\",\"crip\",\"poob\",\"cied\",\"fune\",\"mbda\",\"mdis\",\"cle1\",\"cle2\",\"fiem\",\"elcb\",\"tpro\",\"tcom\",\"arqc\",\"pdsw\", \"pdis\",\"tsor\",\"acfi\", \n" +
-                "	\"elea\", \"sopc\", \"fred\", \"esti\", \"pron\", \"fgpr\", \"et01\", \"et02\", \"et03\", \"segi\", \"arsw\", \"arem\", \"pgr1\", \"pgr2\", \"cosw\", \"sosw\"],\n" +
-                "	\"root\": {\n" +
-                "			\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"cle1\", \"tsor\", \"et01\", \"iins\", \"exoe\", \"elcb\", \"cle2\", \"fmat\", \"ffis\", \"ageo\", \"et02\", \"pimb\", \"depd\", \"et03\", \"elea\"]}, \n" +
-                "	\"iins\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"fmat\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"prem\"]}, \n" +
-                "	\"prem\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"cald\", \"alli\"]}, \n" +
-                "	\"ageo\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"cald\", \"alli\"]}, \n" +
-                "	\"pimb\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"pimo\", \"mbda\"]}, \n" +
-                "	\"depd\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"ffis\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"fimf\"]}, \n" +
-                "	\"pimo\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"tpro\", \"poob\"]}, \n" +
-                "	\"mmin\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"pimo\", \"lcal\"]}, \n" +
-                "	\"exoe\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"eale\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"fimf\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"fiem\"]}, \n" +
-                "	\"cald\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [\"fimf\"], \n" +
-                "			\"pre\" : [\"cied\", \"fune\"]}, \n" +
-                "	\"alli\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"lcal\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"mdis\", \"mbda\"]}, \n" +
-                "	\"ehu1\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"ehu2\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"ehu3\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"crip\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"poob\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"pdsw\", \"tcom\"]}, \n" +
-                "	\"cied\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"pdis\"]}, \n" +
-                "	\"fune\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"acfi\"]}, \n" +
-                "	\"mbda\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"pdsw\"]}, \n" +
-                "	\"mdis\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"tpro\", \"tcom\"]}, \n" +
-                "	\"cle1\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"cle2\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"fiem\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"arqc\"]}, \n" +
-                "	\"elcb\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"tpro\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"tcom\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"arqc\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"sopc\", \"fred\"]}, \n" +
-                "	\"pdsw\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"arsw\"]}, \n" +
-                "	\"pdis\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"esti\"]}, \n" +
-                "	\"tsor\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"pron\"]}, \n" +
-                "	\"acfi\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"fgpr\"]}, \n" +
-                "	\"elea\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"sopc\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"fred\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"arsw\", \"segi\"]}, \n" +
-                "	\"esti\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"pron\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"cosw\", \"arem\"]}, \n" +
-                "	\"fgpr\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"pgr1\"]}, \n" +
-                "	\"et01\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"et02\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"et03\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"segi\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"arsw\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"cosw\", \"sosw\"]}, \n" +
-                "	\"arem\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"sosw\"]}, \n" +
-                "	\"pgr1\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : [\"pgr2\"]}, \n" +
-                "	\"pgr2\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"cosw\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}, \n" +
-                "	\"sosw\": {\"nombre\" : \"\", \n" +
-                "			\"creditos\":\"0\", \n" +
-                "			\"co\" : [], \n" +
-                "			\"pre\" : []}\n" +
-                "}");
+"	\"materias\": [\"CALD\",\"MMIN\",\"ALLI\",\"IINS\",\"EALE\",\"CIED\",\"LCAL\",\"FIMF\",\"PIMB\",\"MDIS\",\"FIEM\",\"MBDA\",\"PIMO\",\"EHU1\",\"PDIS\",\"TPRO\",\"ARQC\",\n" +
+"	\"ELCB\",\"POOB\",\"ESTI\",\"TCOM\",\"FRED\",\"TSOR\",\"PDSW\",\"FUNE\",\"SEGI\",\"SOPC\",\"PRON\",\"ARSW\",\"ACFI\",\"AREM\",\"COSW\", \"EHU2\",\"FGPR\",\"ET01\", \n" +
+"	\"SOSW\", \"EHU3\", \"ELEA\", \"ET02\", \"PGR1\", \"CRIP\", \"ET03\", \"CLE1\", \"PGR2\", \"CLE2\"],\n" +
+"	\"root\": {\n" +
+"			\"nombre\" : \"\", \n" +
+"			\"creditos\":\"0\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"CLE1\", \"TSOR\", \"ET01\", \"IINS\", \"EXOE\", \"ELCB\", \"CLE2\", \"FMAT\", \"FFIS\", \"AGEO\", \"ET02\", \"PIMB\", \"DEPD\", \"ET03\", \"ELEA\"]}, \n" +
+"	\"CALD\": {\"nombre\" : \"Calculo diferencial\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [\"FIMF\"], \n" +
+"			\"pre\" : [\"CIED\",\"FUNE\"]}, \n" +
+"	\"MMIN\": {\"nombre\" : \"Modelos matematicos para informatica\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"PIMO\",\"LCAL\"]},\n" +
+"	\"FFIS\": {\"nombre\" : \"Fundamentos de Fisica\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"FIMF\"]},\n" +
+"	\"FMAT\": {\"nombre\" : \"Fundamentos de Matematicas\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"PREM\"]},\n" +
+"	\"AGEO\": {\"nombre\" : \"Analisis Geometrico\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"CALD\",\"ALLI\"]},\n" +
+"	\"PREM\": {\"nombre\" : \"Precalculo\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"CALD\",\"ALLI\"]},\n" +
+"	\"EXOE\": {\"nombre\" : \"Expresion Oral y Escrita\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"PIMO\",\"LCAL\"]},\n" +
+"	\"DEPD\": {\"nombre\" : \"Deporte Dirigido\", \n" +
+"			\"creditos\":\"0\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []},\n" +
+"	\"ALLI\": {\"nombre\" : \"Algebra lineal\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"IINS\": {\"nombre\" : \"Introduccion a la ingenieria de sistemas\", \n" +
+"			\"creditos\":\"2\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"EALE\": {\"nombre\" : \"Electiva en el area de lengua espanola\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"CIED\": {\"nombre\" : \"Calculo integral y ecuaciones diferenciales\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [\"FIEM\"], \n" +
+"			\"pre\" : [\"PDIS\"]}, \n" +
+"	\"LCAL\": {\"nombre\" : \"Logica calculativa\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"MBDA\",\"MDIS\"]}, \n" +
+"	\"FIMF\": {\"nombre\" : \"Fisica mecanica y fluidos\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"FIEM\"]}, \n" +
+"	\"PIMB\": {\"nombre\" : \"Programacion imperativa basica\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"PIMO\",\"MBDA\"]}, \n" +
+"	\"MDIS\": {\"nombre\" : \"Matematicas discretas\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"TPRO\",\"TCOM\"]}, \n" +
+"	\"FIEM\": {\"nombre\" : \"Fisica del electromagnetismo\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"ARQC\"]}, \n" +
+"	\"MBDA\": {\"nombre\" : \"Modelos y bases de datos\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"PDSW\"]}, \n" +
+"	\"PIMO\": {\"nombre\" : \"Programacion imperativa modular\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"POOB\", \"TPRO\"]}, \n" +
+"	\"EHU1\": {\"nombre\" : \"Electiva humanistica 1\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"PDIS\": {\"nombre\" : \"Probabilidad discreta\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"ESTI\",\"FGPR\"]}, \n" +
+"	\"TPRO\": {\"nombre\" : \"Teoria de la programacion\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"ARQC\": {\"nombre\" : \"Arquitectura del computador\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"SOPC\",\"FRED\"]}, \n" +
+"	\"ELCB\": {\"nombre\" : \"Electiva en ciencias basicas\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"POOB\": {\"nombre\" : \"Programacion orientada a objetos\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"PDSW\"]}, \n" +
+"	\"ESTI\": {\"nombre\" : \"Estadistica\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"TCOM\": {\"nombre\" : \"Teoria de la computacion\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"FRED\": {\"nombre\" : \"Fundamentos de redes\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"SEGI\",\"ARSW\"]}, \n" +
+"	\"TSOR\": {\"nombre\" : \"Teoria de sistemas y organizaciones\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"PRON\"]}, \n" +
+"	\"PDSW\": {\"nombre\" : \"Procesos de desarrollo de software\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"ARSW\"]}, \n" +
+"	\"FUNE\": {\"nombre\" : \"Fundamentos de economia\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"ACFI\"]}, \n" +
+"	\"SEGI\": {\"nombre\" : \"Seguridad informatica\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"SOPC\": {\"nombre\" : \"Sistemas operativos y plataformas computacionales\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"PRON\": {\"nombre\" : \"Procesos de negocio\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"COSW\",\"AREM\"]}, \n" +
+"	\"ARSW\": {\"nombre\" : \"Arquitectura de software\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"COSW\",\"SOSW\"]}, \n" +
+"	\"ACFI\": {\"nombre\" : \"Analisis contable y financiero\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"FGPR\"]}, \n" +
+"	\"AREM\": {\"nombre\" : \"Arquitecturas empresariales\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"SOSW\"]}, \n" +
+"	\"COSW\": {\"nombre\" : \"Construccion de software\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"EHU2\": {\"nombre\" : \"Electiva humanistica 2\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"FGPR\": {\"nombre\" : \"Fundamentos y gerencia de proyectos\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"PGR1\"]}, \n" +
+"	\"ET01\": {\"nombre\" : \"Electiva tecnica 1\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"SOSW\": {\"nombre\" : \"Soluciones de software\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"EHU3\": {\"nombre\" : \"Electiva humanistica 3\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"ELEA\": {\"nombre\" : \"Electiva economico-administrativa\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"ET02\": {\"nombre\" : \"Electiva tecnica 2\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"PGR1\": {\"nombre\" : \"Proyecto de grado 1\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : [\"PGR2\"]}, \n" +
+"	\"CRIP\": {\"nombre\" : \"Colombia: realidad e instituciones politicas\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"ET03\": {\"nombre\" : \"Electiva tecnica 3\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"CLE1\": {\"nombre\" : \"Curso de libre eleccion 1\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"PGR2\": {\"nombre\" : \"Proyecto de grado 2\", \n" +
+"			\"creditos\":\"4\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}, \n" +
+"	\"CLE2\": {\"nombre\" : \"Curso de libre eleccion 2\", \n" +
+"			\"creditos\":\"3\", \n" +
+"			\"co\" : [], \n" +
+"			\"pre\" : []}\n" +
+"}");
            
             graph.printNodes();
             
