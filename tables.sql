@@ -1,33 +1,33 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2017-11-26 00:09:55.417
+-- Last modification date: 2017-11-26 00:50:54.949
 
 -- tables
 -- Table: Acudiente
 CREATE TABLE Acudiente (
     nombre varchar(200)  NOT NULL,
-    cedula int  NOT NULL,
+    cedula bigint  NOT NULL,
     correo varchar(200)  NOT NULL,
-    telefono int  NOT NULL,
+    telefono bigint  NOT NULL,
     CONSTRAINT Acudiente_pk PRIMARY KEY (cedula)
 );
 
 -- Table: Consejero
 CREATE TABLE Consejero (
     nombre varchar(200)  NOT NULL,
-    codigo int  NOT NULL,
+    codigo bigint  NOT NULL,
     correo varchar(200)  NOT NULL,
     CONSTRAINT Consejero_pk PRIMARY KEY (codigo)
 );
 
 -- Table: Estudiante
 CREATE TABLE Estudiante (
-    Acudiente int  NOT NULL,
-    codigo int  NOT NULL,
+    Acudiente bigint  NOT NULL,
+    codigo bigint  NOT NULL,
     nombre varchar(200)  NOT NULL,
     correo varchar(200)  NOT NULL,
-    telefono int  NOT NULL,
-    consejero int  NOT NULL,
-    identificacion int  NOT NULL,
+    telefono bigint  NOT NULL,
+    consejero bigint  NOT NULL,
+    identificacion bigint  NOT NULL,
     tipo_id varchar(3)  NOT NULL,
     Plan_ID int  NOT NULL,
     creditos int  NOT NULL,
@@ -42,14 +42,14 @@ CREATE TABLE Materia (
 
 -- Table: MateriasActuales
 CREATE TABLE MateriasActuales (
-    Estudiante int  NOT NULL,
+    Estudiante bigint  NOT NULL,
     Materia varchar(4)  NOT NULL,
     CONSTRAINT MateriasActuales_pk PRIMARY KEY (Estudiante,Materia)
 );
 
 -- Table: MateriasCursadas
 CREATE TABLE MateriasCursadas (
-    Estudiante int  NOT NULL,
+    Estudiante bigint  NOT NULL,
     Materia varchar(4)  NOT NULL,
     CONSTRAINT MateriasCursadas_pk PRIMARY KEY (Estudiante,Materia)
 );
@@ -66,7 +66,7 @@ CREATE TABLE Plan_de_Estudio (
 
 -- Table: USER
 CREATE TABLE "USER" (
-    username int  NOT NULL,
+    username bigint  NOT NULL,
     password varchar(50)  NOT NULL,
     rol varchar(15)  NOT NULL,
     CONSTRAINT USER_pk PRIMARY KEY (username,password,rol)
@@ -88,9 +88,7 @@ CREATE TABLE solicitud_de_cancelacion (
     avalAcudiente boolean  NULL,
     avalConsejero boolean  NOT NULL,
     Materia varchar(4)  NOT NULL,
-    Estudiante int  NOT NULL,
+    Estudiante bigint  NOT NULL,
     CONSTRAINT solicitud_de_cancelacion_pk PRIMARY KEY (id)
 );
-
--- End of file.
 
