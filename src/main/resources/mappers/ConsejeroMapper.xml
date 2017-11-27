@@ -1,11 +1,105 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<root>
+<mapper namespace="persistencia.mybatis.mappers.ConsejeroMapper">
     
-</root>
+    <resultMap type='Estudiante' id='EstudianteResult'>
+        <id property='codigo' column='codigo'/>        
+        <result property='nombre' column='nombre'/>
+        <result property='correo' column='correo'/>
+        <result property='telefono' column='telefono'/>         
+        <result property='identificacion' column='identificacion'/> 
+        <result property='tipo_id' column='tipo_id'/>
+        <association property="planDeEstudios" javaType="PlanDeEstudios" columnPrefix="pl_"  resultMap="PlanDeEstudiosResult"/>         
+        <association property="consejero" javaType="Consejero" columnPrefix="con_"  resultMap="ConsejeroResult"/>
+        <association property="acudiente" javaType="Acudiente"  columnPrefix="acu_" resultMap="AcudienteResult"/>  
+        <collection property="materiasActuales" ofType="Materia" columnPrefix="maa_" resultMap="MateriaResult"/> 
+        <collection property="materiasCursadas" ofType="Materia" columnPrefix="mac_" resultMap="MateriaResult"/>
+        <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"/>                    
+    </resultMap>  
+    
+    <resultMap type='PlanDeEstudios' id='PlanDeEstudiosResult'>
+        <id property='carrera' column='carrera'/>
+        <id property='numeroPlanDeEstudio' column='ID'/>
+        <result property='grafo' column='grafo'/>
+        <result property='numeroDeCreditosTotales' column='creditos' />   
+        <result property='numeroDeAsignaturas' column='nummaterias' />         
+     </resultMap>
+      
+     <resultMap type='Consejero' id='ConsejeroResult'>
+        <id property='id' column='codigo'/>
+        <result property='nombre' column='nombre' />
+        <result property='correo' column='correo' />         
+     </resultMap>
+     
+      <resultMap type='Acudiente' id='AcudienteResult'>
+        <id property='cedula' column='cedula'/>
+        <result property='nombre' column='nombre' />
+        <result property='correo' column='correo' />
+        <result property='telefono' column='telefono' />           
+     </resultMap>
+     
+     <resultMap type='SolicitudCancelacion' id='SolicitudResult'>
+        <id property='id' column='id'/>                
+        <result property='fecha' column='fecha'/>
+        <result property='estado' column='estado'/>       
+        <result property='justificacion' column='justificacion'/>   
+        <result property='comentario' column='comentario'/>   
+        <result property='avalConsejero' column='avalConsejero'/>   
+        <result property='avalAcudiente' column='avalAcudiente'/> 
+        <result property='materiaSolicitada' column="Materia"/>  
+        <result property='Estudiante' column="Estudiante"/>                 
+    </resultMap> 
+    
+    <resultMap type='Materia' id='MateriaResult'>
+        <id property='nemonico' column='nemonico'/>                     
+    </resultMap>   
+    
+    
+    <select parameterType="map" id="loadSolicitudesTramitadas" resultMap="SolicitudCancelacion">
+        select          
+        sol.id, 
+        sol.fecha,
+        sol.estado, 
+        sol.justificacion,
+        sol.comentario,
+        sol.avalAcudiente,
+        sol.avalConsejero,
+        sol.Materia,         
+        from  
+        solicitud_de_cancelacion AS sol, Estudiante AS est, Consejeto AS con
+        WHERE est.consejero = #{ide} AND sol.estado = 'tramitada'
+                  
+    </select>  
+    
+    <select parameterType="map" id="loadMSolicitudesNoTramitadas" resultMap="SolicitudCancelacion">
+        select          
+        sol.id, 
+        sol.fecha,
+        sol.estado, 
+        sol.justificacion,
+        sol.comentario,
+        sol.avalAcudiente,
+        sol.avalConsejero,
+        sol.Materia,         
+        from  
+        solicitud_de_cancelacion AS sol, Estudiante AS est, Consejeto AS con
+        WHERE est.consejero = #{ide} AND sol.estado = 'Pendiente'
+    </select>  
+    
+    <update id="agregarComentarioConsejero"> 
+        UPDATE solicitud_de_cancelacion SET comentario=#{com} WHERE id=#{ide};    
+    </update>
+    
+    <update id="cambiarEstadoSolicitud"> 
+        UPDATE solicitud_de_cancelacion SET estado=#{est} WHERE id=#{ide};    
+    </update>
+    
+    <update id="cambiarElAvalDeConsejero"> 
+        UPDATE solicitud_de_cancelacion SET avalConsejero=#{aval} WHERE id=#{ide};    
+    </update>               
+  
+</mapper>

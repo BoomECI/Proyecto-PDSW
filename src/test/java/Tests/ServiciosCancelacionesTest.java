@@ -85,34 +85,30 @@ public class ServiciosCancelacionesTest{
         return DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");        
     }
   
-    /*
+    
     @Test
     public void primeraPruebaTest() throws SQLException, ExcepcionServiciosCancelaciones {
         //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
         //de equivalencia correspondiente
-        Connection conn=getConnection();
-        Statement stmt=conn.createStatement();        
-        stmt.execute("INSERT into materia values('ESTI')");
-        stmt.execute("INSERT into materia values('FRED')");
-        stmt.execute("INSERT into materia values('PDSW'");
+        /**Connection conn=getConnection();
+        Statement stmt=conn.createStatement();                
         stmt.execute("INSERT into solicitud_de_cancelacion "
                 + "values(TO_DATE('2016-01-30 16:58:01','YYYY-MM-DD HH24:MI:SS')"
-                + ",'inactivo',1,'porque si','vale esta bien',FALSE,FALSE,'PDSW'");
-        stmt.execute("INSERT into consejero values('RODRI',1,'blabla')");
-        stmt.execute("INSERT into acudiente values('YOLANDA',1,'biriri',92827)");
-        stmt.execute("INSERT into estudiante values(1,222,'YESMAN','yesman',314433,1,101213,'CC',1,1)");
+                + ",'inactivo',1,'porque si','vale esta bien',FALSE,FALSE,'PDSW','1'");        
         conn.commit();
         conn.close();
 	
         //Realizar la operacion de la logica y la prueba
         
         
-        Estudiante estudiante = ServiciosCancelacionesFactory.getInstance().getTestingServiciosCancelaciones().consultarEstudiante(222);        
-            System.out.println(estudiante);
+        ServiciosCancelacionesFactory.getInstance().getTestingServiciosCancelaciones().cambiarElestadoDeLaSolicitud(1, "tramitada");        
+        List<SolicitudCancelacion> s = ServiciosCancelacionesFactory.getInstance().getTestingServiciosCancelaciones().consultarSolicitudCancelacionEstudiante(1);
+        
+        System.out.println(s);
             
-        Assert.assertEquals(estudiante.getNombre(),"YESMAN");
+        Assert.assertEquals(s,"YESMAN");**/
     }    
-     */
+     
    
 }
 
