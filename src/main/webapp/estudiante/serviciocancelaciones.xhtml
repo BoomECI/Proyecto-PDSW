@@ -11,23 +11,24 @@
             <p:outputLabel value="Solicitud de cancelacion" style="margin-left:39%; font-size: 150%; font-weight:bold" />
             <br />
             <br />
-            <p:outputLabel for="listadoAsignaturas" value="Asignatura a cancelar" style="margin-left:37%; font-size: 150%; font-weight:bold" />
-            <p:selectOneMenu id="listadoAsignaturas" required="true" value="#{beanSolicitudEstudiante.materiaSeleccionada}" style="width:7%;margin-left: 1%;" >
+            <h3 style="margin-top: 0">Asignatura a cancelar</h3>
+            <p:pickList id="listadoAsignaturas" required="true" value="#{beanSolicitudEstudiante.materiasSeleccionadas}" >
                 <p:ajax listener="#{beanSolicitudEstudiante.analizarSolicitud()}" update="estudianteCancelacion"/> 
-                <f:selectItem itemLabel="Asignatura" itemValue="" />
                 <f:selectItems value="#{beanSolicitudEstudiante.materiasActuales}"  var="materiasEstudiante" itemValue="#{materiasEstudiante.nemonico}" itemLabel="#{materiasEstudiante.nemonico}" />
-            </p:selectOneMenu>
+            </p:pickList>
                 <p:message for="listadoAsignaturas" />
                 
                 <br />
                 <br />
-                <p:panel id="cursoSeleccionado" header="Curso seleccionado" style="text-align:center; width: 40%; margin: 0 auto">
-                    <h:outputText value="#{beanSolicitudEstudiante.materiaSeleccionada} - #{beanSolicitudEstudiante.comparar().nombre}"/>
-                </p:panel>
- 
+                <p:dataList value="#{beanSolicitudEstudiantes.comparar()}" var="materia" type="ordered">
+                    <f:facet name="header">
+                        Cursos seleccionados
+                    </f:facet>
+                    #{materia.nemonico}, #{materia.nombre}
+                </p:dataList>
                 <br />
                 <p:panel id="impacto" header="Impacto" style="text-align:center; width: 40%; margin: 0 auto">
-                    <h:outputText value="Si cancela #{beanSolicitudEstudiante.materiaSeleccionada} le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} de #{beanSolicitudEstudiante.estudianteActual.planDeEstudios.numeroDeCreditosTotales} créditos restantes"  />
+                    <h:outputText value="Si cancela estas asignaturas le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} de #{beanSolicitudEstudiante.creditosCarrera} créditos restantes"  />
                 </p:panel>
                 
                 <br />

@@ -17,7 +17,7 @@ import java.util.List;
 public class CalculoPorCreditos implements CalculoDeImpacto{
     private int creditosPorVer;
     @Override
-    public int CalculoImpacto(Materia cancelada, Estudiante estudiante){
+    public int CalculoImpacto(List<Materia> canceladas, Estudiante estudiante){
         creditosPorVer=0;
         for(Materia m: estudiante.getMateriasCursadas()){
             creditosPorVer += m.getCreditos();
@@ -25,7 +25,7 @@ public class CalculoPorCreditos implements CalculoDeImpacto{
         for(Materia m: estudiante.getMateriasActuales()){
             creditosPorVer += m.getCreditos();
         }  
-        creditosPorVer -= cancelada.getCreditos();        
+        creditosPorVer -= canceladas.get(0).getCreditos();        
         creditosPorVer = estudiante.getPlanDeEstudios().getNumeroDeCreditosTotales()- creditosPorVer;
         
         return creditosPorVer;        
