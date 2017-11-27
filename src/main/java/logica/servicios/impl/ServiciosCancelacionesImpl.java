@@ -35,8 +35,8 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Inject
     private CalculoDeImpacto impacto;
     
-    /**@Inject
-    private ConsejeroDAO daoCon;**/
+    @Inject
+    private ConsejeroDAO daoCon;
     
     @Transactional
     @Override
@@ -103,9 +103,8 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     
     @Override
     public List<SolicitudCancelacion> consultarCancelacionesTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones {
-        try{
-            return null;
-            //return daoCon.loadSolicitudesTramitadas(id);
+        try{            
+            return daoCon.loadSolicitudesTramitadas(id);
         }catch(PersistenceException ex){
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -115,9 +114,8 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Override
     public List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones {
         
-        try{ 
-            return null;
-            //return daoCon.loadMSolicitudesNoTramitadas(id);
+        try{             
+            return daoCon.loadMSolicitudesNoTramitadas(id);
         }catch(PersistenceException ex){
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -131,7 +129,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Override
     public void agregarComentarioConsejero(int id_soli, String comentario) throws ExcepcionServiciosCancelaciones {
         try{
-            //daoCon.agregarComentarioConsejero(id_soli,comentario);
+            daoCon.agregarComentarioConsejero(id_soli,comentario);
         }catch(PersistenceException ex){
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -140,7 +138,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Override
     public void cambiarElestadoDeLaSolicitud(int id_soli, String estado) throws ExcepcionServiciosCancelaciones {
         try{
-            //daoCon.cambiarEstadoSolicitud(id_soli, estado);
+            daoCon.cambiarEstadoSolicitud(id_soli, estado);
         }catch(PersistenceException ex){
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -149,7 +147,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Override
     public void cambiarElAvalDeConsejero(int id_soli, boolean aval) throws ExcepcionServiciosCancelaciones {
         try{
-            //daoCon.cambiarElAvalDeConsejero(id_soli, aval);
+            daoCon.cambiarElAvalDeConsejero(id_soli, aval);
         }catch(PersistenceException ex){
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

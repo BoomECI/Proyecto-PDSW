@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  *
- * @author 2108419
+ * @author BoomECI
  */
 public interface ConsejeroMapper {
     public List<SolicitudCancelacion> loadSolicitudesTramitadas(@Param("ide") int id);

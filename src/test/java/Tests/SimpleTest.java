@@ -9,6 +9,8 @@ import entidades.Grafo;
 import logica.services.ExcepcionServiciosCancelaciones;
 import logica.services.ParserGrafo;
 import logica.services.ParserJSON;
+import logica.services.ServiciosCancelaciones;
+import logica.services.ServiciosCancelacionesFactory;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 
