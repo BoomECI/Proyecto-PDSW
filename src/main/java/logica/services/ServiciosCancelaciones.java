@@ -74,7 +74,7 @@ public interface ServiciosCancelaciones {
      * @return Entero que e
      * @throws ExcepcionServiciosCancelaciones Si la materia no se puede cancelar o no existe o si se genera un error de persistencia
      */
-    public abstract int consultarImpacto(Materia cancelada, Estudiante estudiante) throws ExcepcionServiciosCancelaciones;    
+    public abstract int consultarImpacto(List<Materia> canceladas, Estudiante estudiante) throws ExcepcionServiciosCancelaciones;    
    
     
     

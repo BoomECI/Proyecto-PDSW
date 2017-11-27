@@ -16,6 +16,9 @@ import java.util.Date;
 import logica.services.ExcepcionServiciosCancelaciones;
 import logica.services.ServiciosCancelaciones;
 import logica.services.ServiciosCancelacionesFactory;
+import org.primefaces.component.inputtextarea.InputTextarea;
+import org.primefaces.component.tabview.Tab;
+import org.primefaces.component.tabview.TabView;
 
 
 
@@ -30,10 +33,11 @@ public class EstudianteBean implements Serializable{
     private List<Materia> materiasCursadas;
     private List<Materia> materiasActuales;
     private Estudiante estudianteActual;
-    private String materiaSeleccionada;
-    private String justificacionCancelacion;
+    private List<String> materiasSeleccionadas;
+    private String[] justificacionesCancelacion;
     private int creditosRestantes;
     private SolicitudCancelacion solicitudEstudiante;
+    private TabView tablaMaterias;
     
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
@@ -43,6 +47,7 @@ public class EstudianteBean implements Serializable{
         materiasActuales = estudianteActual.getMateriasActuales();
         planDeEstudios = estudianteActual.getPlanDeEstudios();
         solicitudes = estudianteActual.getSolicitudes();
+        tablaMaterias = new TabView();
     }
     
     public EstudianteBean(Estudiante estudianteActual) throws ExcepcionServiciosCancelaciones{
@@ -79,12 +84,12 @@ public class EstudianteBean implements Serializable{
         this.estudianteActual = estudianteActual;
     }
 
-    public String getMateriaSeleccionada() {
-        return materiaSeleccionada;
+    public List<String> getMateriasSeleccionadas() {
+        return materiasSeleccionadas;
     }
 
-    public void setMateriaSeleccionada(String materiaSeleccionada) {
-        this.materiaSeleccionada = materiaSeleccionada;
+    public void setMateriasSeleccionadas(List<String> materiasSeleccionadas) {
+        this.materiasSeleccionadas = materiasSeleccionadas;
     }
 
     public List<Materia> getMateriasActuales(){
@@ -103,20 +108,32 @@ public class EstudianteBean implements Serializable{
         this.fechaCancelacion = fechaCancelacion;
     }
 
-    public String getJustificacionCancelacion() {
-        return justificacionCancelacion;
+    public String[] getJustificacionesCancelacion() {
+        return justificacionesCancelacion;
     }
 
-    public void setJustificacionCancelacion(String justificacionCancelacion) {
-        this.justificacionCancelacion = justificacionCancelacion;
+    public void setJustificacionesCancelacion(String[] justificacionesCancelacion) {
+        this.justificacionesCancelacion = justificacionesCancelacion;
     }
     
    public void cancelarMateria() throws ExcepcionServiciosCancelaciones{
-       solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+1, justificacionCancelacion, "", false, false, materiaSeleccionada ,estudianteActual.getCodigo());
-       servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
+       for(int i = 0; i < materiasSeleccionadas.size(); i++){
+            solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+1, justificacionesCancelacion[i], "", false, false, materiasSeleccionadas.get(i) ,estudianteActual.getCodigo());
+            servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
+       }
+       
    }
     
     public void analizarSolicitud() throws ExcepcionServiciosCancelaciones{
+       justificacionesCancelacion = new String[materiasSeleccionadas.size()];
+       for(int i = 0; i < materiasSeleccionadas.size(); i++){
+           Tab tab = new Tab();
+           tab.setTitle(materiasSeleccionadas.get(i));
+           InputTextarea ita = new InputTextarea();
+           ita.setValue(justificacionesCancelacion[i]);
+           tab.getChildren().add(ita);
+           tablaMaterias.getChildren().add(tab);
+       }
        creditosRestantes = servCanc.consultarImpacto(comparar(), estudianteActual);
     }
 
@@ -136,6 +153,16 @@ public class EstudianteBean implements Serializable{
         this.materiasCursadas = materiasCursadas;
     }
 
+    public TabView getTablaMaterias() {
+        return tablaMaterias;
+    }
+
+    public void setTablaMaterias(TabView tablaMaterias) {
+        this.tablaMaterias = tablaMaterias;
+    }
+    
+    
+
     public List<SolicitudCancelacion> getSolicitudes() {
         return solicitudes;
     }
@@ -153,13 +180,20 @@ public class EstudianteBean implements Serializable{
         return "serviciocancelaciones.xhtml";
     }
 
-    public Materia comparar(){
-        Materia mt = null;
-        for (Materia i: materiasActuales){
-            if(i.getNemonico().equals(materiaSeleccionada)){
-                mt = i;
+    public List<Materia> comparar(){
+        List<Materia> mt = new ArrayList<Materia>();
+        List<String> mSels = materiasSeleccionadas;
+        
+        int k = 0;
+        while (mSels.size() > 0){
+            for(Materia i: materiasActuales){
+                if(i.getNemonico().equals(mSels.get(k))){
+                    mt.add(i);
+                    mSels.remove(k);
+                }
             }
         }
+       
         return mt;
     }
 }
