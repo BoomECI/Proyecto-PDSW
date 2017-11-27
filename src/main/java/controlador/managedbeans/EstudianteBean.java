@@ -38,22 +38,7 @@ public class EstudianteBean implements Serializable{
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
         fechaCancelacion = new Date();
-        ArrayList<Materia> mA = new ArrayList<Materia>();
-        mA.add(new Materia("APMU","Apreciacion musical", 3, null, null));
-        mA.add(new Materia("FRED","Fundamentos de redes", 3, null, null));
-        mA.add(new Materia("PRON","Procesos de negocios", 3, null, null));
-        mA.add(new Materia("ACFI","Analisis contable y financiero", 3, null, null));
-        mA.add(new Materia("PDSW","Procesos de desarrollo de software", 4, null, null));
-        ArrayList<Materia> mC = new ArrayList<Materia>();
-        mC.add(new Materia("IINS","Introduccion a la ingenieria de sistemas",3,null,null));
-        mC.add(new Materia("MMIN","Modelos matematicos para la informatica",3,null,null));
-        mC.add(new Materia("DEPD","Deporte dirigido",3,null,null));
-        mC.add(new Materia("ALLI","Algebra lineal",4,null,null));
-        PlanDeEstudios PDE = new PlanDeEstudios();
-        PDE.setNumeroDeCreditosTotales(154);
-        estudianteActual = servCanc.consultarEstudiante(1);
-        /*estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com",null), new Acudiente(23,"Giovanni","gio.com",1234),
-                                                            1019138849,"cc",mA,mC,PDE,null);*/
+        estudianteActual = servCanc.consultarEstudiante(2110805);
         materiasCursadas = estudianteActual.getMateriasCursadas();
         materiasActuales = estudianteActual.getMateriasActuales();
         planDeEstudios = estudianteActual.getPlanDeEstudios();
@@ -127,8 +112,8 @@ public class EstudianteBean implements Serializable{
     }
     
    public void cancelarMateria() throws ExcepcionServiciosCancelaciones{
-       solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Esperando", 10, justificacionCancelacion, "nada", false, false, materiaSeleccionada ,1);
-       servCanc.agregarSolicitudCancelacionEstudiante( solicitudEstudiante);
+       solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+1, justificacionCancelacion, "", false, false, materiaSeleccionada ,estudianteActual.getCodigo());
+       servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
    }
     
     public void analizarSolicitud() throws ExcepcionServiciosCancelaciones{

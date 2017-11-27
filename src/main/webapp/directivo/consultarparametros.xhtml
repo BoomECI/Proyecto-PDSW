@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head></h:head>
+    <h:form id="directivoSolicitud">
+        <h:body>
+            <p:outputPanel id="creditosYGrafo" style="text-align: center; margin: auto">
+                <p:outputLabel value="Bienvenido decano"/>
+                <br/>
+                <p:outputLabel value="Creditos que pueden cursar los estudiantes cada semestre: #{beanSolicitudDirectivo.creditosActuales}"/>
+                <br/>
+                <p:outputLabel value="Grafo de plan de estudios: --En construccion--"/>
+            </p:outputPanel>
+        </h:body>
+    </h:form>
+</html>

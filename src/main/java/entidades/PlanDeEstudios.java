@@ -13,12 +13,13 @@ import javax.json.JsonObject;
  */
 public class PlanDeEstudios {
     
-    String carrera;
-    String grafo;
-    int numeroDeCreditosTotales;
-    int numeroDeAsignaturas;
-    int numeroPlanDeEstudio;
-    List<Materia> materias;
+    private String carrera;
+    private String grafo;
+    private int numeroDeCreditosTotales;
+    private int numeroDeAsignaturas;
+    private int numeroPlanDeEstudio;
+    private List<Materia> materias;
+    public static final int creditosPorSemestre = 18;
     
     public PlanDeEstudios(){}
     

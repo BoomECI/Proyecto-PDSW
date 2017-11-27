@@ -5,6 +5,8 @@
  */
 package controlador.managedbeans;
 
+import entidades.Grafo;
+import entidades.PlanDeEstudios;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -22,10 +24,12 @@ import logica.services.ServiciosCancelacionesFactory;
 public class DirectivoBean implements Serializable{
     private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
     private int creditosActuales;
+    private Grafo grafoPlanDeEstudios;
+    
     
     
     public DirectivoBean(){
-        creditosActuales = 18;
+        creditosActuales = PlanDeEstudios.creditosPorSemestre;
     }
 
     public int getCreditosActuales() {
@@ -36,12 +40,15 @@ public class DirectivoBean implements Serializable{
         this.creditosActuales = creditosActuales;
     }
 
-    public ServiciosCancelaciones getServCanc() {
-        return servCanc;
+    public Grafo getGrafoPlanDeEstudios() {
+        return grafoPlanDeEstudios;
+    }
+
+    public void setGrafoPlanDeEstudios(Grafo grafoPlanDeEstudios) {
+        this.grafoPlanDeEstudios = grafoPlanDeEstudios;
     }
     
-    public void cambiar() throws ExcepcionServiciosCancelaciones{
-        servCanc.cambiarCreditosTotalesPorSemestre(creditosActuales);
-    }
+    
+    
    
 }
