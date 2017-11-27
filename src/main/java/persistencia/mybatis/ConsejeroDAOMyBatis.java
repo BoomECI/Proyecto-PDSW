@@ -69,8 +69,8 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
         }catch(Exception e){
             throw new PersistenceException("Error al cambiar el aval del consejero:"+e.getLocalizedMessage(), e);
         }
-    }
+    }**/
 
-    **/
+    
     
 }
