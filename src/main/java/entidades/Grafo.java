@@ -5,6 +5,8 @@
  */
 package entidades;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -17,9 +19,11 @@ import java.util.Set;
  */
 public class Grafo {
     Map<Materia, Set<Materia>> grafo;
+    Map<Materia, Set<Materia>> correquisitos;
     
     public Grafo(){
         grafo = new HashMap<>();
+        correquisitos = new HashMap<>();
     }
     
     public void setNodes(){
@@ -55,6 +59,59 @@ public class Grafo {
         for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
             System.out.println(entry.getKey().getNemonico() + ": " + entry.getValue().toString() );
         }
+    }
+    
+    public Boolean validarGrafo() throws Exception{
+        List<Materia> ord;
+        ord = ordenamientoTopologico();
+        for (Materia m : ord){
+            System.out.println(m.getNombre());
+        }
+        System.out.println(ord.size());
+    
+        return true;
+    }
+    
+    public List<Materia> ordenamientoTopologico() throws Exception{
+        Map<Materia, Integer> inDegree;
+        inDegree = new HashMap<>();
+        for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
+            inDegree.put(entry.getKey(), 0);
+        }
+        for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
+            for (Materia mat: entry.getValue()){
+                inDegree.put(mat, inDegree.get(mat)+1);
+            }
+        }
+        ArrayDeque<Materia> queue = new ArrayDeque();
+        for (Map.Entry<Materia, Integer> entry : inDegree.entrySet()){
+            if(entry.getValue() == 0){
+                queue.addFirst(entry.getKey());
+            }
+        }
+        
+        List<Materia > lista = new ArrayList();
+        while (!queue.isEmpty()){
+            Materia u = queue.removeLast();
+            lista.add(u);
+            for (Materia v: grafo.get(u)){
+                inDegree.put(v, inDegree.get(v)-1);
+                if (inDegree.get(v) == 0){
+                    queue.addFirst(v);
+                }
+            }
+        }
+        if (lista.size() == grafo.size()){
+            return lista;
+        }
+        else{
+            throw new Exception("Grafo no aciclico");
+        }
+    }
+    
+    public List<List<String>> calcularPlanDeEstudios(List<Materia> materiasActuales, List<Materia> materiasCursadas){
+        
+        return null;
     }
     
     public void printGraph(){

@@ -97,11 +97,6 @@ public class SimpleTest {
 "	\"materias\": [\"CALD\",\"MMIN\",\"ALLI\",\"IINS\",\"EALE\",\"CIED\",\"LCAL\",\"FIMF\",\"PIMB\",\"MDIS\",\"FIEM\",\"MBDA\",\"PIMO\",\"EHU1\",\"PDIS\",\"TPRO\",\"ARQC\",\n" +
 "	\"ELCB\",\"POOB\",\"ESTI\",\"TCOM\",\"FRED\",\"TSOR\",\"PDSW\",\"FUNE\",\"SEGI\",\"SOPC\",\"PRON\",\"ARSW\",\"ACFI\",\"AREM\",\"COSW\", \"EHU2\",\"FGPR\",\"ET01\", \n" +
 "	\"SOSW\", \"EHU3\", \"ELEA\", \"ET02\", \"PGR1\", \"CRIP\", \"ET03\", \"CLE1\", \"PGR2\", \"CLE2\"],\n" +
-"	\"root\": {\n" +
-"			\"nombre\" : \"\", \n" +
-"			\"creditos\":\"0\", \n" +
-"			\"co\" : [], \n" +
-"			\"pre\" : [\"CLE1\", \"TSOR\", \"ET01\", \"IINS\", \"EXOE\", \"ELCB\", \"CLE2\", \"FMAT\", \"FFIS\", \"AGEO\", \"ET02\", \"PIMB\", \"DEPD\", \"ET03\", \"ELEA\"]}, \n" +
 "	\"CALD\": {\"nombre\" : \"Calculo diferencial\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [\"FIMF\"], \n" +
@@ -309,6 +304,7 @@ public class SimpleTest {
 "}");
            
             graph.printNodes();
+            graph.validarGrafo();
             
            
 

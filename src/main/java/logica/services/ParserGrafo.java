@@ -17,7 +17,7 @@ public interface ParserGrafo {
     
     /**
      *
-     * @param json
+     * @param str
      * @return
      */
     public Grafo convertStringToGrafo(String str);
