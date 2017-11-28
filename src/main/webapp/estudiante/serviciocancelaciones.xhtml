@@ -12,11 +12,11 @@
             <br />
             <br />
             <h3 style="margin-top: 0">Asignatura a cancelar</h3>
-            <p:pickList id="listadoAsignaturas" required="true" value="#{beanSolicitudEstudiante.materias}" var="materias" itemLabel="#{materias.nemonico}" itemValue="#{materias}"/>
+            <p:pickList id="listadoAsignaturas" converter="entityConverterBean" required="true" value="#{beanSolicitudEstudiante.materias}" var="materias" itemLabel="#{materias.nemonico}" itemValue="#{materias}"/>
             <p:commandButton id="analizarSol" value="Analizar solicitud" update="estudianteCancelacion" actionListener="#{beanSolicitudEstudiante.analizarSolicitud()}" />             
             <br />
             <br />
-            <p:dataList value="#{beanSolicitudEstudiantes.comparar()}" var="materia" type="ordered">
+            <p:dataList value="#{beanSolicitudEstudiante.materiasSeleccionadas}" var="materia" type="ordered">
                 <f:facet name="header">
                     Cursos seleccionados
                 </f:facet>

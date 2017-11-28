@@ -45,7 +45,17 @@ public class EstudianteBean implements Serializable{
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
         fechaCancelacion = new Date();
-        estudianteActual = servCanc.consultarEstudiante(2110805);
+        ArrayList<Materia> mA = new ArrayList<Materia>();
+        mA.add(new Materia("APMU","Apreciacion musical", 3, null, null));
+        mA.add(new Materia("FRED","Fundamentos de redes", 3, null, null));
+        mA.add(new Materia("PRON","Procesos de negocios", 3, null, null));
+        mA.add(new Materia("ACFI","Analisis contable y financiero", 3, null, null));
+        mA.add(new Materia("PDSW","Procesos de desarrollo de software", 4, null, null));
+        PlanDeEstudios PDE = new PlanDeEstudios();
+        PDE.setNumeroDeCreditosTotales(148);
+        estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com",null), new Acudiente(23,"Giovanni","gio.com",1234),
+                                                            1019138849,"cc",mA,null,PDE,null);
+        //estudianteActual = servCanc.consultarEstudiante(2110805);
         materiasCursadas = estudianteActual.getMateriasCursadas();
         materiasActuales = estudianteActual.getMateriasActuales();
         planDeEstudios = estudianteActual.getPlanDeEstudios();
