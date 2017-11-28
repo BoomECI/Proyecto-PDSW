@@ -19,9 +19,8 @@ import persistencia.mybatis.mappers.EstudianteMapper;
 public class ConsejeroDAOMyBatis implements ConsejeroDAO{       
     
 
-    @Inject
-    ConsejeroMapper Conmaper;
-    
+    /**@Inject
+    ConsejeroMapper Conmaper;  
     
     @Override
     public List<SolicitudCancelacion> loadSolicitudesTramitadas(int id){
@@ -33,7 +32,7 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
             throw new PersistenceException("Error al cargar las solicitudes:"+e.getLocalizedMessage(), e);
         }
     }
-
+    
     @Override
     public List<SolicitudCancelacion> loadMSolicitudesNoTramitadas(int id){
         try{        
@@ -70,7 +69,7 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
         }catch(Exception e){
             throw new PersistenceException("Error al cambiar el aval del consejero:"+e.getLocalizedMessage(), e);
         }
-    }
+    }**/
 
     
     
