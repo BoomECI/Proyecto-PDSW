@@ -88,8 +88,8 @@ public class SimpleTest {
     @Test
     public void prueba(){
         //ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
-        //ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
-        ParserGrafo p = new ParserJSON();
+        ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
+        //ParserGrafo p = new ParserJSON();
         try{
            //SolicitudCancelacion  x = new SolicitudCancelacion(java.sql.Date.valueOf("2000-2-2"), "Esperando", 3, "me duele la vida" , "muy mal panita",true,false, "sopc", 1);
            //a.agregarSolicitudCancelacionEstudiante(x);
@@ -303,8 +303,9 @@ public class SimpleTest {
 "			\"pre\" : []}\n" +
 "}");
            
-            graph.printNodes();
-            graph.validarGrafo();
+            //graph.printNodes();
+            //graph.validarGrafo();
+            //graph.printCoNodes();
             
            
 

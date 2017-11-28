@@ -37,6 +37,21 @@ public class Grafo {
         }
     }
     
+    public void addCoNode(Materia nodo){
+        if (correquisitos.get(nodo) == null){
+            correquisitos.put(nodo, new HashSet());
+            
+        }
+    }
+    
+    public void addCoEdge(Materia m1, Materia m2){
+        if (correquisitos.get(m1) != null){
+           Set<Materia> materia=correquisitos.get(m1);
+           materia.add(m2);
+           correquisitos.put(m1, materia);           
+        }
+    }
+    
     public void addEdge(Materia m1, Materia m2){
         if (grafo.get(m1) != null){
            Set<Materia> materia=grafo.get(m1);
@@ -57,6 +72,12 @@ public class Grafo {
     
     public void printNodes(){
         for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
+            System.out.println(entry.getKey().getNemonico() + ": " + entry.getValue().toString() );
+        }
+    }
+    
+    public void printCoNodes(){
+        for (Map.Entry<Materia, Set<Materia>> entry : correquisitos.entrySet()){
             System.out.println(entry.getKey().getNemonico() + ": " + entry.getValue().toString() );
         }
     }
@@ -105,7 +126,7 @@ public class Grafo {
             return lista;
         }
         else{
-            throw new Exception("Grafo no aciclico");
+            throw new Exception("Grafo no es aciclico");
         }
     }
     

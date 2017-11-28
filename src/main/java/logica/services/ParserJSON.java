@@ -43,15 +43,20 @@ public class ParserJSON implements ParserGrafo{
         Grafo g = new Grafo();
         for (JsonValue i: jo.getJsonArray("materias")){
             JsonObject mat = jo.getJsonObject(i.toString().replaceAll("\"",""));
-            g.addNode(new Materia(i.toString().replaceAll("\"",""),mat.getJsonString("nombre").toString().replaceAll("\"",""),Integer.parseInt(mat.getJsonString("creditos").toString().replaceAll("\"",""))));
-            
+            Materia nueva = new Materia(i.toString().replaceAll("\"",""),mat.getJsonString("nombre").toString().replaceAll("\"",""),Integer.parseInt(mat.getJsonString("creditos").toString().replaceAll("\"","")));
+            g.addNode(nueva);
+            g.addCoNode(nueva);
             
             //g.addNode(new Materia(i.toString()));
         }
         for (JsonValue i: jo.getJsonArray("materias")){
             JsonObject mat = jo.getJsonObject(i.toString().replaceAll("\"",""));
-            for (JsonValue j: mat.getJsonArray("pre"))
-            g.addEdge(g.getMateria(i.toString().replaceAll("\"","")),g.getMateria(j.toString().replaceAll("\"","")));
+            for (JsonValue j: mat.getJsonArray("pre")){
+                g.addEdge(g.getMateria(i.toString().replaceAll("\"","")),g.getMateria(j.toString().replaceAll("\"","")));
+            }
+            for (JsonValue j: mat.getJsonArray("co")){
+                g.addCoEdge(g.getMateria(i.toString().replaceAll("\"","")),g.getMateria(j.toString().replaceAll("\"","")));
+            }
         }
             
         //System.out.println(jo.getJsonObject("fimf").getJsonString("co").toString());
