@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ConsejeroDAO {    
     
-    /**public List<SolicitudCancelacion> loadSolicitudesTramitadas(int id);
-    public List<SolicitudCancelacion> loadMSolicitudesNoTramitadas(int id);    
-    public void cambiarEstadoSolicitud(int id_soli, String estado);
+    public List<SolicitudCancelacion> loadSolicitudesTramitadas(int id);
+    public List<SolicitudCancelacion> loadSolicitudesNoTramitadas(int id);    
+    /**public void cambiarEstadoSolicitud(int id_soli, String estado);
     public void agregarComentarioConsejero(int id_soli, String comentario);
     public void cambiarElAvalDeConsejero(int id_soli, boolean aval);**/
     

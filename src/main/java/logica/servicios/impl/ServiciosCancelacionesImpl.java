@@ -35,8 +35,8 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Inject
     private CalculoDeImpacto impacto;
     
-    /**@Inject
-    private ConsejeroDAO daoCon;**/
+    @Inject
+    private ConsejeroDAO daoCon;
     
     @Transactional
     @Override
@@ -104,7 +104,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Override
     public List<SolicitudCancelacion> consultarCancelacionesTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones {
         try{            
-            //return daoCon.loadSolicitudesTramitadas(id);
+            return daoCon.loadSolicitudesTramitadas(id);
         }catch(PersistenceException ex){
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -19,7 +19,7 @@ import persistencia.mybatis.mappers.EstudianteMapper;
 public class ConsejeroDAOMyBatis implements ConsejeroDAO{       
     
 
-    /**@Inject
+    @Inject
     ConsejeroMapper Conmaper;  
     
     @Override
@@ -34,16 +34,16 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
     }
     
     @Override
-    public List<SolicitudCancelacion> loadMSolicitudesNoTramitadas(int id){
+    public List<SolicitudCancelacion> loadSolicitudesNoTramitadas(int id){
         try{        
-            List<SolicitudCancelacion> solicitudes= Conmaper.loadMSolicitudesNoTramitadas(id);
+            List<SolicitudCancelacion> solicitudes= Conmaper.loadSolicitudesNoTramitadas(id);
             return solicitudes;
         }
         catch(Exception e){
             throw new PersistenceException("Error al cargar las solicitudes:"+e.getLocalizedMessage(), e);
         }
     }
-
+/*
     @Override
     public void cambiarEstadoSolicitud(int id_soli, String estado) {
         try{

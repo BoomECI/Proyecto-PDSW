@@ -131,14 +131,14 @@ public class Grafo {
     }
     
     public List<List<String>> calcularPlanDeEstudios(List<Materia> materiasActuales, List<Materia> materiasCursadas,List<String> canceladas){
-        List<List<String>> total = new List<List<String>>;
+        //List<List<String>> total = new List<List<String>>;
         int creditos=0;       
         return null;
     }
     
     public Materia noVista ( List<Materia> materiasCursadas,List<Materia> materiasActuales){
         for (Materia i: materiasCursadas){
-            Set<Materia> materias=grafo.get(getMatera(i.getNemonico));
+            Set<Materia> materias=grafo.get(getMateria(i.getNemonico()));
             for (Materia j: materias){
                 for (Materia h: materiasCursadas){                    
                 
@@ -146,6 +146,7 @@ public class Grafo {
                 
             }
         }
+        return null;
     }
     public void printGraph(){
         
