@@ -12,48 +12,33 @@
             <br />
             <br />
             <h3 style="margin-top: 0">Asignatura a cancelar</h3>
-            <p:pickList id="listadoAsignaturas" required="true" value="#{beanSolicitudEstudiante.materiasSeleccionadas}" >
-                <p:ajax listener="#{beanSolicitudEstudiante.analizarSolicitud()}" update="estudianteCancelacion"/> 
-                <f:selectItems value="#{beanSolicitudEstudiante.materiasActuales}"  var="materiasEstudiante" itemValue="#{materiasEstudiante.nemonico}" itemLabel="#{materiasEstudiante.nemonico}" />
-            </p:pickList>
-                <p:message for="listadoAsignaturas" />
-                
-                <br />
-                <br />
-                <p:dataList value="#{beanSolicitudEstudiantes.comparar()}" var="materia" type="ordered">
-                    <f:facet name="header">
-                        Cursos seleccionados
-                    </f:facet>
-                    #{materia.nemonico}, #{materia.nombre}
-                </p:dataList>
-                <br />
-                <p:panel id="impacto" header="Impacto" style="text-align:center; width: 40%; margin: 0 auto">
-                    <h:outputText value="Si cancela estas asignaturas le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} de #{beanSolicitudEstudiante.creditosCarrera} créditos restantes"  />
-                </p:panel>
-                
-                <br />
-                <br />
-                <p:commandButton id="sol" value="Continuar con la cancelacion" type="button" update="detalleSolicitud" style="margin-left:38%" />
-                    <p:overlayPanel id="detalleSolicitud" for="sol" hideEffect="fade" style="margin: 0 auto">
-                        <p:outputLabel for="jus" value="Justificacion:   " />
-                        <br />
-                        <p:inputTextarea id="jus" counter="display" maxlength="400" counterTemplate="{0} caracteres restantes." title="¿Por que quiero cancelar?" value="#{beanSolicitudEstudiante.justificacionCancelacion}" rows="6" cols="26" autoResize="true"/>
-                        <br />
-                        <h:outputText id="display" />
-                        <br />
-                        <br/>
-                        <p:commandButton value ="enviar" actionListener="#{beanSolicitudEstudiante.cancelarMateria()}" update="detalleSolicitud" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()" style="margin-left:38%">
-                            <p:confirm  header="Confirmacion" message="Estas seguro de que quieres realizar esta cancelacion?" icon="ui-icon-alert" />
-                        </p:commandButton>
-                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-                        </p:confirmDialog>
-                    </p:overlayPanel>
-                <br />
-                <br />
-                <br />
-                <h:outputLink value="/logout" style="font-size: 180%; margin-left:47%; font-weight:bold">Logout</h:outputLink>
+            <p:pickList id="listadoAsignaturas" required="true" value="#{beanSolicitudEstudiante.materias}" var="materias" itemLabel="#{materias.nemonico}" itemValue="#{materias}"/>
+            <p:commandButton id="analizarSol" value="Analizar solicitud" update="estudianteCancelacion" actionListener="#{beanSolicitudEstudiante.analizarSolicitud()}" />             
+            <br />
+            <br />
+            <p:dataList value="#{beanSolicitudEstudiantes.comparar()}" var="materia" type="ordered">
+                <f:facet name="header">
+                    Cursos seleccionados
+                </f:facet>
+                #{materia.nemonico}, #{materia.nombre}
+            </p:dataList>
+            <br />
+            <p:panel id="impacto" header="Impacto" style="text-align:center; width: 40%; margin: 0 auto">
+                <h:outputText value="Si cancela estas asignaturas le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} de #{beanSolicitudEstudiante.creditosCarrera} créditos restantes"  />
+            </p:panel>
+            <br />
+            <br />
+            <p:commandButton id="sol" value="enviar" update="detalleSolicitud" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()" style="margin-left:38%">
+                <p:confirm  header="Confirmacion" message="Estas seguro de que quieres cancelar estas materias?" icon="ui-icon-alert" />
+            </p:commandButton>
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" actionListener="#{beanSolicitudEstudiante.cancelarMaterias()}"/>
+                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+            </p:confirmDialog>
+            <br />
+            <br />
+            <br />
+            <h:outputLink value="/logout" style="font-size: 180%; margin-left:47%; font-weight:bold">Logout</h:outputLink>
         </h:body>
     </h:form>
 </html>
