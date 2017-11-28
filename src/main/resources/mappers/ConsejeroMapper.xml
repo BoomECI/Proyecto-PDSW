@@ -68,10 +68,21 @@
         sol.comentario,
         sol.avalAcudiente,
         sol.avalConsejero,
-        sol.Materia,         
-        from  
-        solicitud_de_cancelacion AS sol, Estudiante AS est, Consejeto AS con
-        WHERE est.consejero = #{ide} AND sol.estado = 'tramitada'
+        sol.Materia,  
+        sol.Estudiante  
+        est.codigo,  
+        est.nombre,
+        est.correo,
+        est.telefono,
+        est.identificacion,
+        est.tipo_id, 
+        est.creditos,   
+        mat.nemonico 
+        from          
+        solicitud_de_cancelacion AS sol
+        LEFT OUTER Join Materia AS mat ON  sol.Materia=mat.nemonico  
+        LEFT OUTER Join Estudiante AS est ON  sol.Estudiante=est.codigo  
+        WHERE est.consejero = #{ide} AND sol.estado = 'Tramitada'
                   
     </select>  
     
@@ -84,9 +95,20 @@
         sol.comentario,
         sol.avalAcudiente,
         sol.avalConsejero,
-        sol.Materia,         
-        from  
-        solicitud_de_cancelacion AS sol, Estudiante AS est, Consejeto AS con
+        sol.Materia,  
+        sol.Estudiante  
+        est.codigo,  
+        est.nombre,
+        est.correo,
+        est.telefono,
+        est.identificacion,
+        est.tipo_id, 
+        est.creditos,   
+        mat.nemonico 
+        from          
+        solicitud_de_cancelacion AS sol
+        LEFT OUTER Join Materia AS mat ON  sol.Materia=mat.nemonico  
+        LEFT OUTER Join Estudiante AS est ON  sol.Estudiante=est.codigo  
         WHERE est.consejero = #{ide} AND sol.estado = 'Pendiente'
     </select>  
     
