@@ -14,9 +14,9 @@ import org.apache.ibatis.annotations.Param;
  * @author BoomECI
  */
 public interface ConsejeroMapper {
-    public List<SolicitudCancelacion> loadSolicitudesTramitadas(@Param("ide") int id);
+    /*public List<SolicitudCancelacion> loadSolicitudesTramitadas(@Param("ide") int id);
     public List<SolicitudCancelacion> loadSolicitudesNoTramitadas(@Param("ide") int id);
-    /*public void cambiarEstadoSolicitud(@Param("ide")int id_soli,@Param("est") String estado);
+    public void cambiarEstadoSolicitud(@Param("ide")int id_soli,@Param("est") String estado);
     public void agregarComentarioConsejero(@Param("ide")int id_soli, @Param("com")String comentario);
     public void cambiarElAvalDeConsejero(@Param("ide")int id_soli, @Param("aval")boolean aval);   */                 
 }
