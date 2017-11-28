@@ -17,8 +17,10 @@ import logica.services.ExcepcionServiciosCancelaciones;
 import logica.services.ServiciosCancelaciones;
 import logica.services.ServiciosCancelacionesFactory;
 import org.primefaces.component.inputtextarea.InputTextarea;
+import org.primefaces.component.outputlabel.OutputLabel;
 import org.primefaces.component.tabview.Tab;
 import org.primefaces.component.tabview.TabView;
+import org.primefaces.context.RequestContext;
 import org.primefaces.model.DualListModel;
 
 
@@ -40,7 +42,9 @@ public class EstudianteBean implements Serializable{
     private SolicitudCancelacion solicitudEstudiante;
     private TabView tablaMaterias;
     private int creditosCarrera;
-    private DualListModel<Materia> materias;
+    private DualListModel<String> materias;
+    private List<String> materiasActualesString;
+    private List<String> materiasSeleccionadasString;
     
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
@@ -53,8 +57,17 @@ public class EstudianteBean implements Serializable{
         mA.add(new Materia("PDSW","Procesos de desarrollo de software", 4, null, null));
         PlanDeEstudios PDE = new PlanDeEstudios();
         PDE.setNumeroDeCreditosTotales(148);
+        
+        ArrayList<Materia> mC = new ArrayList<Materia>();
+        mC.add(new Materia("IINS","Introduccion a la ingenieria de sistemas",3,null,null));
+        mC.add(new Materia("MMIN","Modelos matematicos para la informatica",3,null,null));
+        mC.add(new Materia("DEPD","Deporte dirigido",3,null,null));
+        mC.add(new Materia("ALLI","Algebra lineal",4,null,null));
+        
+        ArrayList<SolicitudCancelacion> sols = new ArrayList<>();
+        sols.add(new SolicitudCancelacion());
         estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com",null), new Acudiente(23,"Giovanni","gio.com",1234),
-                                                            1019138849,"cc",mA,null,PDE,null);
+                                                            1019138849,"cc",mA,mC,PDE,sols);
         //estudianteActual = servCanc.consultarEstudiante(2110805);
         materiasCursadas = estudianteActual.getMateriasCursadas();
         materiasActuales = estudianteActual.getMateriasActuales();
@@ -62,12 +75,52 @@ public class EstudianteBean implements Serializable{
         solicitudes = estudianteActual.getSolicitudes();
         creditosCarrera = estudianteActual.getPlanDeEstudios().getNumeroDeCreditosTotales();
         tablaMaterias = new TabView();
-        materias = new DualListModel<>(materiasActuales, materiasSeleccionadas);
+        materiasActualesString = new ArrayList<>();
+        materiasSeleccionadasString = new ArrayList<>();
+        materiasActualesString = conversorActualesToString();
+        materias = new DualListModel<>(materiasActualesString, materiasSeleccionadasString);
             
     }
     
     public EstudianteBean(Estudiante estudianteActual) throws ExcepcionServiciosCancelaciones{
         this.estudianteActual = estudianteActual;
+    }
+    
+    
+    public List<Materia> conversorStringToSeleccionadas(){
+        List<Materia> mt = new ArrayList<>();
+        List<String> matSelec = getMaterias().getTarget();
+        for(int k=0; k<matSelec.size(); k++){
+            for(Materia i: materiasActuales){
+                if(i.getNemonico().equals(matSelec.get(k))){
+                    mt.add(i);
+                }
+            }
+        }
+       
+        return mt;
+    }
+    
+    public List<String> conversorActualesToString(){
+        List<String> mt = new ArrayList<String>();
+        
+        for(int i = 0; i<materiasActuales.size(); i++){
+            mt.add(materiasActuales.get(i).getNemonico());
+        }
+       
+        return mt;
+    }
+    
+    
+    
+    public List<String> conversorSeleccionadasToString(){
+        List<String> mt = new ArrayList<String>();
+        
+        for(int i = 0; i<materiasSeleccionadas.size(); i++){
+            mt.add(materiasSeleccionadas.get(i).getNemonico());
+        }
+       
+        return mt;
     }
 
     public SolicitudCancelacion getSolicitudEstudiante() {
@@ -78,12 +131,28 @@ public class EstudianteBean implements Serializable{
         this.solicitudEstudiante = solicitudEstudiante;
     }
 
-    public DualListModel<Materia> getMaterias() {
+    public DualListModel<String> getMaterias() {
         return materias;
     }
 
-    public void setMaterias(DualListModel<Materia> materias) {
+    public void setMaterias(DualListModel<String> materias) {
         this.materias = materias;
+    }
+
+    public List<String> getMateriasActualesString() {
+        return materiasActualesString;
+    }
+
+    public void setMateriasActualesString(List<String> materiasActualesString) {
+        this.materiasActualesString = materiasActualesString;
+    }
+
+    public List<String> getMateriasSeleccionadasString() {
+        return materiasSeleccionadasString;
+    }
+
+    public void setMateriasSeleccionadasString(List<String> materiasSeleccionadasString) {
+        this.materiasSeleccionadasString = materiasSeleccionadasString;
     }
     
     
@@ -151,23 +220,51 @@ public class EstudianteBean implements Serializable{
     }
     
    public void cancelarMaterias() throws ExcepcionServiciosCancelaciones{
-       for(int i = 0; i < materiasSeleccionadas.size(); i++){
-            solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+1, justificacionesCancelacion[i], "", false, false, materiasSeleccionadas.get(i).getNemonico() ,estudianteActual.getCodigo());
-            servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
+       for(int i=0;i<justificacionesCancelacion.length;i++){
+           InputTextarea m = (InputTextarea) tablaMaterias.getChildren().get(i).findComponent("input"+i);
+           justificacionesCancelacion[i] = (String) m.getValue();
+       }
+       for(int i = 0; i < materiasSeleccionadasString.size(); i++){
+        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+1, justificacionesCancelacion[i], "", false, false, materiasSeleccionadasString.get(i),estudianteActual.getCodigo());
+        servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
        }
        
    }
     
     public void analizarSolicitud() throws ExcepcionServiciosCancelaciones{
-       justificacionesCancelacion = new String[materiasSeleccionadas.size()];
-       for(int i = 0; i < materiasSeleccionadas.size(); i++){
+       
+       tablaMaterias = new TabView();
+       materiasSeleccionadasString = getMaterias().getTarget();
+       materiasSeleccionadas = conversorStringToSeleccionadas();
+       justificacionesCancelacion = new String[materiasSeleccionadasString.size()];
+       for(int i = 0; i < materiasSeleccionadasString.size(); i++){
            Tab tab = new Tab();
-           tab.setTitle(materiasSeleccionadas.get(i).getNemonico());
+           tab.setTitle(materiasSeleccionadasString.get(i));
            InputTextarea ita = new InputTextarea();
+           ita.setId("input"+i);
            ita.setValue(justificacionesCancelacion[i]);
+           ita.setMaxlength(400);
+           ita.setCounterTemplate("{0} restantes.");
+           ita.setTitle("¿Por que quiero cancelar esta asignatura?");
+           ita.setRows(6);
+           ita.setCols(40);
+           ita.setAutoResize(true);
+           ita.setCounter("display"+i);           
+           OutputLabel ol1 = new OutputLabel();
+           ol1.setValue("Justificacion:            ");
+           ol1.setStyle("font-size: 100%; font-weight:bold");
+           OutputLabel ol = new OutputLabel();
+           ol.setId("display"+i);
+           ol.setStyle("font-style: italic; font-size: 80%");
+           tab.getChildren().add(ol1);
            tab.getChildren().add(ita);
+           tab.getChildren().add(ol);
            tablaMaterias.getChildren().add(tab);
        }
+       RequestContext context = RequestContext.getCurrentInstance();
+       context.update("myTabPanel");
+       
+       
        creditosRestantes = servCanc.consultarImpacto(materiasSeleccionadas, estudianteActual);
     }
 

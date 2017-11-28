@@ -6,39 +6,52 @@
     <h:head></h:head>
     <h:form id="estudianteCancelacion">
         <h:body>
-            <p:outputLabel value="Estudiante: #{beanSolicitudEstudiante.estudianteActual.nombre}" style="margin-left:32%; font-size: 150%; font-weight:bold" />
-            <br />
-            <p:outputLabel value="Solicitud de cancelacion" style="margin-left:39%; font-size: 150%; font-weight:bold" />
-            <br />
-            <br />
-            <h3 style="margin-top: 0">Asignatura a cancelar</h3>
-            <p:pickList id="listadoAsignaturas" converter="entityConverterBean" required="true" value="#{beanSolicitudEstudiante.materias}" var="materias" itemLabel="#{materias.nemonico}" itemValue="#{materias}"/>
-            <p:commandButton id="analizarSol" value="Analizar solicitud" update="estudianteCancelacion" actionListener="#{beanSolicitudEstudiante.analizarSolicitud()}" />             
-            <br />
-            <br />
-            <p:dataList value="#{beanSolicitudEstudiante.materiasSeleccionadas}" var="materia" type="ordered">
-                <f:facet name="header">
-                    Cursos seleccionados
-                </f:facet>
-                #{materia.nemonico}, #{materia.nombre}
-            </p:dataList>
-            <br />
-            <p:panel id="impacto" header="Impacto" style="text-align:center; width: 40%; margin: 0 auto">
-                <h:outputText value="Si cancela estas asignaturas le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} de #{beanSolicitudEstudiante.creditosCarrera} créditos restantes"  />
-            </p:panel>
-            <br />
-            <br />
-            <p:commandButton id="sol" value="enviar" update="detalleSolicitud" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()" style="margin-left:38%">
-                <p:confirm  header="Confirmacion" message="Estas seguro de que quieres cancelar estas materias?" icon="ui-icon-alert" />
-            </p:commandButton>
-            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" actionListener="#{beanSolicitudEstudiante.cancelarMaterias()}"/>
-                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-            </p:confirmDialog>
-            <br />
-            <br />
-            <br />
-            <h:outputLink value="/logout" style="font-size: 180%; margin-left:47%; font-weight:bold">Logout</h:outputLink>
+            <p:outputPanel id="materiasEImpacto" style="text-align: center; margin: auto">
+                <p:outputLabel value="Estudiante: #{beanSolicitudEstudiante.estudianteActual.nombre}" style="font-size: 150%; font-weight:bold" />
+                <br />
+                <p:outputLabel value="Solicitud de cancelacion" style="font-size: 150%; font-weight:bold" />
+                <br />
+                <br />
+                <h3 style="margin-top: 0; font-weight: bold">Asignatura a cancelar</h3>
+                <p:pickList id="listadoAsignaturas" required="true" value="#{beanSolicitudEstudiante.materias}" var="materias" itemLabel="#{materias}" itemValue="#{materias}" style="margin: auto; font-weight: bold"/>
+                <p:commandButton id="analizarSol" value="Analizar solicitud" update="estudianteCancelacion" actionListener="#{beanSolicitudEstudiante.analizarSolicitud()}" />             
+                <br />
+                <br />
+                <br/>
+                <br/>
+                <p:dataTable  var="materia" value="#{beanSolicitudEstudiante.materiasSeleccionadas}" style="width: 33%;margin: 0 auto">
+                    <f:facet name="header" >
+                        Cursos seleccionados
+                    </f:facet>
+                    <p:column headerText="Nemonico" style="width: 27%">
+                        <h:outputText value="#{materia.nemonico}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{materia.nombre}" />
+                    </p:column>
+                </p:dataTable>
+                <br />
+                <br/>
+                <p:tabView id="myTabPanel" binding="#{beanSolicitudEstudiante.tablaMaterias}" style="width: 50%; margin: auto"/>
+                <br/>
+                <br/>
+                <p:panel id="impacto" header="Impacto" style="text-align:center; width: 40%; margin: 0 auto">
+                    <h:outputText value="Si cancela estas asignaturas le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} de #{beanSolicitudEstudiante.creditosCarrera} créditos restantes"  />
+                </p:panel>
+                <br />
+                <br />
+                <p:commandButton id="sol" value="Enviar" update="myTabPanel" actionListener="#{beanSolicitudEstudiante.cancelarMaterias()}" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()" style="font-size: 150%">
+                    <p:confirm  header="Confirmacion" message="Estas seguro de que quieres cancelar estas materias?" icon="ui-icon-alert" />
+                </p:commandButton>
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                </p:confirmDialog>
+                <br />
+                <br />
+                <br />
+                <h:outputLink value="/logout" style="font-size: 150%; font-weight:bold">Logout</h:outputLink>
+            </p:outputPanel>
         </h:body>
     </h:form>
 </html>

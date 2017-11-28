@@ -28,7 +28,8 @@ public class Materia {
     public Materia (String nemonico){
         this.nemonico=nemonico;
     }
-
+    
+    
     public String getNemonico() {
         return nemonico;
     }
