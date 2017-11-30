@@ -29,7 +29,8 @@
     </environments>
         
     <mappers>
-        <mapper resource="mappers/EstudianteMapper.xml"></mapper>   
+        <mapper resource="mappers/EstudianteMapper.xml"></mapper>
+        <mapper resource="mappers/ConsejeroMapper.xml"></mapper>
     </mappers> 
         
         

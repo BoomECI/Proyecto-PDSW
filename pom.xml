@@ -21,15 +21,15 @@
             <groupId>org.glassfish</groupId>
             <artifactId>javax.json</artifactId>
             <version>1.0.4</version>
-
         </dependency>
         
           
         <dependency>
-		<groupId>cglib</groupId>
-		<artifactId>cglib</artifactId>
-		<version>2.2</version>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2</version>
 	</dependency>
+        
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -41,36 +41,41 @@
             <artifactId>javax.json-api</artifactId>
             <version>1.0</version>
         </dependency>
+        
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>5.0</version>
         </dependency>
+        
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-api</artifactId>
             <version>2.2.12</version>
         </dependency>
+        
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-impl</artifactId>
             <version>2.2.12</version>
         </dependency>
+        
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.faces</artifactId>
             <version>2.2.7</version>
         </dependency>
-       <dependency>
+        
+        <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-        <dependency>
-            
-        <groupId>org.eclipse.persistence</groupId>
-        <artifactId>javax.persistence</artifactId>
-        <version>2.1.0</version>
+        
+        <dependency>           
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.1.0</version>
         </dependency>
 
  
@@ -195,7 +200,7 @@
                 </dependencies>
                 <configuration>
                     <driver>org.h2.Driver</driver>                    
-                    <url>jdbc:h2:file:./target/db/testdb;MODE=MYSQL</url>
+                    <url>jdbc:h2:file:./target/db/testdb;MODE=PostgreSQL</url>
                     <username>sa</username>
                     <password></password>
                     <autocommit>false</autocommit>
@@ -210,7 +215,8 @@
                         </goals>
                         <configuration>
                             <srcFiles>                                
-                                <srcFile>tables.sql</srcFile>                                
+                                <srcFile>tables.sql</srcFile> 
+                                <srcFile>insert.sql</srcFile>                               
                             </srcFiles>
                         </configuration>
                     </execution>
