@@ -16,11 +16,11 @@
  */
 package Tests;
 
-import entidades.Estudiante;
-import entidades.Grafo;
-import entidades.Materia;
-import entidades.SolicitudCancelacion;
-import entidades.SolicitudCancelacion;
+import com.BoomECI.entidades.Estudiante;
+import com.BoomECI.entidades.Grafo;
+import com.BoomECI.entidades.Materia;
+import com.BoomECI.entidades.SolicitudCancelacion;
+import com.BoomECI.entidades.SolicitudCancelacion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,11 +32,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.json.JsonObject;
 
-import logica.services.ExcepcionServiciosCancelaciones;
-import logica.services.ParserGrafo;
-import logica.services.ParserJSON;
-import logica.services.ServiciosCancelaciones;
-import logica.services.ServiciosCancelacionesFactory;
+import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
+import com.BoomECI.logica.services.ParserGrafo;
+import com.BoomECI.logica.services.ParserJSON;
+import com.BoomECI.logica.services.ServiciosCancelaciones;
+import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
 import org.junit.After;
 import org.junit.Assert;
 import static org.junit.Assert.fail;

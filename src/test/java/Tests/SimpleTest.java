@@ -5,12 +5,12 @@
  */
 package Tests;
 
-import entidades.Grafo;
-import logica.services.ExcepcionServiciosCancelaciones;
-import logica.services.ParserGrafo;
-import logica.services.ParserJSON;
-import logica.services.ServiciosCancelaciones;
-import logica.services.ServiciosCancelacionesFactory;
+import com.BoomECI.entidades.Grafo;
+import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
+import com.BoomECI.logica.services.ParserGrafo;
+import com.BoomECI.logica.services.ParserJSON;
+import com.BoomECI.logica.services.ServiciosCancelaciones;
+import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 
