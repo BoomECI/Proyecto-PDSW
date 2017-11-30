@@ -21,7 +21,7 @@
             <transactionManager type="JDBC" />
             <dataSource type="POOLED">
                 <property name="driver" value="org.h2.Driver" />
-                <property name="url" value="jdbc:h2:file:./target/db/testdb;MODE=MYSQL" />
+                <property name="url" value="jdbc:h2:file:./target/db/testdb;MODE=PostgreSQL" />
                 <property name="username" value="sa" />
                 <property name="password" value="" />
             </dataSource>
@@ -29,7 +29,8 @@
     </environments>
         
     <mappers>
-        <mapper resource="mappers/EstudianteMapper.xml"></mapper>   
+        <mapper resource="mappers/EstudianteMapper.xml"></mapper>
+        <mapper resource="mappers/ConsejeroMapper.xml"></mapper>
     </mappers> 
         
         
