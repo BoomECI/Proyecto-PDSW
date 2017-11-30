@@ -18,7 +18,7 @@ import com.BoomECI.persistencia.mybatis.mappers.EstudianteMapper;
  */
 public class ConsejeroDAOMyBatis implements ConsejeroDAO{       
     
-/*
+
     @Inject
     ConsejeroMapper Conmaper;  
     
@@ -69,7 +69,7 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
         }catch(Exception e){
             throw new PersistenceException("Error al cambiar el aval del consejero:"+e.getLocalizedMessage(), e);
         }
-    }**/
+    }
    
     
 }

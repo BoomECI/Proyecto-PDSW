@@ -8,12 +8,12 @@
         <setting name="logImpl" value="LOG4J"/>        
     </settings>
     <typeAliases>
-        <typeAlias type='entidades.Estudiante' alias='Estudiante'/>
-        <typeAlias type='entidades.Acudiente' alias='Acudiente'/>
-        <typeAlias type='entidades.Consejero' alias='Consejero'/>
-        <typeAlias type='entidades.SolicitudCancelacion' alias='SolicitudCancelacion'/>
-        <typeAlias type='entidades.Materia' alias='Materia'/>
-        <typeAlias type='entidades.PlanDeEstudios' alias='PlanDeEstudios'/>
+        <typeAlias type='com.BoomECI.entidades.Estudiante' alias='Estudiante'/>
+        <typeAlias type='com.BoomECI.entidades.Acudiente' alias='Acudiente'/>
+        <typeAlias type='com.BoomECI.entidades.Consejero' alias='Consejero'/>
+        <typeAlias type='com.BoomECI.entidades.SolicitudCancelacion' alias='SolicitudCancelacion'/>
+        <typeAlias type='com.BoomECI.entidades.Materia' alias='Materia'/>
+        <typeAlias type='com.BoomECI.entidades.PlanDeEstudios' alias='PlanDeEstudios'/>
     </typeAliases>
             
     <environments default="development">
