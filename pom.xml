@@ -27,7 +27,7 @@
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
-            <version>2.2</version>
+            <version>3.2.5</version>
 	</dependency>
         
         <dependency>
@@ -119,18 +119,19 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
-            <type>zip</type>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>apache-log4j-extras</artifactId>
             <version>1.2.17</version>
+            <type>jar</type>
         </dependency>
         
           <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.184</version>
+            <version>1.4.191</version>
         </dependency>
         <dependency>
             <groupId>com.google.inject</groupId>
@@ -150,6 +151,12 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-web</artifactId>
             <version>1.2.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
         </dependency>
 
         <dependency>
