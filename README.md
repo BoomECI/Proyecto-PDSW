@@ -15,4 +15,4 @@ Juan David Ramirez Mendoza - d.ramirez
 
 
 URL Heroku:
-https://dashboard.heroku.com/apps/proyectopdsw
+https://proyectopdsw.herokuapp.com/
