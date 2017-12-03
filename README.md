@@ -7,11 +7,11 @@
 
 
 Integrantes:
-Jonathan Cuesta Sanchez - j.cuesta
-Juan Nicolas Gomez Moreno - n.gomez
-Daniel Moreno D'Aleman - d.moreno
-Nicolas Osorio Arias - n.osorio
-Juan David Ramirez Mendoza - d.ramirez
+- Jonathan Cuesta Sanchez - j.cuesta
+- Juan Nicolas Gomez Moreno - n.gomez
+- Daniel Moreno D'Aleman - d.moreno
+- Nicolas Osorio Arias - n.osorio
+- Juan David Ramirez Mendoza - d.ramirez
 
 
 URL Heroku:
