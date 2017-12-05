@@ -16,6 +16,8 @@ import java.util.Date;
 import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
+import com.BoomECI.seguridad.bean.ShiroLoginBean;
+import javax.faces.bean.ManagedProperty;
 import org.primefaces.component.inputtextarea.InputTextarea;
 import org.primefaces.component.outputlabel.OutputLabel;
 import org.primefaces.component.tabview.Tab;
@@ -28,6 +30,9 @@ import org.primefaces.model.DualListModel;
 @ManagedBean(name="beanSolicitudEstudiante")
 @SessionScoped
 public class EstudianteBean implements Serializable{
+    
+    /*@ManagedProperty(value = "#{loginBean}")
+    private ShiroLoginBean seguridad;*/
     
     private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
     private Date fechaCancelacion;                         
@@ -48,6 +53,9 @@ public class EstudianteBean implements Serializable{
     
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
+        
+       /* int carnetActual = Integer.parseInt(seguridad.getUsername());
+        estudianteActual= servCanc.consultarEstudiante( carnetActual);*/
         fechaCancelacion = new Date();
         ArrayList<Materia> mA = new ArrayList<Materia>();
         mA.add(new Materia("APMU","Apreciacion musical", 3, null, null));
@@ -82,9 +90,7 @@ public class EstudianteBean implements Serializable{
             
     }
     
-    public EstudianteBean(Estudiante estudianteActual) throws ExcepcionServiciosCancelaciones{
-        this.estudianteActual = estudianteActual;
-    }
+    
     
     
     public List<Materia> conversorStringToSeleccionadas(){
