@@ -17,13 +17,13 @@ import javax.faces.context.FacesContext;
 import java.io.IOException;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 
 
-@ManagedBean(name = "loginBean")
+@ManagedBean(name = "loginBean", eager = true)
 @ViewScoped
 public class ShiroLoginBean implements Serializable {
     private static final Logger log = LoggerFactory.getLogger(ShiroLoginBean.class);
-
     private String username;
     private String password;
     private Boolean rememberMe;
