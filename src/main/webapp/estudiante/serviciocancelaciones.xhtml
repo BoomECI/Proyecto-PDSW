@@ -5,14 +5,20 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head></h:head>
     <h:form id="estudianteCancelacion">
-        <h:body>
+        <h:body style="background-color: lavender">
+            <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo" style="margin-left: 55%; margin-top: 0%"/>
+            <img src="\recursosVisuales\acreditacion.jpg" alt="Logotipo"  width="120" style="margin-left: 30%;margin-top: -2.6cm"/>
             <p:outputPanel id="materiasEImpacto" style="text-align: center; margin: auto">
+                <img src="\recursosVisuales\estudiante.PNG" alt="Logotipo" style="margin-top: 3%"/>
+                <br/>
+                <br/>
+                <br/>
                 <p:outputLabel value="Estudiante: #{beanSolicitudEstudiante.estudianteActual.nombre}" style="font-size: 150%; font-weight:bold" />
                 <br />
                 <p:outputLabel value="Solicitud de cancelacion" style="font-size: 150%; font-weight:bold" />
                 <br />
                 <br />
-                <h3 style="margin-top: 0; font-weight: bold">Asignatura a cancelar</h3>
+                <h3 style="margin-top: 0; font-weight: bold">Asignaturas a cancelar</h3>
                 <p:pickList id="listadoAsignaturas" required="true" value="#{beanSolicitudEstudiante.materias}" var="materias" itemLabel="#{materias}" itemValue="#{materias}" style="margin: auto; font-weight: bold"/>
                 <p:commandButton id="analizarSol" value="Analizar solicitud" update="estudianteCancelacion" actionListener="#{beanSolicitudEstudiante.analizarSolicitud()}" />             
                 <br />
