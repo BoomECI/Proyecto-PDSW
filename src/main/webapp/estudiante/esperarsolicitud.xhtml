@@ -3,39 +3,46 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui" 
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head></h:head>
+    <h:head>
+        <title>Estudiante</title>
+        <link rel="icon" href="\recursosVisuales\sistemas.jpg"></link>
+    </h:head>
     <h:form id="solicitudFinalizada">
-        <h:body>
-            <div style="text-align:center">
-                <h3>Detalle solicitud</h3>
-                
-                    <p:panelGrid columns="2" style="margin: 0 auto">
-                        <h:outputText value="Asignatura(nemonico):" />
-                        <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.materiaSolicitada}" />                 
-
-
-                        <h:outputText value="Creditos restantes:" />
-                        <h:outputText value="#{beanSolicitudEstudiante.creditosRestantes}" />
-
-                        <h:outputText value="Fecha:" />
-                        <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.fecha}" />
-
-                        <h:outputText value="Descripcion:" />
-                        <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.justificacion}" />
-
-                        <h:outputText value="Estado de la solicitud:" />
-                        <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.estado}" />
-
-                        <h:outputText value="Identificador de la solicitud" />
-                        <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.id}" />
-
-                        <h:outputText value="Comentario del consejero" />
-                        <h:outputText value="#{beanSolicitudEstudiante.solicitudEstudiante.comentario}" />
-                    </p:panelGrid>
-                
+        <h:body style="background-color: lavender">
+            <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo" style="margin-left: 55%; margin-top: 0%"/>
+            <img src="\recursosVisuales\acreditacion.jpg" alt="Logotipo"  width="120" style="margin-left: 30%;margin-top: -2.6cm"/>
+            <p:outputPanel id="detalleCancelacion" style="text-align: center; margin: auto">
+            
+                <img src="\recursosVisuales\estudiante.PNG" alt="Logotipo" style="margin-top: 3%"/>
+                <br/>
+                <br/>
+                <br/>
+                <p:dataTable var="sols" value="#{beanSolicitudEstudiante.solicitudes}">
+                    <p:column headerText="Id">
+                        <h:outputText value="#{sols.id}" />
+                    </p:column>
+                    
+                    <p:column headerText="Materia">
+                        <h:outputText value="#{sols.materiaSolicitada}" />
+                    </p:column>
+                    
+                    <p:column headerText="Justificacion">
+                        <h:outputText value="#{sols.justificacion}" />
+                    </p:column>
+                    
+                    <p:column headerText="Fecha">
+                        <h:outputText value="#{beanSolicitudEstudiante.fecha}" />
+                    </p:column>
+                    
+                    <p:column headerText="Estado">
+                        <h:outputText value="#{sols.estado}" />
+                    </p:column>
+                </p:dataTable>
+                <br/>
+                <br/>
                 <p:commandButton value="Atras" action="#{beanSolicitudEstudiante.irAtras()}" update="solicitudFinalizada" />
                 
-            </div>
+            </p:outputPanel>
         </h:body>
     </h:form>
 </html>

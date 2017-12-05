@@ -10,12 +10,12 @@ import com.BoomECI.entidades.SolicitudCancelacion;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import java.util.Date;
 import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import org.primefaces.component.inputtextarea.InputTextarea;
 import org.primefaces.component.outputlabel.OutputLabel;
 import org.primefaces.component.tabview.Tab;
@@ -29,7 +29,7 @@ import org.primefaces.model.DualListModel;
 @SessionScoped
 public class EstudianteBean implements Serializable{
     
-    private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+    private static final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
     private Date fechaCancelacion;                         
     private List<SolicitudCancelacion> solicitudes;
     private PlanDeEstudios planDeEstudios;
@@ -45,11 +45,13 @@ public class EstudianteBean implements Serializable{
     private DualListModel<String> materias;
     private List<String> materiasActualesString;
     private List<String> materiasSeleccionadasString;
+    private String fecha;
     
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
         fechaCancelacion = new Date();
-        ArrayList<Materia> mA = new ArrayList<Materia>();
+        fecha = fechaCancelacion.getDate()+"-"+fechaCancelacion.getMonth()+"-"+(fechaCancelacion.getYear()+1900);
+        ArrayList<Materia> mA = new ArrayList<>();
         mA.add(new Materia("APMU","Apreciacion musical", 3, null, null));
         mA.add(new Materia("FRED","Fundamentos de redes", 3, null, null));
         mA.add(new Materia("PRON","Procesos de negocios", 3, null, null));
@@ -58,7 +60,7 @@ public class EstudianteBean implements Serializable{
         PlanDeEstudios PDE = new PlanDeEstudios();
         PDE.setNumeroDeCreditosTotales(148);
         
-        ArrayList<Materia> mC = new ArrayList<Materia>();
+        ArrayList<Materia> mC = new ArrayList<>();
         mC.add(new Materia("IINS","Introduccion a la ingenieria de sistemas",3,null,null));
         mC.add(new Materia("MMIN","Modelos matematicos para la informatica",3,null,null));
         mC.add(new Materia("DEPD","Deporte dirigido",3,null,null));
@@ -102,7 +104,7 @@ public class EstudianteBean implements Serializable{
     }
     
     public List<String> conversorActualesToString(){
-        List<String> mt = new ArrayList<String>();
+        List<String> mt = new ArrayList<>();
         
         for(int i = 0; i<materiasActuales.size(); i++){
             mt.add(materiasActuales.get(i).getNemonico());
@@ -114,7 +116,7 @@ public class EstudianteBean implements Serializable{
     
     
     public List<String> conversorSeleccionadasToString(){
-        List<String> mt = new ArrayList<String>();
+        List<String> mt = new ArrayList<>();
         
         for(int i = 0; i<materiasSeleccionadas.size(); i++){
             mt.add(materiasSeleccionadas.get(i).getNemonico());
@@ -146,6 +148,16 @@ public class EstudianteBean implements Serializable{
     public void setMateriasActualesString(List<String> materiasActualesString) {
         this.materiasActualesString = materiasActualesString;
     }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+    
+    
 
     public List<String> getMateriasSeleccionadasString() {
         return materiasSeleccionadasString;
@@ -225,10 +237,10 @@ public class EstudianteBean implements Serializable{
            justificacionesCancelacion[i] = (String) m.getValue();
        }
        for(int i = 0; i < materiasSeleccionadasString.size(); i++){
-        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+1, justificacionesCancelacion[i], "", false, false, materiasSeleccionadasString.get(i),estudianteActual.getCodigo());
+        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+5000+i, justificacionesCancelacion[i], "", false, false, materiasSeleccionadasString.get(i),estudianteActual.getCodigo());
+        solicitudes.add(solicitudEstudiante);
         servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
        }
-       System.out.println(solicitudEstudiante.getEstudiante());
        
    }
     
