@@ -117,7 +117,7 @@
         WHERE est.codigo=#{ide}
     </select>  
     
-    <select id="consultarEstudiantes" resultMap="EstudianteResult">
+    <select parameterType="map" id="consultarEstudiantes" resultMap="EstudianteResult">
          select  
         est.codigo,
         est.nombre,
@@ -157,7 +157,7 @@
         LEFT OUTER JOIN solicitud_de_cancelacion AS sol ON est.codigo=sol.estudiante  
     </select>  
       
-    <insert id="insertarSolicitud" >
+    <insert id="insertarSolicitud">
         insert into solicitud_de_cancelacion (fecha,estado,id,justificacion,comentario,avalAcudiente,avalConsejero,Materia,Estudiante)
             VALUES(#{sol.fecha},#{sol.estado},#{sol.id},#{sol.justificacion},#{sol.comentario},#{sol.avalAcudiente},#{sol.avalConsejero},#{sol.materiaSolicitada},#{sol.Estudiante})
     </insert>

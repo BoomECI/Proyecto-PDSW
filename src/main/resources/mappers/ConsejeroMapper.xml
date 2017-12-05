@@ -59,7 +59,7 @@
     </resultMap>   
     
     
-    <select parameterType="map" id="loadSolicitudesTramitadas" resultMap="SolicitudCancelacion">
+    <select parameterType="map" id="loadSolicitudesTramitadas" resultMap="SolicitudResult">
         select          
         sol.id, 
         sol.fecha,
@@ -86,7 +86,7 @@
                   
     </select>  
     
-    <select parameterType="map" id="loadSolicitudesNoTramitadas" resultMap="SolicitudCancelacion">
+    <select parameterType="map" id="loadSolicitudesNoTramitadas" resultMap="SolicitudResult">
         select          
         sol.id, 
         sol.fecha,
