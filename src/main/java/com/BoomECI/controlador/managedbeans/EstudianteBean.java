@@ -57,7 +57,7 @@ public class EstudianteBean implements Serializable{
     private List<String> materiasActualesString;
     private List<String> materiasSeleccionadasString;
     private String fecha;
-    private List<String> proyeccion;
+    private List<List<String>> proyeccion;
     
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
@@ -168,6 +168,14 @@ public class EstudianteBean implements Serializable{
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public List<List<String>> getProyeccion() {
+        return proyeccion;
+    }
+
+    public void setProyeccion(List<List<String>> proyeccion) {
+        this.proyeccion = proyeccion;
     }
     
     

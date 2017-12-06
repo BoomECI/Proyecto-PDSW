@@ -155,9 +155,11 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     }
 
     @Override
-    public List<String> calcularProyeccion(List<Materia> materiasSeleccionadas, Estudiante estudianteActual) {
+    public List<List<String>> calcularProyeccion(List<Materia> materiasSeleccionadas, Estudiante estudianteActual) {
         return null;
     }
+
+    
     
     
        
