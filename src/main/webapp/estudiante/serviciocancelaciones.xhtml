@@ -44,9 +44,14 @@
                 <p:tabView id="myTabPanel" binding="#{beanSolicitudEstudiante.tablaMaterias}" style="width: 50%; margin: auto"/>
                 <br/>
                 <br/>
-                <p:panel id="impacto" header="Impacto" style="text-align:center; width: 40%; margin: 0 auto">
-                    <h:outputText value="Si cancela estas asignaturas le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} de #{beanSolicitudEstudiante.creditosCarrera} créditos restantes"  />
-                </p:panel>
+                <p:tabView style="width: 50%; margin: auto">
+                    <p:tab title="Impacto">
+                        <h:outputText value="Si cancela estas asignaturas le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} de #{beanSolicitudEstudiante.creditosCarrera} créditos restantes"  />
+                    </p:tab>
+                    <p:tab title="Proyeccion">
+                        <p:outputLabel value="EN CONSTRUCCION"/>
+                    </p:tab>
+                </p:tabView>
                 <br />
                 <br />
                 <p:commandButton id="sol" value="Enviar" update="myTabPanel" actionListener="#{beanSolicitudEstudiante.cancelarMaterias()}" action="#{beanSolicitudEstudiante.finalizar()}" oncomplete="PF('confirmDlg').show()" style="font-size: 150%">
