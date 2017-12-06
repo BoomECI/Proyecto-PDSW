@@ -153,6 +153,11 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public List<String> calcularProyeccion(List<Materia> materiasSeleccionadas, Estudiante estudianteActual) {
+        return null;
+    }
     
     
        

@@ -7,6 +7,11 @@ import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Materia;
 import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
+import com.BoomECI.javamail.core.Email;
+import com.BoomECI.javamail.core.EmailConfiguration;
+import com.BoomECI.javamail.core.EmailSender;
+import com.BoomECI.javamail.core.SimpleEmail;
+import com.BoomECI.javamail.core.SimpleEmailSender;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +23,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import com.BoomECI.seguridad.bean.ShiroLoginBean;
 import javax.faces.bean.ManagedProperty;
+import javax.mail.MessagingException;
 import org.primefaces.component.inputtextarea.InputTextarea;
 import org.primefaces.component.outputlabel.OutputLabel;
 import org.primefaces.component.tabview.Tab;
@@ -51,6 +57,7 @@ public class EstudianteBean implements Serializable{
     private List<String> materiasActualesString;
     private List<String> materiasSeleccionadasString;
     private String fecha;
+    private List<String> proyeccion;
     
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
@@ -237,16 +244,27 @@ public class EstudianteBean implements Serializable{
         this.justificacionesCancelacion = justificacionesCancelacion;
     }
     
-   public void cancelarMaterias() throws ExcepcionServiciosCancelaciones{
+   public void cancelarMaterias() throws ExcepcionServiciosCancelaciones, MessagingException{
        for(int i=0;i<justificacionesCancelacion.length;i++){
            InputTextarea m = (InputTextarea) tablaMaterias.getChildren().get(i).findComponent("input"+i);
            justificacionesCancelacion[i] = (String) m.getValue();
        }
        for(int i = 0; i < materiasSeleccionadasString.size(); i++){
-        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+5000+i, justificacionesCancelacion[i], "", false, false, materiasSeleccionadasString.get(i),estudianteActual.getCodigo());
+        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+6000+i, justificacionesCancelacion[i], "", false, false, materiasSeleccionadasString.get(i),estudianteActual.getCodigo());
         solicitudes.add(solicitudEstudiante);
         servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
        }
+       Email email = new SimpleEmail(estudianteActual.getCorreo(), estudianteActual.getConsejero().getCorreo(), "SOLICITUD DE CANCELACION ACONSEJADO", "Buen dia profesor "+estudianteActual.getConsejero().getNombre()+ ", la presente es para informarle"
+                                                                                                                 + " que voy a realizar un proceso de cancelacion, espero pronta respuesta para acordar la reunion estipulada por el reglamento."
+               + "\n\nCordialmente,\n"+estudianteActual.getNombre()+"\n"+estudianteActual.getCodigo()+"\n"+estudianteActual.getIdentificacion());
+        EmailSender sender = new SimpleEmailSender(new EmailConfiguration());
+        try {
+            sender.send(email);
+            System.out.println("Sent message successfully!");
+        } catch (MessagingException e) {
+            System.err.println("Message not sent!");
+            e.printStackTrace();
+        }
        
    }
     
@@ -285,6 +303,7 @@ public class EstudianteBean implements Serializable{
        
        
        creditosRestantes = servCanc.consultarImpacto(materiasSeleccionadas, estudianteActual);
+       proyeccion = servCanc.calcularProyeccion(materiasSeleccionadas, estudianteActual);
     }
 
     public PlanDeEstudios getPlanDeEstudios() {

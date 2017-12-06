@@ -129,6 +129,8 @@ public interface ServiciosCancelaciones {
     public abstract void cambiarElAvalDeConsejero(int id_soli, boolean aval)throws ExcepcionServiciosCancelaciones;
     
     public abstract void cambiarCreditosTotalesPorSemestre(int creditosActuales)throws ExcepcionServiciosCancelaciones;
+
+    public List<String> calcularProyeccion(List<Materia> materiasSeleccionadas, Estudiante estudianteActual);
     
         
 }    
