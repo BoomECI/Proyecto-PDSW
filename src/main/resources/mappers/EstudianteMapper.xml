@@ -18,7 +18,7 @@
         <association property="acudiente" javaType="Acudiente"  columnPrefix="acu_" resultMap="AcudienteResult"/>  
         <collection property="materiasActuales" ofType="Materia" columnPrefix="maa_" resultMap="MateriaResult"/> 
         <collection property="materiasCursadas" ofType="Materia" columnPrefix="mac_" resultMap="MateriaResult"/>
-        <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"/>                    
+        <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"/>               
     </resultMap>  
     
     <resultMap type='PlanDeEstudios' id='PlanDeEstudiosResult'>

@@ -5,12 +5,20 @@
  */
 package Tests;
 
+import com.BoomECI.entidades.Acudiente;
+import com.BoomECI.entidades.Consejero;
+import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Grafo;
+import com.BoomECI.entidades.Materia;
+import com.BoomECI.entidades.PlanDeEstudios;
+import com.BoomECI.entidades.SolicitudCancelacion;
 import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
 import com.BoomECI.logica.services.ParserGrafo;
 import com.BoomECI.logica.services.ParserJSON;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 
@@ -84,10 +92,9 @@ public class SimpleTest {
     public void testUnaMateriaCanceladaAnteriormenteNoPuedeVolverHacerCancelada() throws ExcepcionServiciosCancelaciones{
     
     } 
-    
-    @Test
-    public void prueba(){
-        /*
+   @Test
+   public void prueba(){
+        
         //ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
         ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
         //ParserGrafo p = new ParserJSON();
@@ -307,12 +314,22 @@ public class SimpleTest {
             //graph.printNodes();
             //graph.validarGrafo();
             //graph.printCoNodes();
+            graph.printLista();
+            List<Materia> le=new ArrayList<Materia>();
+            List<SolicitudCancelacion> pa=new ArrayList<SolicitudCancelacion>();
+            graph.printLista();
+            PlanDeEstudios wqe= new PlanDeEstudios();
+            Acudiente xd= new Acudiente();
+            Consejero po= new Consejero();
+            SolicitudCancelacion te=new SolicitudCancelacion();
+            Estudiante lol= new Estudiante(1,"dasfsd","sdfjlasd",5465,po,xd,12123,"as",le,le,wqe,pa);  
+            System.out.println(graph.calcularPlanDeEstudios(lol, te).size());
             
            
 
         }catch(Exception e){
             e.printStackTrace();
             fail();
-        }**/
+        }
     }
 }

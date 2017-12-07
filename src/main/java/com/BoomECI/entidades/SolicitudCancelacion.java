@@ -6,6 +6,7 @@
 package com.BoomECI.entidades;
 
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -15,7 +16,7 @@ import java.util.Date;
  */
 public class SolicitudCancelacion {
     
-    private String materiaSolicitada;
+    private List<String> materiaSolicitada;
     private String justificacion;
     private Date fecha;
     private String estado;
@@ -27,7 +28,7 @@ public class SolicitudCancelacion {
    
 
     public SolicitudCancelacion(){}
-    public SolicitudCancelacion(Date fecha, String estado, int id, String justificacion, String comentario,Boolean avalAcudiente,Boolean avalConsejero,String materiaSolicitada,int Estudiante ) {
+    public SolicitudCancelacion(Date fecha, String estado, int id, String justificacion, String comentario,Boolean avalAcudiente,Boolean avalConsejero,List<String> materiaSolicitada,int Estudiante ) {
         this.materiaSolicitada = materiaSolicitada;
         this.justificacion = justificacion;
         this.fecha = fecha;
@@ -39,11 +40,11 @@ public class SolicitudCancelacion {
         this.avalConsejero=avalConsejero;
     }
 
-    public String getMateriaSolicitada() {
+    public List<String> getMateriaSolicitada() {
         return materiaSolicitada;
     }
 
-    public void setMateriaSolicitada(String materiaSolicitada) {
+    public void setMateriaSolicitada(List<String> materiaSolicitada) {
         this.materiaSolicitada = materiaSolicitada;
     }
 

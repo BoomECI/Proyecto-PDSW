@@ -40,8 +40,8 @@ public class ConsejeroBean implements Serializable{
         solicitudSeleccionada = new SolicitudCancelacion();
         solicitudesTramitadas = new ArrayList<>();
         solicitudesNoTramitadas = new ArrayList<>();
-        solicitudesTramitadas.add(new SolicitudCancelacion(new Date(117,11,22), "Tramitada",1, "No voy bien y no entiendo nada", "Vaya a clase vago", false, false, "ACFI", 1));
-        solicitudesNoTramitadas.add(new SolicitudCancelacion(new Date(116,05,14), "Pendiente",1, "No tengo tiempo para estudiar la correccion de algoritmos", null, false, false, "TPRO", 2));
+        //solicitudesTramitadas.add(new SolicitudCancelacion(new Date(117,11,22), "Tramitada",1, "No voy bien y no entiendo nada", "Vaya a clase vago", false, false, "ACFI", 1));
+        //solicitudesNoTramitadas.add(new SolicitudCancelacion(new Date(116,05,14), "Pendiente",1, "No tengo tiempo para estudiar la correccion de algoritmos", null, false, false, "TPRO", 2));
         consejeroActual = new Consejero(222340, "Rodrigo Lopez", "rodrigo.lopez@escuelaing.edu.co", null);
     }
 

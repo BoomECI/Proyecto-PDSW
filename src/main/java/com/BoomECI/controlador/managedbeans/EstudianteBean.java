@@ -258,7 +258,7 @@ public class EstudianteBean implements Serializable{
            justificacionesCancelacion[i] = (String) m.getValue();
        }
        for(int i = 0; i < materiasSeleccionadasString.size(); i++){
-        solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+7000+i, justificacionesCancelacion[i], "", false, false, materiasSeleccionadasString.get(i),estudianteActual.getCodigo());
+        //solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+7000+i, justificacionesCancelacion[i], "", false, false, materiasSeleccionadasString.get(i),estudianteActual.getCodigo());
         solicitudes.add(solicitudEstudiante);
         servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
        }

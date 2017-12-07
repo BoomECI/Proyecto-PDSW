@@ -8,12 +8,12 @@ public class Materia {
     private String nemonico;
     private String nombre;
     private int creditos;
-    List<Materia> prerequisitos;
-    List<Materia> corequisitos;
+    List<String> prerequisitos;
+    List<String> corequisitos;
     
     public Materia(){}
 
-    public Materia(String nemonico, String nombre, int creditos, List<Materia> prerequisitos, List<Materia> corequisitos ){
+    public Materia(String nemonico, String nombre, int creditos, List<String> prerequisitos, List<String> corequisitos ){
         this.nemonico = nemonico;
         this.nombre = nombre;
         this.creditos = creditos;
@@ -54,19 +54,19 @@ public class Materia {
         this.creditos = creditos;
     }
 
-    public List<Materia> getPrerequisitos() {
+    public List<String> getPrerequisitos() {
         return prerequisitos;
     }
 
-    public void setPrerequisitos(List<Materia> prerequisitos) {
+    public void setPrerequisitos(List<String> prerequisitos) {
         this.prerequisitos = prerequisitos;
     }
 
-    public List<Materia> getCorequisitos() {
+    public List<String> getCorequisitos() {
         return corequisitos;
     }
 
-    public void setCorequisitos(List<Materia> corequisitos) {
+    public void setCorequisitos(List<String> corequisitos) {
         this.corequisitos = corequisitos;
     }
     

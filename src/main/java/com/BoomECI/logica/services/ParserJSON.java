@@ -10,6 +10,7 @@ import com.BoomECI.entidades.Materia;
 import com.BoomECI.entidades.PlanDeEstudios;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.json.Json;
@@ -40,31 +41,27 @@ public class ParserJSON implements ParserGrafo{
     
     
     public Grafo convertJsonToGrafo(JsonObject jo){
-        Grafo g = new Grafo();
-        for (JsonValue i: jo.getJsonArray("materias")){
-            JsonObject mat = jo.getJsonObject(i.toString().replaceAll("\"",""));
-            Materia nueva = new Materia(i.toString().replaceAll("\"",""),mat.getJsonString("nombre").toString().replaceAll("\"",""),Integer.parseInt(mat.getJsonString("creditos").toString().replaceAll("\"","")));
-            g.addNode(nueva);
-            g.addCoNode(nueva);
-            
-            //g.addNode(new Materia(i.toString()));
-        }
+        List<Materia> listaMaterias = new ArrayList();
+        List<String> pre = new ArrayList();
+        List<String> correq = new ArrayList();
         for (JsonValue i: jo.getJsonArray("materias")){
             JsonObject mat = jo.getJsonObject(i.toString().replaceAll("\"",""));
             for (JsonValue j: mat.getJsonArray("pre")){
-                g.addEdge(g.getMateria(i.toString().replaceAll("\"","")),g.getMateria(j.toString().replaceAll("\"","")));
+                pre.add(j.toString().replaceAll("\"",""));
             }
             for (JsonValue j: mat.getJsonArray("co")){
-                g.addCoEdge(g.getMateria(i.toString().replaceAll("\"","")),g.getMateria(j.toString().replaceAll("\"","")));
+                correq.add(j.toString().replaceAll("\"",""));
             }
+            Materia nueva = new Materia(i.toString().replaceAll("\"",""),mat.getJsonString("nombre").toString().replaceAll("\"",""),Integer.parseInt(mat.getJsonString("creditos").toString().replaceAll("\"","")),pre,correq);
+            listaMaterias.add(nueva);
+            pre.clear();
+            correq.clear();
         }
-            
-        //System.out.println(jo.getJsonObject("fimf").getJsonString("co").toString());
-        //System.out.println(jo.getJsonObject("fimf").getJsonArray("pre").toString());
         
+        Grafo g = new Grafo(listaMaterias);
         return g;
-    
     }
+    
 
     /**
      *

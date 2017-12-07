@@ -20,134 +20,91 @@ import java.util.Set;
 public class Grafo {
     Map<Materia, Set<Materia>> grafo;
     Map<Materia, Set<Materia>> correquisitos;
-    
-    public Grafo(){
+     List<Materia> lista;
+    public Grafo(List<Materia> lista){
         grafo = new HashMap<>();
         correquisitos = new HashMap<>();
+        this.lista = lista;
+       
+        
     }
     
     public void setNodes(){
         
     }
     
-    public void addNode(Materia nodo){
-        if (grafo.get(nodo) == null){
-            grafo.put(nodo, new HashSet());
-            
+    public void printLista(){
+        for(Materia m : this.lista){
+            System.out.println(m.getNemonico());
         }
     }
-    
-    public void addCoNode(Materia nodo){
-        if (correquisitos.get(nodo) == null){
-            correquisitos.put(nodo, new HashSet());
-            
-        }
+     public List<List<String>> calcularPlanDeEstudios(Estudiante estudiante,SolicitudCancelacion solicitud){
+        List<List<String>> total = new ArrayList<List<String>>();
+        List<String> semestre = new ArrayList<String>();
+        int creditos=0;
+        List <Materia> porVer = getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),solicitud.getMateriaSolicitada());
+        while (!porVer.isEmpty()){
+            semestre.clear();
+            creditos=0;
+            List<Materia> posibles = new ArrayList<Materia>();
+            for (Materia i: porVer){
+                if (isPossible(i,porVer)){
+                    posibles.add(i);                   
+                }
+            }
+             
+            for (Materia i:posibles){
+                if((creditos!=18) && (creditos!=16)&&(creditos!=17)&&(semestre.size()<=5)){
+                    if (i.getCreditos()==3){
+                        creditos+=3;
+                        semestre.add(i.getNemonico());
+                        porVer.remove(i);
+                    }
+                    if (i.getCreditos()==4){
+                        creditos+=3;
+                        semestre.add(i.getNemonico());
+                        porVer.remove(i);
+                    }
+                }
+            }
+            total.add(semestre);          
+       }
+        return total;
     }
-    
-    public void addCoEdge(Materia m1, Materia m2){
-        if (correquisitos.get(m1) != null){
-           Set<Materia> materia=correquisitos.get(m1);
-           materia.add(m2);
-           correquisitos.put(m1, materia);           
-        }
-    }
-    
-    public void addEdge(Materia m1, Materia m2){
-        if (grafo.get(m1) != null){
-           Set<Materia> materia=grafo.get(m1);
-           materia.add(m2);
-           grafo.put(m1, materia);           
-        }
-    }
-    
-    public Materia getMateria(String mat){
-        Materia res = null;
-        for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
-            if (mat.equals(entry.getKey().getNemonico())){
-                res = entry.getKey();
+   
+
+
+    public List<Materia> getMateriasPorVer(List<Materia> materiasActuales, List<Materia> materiasCursadas,List<String> canceladas){
+        List<Materia> materiasPorVer = new ArrayList();
+        for(Materia m: this.lista){
+            for (Materia vista: materiasCursadas ){
+                if(!m.equals(vista)){
+                    for (Materia actual: materiasActuales){
+                        if(!m.equals(actual) && canceladas.contains(m.getNemonico())){                            
+                            materiasPorVer.add(m);
+                        }
+                    }
+                }
             }
         }
-        return res;
+        return materiasPorVer;
     }
     
-    public void printNodes(){
-        for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
-            System.out.println(entry.getKey().getNemonico() + ": " + entry.getValue().toString() );
+    public boolean isPossible(Materia mat, List<Materia> porVer ){
+        for (Materia p: porVer ){
+            for(String pre :mat.getPrerequisitos()){
+                if(pre.equals(p.getNemonico())){
+                    return false;
+                }
+            }
+            for (String co :mat.getCorequisitos()){
+                if(co.equals(p.getNemonico())){
+                    return false;
+                }
+            }
         }
-    }
-    
-    public void printCoNodes(){
-        for (Map.Entry<Materia, Set<Materia>> entry : correquisitos.entrySet()){
-            System.out.println(entry.getKey().getNemonico() + ": " + entry.getValue().toString() );
-        }
-    }
-    
-    public Boolean validarGrafo() throws Exception{
-        List<Materia> ord;
-        ord = ordenamientoTopologico();
-        for (Materia m : ord){
-            System.out.println(m.getNombre());
-        }
-        System.out.println(ord.size());
-    
         return true;
-    }
-    
-    public List<Materia> ordenamientoTopologico() throws Exception{
-        Map<Materia, Integer> inDegree;
-        inDegree = new HashMap<>();
-        for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
-            inDegree.put(entry.getKey(), 0);
-        }
-        for (Map.Entry<Materia, Set<Materia>> entry : grafo.entrySet()){
-            for (Materia mat: entry.getValue()){
-                inDegree.put(mat, inDegree.get(mat)+1);
-            }
-        }
-        ArrayDeque<Materia> queue = new ArrayDeque();
-        for (Map.Entry<Materia, Integer> entry : inDegree.entrySet()){
-            if(entry.getValue() == 0){
-                queue.addFirst(entry.getKey());
-            }
-        }
-        
-        List<Materia > lista = new ArrayList();
-        while (!queue.isEmpty()){
-            Materia u = queue.removeLast();
-            lista.add(u);
-            for (Materia v: grafo.get(u)){
-                inDegree.put(v, inDegree.get(v)-1);
-                if (inDegree.get(v) == 0){
-                    queue.addFirst(v);
-                }
-            }
-        }
-        if (lista.size() == grafo.size()){
-            return lista;
-        }
-        else{
-            throw new Exception("Grafo no es aciclico");
-        }
-    }
-    
-    public List<List<String>> calcularPlanDeEstudios(List<Materia> materiasActuales, List<Materia> materiasCursadas,List<String> canceladas){
-        //List<List<String>> total = new List<List<String>>;
-        int creditos=0;       
-        return null;
-    }
-    
-    public Materia noVista ( List<Materia> materiasCursadas,List<Materia> materiasActuales){
-        for (Materia i: materiasCursadas){
-            Set<Materia> materias=grafo.get(getMateria(i.getNemonico()));
-            for (Materia j: materias){
-                for (Materia h: materiasCursadas){                    
-                
-                }
-                
-            }
-        }
-        return null;
-    }
+    }   
     public void printGraph(){
         
     }
