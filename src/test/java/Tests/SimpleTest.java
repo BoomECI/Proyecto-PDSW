@@ -353,7 +353,7 @@ public class SimpleTest {
             Acudiente xd= new Acudiente();
             Consejero po= new Consejero();
             SolicitudCancelacion te=new SolicitudCancelacion();            
-            te.setMateriaSolicitada(ca);            
+            te.setMaterias(ca);            
             Estudiante lol= new Estudiante(1,"dasfsd","sdfjlasd",5465,po,xd,12123,"as",le,he,wqe,pa);  
             System.out.println(graph.calcularPlanDeEstudios(lol, te).size());        
            

@@ -158,8 +158,9 @@
     </select>  
       
     <insert id="insertarSolicitud">
-        insert into solicitud_de_cancelacion (fecha,estado,id,justificacion,comentario,avalAcudiente,avalConsejero,Materia,Estudiante)
-            VALUES(#{sol.fecha},#{sol.estado},#{sol.id},#{sol.justificacion},#{sol.comentario},#{sol.avalAcudiente},#{sol.avalConsejero},#{sol.materiaSolicitada},#{sol.Estudiante})
+        insert into solicitud_de_cancelacion (fecha,estado,id,justificacion,comentario,avalAcudiente,avalConsejero,Estudiante)
+            VALUES(#{sol.fecha},#{sol.estado},#{sol.id},#{sol.justificacion},#{sol.comentario},#{sol.avalAcudiente},#{sol.avalConsejero},#{sol.Estudiante})
+        
     </insert>
       
    

@@ -257,11 +257,9 @@ public class EstudianteBean implements Serializable{
            InputTextarea m = (InputTextarea) tablaMaterias.getChildren().get(i).findComponent("input"+i);
            justificacionesCancelacion[i] = (String) m.getValue();
        }
-       for(int i = 0; i < materiasSeleccionadasString.size(); i++){
-        //solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+7000+i, justificacionesCancelacion[i], "", false, false, materiasSeleccionadasString.get(i),estudianteActual.getCodigo());
-        solicitudes.add(solicitudEstudiante);
-        servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
-       }
+       solicitudEstudiante.setJustificaciones(justificacionesCancelacion);
+       solicitudes.add(solicitudEstudiante);
+       servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
        Email email = new SimpleEmail(estudianteActual.getCorreo(), estudianteActual.getConsejero().getCorreo(), "SOLICITUD DE CANCELACION ACONSEJADO", "Buen dia profesor "+estudianteActual.getConsejero().getNombre()+ ", la presente es para informarle"
                                                                                                                  + " que voy a realizar un proceso de cancelacion, espero pronta respuesta para acordar la reunion estipulada por el reglamento."
                + "\n\nCordialmente,\n"+estudianteActual.getNombre()+"\n"+estudianteActual.getCodigo()+"\n"+estudianteActual.getIdentificacion());
@@ -309,9 +307,9 @@ public class EstudianteBean implements Serializable{
        RequestContext context = RequestContext.getCurrentInstance();
        context.update("myTabPanel");
        
-       
+       solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+3500, null, "", false, false, materiasSeleccionadasString, estudianteActual.getCodigo());
        creditosRestantes = servCanc.consultarImpacto(materiasSeleccionadas, estudianteActual);
-       proyeccion = servCanc.calcularProyeccion(materiasSeleccionadas, estudianteActual);
+       proyeccion = servCanc.calcularProyeccion(estudianteActual, solicitudEstudiante);
     }
 
     public PlanDeEstudios getPlanDeEstudios() {

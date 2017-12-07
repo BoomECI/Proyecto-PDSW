@@ -16,8 +16,8 @@ import java.util.List;
  */
 public class SolicitudCancelacion {
     
-    private List<String> materiaSolicitada;
-    private String justificacion;
+    private List<String> materias;
+    private String[] justificaciones;
     private Date fecha;
     private String estado;
     private Boolean avalConsejero;
@@ -28,9 +28,9 @@ public class SolicitudCancelacion {
    
 
     public SolicitudCancelacion(){}
-    public SolicitudCancelacion(Date fecha, String estado, int id, String justificacion, String comentario,Boolean avalAcudiente,Boolean avalConsejero,List<String> materiaSolicitada,int Estudiante ) {
-        this.materiaSolicitada = materiaSolicitada;
-        this.justificacion = justificacion;
+    public SolicitudCancelacion(Date fecha, String estado, int id, String[] justificaciones, String comentario,Boolean avalAcudiente,Boolean avalConsejero,List<String> materias,int Estudiante ) {
+        this.materias = materias;
+        this.justificaciones = justificaciones;
         this.fecha = fecha;
         this.estado = estado;
         this.id = id;        
@@ -40,20 +40,20 @@ public class SolicitudCancelacion {
         this.avalConsejero=avalConsejero;
     }
 
-    public List<String> getMateriaSolicitada() {
-        return materiaSolicitada;
+    public List<String> getMaterias() {
+        return materias;
     }
 
-    public void setMateriaSolicitada(List<String> materiaSolicitada) {
-        this.materiaSolicitada = materiaSolicitada;
+    public void setMaterias(List<String> materias) {
+        this.materias = materias;
     }
 
-    public String getJustificacion() {
-        return justificacion;
+    public String[] getJustificaciones() {
+        return justificaciones;
     }
 
-    public void setJustificacion(String justificacion) {
-        this.justificacion = justificacion;
+    public void setJustificaciones(String[] justificaciones) {
+        this.justificaciones = justificaciones;
     }
 
     public Date getFecha() {

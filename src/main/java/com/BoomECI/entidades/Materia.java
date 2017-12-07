@@ -11,6 +11,7 @@ public class Materia {
     List<String> prerequisitos;
     List<String> corequisitos;
     
+    
     public Materia(){}
 
     public Materia(String nemonico, String nombre, int creditos, List<String> prerequisitos, List<String> corequisitos ){

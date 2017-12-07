@@ -10,6 +10,7 @@ import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.CalculoDeImpacto;
 import com.google.inject.Inject;
 import com.BoomECI.entidades.Estudiante;
+import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
 import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
@@ -155,8 +156,9 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     }
 
     @Override
-    public List<List<String>> calcularProyeccion(List<Materia> materiasSeleccionadas, Estudiante estudianteActual) {
-        return null;
+    public List<List<String>> calcularProyeccion(Estudiante estudianteActual, SolicitudCancelacion solicitud) {
+        Grafo proyeccion = new Grafo();
+        return proyeccion.calcularPlanDeEstudios(estudianteActual, solicitud);
     }
 
     

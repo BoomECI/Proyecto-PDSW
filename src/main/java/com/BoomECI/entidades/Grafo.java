@@ -28,6 +28,10 @@ public class Grafo {
        
         
     }
+
+    public Grafo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void setNodes(){
         
@@ -39,15 +43,15 @@ public class Grafo {
         }
     }
      public List<List<String>> calcularPlanDeEstudios(Estudiante estudiante,SolicitudCancelacion solicitud){
-        List<List<String>> total = new ArrayList<List<String>>();
-        List<String> semestre = new ArrayList<String>();
+        List<List<String>> total = new ArrayList<>();
+        List<String> semestre = new ArrayList<>();
         int creditos=0;       
-        List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),this.getcorrequisito(solicitud.getMateriaSolicitada()));
+        List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),this.getcorrequisito(solicitud.getMaterias()));
         System.out.println(lista.get(16).getPrerequisitos().size());
         while (!porVer.isEmpty()){
             semestre.clear();
             creditos=0;
-            List<Materia> posibles = new ArrayList<Materia>();
+            List<Materia> posibles = new ArrayList<>();
             for (Materia i: porVer){
                 if (isPossible(i,porVer)){
                     posibles.add(i);                   
