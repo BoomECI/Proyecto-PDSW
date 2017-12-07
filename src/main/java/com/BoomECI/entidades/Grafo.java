@@ -42,8 +42,8 @@ public class Grafo {
         List<List<String>> total = new ArrayList<List<String>>();
         List<String> semestre = new ArrayList<String>();
         int creditos=0;       
-        List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),solicitud.getMateriaSolicitada());
-        
+        List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),this.getcorrequisito(solicitud.getMateriaSolicitada()));
+        System.out.println(lista.get(16).getPrerequisitos().size());
         while (!porVer.isEmpty()){
             semestre.clear();
             creditos=0;
@@ -85,12 +85,33 @@ public class Grafo {
             }
             System.out.println("creditos   "+creditos);
             System.out.println("semestre   "+total.size());
-       }
+
+ 
+
+        }
         return total;
     }
-   
-
-
+     public List<String> getcorrequisito(List<String> canceladas){
+         List<String> nueva = new ArrayList<String>();
+         for(Materia m: lista){
+             
+             for (String ca : canceladas){
+                 nueva.add(ca);
+                if(m.getNemonico().equals(ca)){
+                    List<String> correq = m.getCorequisitos();
+                    if(!correq.isEmpty()){
+                        for(String i : correq){
+                            if(!nueva.contains(i)){
+                                nueva.add(i);
+                            }
+                        }
+                    }
+                }
+             }
+         }
+         return nueva;
+         
+     }
     public List<Materia> getMateriasPorVer(List<Materia> materiasActuales, List<Materia> materiasCursadas,List<String> canceladas){        
         List<Materia> materiasPorVer = new ArrayList();
         for(Materia m: lista){            
@@ -100,6 +121,7 @@ public class Grafo {
                        
                    }else if(canceladas.contains(m.getNemonico())){  
                        materiasPorVer.add(m); 
+                 
                    }
            
                 
@@ -107,11 +129,13 @@ public class Grafo {
         }
         return materiasPorVer;
     }
-    
+  
     public boolean isPossible(Materia mat, List<Materia> porVer ){
         for (Materia p: porVer ){
+          
             for(String pre :mat.getPrerequisitos()){
                 if(pre.equals(p.getNemonico())){
+                    
                     return false;
                 }
             }

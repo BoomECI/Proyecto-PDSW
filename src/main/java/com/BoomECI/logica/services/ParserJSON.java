@@ -45,6 +45,8 @@ public class ParserJSON implements ParserGrafo{
         List<String> pre = new ArrayList();
         List<String> correq = new ArrayList();
         for (JsonValue i: jo.getJsonArray("materias")){
+            pre = new ArrayList();
+            correq = new ArrayList();
             JsonObject mat = jo.getJsonObject(i.toString().replaceAll("\"",""));
             for (JsonValue j: mat.getJsonArray("pre")){
                 pre.add(j.toString().replaceAll("\"",""));
@@ -52,10 +54,10 @@ public class ParserJSON implements ParserGrafo{
             for (JsonValue j: mat.getJsonArray("co")){
                 correq.add(j.toString().replaceAll("\"",""));
             }
+
             Materia nueva = new Materia(i.toString().replaceAll("\"",""),mat.getJsonString("nombre").toString().replaceAll("\"",""),Integer.parseInt(mat.getJsonString("creditos").toString().replaceAll("\"","")),pre,correq);
             listaMaterias.add(nueva);
-            pre.clear();
-            correq.clear();
+
         }
         
         Grafo g = new Grafo(listaMaterias);

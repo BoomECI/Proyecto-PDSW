@@ -107,7 +107,7 @@ public class SimpleTest {
 "	\"SOSW\", \"EHU3\", \"ELEA\", \"ET02\", \"PGR1\", \"CRIP\", \"ET03\", \"CLE1\", \"PGR2\", \"CLE2\"],\n" +
 "	\"CALD\": {\"nombre\" : \"Calculo diferencial\", \n" +
 "			\"creditos\":\"4\", \n" +
-"			\"co\" : [\"FIMF\"], \n" +
+"			\"co\" : [], \n" +
 "			\"pre\" : [\"AGEO\",\"PRE\"]}, \n" +
 "	\"MMIN\": {\"nombre\" : \"Modelos matematicos para informatica\", \n" +
 "			\"creditos\":\"3\", \n" +
@@ -171,7 +171,7 @@ public class SimpleTest {
 "			\"pre\" : [\"LCAL\"]}, \n" +
 "	\"FIEM\": {\"nombre\" : \"Fisica del electromagnetismo\", \n" +
 "			\"creditos\":\"4\", \n" +
-"			\"co\" : [\"CIED\"], \n" +
+"			\"co\" : [], \n" +
 "			\"pre\" : [\"FIMF\"]}, \n" +
 "	\"MBDA\": {\"nombre\" : \"Modelos y bases de datos\", \n" +
 "			\"creditos\":\"4\", \n" +
@@ -314,9 +314,7 @@ public class SimpleTest {
             
             List<Materia> le=new ArrayList<Materia>();
             List<String> ca=new ArrayList<String>();
-            ca.add("PIMB");  
-            ca.add("CIED");  
-            ca.add("LCAL"); 
+            ca.add("CIED");   
             List<Materia> he=new ArrayList<Materia>();
             List<SolicitudCancelacion> pa=new ArrayList<SolicitudCancelacion>();            
             Materia re=new Materia();
@@ -324,11 +322,12 @@ public class SimpleTest {
             Materia y=new Materia();
             y.setNemonico("CALD");
             Materia X=new Materia();
-            X.setNemonico("IINS");
+            X.setNemonico("FIMF");
             Materia T=new Materia();
             T.setNemonico("ALLI");
             Materia U=new Materia();
-            U.setNemonico("EALE");                     
+            U.setNemonico("EALE");
+            
             he.add(re);
             he.add(y);
             he.add(X);
@@ -341,7 +340,7 @@ public class SimpleTest {
             Materia I=new Materia();
             I.setNemonico("LCAL");
             Materia L=new Materia();
-            L.setNemonico("FIMF");
+            L.setNemonico("FIEM");
             Materia K=new Materia();
             K.setNemonico("EHU1");                     
             le.add(P);
