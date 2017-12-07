@@ -96,7 +96,7 @@ public class SimpleTest {
    public void prueba(){
         
         //ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
-        ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
+        ParserGrafo p = new ParserJSON();
         //ParserGrafo p = new ParserJSON();
         try{
            //SolicitudCancelacion  x = new SolicitudCancelacion(java.sql.Date.valueOf("2000-2-2"), "Esperando", 3, "me duele la vida" , "muy mal panita",true,false, "sopc", 1);
@@ -108,31 +108,31 @@ public class SimpleTest {
 "	\"CALD\": {\"nombre\" : \"Calculo diferencial\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [\"FIMF\"], \n" +
-"			\"pre\" : [\"CIED\",\"FUNE\"]}, \n" +
+"			\"pre\" : [\"AGEO\",\"PRE\"]}, \n" +
 "	\"MMIN\": {\"nombre\" : \"Modelos matematicos para informatica\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"PIMO\",\"LCAL\"]},\n" +
+"			\"pre\" : []},\n" +
 "	\"FFIS\": {\"nombre\" : \"Fundamentos de Fisica\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"FIMF\"]},\n" +
+"			\"pre\" : []},\n" +
 "	\"FMAT\": {\"nombre\" : \"Fundamentos de Matematicas\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"PREM\"]},\n" +
+"			\"pre\" : []},\n" +
 "	\"AGEO\": {\"nombre\" : \"Analisis Geometrico\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"CALD\",\"ALLI\"]},\n" +
+"			\"pre\" : []},\n" +
 "	\"PREM\": {\"nombre\" : \"Precalculo\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"CALD\",\"ALLI\"]},\n" +
+"			\"pre\" : [\"FMAT\"]},\n" +
 "	\"EXOE\": {\"nombre\" : \"Expresion Oral y Escrita\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"PIMO\",\"LCAL\"]},\n" +
+"			\"pre\" : []},\n" +
 "	\"DEPD\": {\"nombre\" : \"Deporte Dirigido\", \n" +
 "			\"creditos\":\"0\", \n" +
 "			\"co\" : [], \n" +
@@ -140,7 +140,7 @@ public class SimpleTest {
 "	\"ALLI\": {\"nombre\" : \"Algebra lineal\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"PREM\",\"AGEO\"]}, \n" +
 "	\"IINS\": {\"nombre\" : \"Introduccion a la ingenieria de sistemas\", \n" +
 "			\"creditos\":\"2\", \n" +
 "			\"co\" : [], \n" +
@@ -148,55 +148,55 @@ public class SimpleTest {
 "	\"EALE\": {\"nombre\" : \"Electiva en el area de lengua espanola\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"EXOE\"]}, \n" +
 "	\"CIED\": {\"nombre\" : \"Calculo integral y ecuaciones diferenciales\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [\"FIEM\"], \n" +
-"			\"pre\" : [\"PDIS\"]}, \n" +
+"			\"pre\" : [\"CALD\"]}, \n" +
 "	\"LCAL\": {\"nombre\" : \"Logica calculativa\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"MBDA\",\"MDIS\"]}, \n" +
+"			\"pre\" : [\"MMIN\"]}, \n" +
 "	\"FIMF\": {\"nombre\" : \"Fisica mecanica y fluidos\", \n" +
 "			\"creditos\":\"4\", \n" +
-"			\"co\" : [], \n" +
-"			\"pre\" : [\"FIEM\"]}, \n" +
+"			\"co\" : [\"CALD\"], \n" +
+"			\"pre\" : [\"FFIS\"]}, \n" +
 "	\"PIMB\": {\"nombre\" : \"Programacion imperativa basica\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"PIMO\",\"MBDA\"]}, \n" +
+"			\"pre\" : []}, \n" +
 "	\"MDIS\": {\"nombre\" : \"Matematicas discretas\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"TPRO\",\"TCOM\"]}, \n" +
+"			\"pre\" : [\"LCAL\"]}, \n" +
 "	\"FIEM\": {\"nombre\" : \"Fisica del electromagnetismo\", \n" +
 "			\"creditos\":\"4\", \n" +
-"			\"co\" : [], \n" +
-"			\"pre\" : [\"ARQC\"]}, \n" +
+"			\"co\" : [\"CIED\"], \n" +
+"			\"pre\" : [\"FIMF\"]}, \n" +
 "	\"MBDA\": {\"nombre\" : \"Modelos y bases de datos\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"PDSW\"]}, \n" +
+"			\"pre\" : [\"LCAL\",\"PIMB\"]}, \n" +
 "	\"PIMO\": {\"nombre\" : \"Programacion imperativa modular\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"POOB\", \"TPRO\"]}, \n" +
+"			\"pre\" : [\"PIMB\", \"LCAL\"]}, \n" +
 "	\"EHU1\": {\"nombre\" : \"Electiva humanistica 1\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"EALE\"]}, \n" +
 "	\"PDIS\": {\"nombre\" : \"Probabilidad discreta\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"ESTI\",\"FGPR\"]}, \n" +
+"			\"pre\" : [\"CIED\"]}, \n" +
 "	\"TPRO\": {\"nombre\" : \"Teoria de la programacion\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"MDIS\",\"PIMO\"]}, \n" +
 "	\"ARQC\": {\"nombre\" : \"Arquitectura del computador\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"SOPC\",\"FRED\"]}, \n" +
+"			\"pre\" : [\"FIEM\"]}, \n" +
 "	\"ELCB\": {\"nombre\" : \"Electiva en ciencias basicas\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
@@ -204,67 +204,67 @@ public class SimpleTest {
 "	\"POOB\": {\"nombre\" : \"Programacion orientada a objetos\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"PDSW\"]}, \n" +
+"			\"pre\" : [\"PIMO\"]}, \n" +
 "	\"ESTI\": {\"nombre\" : \"Estadistica\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"PDIS\"]}, \n" +
 "	\"TCOM\": {\"nombre\" : \"Teoria de la computacion\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"POOB\",\"MDIS\"]}, \n" +
 "	\"FRED\": {\"nombre\" : \"Fundamentos de redes\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"SEGI\",\"ARSW\"]}, \n" +
+"			\"pre\" : [\"ARQC\"]}, \n" +
 "	\"TSOR\": {\"nombre\" : \"Teoria de sistemas y organizaciones\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"PRON\"]}, \n" +
+"			\"pre\" : []}, \n" +
 "	\"PDSW\": {\"nombre\" : \"Procesos de desarrollo de software\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"ARSW\"]}, \n" +
+"			\"pre\" : [\"POOB\",\"MBDA\"]}, \n" +
 "	\"FUNE\": {\"nombre\" : \"Fundamentos de economia\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"ACFI\"]}, \n" +
+"			\"pre\" : [\"CALD\"]}, \n" +
 "	\"SEGI\": {\"nombre\" : \"Seguridad informatica\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"FRED\"]}, \n" +
 "	\"SOPC\": {\"nombre\" : \"Sistemas operativos y plataformas computacionales\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"ARQC\"]}, \n" +
 "	\"PRON\": {\"nombre\" : \"Procesos de negocio\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"COSW\",\"AREM\"]}, \n" +
+"			\"pre\" : [\"TSOR\"]}, \n" +
 "	\"ARSW\": {\"nombre\" : \"Arquitectura de software\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"COSW\",\"SOSW\"]}, \n" +
+"			\"pre\" : [\"FRED\",\"PDSW\"]}, \n" +
 "	\"ACFI\": {\"nombre\" : \"Analisis contable y financiero\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"FGPR\"]}, \n" +
+"			\"pre\" : [\"FUNE\"]}, \n" +
 "	\"AREM\": {\"nombre\" : \"Arquitecturas empresariales\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"SOSW\"]}, \n" +
+"			\"pre\" : [\"PRON\"]}, \n" +
 "	\"COSW\": {\"nombre\" : \"Construccion de software\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"PRON\",\"ARSW\"]}, \n" +
 "	\"EHU2\": {\"nombre\" : \"Electiva humanistica 2\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"EHU1\"]}, \n" +
 "	\"FGPR\": {\"nombre\" : \"Fundamentos y gerencia de proyectos\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"PGR1\"]}, \n" +
+"			\"pre\" : [\"ACFI\"]}, \n" +
 "	\"ET01\": {\"nombre\" : \"Electiva tecnica 1\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
@@ -272,11 +272,11 @@ public class SimpleTest {
 "	\"SOSW\": {\"nombre\" : \"Soluciones de software\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"AREM\",\"ARSW\"]}, \n" +
 "	\"EHU3\": {\"nombre\" : \"Electiva humanistica 3\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"EHU2\"]}, \n" +
 "	\"ELEA\": {\"nombre\" : \"Electiva economico-administrativa\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
@@ -284,11 +284,11 @@ public class SimpleTest {
 "	\"ET02\": {\"nombre\" : \"Electiva tecnica 2\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"ET01\"]}, \n" +
 "	\"PGR1\": {\"nombre\" : \"Proyecto de grado 1\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : [\"PGR2\"]}, \n" +
+"			\"pre\" : [\"FGPR\"]}, \n" +
 "	\"CRIP\": {\"nombre\" : \"Colombia: realidad e instituciones politicas\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
@@ -296,7 +296,7 @@ public class SimpleTest {
 "	\"ET03\": {\"nombre\" : \"Electiva tecnica 3\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"ET02\"]}, \n" +
 "	\"CLE1\": {\"nombre\" : \"Curso de libre eleccion 1\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
@@ -304,27 +304,59 @@ public class SimpleTest {
 "	\"PGR2\": {\"nombre\" : \"Proyecto de grado 2\", \n" +
 "			\"creditos\":\"4\", \n" +
 "			\"co\" : [], \n" +
-"			\"pre\" : []}, \n" +
+"			\"pre\" : [\"PGR1\"]}, \n" +
 "	\"CLE2\": {\"nombre\" : \"Curso de libre eleccion 2\", \n" +
 "			\"creditos\":\"3\", \n" +
 "			\"co\" : [], \n" +
 "			\"pre\" : []}\n" +
 "}");
            
-            //graph.printNodes();
-            //graph.validarGrafo();
-            //graph.printCoNodes();
-            graph.printLista();
+            
             List<Materia> le=new ArrayList<Materia>();
-            List<SolicitudCancelacion> pa=new ArrayList<SolicitudCancelacion>();
-            graph.printLista();
+            List<String> ca=new ArrayList<String>();
+            ca.add("PIMB");  
+            ca.add("CIED");  
+            ca.add("LCAL"); 
+            List<Materia> he=new ArrayList<Materia>();
+            List<SolicitudCancelacion> pa=new ArrayList<SolicitudCancelacion>();            
+            Materia re=new Materia();
+            re.setNemonico("MMIN");
+            Materia y=new Materia();
+            y.setNemonico("CALD");
+            Materia X=new Materia();
+            X.setNemonico("IINS");
+            Materia T=new Materia();
+            T.setNemonico("ALLI");
+            Materia U=new Materia();
+            U.setNemonico("EALE");                     
+            he.add(re);
+            he.add(y);
+            he.add(X);
+            he.add(T);
+            he.add(U);
+            Materia P=new Materia();
+            P.setNemonico("CIED");
+            Materia O=new Materia();
+            O.setNemonico("PIMB");
+            Materia I=new Materia();
+            I.setNemonico("LCAL");
+            Materia L=new Materia();
+            L.setNemonico("FIMF");
+            Materia K=new Materia();
+            K.setNemonico("EHU1");                     
+            le.add(P);
+            le.add(O);
+            le.add(I);
+            le.add(L);
+            le.add(K);              
+            
             PlanDeEstudios wqe= new PlanDeEstudios();
             Acudiente xd= new Acudiente();
             Consejero po= new Consejero();
-            SolicitudCancelacion te=new SolicitudCancelacion();
-            Estudiante lol= new Estudiante(1,"dasfsd","sdfjlasd",5465,po,xd,12123,"as",le,le,wqe,pa);  
-            System.out.println(graph.calcularPlanDeEstudios(lol, te).size());
-            
+            SolicitudCancelacion te=new SolicitudCancelacion();            
+            te.setMateriaSolicitada(ca);            
+            Estudiante lol= new Estudiante(1,"dasfsd","sdfjlasd",5465,po,xd,12123,"as",le,he,wqe,pa);  
+            System.out.println(graph.calcularPlanDeEstudios(lol, te).size());        
            
 
         }catch(Exception e){

@@ -41,8 +41,9 @@ public class Grafo {
      public List<List<String>> calcularPlanDeEstudios(Estudiante estudiante,SolicitudCancelacion solicitud){
         List<List<String>> total = new ArrayList<List<String>>();
         List<String> semestre = new ArrayList<String>();
-        int creditos=0;
-        List <Materia> porVer = getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),solicitud.getMateriaSolicitada());
+        int creditos=0;       
+        List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),solicitud.getMateriaSolicitada());
+        
         while (!porVer.isEmpty()){
             semestre.clear();
             creditos=0;
@@ -52,39 +53,56 @@ public class Grafo {
                     posibles.add(i);                   
                 }
             }
+            
              
-            for (Materia i:posibles){
-                if((creditos!=18) && (creditos!=16)&&(creditos!=17)&&(semestre.size()<=5)){
+            for (Materia i:posibles){                
+                if((creditos+i.getCreditos()<=18)&&(semestre.size()<5)){
                     if (i.getCreditos()==3){
                         creditos+=3;
                         semestre.add(i.getNemonico());
                         porVer.remove(i);
                     }
                     if (i.getCreditos()==4){
-                        creditos+=3;
+                        creditos+=4;
+                        semestre.add(i.getNemonico());
+                        porVer.remove(i);
+                    }
+                    if (i.getCreditos()==2){
+                        creditos+=2;
+                        semestre.add(i.getNemonico());
+                        porVer.remove(i);
+                    }
+                    if (i.getCreditos()==0){
+                        creditos+=0;
                         semestre.add(i.getNemonico());
                         porVer.remove(i);
                     }
                 }
             }
-            total.add(semestre);          
+            total.add(semestre);             
+            for(String i: semestre){
+               System.out.println(i);
+            }
+            System.out.println("creditos   "+creditos);
+            System.out.println("semestre   "+total.size());
        }
         return total;
     }
    
 
 
-    public List<Materia> getMateriasPorVer(List<Materia> materiasActuales, List<Materia> materiasCursadas,List<String> canceladas){
+    public List<Materia> getMateriasPorVer(List<Materia> materiasActuales, List<Materia> materiasCursadas,List<String> canceladas){        
         List<Materia> materiasPorVer = new ArrayList();
-        for(Materia m: this.lista){
-            for (Materia vista: materiasCursadas ){
-                if(!m.equals(vista)){
-                    for (Materia actual: materiasActuales){
-                        if(!m.equals(actual) && canceladas.contains(m.getNemonico())){                            
-                            materiasPorVer.add(m);
-                        }
-                    }
-                }
+        for(Materia m: lista){            
+            if(isNotHere(m,materiasCursadas)){                  
+                   if(isNotHere(m,materiasActuales)){                                               
+                            materiasPorVer.add(m);         
+                       
+                   }else if(canceladas.contains(m.getNemonico())){  
+                       materiasPorVer.add(m); 
+                   }
+           
+                
             }
         }
         return materiasPorVer;
@@ -104,7 +122,15 @@ public class Grafo {
             }
         }
         return true;
-    }   
+    }  
+    public boolean isNotHere(Materia mat, List<Materia> vistas ){
+        for (Materia p: vistas ){ 
+            if(p.equals(mat)){
+                return false;
+            }
+        }
+        return true;
+    }  
     public void printGraph(){
         
     }

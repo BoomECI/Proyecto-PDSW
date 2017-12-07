@@ -69,6 +69,12 @@ public class Materia {
     public void setCorequisitos(List<String> corequisitos) {
         this.corequisitos = corequisitos;
     }
+    public Boolean equals (Materia par) {
+        if(nemonico.equals(par.getNemonico())){            
+            return true;
+        }
+        return false;
+    }
     
     
 
