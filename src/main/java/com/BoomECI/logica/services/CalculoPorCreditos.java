@@ -7,7 +7,6 @@ package com.BoomECI.logica.services;
 
 import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Materia;
-import com.BoomECI.entidades.PlanDeEstudios;
 import java.util.List;
 
 /**
@@ -24,8 +23,12 @@ public class CalculoPorCreditos implements CalculoDeImpacto{
         } 
         for(Materia m: estudiante.getMateriasActuales()){
             creditosPorVer += m.getCreditos();
-        }  
-        creditosPorVer -= canceladas.get(0).getCreditos();        
+        }
+        
+        for(Materia m: canceladas){
+            creditosPorVer -= m.getCreditos();
+        }        
+        
         creditosPorVer = estudiante.getPlanDeEstudios().getNumeroDeCreditosTotales()- creditosPorVer;
         
         return creditosPorVer;        

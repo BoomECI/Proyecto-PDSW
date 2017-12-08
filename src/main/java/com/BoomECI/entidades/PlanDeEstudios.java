@@ -6,7 +6,6 @@
 package com.BoomECI.entidades;
 
 import java.util.List;
-import javax.json.JsonObject;
 /**
  *
  * @author BoomEci
