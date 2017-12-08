@@ -151,7 +151,7 @@ public class SimpleTest {
 "			\"pre\" : [\"EXOE\"]}, \n" +
 "	\"CIED\": {\"nombre\" : \"Calculo integral y ecuaciones diferenciales\", \n" +
 "			\"creditos\":\"4\", \n" +
-"			\"co\" : [\"FIEM\"], \n" +
+"			\"co\" : [], \n" +
 "			\"pre\" : [\"CALD\"]}, \n" +
 "	\"LCAL\": {\"nombre\" : \"Logica calculativa\", \n" +
 "			\"creditos\":\"3\", \n" +
@@ -171,7 +171,7 @@ public class SimpleTest {
 "			\"pre\" : [\"LCAL\"]}, \n" +
 "	\"FIEM\": {\"nombre\" : \"Fisica del electromagnetismo\", \n" +
 "			\"creditos\":\"4\", \n" +
-"			\"co\" : [], \n" +
+"			\"co\" : [\"CIED\"], \n" +
 "			\"pre\" : [\"FIMF\"]}, \n" +
 "	\"MBDA\": {\"nombre\" : \"Modelos y bases de datos\", \n" +
 "			\"creditos\":\"4\", \n" +
@@ -355,8 +355,7 @@ public class SimpleTest {
             SolicitudCancelacion te=new SolicitudCancelacion();            
             te.setMaterias(ca);            
             Estudiante lol= new Estudiante(1,"dasfsd","sdfjlasd",5465,po,xd,12123,"as",le,he,wqe,pa);  
-            System.out.println(graph.calcularPlanDeEstudios(lol, te).size());        
-           
+            graph.calcularPlanDeEstudios(lol, te);  
 
         }catch(Exception e){
             e.printStackTrace();

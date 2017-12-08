@@ -24,14 +24,12 @@ public class Grafo {
     public Grafo(List<Materia> lista){
         grafo = new HashMap<>();
         correquisitos = new HashMap<>();
-        this.lista = lista;
-       
-        
+        this.lista = lista;       
     }
-
+    
     public Grafo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    } 
     
     public void setNodes(){
         
@@ -42,12 +40,12 @@ public class Grafo {
             System.out.println(m.getNemonico());
         }
     }
-     public List<List<String>> calcularPlanDeEstudios(Estudiante estudiante,SolicitudCancelacion solicitud){
+    
+    public List<List<String>> calcularPlanDeEstudios(Estudiante estudiante,SolicitudCancelacion solicitud){
         List<List<String>> total = new ArrayList<>();
         List<String> semestre = new ArrayList<>();
         int creditos=0;       
-        List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),this.getcorrequisito(solicitud.getMaterias()));
-        System.out.println(lista.get(16).getPrerequisitos().size());
+        List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),this.getcorrequisito(solicitud.getMaterias()));        
         while (!porVer.isEmpty()){
             semestre.clear();
             creditos=0;
@@ -56,9 +54,7 @@ public class Grafo {
                 if (isPossible(i,porVer)){
                     posibles.add(i);                   
                 }
-            }
-            
-             
+            }            
             for (Materia i:posibles){                
                 if((creditos+i.getCreditos()<=18)&&(semestre.size()<5)){
                     if (i.getCreditos()==3){
@@ -83,39 +79,31 @@ public class Grafo {
                     }
                 }
             }
-            total.add(semestre);             
-            for(String i: semestre){
-               System.out.println(i);
-            }
-            System.out.println("creditos   "+creditos);
-            System.out.println("semestre   "+total.size());
-
- 
-
+            total.add(semestre);          
         }
         return total;
     }
+    
      public List<String> getcorrequisito(List<String> canceladas){
          List<String> nueva = new ArrayList<String>();
-         for(Materia m: lista){
-             
-             for (String ca : canceladas){
-                 nueva.add(ca);
-                if(m.getNemonico().equals(ca)){
-                    List<String> correq = m.getCorequisitos();
-                    if(!correq.isEmpty()){
-                        for(String i : correq){
-                            if(!nueva.contains(i)){
-                                nueva.add(i);
-                            }
-                        }
-                    }
-                }
-             }
-         }
-         return nueva;
+         for(String ca : canceladas){
+             nueva.add(ca);
+         }         
+         for(Materia m: lista){             
+             for (String ca : canceladas){                  ;
+                 for(String co: m.getCorequisitos()){
+                     if (ca.equals(co)){                         
+                         if (!canceladas.contains(m.getNemonico())){
+                             nueva.add(m.getNemonico());                            
+                         }                         
+                     }
+                 }
+             }       
+         }        
+         return nueva;         
          
      }
+     
     public List<Materia> getMateriasPorVer(List<Materia> materiasActuales, List<Materia> materiasCursadas,List<String> canceladas){        
         List<Materia> materiasPorVer = new ArrayList();
         for(Materia m: lista){            
@@ -124,22 +112,17 @@ public class Grafo {
                             materiasPorVer.add(m);         
                        
                    }else if(canceladas.contains(m.getNemonico())){  
-                       materiasPorVer.add(m); 
-                 
-                   }
-           
-                
+                       materiasPorVer.add(m);                 
+                   }             
             }
         }
         return materiasPorVer;
     }
   
     public boolean isPossible(Materia mat, List<Materia> porVer ){
-        for (Materia p: porVer ){
-          
+        for (Materia p: porVer ){          
             for(String pre :mat.getPrerequisitos()){
-                if(pre.equals(p.getNemonico())){
-                    
+                if(pre.equals(p.getNemonico())){                    
                     return false;
                 }
             }
@@ -151,6 +134,7 @@ public class Grafo {
         }
         return true;
     }  
+    
     public boolean isNotHere(Materia mat, List<Materia> vistas ){
         for (Materia p: vistas ){ 
             if(p.equals(mat)){
@@ -159,6 +143,7 @@ public class Grafo {
         }
         return true;
     }  
+    
     public void printGraph(){
         
     }
