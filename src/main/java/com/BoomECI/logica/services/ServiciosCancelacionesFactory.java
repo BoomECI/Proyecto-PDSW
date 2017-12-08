@@ -9,7 +9,9 @@ import com.BoomECI.persistencia.EstudianteDAO;
 import com.BoomECI.persistencia.mybatis.EstudianteDAOMyBatis;
 import static com.google.inject.Guice.createInjector;
 import com.BoomECI.persistencia.ConsejeroDAO;
+import com.BoomECI.persistencia.DirectivoDAO;
 import com.BoomECI.persistencia.mybatis.ConsejeroDAOMyBatis;
+import com.BoomECI.persistencia.mybatis.DirectivoDAOMyBatis;
 
 /**
  *
@@ -32,6 +34,7 @@ public class ServiciosCancelacionesFactory {
                 bind(ParserGrafo.class).to(ParserJSON.class);
                 bind(CalculoDeImpacto.class).to(CalculoPorCreditos.class);
                 bind(ConsejeroDAO.class).to(ConsejeroDAOMyBatis.class);
+                bind(DirectivoDAO.class).to(DirectivoDAOMyBatis.class);
 
             }
 
@@ -49,6 +52,7 @@ public class ServiciosCancelacionesFactory {
                 bind(ParserGrafo.class).to(ParserJSON.class);
                 bind(CalculoDeImpacto.class).to(CalculoPorCreditos.class);
                 bind(ConsejeroDAO.class).to(ConsejeroDAOMyBatis.class);
+                bind(DirectivoDAO.class).to(DirectivoDAOMyBatis.class);
             }
 
         }

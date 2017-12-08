@@ -12,18 +12,16 @@ import com.google.inject.Inject;
 import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
-import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.PersistenceException;
 import org.mybatis.guice.transactional.Transactional;
 import com.BoomECI.persistencia.ConsejeroDAO;
+import com.BoomECI.persistencia.DirectivoDAO;
 import com.BoomECI.persistencia.EstudianteDAO;
-import com.BoomECI.persistencia.mybatis.mappers.EstudianteMapper;
-import java.util.ArrayList;
+
 
 /**
  *
@@ -39,6 +37,10 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     
     @Inject
     private ConsejeroDAO daoCon;
+    
+    @Inject
+    private DirectivoDAO daoDir;
+    
     
     @Transactional
     @Override
@@ -159,6 +161,26 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     public List<List<String>> calcularProyeccion(Estudiante estudianteActual, SolicitudCancelacion solicitud) {
         Grafo proyeccion = new Grafo();
         return proyeccion.calcularPlanDeEstudios(estudianteActual, solicitud);
+    }
+
+    @Override
+    public List<SolicitudCancelacion> consultarCancelacionesTramitadas() throws ExcepcionServiciosCancelaciones {
+        try{
+            return daoDir.loadSolicitudesTramitadas();
+        }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @Override
+    public List<SolicitudCancelacion> consultarCancelacionesNoTramitadas() throws ExcepcionServiciosCancelaciones {
+        try{
+            return daoDir.loadSolicitudesNoTramitadas();
+        }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     

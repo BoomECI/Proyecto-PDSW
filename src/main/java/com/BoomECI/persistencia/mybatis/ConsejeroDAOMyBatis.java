@@ -5,13 +5,12 @@
  */
 package com.BoomECI.persistencia.mybatis;
 import com.google.inject.Inject;
-import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.util.List;
 import javax.persistence.PersistenceException;
 import com.BoomECI.persistencia.ConsejeroDAO;
 import com.BoomECI.persistencia.mybatis.mappers.ConsejeroMapper;
-import com.BoomECI.persistencia.mybatis.mappers.EstudianteMapper;
+
 /**
  *
  * @author BoomEci

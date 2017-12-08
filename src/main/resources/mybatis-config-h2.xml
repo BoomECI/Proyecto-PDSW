@@ -33,6 +33,7 @@
     <mappers>
         <mapper resource="mappers/EstudianteMapper.xml"></mapper>
         <mapper resource="mappers/ConsejeroMapper.xml"></mapper>
+        <mapper resource="mappers/DirectivoMapper.xml"></mapper>
     </mappers> 
         
         
