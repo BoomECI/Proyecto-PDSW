@@ -40,7 +40,7 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
     }    
 
     @Override
-    public Estudiante loadByID(int id) {
+    public Estudiante loadByID(long id) {
         try{
         
             Estudiante x = Estmaper.loadEstudianteById(id);
@@ -64,7 +64,7 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
     }
     
     @Override
-    public List<Materia> loadMateriasActuales(int id){
+    public List<Materia> loadMateriasActuales(long id){
        try{
            return Estmaper.loadMateriasActualesById(id);
         }
@@ -75,7 +75,7 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
     
     @Override
     
-    public List<Materia> loadMateriasCursadas(int id){
+    public List<Materia> loadMateriasCursadas(long id){
        try{
            return Estmaper.loadMateriasCursadasById(id);
         }

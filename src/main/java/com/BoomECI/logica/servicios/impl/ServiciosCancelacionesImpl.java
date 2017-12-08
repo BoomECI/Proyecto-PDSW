@@ -55,7 +55,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     
     @Transactional
     @Override
-    public Estudiante consultarEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones {
+    public Estudiante consultarEstudiante(long idEstudiante) throws ExcepcionServiciosCancelaciones {
         try {
             return daoEst.loadByID(idEstudiante);
         } catch (PersistenceException ex) {
@@ -74,7 +74,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     }
     @Transactional
     @Override
-    public List<SolicitudCancelacion> consultarSolicitudCancelacionEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones {
+    public List<SolicitudCancelacion> consultarSolicitudCancelacionEstudiante(long idEstudiante) throws ExcepcionServiciosCancelaciones {
         try{
             Estudiante estudiante = daoEst.loadByID(idEstudiante);
             return estudiante.getSolicitudes();            
@@ -106,7 +106,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
 
     
     @Override
-    public List<SolicitudCancelacion> consultarCancelacionesTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones {
+    public List<SolicitudCancelacion> consultarCancelacionesTramitadasAconsejados(long id) throws ExcepcionServiciosCancelaciones {
         try{            
             return daoCon.loadSolicitudesTramitadas(id);
         }catch(PersistenceException ex){
@@ -116,7 +116,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     }
 
     @Override
-    public List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones {
+    public List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(long id) throws ExcepcionServiciosCancelaciones {
         
         try{             
             return daoCon.loadSolicitudesNoTramitadas(id);

@@ -82,9 +82,9 @@ public class ConsejeroBean implements Serializable{
     }
     
     public String tramitar() throws ExcepcionServiciosCancelaciones{
-        servCanc.agregarComentarioConsejero(consejeroActual.getId(), comentario);
-        servCanc.cambiarElAvalDeConsejero(consejeroActual.getId(), aval);
-        servCanc.cambiarElestadoDeLaSolicitud(consejeroActual.getId(), "Tramitada");
+        servCanc.agregarComentarioConsejero(solicitudSeleccionada.getId(), comentario);
+        servCanc.cambiarElAvalDeConsejero(solicitudSeleccionada.getId(), aval);
+        servCanc.cambiarElestadoDeLaSolicitud(solicitudSeleccionada.getId(), "Tramitada");
         return "listadosolcancel.xhtml";
         
     }

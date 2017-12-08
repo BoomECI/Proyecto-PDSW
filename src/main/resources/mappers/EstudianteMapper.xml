@@ -17,10 +17,10 @@
         <association property="consejero" javaType="Consejero" columnPrefix="con_"  resultMap="ConsejeroResult"/>
         <association property="acudiente" javaType="Acudiente"  columnPrefix="acu_" resultMap="AcudienteResult"/>  
         <collection property="materiasActuales" ofType="java.lang.String" columnPrefix="maa_" > 
-            <result column="nemonico" />
+            <result column="Materia" />
         </collection>
         <collection property="materiasCursadas" ofType="java.lang.String" columnPrefix="mac_">
-            <result column="nemonico" />
+            <result column="Materia" />
         </collection>
         <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"/>               
     </resultMap>  
@@ -83,7 +83,7 @@
         pl.Grafo AS pl_Grafo,
         pl.creditos AS pl_creditos,
         pl.nummaterias AS pl_nummaterias,        
-        mac.materia AS mac_materia ,
+        mac.Materia AS mac_Materia ,
         maa.Materia AS maa_Materia,        
         sol.id AS sol_id, 
         sol.fecha AS sol_fecha,
@@ -92,16 +92,16 @@
         sol.comentario AS sol_comentario,
         sol.avalAcudiente AS sol_avalAcudiente,
         sol.avalConsejero AS sol_avalConsejero,
-        sol.materia AS sol_materia, 
-        sol.estudiante AS sol_estudiante        
+        sol.Materia AS sol_Materia, 
+        sol.Estudiante AS sol_Estudiante        
         from  
         Estudiante AS est 
         LEFT OUTER Join Acudiente AS acu ON  est.Acudiente=acu.cedula  
         LEFT OUTER JOIN Consejero AS con ON est.consejero=con.codigo 
         LEFT OUTER JOIN Plan_de_Estudio as pl ON (est.Plan_ID=pl.ID)
-        LEFT OUTER JOIN MateriasCursadas AS mac ON est.codigo=mac.estudiante 
-        LEFT OUTER JOIN MateriasActuales AS maa ON est.codigo=maa.estudiante
-        LEFT OUTER JOIN solicitud_de_cancelacion AS sol ON est.codigo=sol.estudiante
+        LEFT OUTER JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 
+        LEFT OUTER JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante
+        LEFT OUTER JOIN solicitud_de_cancelacion AS sol ON est.codigo=sol.Estudiante
         WHERE est.codigo=#{ide}
     </select>  
     
@@ -109,15 +109,15 @@
         select  
         mac.materia AS nemonico       
         from  
-        Estudiante AS est LEFT OUTER JOIN MateriasCursadas AS mac ON est.codigo=mac.estudiante         
+        Estudiante AS est LEFT OUTER JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante         
         WHERE est.codigo=#{ide}
     </select> 
     
     <select parameterType="map" id="loadMateriasActualesById" resultMap="MateriaResult">
         select  
-        maa.materia AS nemonico       
+        maa.Materia AS nemonico       
         from  
-        Estudiante AS est LEFT OUTER JOIN MateriasActuales AS maa ON est.codigo=maa.estudiante         
+        Estudiante AS est LEFT OUTER JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante         
         WHERE est.codigo=#{ide}
     </select>  
     
@@ -141,7 +141,7 @@
         pl.Grafo AS pl_Grafo,
         pl.creditos AS pl_creditos,
         pl.nummaterias AS pl_nummaterias,        
-        mac.materia AS mac_materia ,
+        mac.Materia AS mac_Materia ,
         maa.Materia AS maa_Materia,        
         sol.id AS sol_id, 
         sol.fecha AS sol_fecha,
@@ -150,14 +150,14 @@
         sol.comentario AS sol_comentario,
         sol.avalAcudiente AS sol_avalAcudiente,
         sol.avalConsejero AS sol_avalConsejero,
-        sol.Materia AS sol_Materia         
+        sol.materia AS sol_materia         
         from  
         Estudiante AS est 
         LEFT OUTER Join Acudiente AS acu ON  est.Acudiente=acu.cedula  
         LEFT OUTER JOIN Consejero AS con ON est.consejero=con.codigo 
         LEFT OUTER JOIN Plan_de_Estudio as pl ON (est.Plan_ID=pl.ID)
-        LEFT OUTER JOIN MateriasCursadas AS mac ON est.codigo=mac.estudiante 
-        LEFT OUTER JOIN MateriasActuales AS maa ON est.codigo=maa.estudiante
+        LEFT OUTER JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 
+        LEFT OUTER JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante
         LEFT OUTER JOIN solicitud_de_cancelacion AS sol ON est.codigo=sol.estudiante  
     </select>  
       

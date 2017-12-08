@@ -24,11 +24,11 @@ public class SolicitudCancelacion {
     private Boolean avalAcudiente;
     private int id;
     private String comentario;
-    private int estudiante;
+    private long estudiante;
    
 
     public SolicitudCancelacion(){}
-    public SolicitudCancelacion(Date fecha, String estado, int id, String justificacion, String comentario,Boolean avalAcudiente,Boolean avalConsejero,String materia,int estudiante ) {
+    public SolicitudCancelacion(Date fecha, String estado, int id, String justificacion, String comentario,Boolean avalAcudiente,Boolean avalConsejero,String materia,long estudiante ) {
         this.materia = materia;
         this.justificacion = justificacion;
         this.fecha = fecha;
@@ -104,11 +104,11 @@ public class SolicitudCancelacion {
         this.comentario = comentario;
     }
 
-    public int getEstudiante() {
+    public long getEstudiante() {
         return estudiante;
     }
 
-    public void setEstudiante(int estudiante) {
+    public void setEstudiante(long estudiante) {
         this.estudiante = estudiante;
     }
     

@@ -70,45 +70,8 @@ public class EstudianteBean implements Serializable{
         estudianteActual= servCanc.consultarEstudiante( carnetActual);*/
         fechaCancelacion = new Date();
         fecha = fechaCancelacion.getDate()+"-"+fechaCancelacion.getMonth()+"-"+(fechaCancelacion.getYear()+1900);
-        ArrayList<Materia> mA = new ArrayList<>();
-        mA.add(new Materia("EHU2"));
-        mA.add(new Materia("FRED"));
-        mA.add(new Materia("PRON"));
-        mA.add(new Materia("ACFI"));
-        mA.add(new Materia("PDSW"));
-        PlanDeEstudios PDE = new PlanDeEstudios();
-        PDE.setNumeroDeCreditosTotales(148);
         
-        ArrayList<Materia> mC = new ArrayList<>();
-        mC.add(new Materia("PIMB"));
-        mC.add(new Materia("IINS"));
-        mC.add(new Materia("MMIN"));
-        mC.add(new Materia("EHU1"));
-        mC.add(new Materia("ALLI"));
-        mC.add(new Materia("LCAL"));
-        mC.add(new Materia("MDIS"));
-        mC.add(new Materia("MBDA"));
-        mC.add(new Materia("CALD"));
-        mC.add(new Materia("FUNE"));
-        mC.add(new Materia("CIED"));
-        mC.add(new Materia("FIMF"));
-        mC.add(new Materia("IINS"));
-        mC.add(new Materia("PIMO"));
-        mC.add(new Materia("POOB"));
-        mC.add(new Materia("IINS"));
-        mC.add(new Materia("CLE1"));
-        mC.add(new Materia("TPRO"));
-        mC.add(new Materia("ELCB"));
-        mC.add(new Materia("FIEM"));
-        mC.add(new Materia("ARQC"));
-        mC.add(new Materia("PDIS"));
-        mC.add(new Materia("TSOR"));
-        
-        ArrayList<SolicitudCancelacion> sols = new ArrayList<>();
-        sols.add(new SolicitudCancelacion());
-        estudianteActual= new Estudiante(2110805,"Juan David Ramirez Mendoza","juanda@hotmail.com",12345,new Consejero(12,"Oswaldo","oswald.com",null), new Acudiente(23,"Giovanni","gio.com",1234),
-                                                            1019138849,"cc",mA,mC,PDE,sols);
-        //estudianteActual = servCanc.consultarEstudiante(2110805);
+        estudianteActual = servCanc.consultarEstudiante(2110432);
         materiasCursadas = estudianteActual.getMateriasCursadas();
         materiasActuales = estudianteActual.getMateriasActuales();
         planDeEstudios = estudianteActual.getPlanDeEstudios();

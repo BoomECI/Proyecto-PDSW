@@ -13,24 +13,24 @@ import java.util.List;
  */
 public class Consejero {
     
-    private int id;
+    private long id;
     private String nombre;
     private String correo;
     private List<Estudiante> estudiantesAconsejados;
     public Consejero(){}
     
-    public Consejero(int id, String nombre, String correo, List<Estudiante> estudiantesAconsejados){
+    public Consejero(long id, String nombre, String correo, List<Estudiante> estudiantesAconsejados){
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.estudiantesAconsejados = estudiantesAconsejados;
     }    
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

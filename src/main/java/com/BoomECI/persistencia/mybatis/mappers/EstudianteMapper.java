@@ -17,13 +17,13 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface EstudianteMapper {   
     
-    public Estudiante loadEstudianteById(@Param("ide")int id);
+    public Estudiante loadEstudianteById(@Param("ide")long id);
     
     public List<Estudiante> consultarEstudiantes();
     
-    public List<Materia> loadMateriasActualesById (@Param("ide")int id);
+    public List<Materia> loadMateriasActualesById (@Param("ide")long id);
     
-    public List<Materia> loadMateriasCursadasById (@Param("ide")int id);
+    public List<Materia> loadMateriasCursadasById (@Param("ide")long id);
     
     public void insertarSolicitud(@Param("sol") SolicitudCancelacion solicitud);
     

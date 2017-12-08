@@ -22,7 +22,7 @@ public interface ServiciosCancelaciones {
      * @return el paciente con el carnet dado
      * @throws ExcepcionServiciosCancelaciones si el estudiante no existe
      */
-    public abstract Estudiante consultarEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones;
+    public abstract Estudiante consultarEstudiante(long idEstudiante) throws ExcepcionServiciosCancelaciones;
     
     /**
      * Agrega una consulta a un paciente ya registrado     
@@ -38,7 +38,7 @@ public interface ServiciosCancelaciones {
      * @return Lista de solicitudes    
      * @throws ExcepcionServiciosCancelaciones Si el estudiante no existe o se genere un error de persistencia
      */
-    public abstract List<SolicitudCancelacion> consultarSolicitudCancelacionEstudiante(int idEstudiante) throws ExcepcionServiciosCancelaciones;
+    public abstract List<SolicitudCancelacion> consultarSolicitudCancelacionEstudiante(long idEstudiante) throws ExcepcionServiciosCancelaciones;
     
     
     /**
@@ -91,7 +91,7 @@ public interface ServiciosCancelaciones {
      * @return Lista de solicitudes de cancelaciones
      * @throws ExcepcionServiciosCancelaciones 
      */
-    public abstract List<SolicitudCancelacion> consultarCancelacionesTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones;
+    public abstract List<SolicitudCancelacion> consultarCancelacionesTramitadasAconsejados(long id) throws ExcepcionServiciosCancelaciones;
     
     /**
      * Consultar todas las solicitudes de cancelacion no tramitadas de los aconsejados dado el
@@ -99,7 +99,7 @@ public interface ServiciosCancelaciones {
      * @return Lista de solicitudes de cancelaciones
      * @throws ExcepcionServiciosCancelaciones 
      */
-    public abstract List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(int id) throws ExcepcionServiciosCancelaciones;
+    public abstract List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(long id) throws ExcepcionServiciosCancelaciones;
 
     
     /**

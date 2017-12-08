@@ -9,13 +9,13 @@ import java.util.List;
 
 public class Estudiante {
     
-    private int codigo;
+    private long codigo;
     private String nombre;
     private String correo;
-    private int telefono;
+    private long telefono;
     private Consejero consejero;
     private Acudiente acudiente;
-    private int identificacion;
+    private long identificacion;
     private String tipo_id;
     private List<Materia> materiasActuales;
     private List<Materia> materiasCursadas;
@@ -23,9 +23,9 @@ public class Estudiante {
     private List<SolicitudCancelacion> solicitudes;
     
     public Estudiante(){}
-    public Estudiante(int codigo, String nombre, String correo,
-                      int telefono,Consejero consejero, Acudiente acudiente,
-                      int identificacion,String tipo_id,List<Materia> materiasActuales,
+    public Estudiante(long codigo, String nombre, String correo,
+                      long telefono,Consejero consejero, Acudiente acudiente,
+                      long identificacion,String tipo_id,List<Materia> materiasActuales,
                       List<Materia> materiasCursadas, PlanDeEstudios planDeEstudios,List<SolicitudCancelacion> solicitudes){
         this.codigo = codigo;
         this.nombre = nombre;
@@ -42,11 +42,11 @@ public class Estudiante {
         
     }
 
-    public int getCodigo() {
+    public long getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(long codigo) {
         this.codigo = codigo;
     }
 
@@ -66,11 +66,11 @@ public class Estudiante {
         this.correo = correo;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
@@ -90,11 +90,11 @@ public class Estudiante {
         this.acudiente = acudiente;
     }
 
-    public int getIdentificacion() {
+    public long getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(int identificacion) {
+    public void setIdentificacion(long identificacion) {
         this.identificacion = identificacion;
     }
 

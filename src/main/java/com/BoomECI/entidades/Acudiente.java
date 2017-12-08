@@ -11,25 +11,25 @@ package com.BoomECI.entidades;
  */
 public class Acudiente {
     
-    private int cedula;
+    private long cedula;
     private String nombre;
     private String correo;
-    private int telefono;
+    private long telefono;
 
     public Acudiente(){
     }
-    public Acudiente(int id, String nombre, String correo, int telefono){
+    public Acudiente(long id, String nombre, String correo, long telefono){
         this.cedula = id;
         this.nombre = nombre;
         this.correo = correo;    
         this.telefono = telefono;
     }
 
-    public int getId() {
+    public long getId() {
         return cedula;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.cedula = id;
     }
 
@@ -49,11 +49,11 @@ public class Acudiente {
         this.correo = correo;
     }
     
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
     

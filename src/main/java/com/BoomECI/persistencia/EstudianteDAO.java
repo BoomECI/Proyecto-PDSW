@@ -15,10 +15,10 @@ import java.util.List;
  * @author BOOMECI
  */
 public interface EstudianteDAO {
-    public Estudiante loadByID(int id);
+    public Estudiante loadByID(long id);
     public List<Estudiante> loadAll();
-    public List<Materia> loadMateriasActuales(int id);
-    public List<Materia> loadMateriasCursadas(int id);    
+    public List<Materia> loadMateriasActuales(long id);
+    public List<Materia> loadMateriasCursadas(long id);    
     //public void actualizarEstudiante(Estudiante p);
     public void save(SolicitudCancelacion solicitudCancelacion);
     

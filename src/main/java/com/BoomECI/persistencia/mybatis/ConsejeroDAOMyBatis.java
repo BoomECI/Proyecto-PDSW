@@ -22,7 +22,7 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
     ConsejeroMapper Conmaper;  
     
     @Override
-    public List<SolicitudCancelacion> loadSolicitudesTramitadas(int id){
+    public List<SolicitudCancelacion> loadSolicitudesTramitadas(long id){
         try{        
             List<SolicitudCancelacion> solicitudes= Conmaper.loadSolicitudesTramitadas(id);
             return solicitudes;
@@ -33,7 +33,7 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
     }
     
     @Override
-    public List<SolicitudCancelacion> loadSolicitudesNoTramitadas(int id){
+    public List<SolicitudCancelacion> loadSolicitudesNoTramitadas(long id){
         try{        
             List<SolicitudCancelacion> solicitudes= Conmaper.loadSolicitudesNoTramitadas(id);
             return solicitudes;
