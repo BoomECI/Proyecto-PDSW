@@ -29,7 +29,9 @@ import org.primefaces.component.outputlabel.OutputLabel;
 import org.primefaces.component.tabview.Tab;
 import org.primefaces.component.tabview.TabView;
 import org.primefaces.context.RequestContext;
+import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.DualListModel;
+import org.primefaces.model.TreeNode;
 
 
 
@@ -50,7 +52,7 @@ public class EstudianteBean implements Serializable{
     private List<Materia> materiasSeleccionadas;
     private String[] justificacionesCancelacion;
     private int creditosRestantes;
-    private SolicitudCancelacion solicitudEstudiante;
+    private List<SolicitudCancelacion> solicitudesEstudiante;
     private TabView tablaMaterias;
     private int creditosCarrera;
     private DualListModel<String> materias;
@@ -58,6 +60,8 @@ public class EstudianteBean implements Serializable{
     private List<String> materiasSeleccionadasString;
     private String fecha;
     private List<List<String>> proyeccion;
+    private int semestresRestantes;
+    private TreeNode root;
     
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
@@ -67,19 +71,38 @@ public class EstudianteBean implements Serializable{
         fechaCancelacion = new Date();
         fecha = fechaCancelacion.getDate()+"-"+fechaCancelacion.getMonth()+"-"+(fechaCancelacion.getYear()+1900);
         ArrayList<Materia> mA = new ArrayList<>();
-        mA.add(new Materia("APMU","Apreciacion musical", 3, null, null));
-        mA.add(new Materia("FRED","Fundamentos de redes", 3, null, null));
-        mA.add(new Materia("PRON","Procesos de negocios", 3, null, null));
-        mA.add(new Materia("ACFI","Analisis contable y financiero", 3, null, null));
-        mA.add(new Materia("PDSW","Procesos de desarrollo de software", 4, null, null));
+        mA.add(new Materia("EHU2"));
+        mA.add(new Materia("FRED"));
+        mA.add(new Materia("PRON"));
+        mA.add(new Materia("ACFI"));
+        mA.add(new Materia("PDSW"));
         PlanDeEstudios PDE = new PlanDeEstudios();
         PDE.setNumeroDeCreditosTotales(148);
         
         ArrayList<Materia> mC = new ArrayList<>();
-        mC.add(new Materia("IINS","Introduccion a la ingenieria de sistemas",3,null,null));
-        mC.add(new Materia("MMIN","Modelos matematicos para la informatica",3,null,null));
-        mC.add(new Materia("DEPD","Deporte dirigido",3,null,null));
-        mC.add(new Materia("ALLI","Algebra lineal",4,null,null));
+        mC.add(new Materia("PIMB"));
+        mC.add(new Materia("IINS"));
+        mC.add(new Materia("MMIN"));
+        mC.add(new Materia("EHU1"));
+        mC.add(new Materia("ALLI"));
+        mC.add(new Materia("LCAL"));
+        mC.add(new Materia("MDIS"));
+        mC.add(new Materia("MBDA"));
+        mC.add(new Materia("CALD"));
+        mC.add(new Materia("FUNE"));
+        mC.add(new Materia("CIED"));
+        mC.add(new Materia("FIMF"));
+        mC.add(new Materia("IINS"));
+        mC.add(new Materia("PIMO"));
+        mC.add(new Materia("POOB"));
+        mC.add(new Materia("IINS"));
+        mC.add(new Materia("CLE1"));
+        mC.add(new Materia("TPRO"));
+        mC.add(new Materia("ELCB"));
+        mC.add(new Materia("FIEM"));
+        mC.add(new Materia("ARQC"));
+        mC.add(new Materia("PDIS"));
+        mC.add(new Materia("TSOR"));
         
         ArrayList<SolicitudCancelacion> sols = new ArrayList<>();
         sols.add(new SolicitudCancelacion());
@@ -138,12 +161,12 @@ public class EstudianteBean implements Serializable{
         return mt;
     }
 
-    public SolicitudCancelacion getSolicitudEstudiante() {
-        return solicitudEstudiante;
+    public List<SolicitudCancelacion> getSolicitudesEstudiante() {
+        return solicitudesEstudiante;
     }
 
-    public void setSolicitudEstudiante(SolicitudCancelacion solicitudEstudiante) {
-        this.solicitudEstudiante = solicitudEstudiante;
+    public void setSolicitudesEstudiante(List<SolicitudCancelacion> solicitudesEstudiante) {
+        this.solicitudesEstudiante = solicitudesEstudiante;
     }
 
     public DualListModel<String> getMaterias() {
@@ -153,6 +176,26 @@ public class EstudianteBean implements Serializable{
     public void setMaterias(DualListModel<String> materias) {
         this.materias = materias;
     }
+
+    public TreeNode getRoot() {
+        return root;
+    }
+
+    public void setRoot(TreeNode root) {
+        this.root = root;
+    }
+    
+    
+
+    public int getSemestresRestantes() {
+        return semestresRestantes;
+    }
+
+    public void setSemestresRestantes(int semestresRestantes) {
+        this.semestresRestantes = semestresRestantes;
+    }
+    
+    
 
     public List<String> getMateriasActualesString() {
         return materiasActualesString;
@@ -256,10 +299,11 @@ public class EstudianteBean implements Serializable{
        for(int i=0;i<justificacionesCancelacion.length;i++){
            InputTextarea m = (InputTextarea) tablaMaterias.getChildren().get(i).findComponent("input"+i);
            justificacionesCancelacion[i] = (String) m.getValue();
+           solicitudesEstudiante.get(i).setJustificacion(justificacionesCancelacion[i]);
+           solicitudes.add(solicitudesEstudiante.get(i));
+           servCanc.agregarSolicitudCancelacionEstudiante(solicitudesEstudiante.get(i));
        }
-       solicitudEstudiante.setJustificaciones(justificacionesCancelacion);
-       solicitudes.add(solicitudEstudiante);
-       servCanc.agregarSolicitudCancelacionEstudiante(solicitudEstudiante);
+       
        Email email = new SimpleEmail(estudianteActual.getCorreo(), estudianteActual.getConsejero().getCorreo(), "SOLICITUD DE CANCELACION ACONSEJADO", "Buen dia profesor "+estudianteActual.getConsejero().getNombre()+ ", la presente es para informarle"
                                                                                                                  + " que voy a realizar un proceso de cancelacion, espero pronta respuesta para acordar la reunion estipulada por el reglamento."
                + "\n\nCordialmente,\n"+estudianteActual.getNombre()+"\n"+estudianteActual.getCodigo()+"\n"+estudianteActual.getIdentificacion());
@@ -307,9 +351,22 @@ public class EstudianteBean implements Serializable{
        RequestContext context = RequestContext.getCurrentInstance();
        context.update("myTabPanel");
        
-       solicitudEstudiante = new SolicitudCancelacion(fechaCancelacion, "Pendiente", solicitudes.size()+3500, null, "", false, false, materiasSeleccionadasString, estudianteActual.getCodigo());
+       solicitudesEstudiante = new ArrayList();
+       for(int i=0; i < materiasSeleccionadasString.size(); i++){
+           solicitudesEstudiante.add(new SolicitudCancelacion(fechaCancelacion,"Pendiente", solicitudes.size()+3600+i, null, "", false, false, materiasSeleccionadasString.get(i), estudianteActual.getCodigo()));
+       }
+       
        creditosRestantes = servCanc.consultarImpacto(materiasSeleccionadas, estudianteActual);
-       proyeccion = servCanc.calcularProyeccion(estudianteActual, solicitudEstudiante);
+       proyeccion = servCanc.calcularProyeccion(estudianteActual, materiasSeleccionadasString);
+       
+       root = new DefaultTreeNode("Proyeccion", null);
+       for(int i=0; i<proyeccion.size(); i++){
+           TreeNode semestre = new DefaultTreeNode("en "+(i+1)+" Semestre", root);
+           for(int j=0; j<proyeccion.get(i).size(); j++){
+               TreeNode materia = new DefaultTreeNode(proyeccion.get(i).get(j), semestre);
+           }
+       }
+       semestresRestantes = proyeccion.size();
     }
 
     public PlanDeEstudios getPlanDeEstudios() {

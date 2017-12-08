@@ -71,7 +71,7 @@ public class Materia {
         this.corequisitos = corequisitos;
     }
     public Boolean equals (Materia par) {
-        if(nemonico.equals(par.getNemonico())){            
+        if(this.nemonico.equals(par.getNemonico())){            
             return true;
         }
         return false;

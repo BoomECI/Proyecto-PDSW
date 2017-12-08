@@ -50,8 +50,8 @@
         <result property='comentario' column='comentario'/>   
         <result property='avalConsejero' column='avalConsejero'/>   
         <result property='avalAcudiente' column='avalAcudiente'/> 
-        <result property='materiaSolicitada' column="Materia"/>  
-        <result property='Estudiante' column="Estudiante"/>                 
+        <result property='materia' column="Materia"/>  
+        <result property='estudiante' column="Estudiante"/>                 
     </resultMap> 
     
     <resultMap type='Materia' id='MateriaResult'>
@@ -68,8 +68,8 @@
         sol.comentario,
         sol.avalAcudiente,
         sol.avalConsejero,
-        sol.Materia,  
-        sol.Estudiante  
+        sol.materia,  
+        sol.estudiante  
         est.codigo,  
         est.nombre,
         est.correo,
@@ -80,8 +80,8 @@
         mat.nemonico 
         from          
         solicitud_de_cancelacion AS sol
-        LEFT OUTER Join Materia AS mat ON  sol.Materia=mat.nemonico  
-        LEFT OUTER Join Estudiante AS est ON  sol.Estudiante=est.codigo  
+        LEFT OUTER Join Materia AS mat ON  sol.materia=mat.nemonico  
+        LEFT OUTER Join Estudiante AS est ON  sol.estudiante=est.codigo  
         WHERE est.consejero = #{ide} AND sol.estado = 'Tramitada'
                   
     </select>  
@@ -95,8 +95,8 @@
         sol.comentario,
         sol.avalAcudiente,
         sol.avalConsejero,
-        sol.Materia,  
-        sol.Estudiante  
+        sol.materia,  
+        sol.estudiante  
         est.codigo,  
         est.nombre,
         est.correo,
@@ -107,8 +107,8 @@
         mat.nemonico 
         from          
         solicitud_de_cancelacion AS sol
-        LEFT OUTER Join Materia AS mat ON  sol.Materia=mat.nemonico  
-        LEFT OUTER Join Estudiante AS est ON  sol.Estudiante=est.codigo  
+        LEFT OUTER Join Materia AS mat ON  sol.materia=mat.nemonico  
+        LEFT OUTER Join Estudiante AS est ON  sol.estudiante=est.codigo  
         WHERE est.consejero = #{ide} AND sol.estado = 'Pendiente'
     </select>  
     

@@ -16,44 +16,44 @@ import java.util.List;
  */
 public class SolicitudCancelacion {
     
-    private List<String> materias;
-    private String[] justificaciones;
+    private String materia;
+    private String justificacion;
     private Date fecha;
     private String estado;
     private Boolean avalConsejero;
     private Boolean avalAcudiente;
     private int id;
     private String comentario;
-    private int Estudiante;
+    private int estudiante;
    
 
     public SolicitudCancelacion(){}
-    public SolicitudCancelacion(Date fecha, String estado, int id, String[] justificaciones, String comentario,Boolean avalAcudiente,Boolean avalConsejero,List<String> materias,int Estudiante ) {
-        this.materias = materias;
-        this.justificaciones = justificaciones;
+    public SolicitudCancelacion(Date fecha, String estado, int id, String justificacion, String comentario,Boolean avalAcudiente,Boolean avalConsejero,String materia,int estudiante ) {
+        this.materia = materia;
+        this.justificacion = justificacion;
         this.fecha = fecha;
         this.estado = estado;
         this.id = id;        
         this.comentario = comentario;
-        this.Estudiante=Estudiante;
+        this.estudiante=estudiante;
         this.avalAcudiente=avalAcudiente;
         this.avalConsejero=avalConsejero;
     }
 
-    public List<String> getMaterias() {
-        return materias;
+    public String getMateria() {
+        return materia;
     }
 
-    public void setMaterias(List<String> materias) {
-        this.materias = materias;
+    public void setMateria(String materia) {
+        this.materia = materia;
     }
 
-    public String[] getJustificaciones() {
-        return justificaciones;
+    public String getJustificacion() {
+        return justificacion;
     }
 
-    public void setJustificaciones(String[] justificaciones) {
-        this.justificaciones = justificaciones;
+    public void setJustificacion(String justificacion) {
+        this.justificacion = justificacion;
     }
 
     public Date getFecha() {
@@ -105,11 +105,11 @@ public class SolicitudCancelacion {
     }
 
     public int getEstudiante() {
-        return Estudiante;
+        return estudiante;
     }
 
-    public void setEstudiante(int Estudiante) {
-        this.Estudiante = Estudiante;
+    public void setEstudiante(int estudiante) {
+        this.estudiante = estudiante;
     }
     
     

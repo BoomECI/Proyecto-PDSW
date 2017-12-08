@@ -20,7 +20,7 @@ import java.util.Set;
 public class Grafo {
     Map<Materia, Set<Materia>> grafo;
     Map<Materia, Set<Materia>> correquisitos;
-     List<Materia> lista;
+    List<Materia> lista;
     public Grafo(List<Materia> lista){
         grafo = new HashMap<>();
         correquisitos = new HashMap<>();
@@ -28,7 +28,9 @@ public class Grafo {
     }
     
     public Grafo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        grafo = new HashMap<>();
+        correquisitos = new HashMap<>();
+        lista = new ArrayList();
     } 
     
     public void setNodes(){
@@ -41,11 +43,11 @@ public class Grafo {
         }
     }
     
-    public List<List<String>> calcularPlanDeEstudios(Estudiante estudiante,SolicitudCancelacion solicitud){
+    public List<List<String>> calcularPlanDeEstudios(Estudiante estudiante,List<String> materiasCanceladas){
         List<List<String>> total = new ArrayList<>();
         List<String> semestre = new ArrayList<>();
         int creditos=0;       
-        List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),this.getcorrequisito(solicitud.getMaterias()));        
+        List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),this.getcorrequisito(materiasCanceladas));        
         while (!porVer.isEmpty()){
             semestre.clear();
             creditos=0;

@@ -158,9 +158,9 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     }
 
     @Override
-    public List<List<String>> calcularProyeccion(Estudiante estudianteActual, SolicitudCancelacion solicitud) {
+    public List<List<String>> calcularProyeccion(Estudiante estudianteActual, List<String> materiasSeleccionadas) {
         Grafo proyeccion = new Grafo();
-        return proyeccion.calcularPlanDeEstudios(estudianteActual, solicitud);
+        return proyeccion.calcularPlanDeEstudios(estudianteActual, materiasSeleccionadas);
     }
 
     @Override

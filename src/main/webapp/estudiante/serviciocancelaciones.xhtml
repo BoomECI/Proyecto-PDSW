@@ -46,10 +46,14 @@
                 <br/>
                 <p:tabView style="width: 50%; margin: auto">
                     <p:tab title="Impacto">
-                        <h:outputText value="Si cancela estas asignaturas le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} de #{beanSolicitudEstudiante.creditosCarrera} créditos restantes"  />
+                        <h:outputText value="Si cancela estas asignaturas le quedarían:  #{beanSolicitudEstudiante.creditosRestantes} de #{beanSolicitudEstudiante.creditosCarrera} créditos restantes y #{beanSolicitudEstudiante.semestresRestantes} semestres restantes"  />
                     </p:tab>
                     <p:tab title="Proyeccion">
-                        <p:outputLabel value="EN CONSTRUCCION"/>
+                        <p:tree value="#{beanSolicitudEstudiante.root}" var="node" dynamic="true">
+                            <p:treeNode>
+                                <h:outputText value="#{node}" />
+                            </p:treeNode>
+                        </p:tree>
                     </p:tab>
                 </p:tabView>
                 <br />

@@ -129,7 +129,7 @@ public interface ServiciosCancelaciones {
     
     public abstract void cambiarCreditosTotalesPorSemestre(int creditosActuales)throws ExcepcionServiciosCancelaciones;
 
-    public List<List<String>> calcularProyeccion(Estudiante estudianteActual, SolicitudCancelacion solicitud);
+    public List<List<String>> calcularProyeccion(Estudiante estudianteActual, List<String> materiasSeleccionadas);
     
     /**
      * Da todas las solicitudes de los estudiantes que ya han sido tramitadas

@@ -352,10 +352,9 @@ public class SimpleTest {
             PlanDeEstudios wqe= new PlanDeEstudios();
             Acudiente xd= new Acudiente();
             Consejero po= new Consejero();
-            SolicitudCancelacion te=new SolicitudCancelacion();            
-            te.setMaterias(ca);            
+            SolicitudCancelacion te=new SolicitudCancelacion();           
             Estudiante lol= new Estudiante(1,"dasfsd","sdfjlasd",5465,po,xd,12123,"as",le,he,wqe,pa);  
-            graph.calcularPlanDeEstudios(lol, te);  
+            graph.calcularPlanDeEstudios(lol, ca);  
 
         }catch(Exception e){
             e.printStackTrace();
