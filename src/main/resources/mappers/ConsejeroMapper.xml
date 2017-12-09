@@ -123,5 +123,17 @@
     <update id="cambiarElAvalDeConsejero"> 
         UPDATE solicitud_de_cancelacion SET avalConsejero=#{aval} WHERE id=#{ide};    
     </update>               
+    
+    <select parameterType="map" id="consultarConsejero" resultMap="ConsejeroResult">
+        select          
+        con.nombre AS con_nombre,
+        con.codigo AS con_codigo, 
+        con.correo AS con_correo,
+        es.Estudiante AS aconsejados,                
+        from  
+        Consejero AS con         
+        LEFT OUTER JOIN  estudiantesAconsejados AS es ON es.codigo=con.Estudiante 
+        WHERE est.codigo=#{ide}
+    </select>  
   
 </mapper>
