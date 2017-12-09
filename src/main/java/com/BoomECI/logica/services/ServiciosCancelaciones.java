@@ -6,6 +6,7 @@
 package com.BoomECI.logica.services;
 
 import com.BoomECI.entidades.Estudiante;
+import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.util.List;
@@ -129,7 +130,7 @@ public interface ServiciosCancelaciones {
     
     public abstract void cambiarCreditosTotalesPorSemestre(int creditosActuales)throws ExcepcionServiciosCancelaciones;
 
-    public List<List<String>> calcularProyeccion(Estudiante estudianteActual, List<String> materiasSeleccionadas);
+    public List<List<String>> calcularProyeccion(Estudiante estudianteActual, List<String> materiasSeleccionadas, Grafo grafo);
     
     /**
      * Da todas las solicitudes de los estudiantes que ya han sido tramitadas

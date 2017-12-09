@@ -4,6 +4,7 @@ package com.BoomECI.controlador.managedbeans;
 import com.BoomECI.entidades.Acudiente;
 import com.BoomECI.entidades.Consejero;
 import com.BoomECI.entidades.Estudiante;
+import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
 import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
+import com.BoomECI.logica.services.ParserGrafo;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
 import javax.faces.bean.ManagedBean;
@@ -62,6 +64,7 @@ public class EstudianteBean implements Serializable{
     private List<List<String>> proyeccion;
     private int semestresRestantes;
     private TreeNode root;
+    
     
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
@@ -318,9 +321,12 @@ public class EstudianteBean implements Serializable{
        for(int i=0; i < materiasSeleccionadasString.size(); i++){
            solicitudesEstudiante.add(new SolicitudCancelacion(fechaCancelacion,"Pendiente", solicitudes.size()+3600+i, null, "", false, false, materiasSeleccionadasString.get(i), estudianteActual.getCodigo()));
        }
+       System.out.println(planDeEstudios.getGrafo());
        
+       ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
+       Grafo grafo = p.convertStringToGrafo(planDeEstudios.getGrafo());
        creditosRestantes = servCanc.consultarImpacto(materiasSeleccionadas, estudianteActual);
-       proyeccion = servCanc.calcularProyeccion(estudianteActual, materiasSeleccionadasString);
+       proyeccion = servCanc.calcularProyeccion(estudianteActual, materiasSeleccionadasString, grafo);
        
        root = new DefaultTreeNode("Proyeccion", null);
        for(int i=0; i<proyeccion.size(); i++){

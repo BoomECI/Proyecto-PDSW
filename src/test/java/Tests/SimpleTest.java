@@ -354,6 +354,7 @@ public class SimpleTest {
             Consejero po= new Consejero();
             SolicitudCancelacion te=new SolicitudCancelacion();           
             Estudiante lol= new Estudiante(1,"dasfsd","sdfjlasd",5465,po,xd,12123,"as",le,he,wqe,pa);  
+            new Estudiante();
             graph.calcularPlanDeEstudios(lol, ca);  
 
         }catch(Exception e){

@@ -27,11 +27,7 @@ public class Grafo {
         this.lista = lista;       
     }
     
-    public Grafo() {
-        grafo = new HashMap<>();
-        correquisitos = new HashMap<>();
-        lista = new ArrayList();
-    } 
+
     
     public void setNodes(){
         
