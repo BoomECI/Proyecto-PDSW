@@ -27,6 +27,20 @@
                 <br/>
                 <p:outputLabel value="Justificacion: #{beanSolicitudConsejero.solicitudSeleccionada.justificacion}"  style="font-size: 150%; font-weight:bold" />
                 <br/>
+                <p:tabView style="width: 95%; margin: auto">
+                    <p:tab title="Impacto">
+                        <h:outputText value="Creditos por ver:  #{beanSolicitudConsejero.creditosRestantes} de #{beanSolicitudConsejero.creditosCarrera}"  />
+                        <br/>
+                        <h:outputText value="Ano de graduacion: #{beanSolicitudConsejero.anoGraduacion}"
+                    </p:tab>
+                    <p:tab title="Proyección">
+                        <p:tree value="#{beanSolicitudConsejero.root}" var="node" dynamic="true">
+                            <p:treeNode>
+                                <h:outputText value="#{node}" />
+                            </p:treeNode>
+                        </p:tree>
+                    </p:tab>
+                </p:tabView>
                 <p:inputTextarea id="jus" maxlength="400" counterTemplate="{0} caracteres restantes." title="Haga un comentario acerca de la solicitud de cancelacion hecha por el estudiante" value="#{beanSolicitudConsejero.comentario}" rows="6" cols="26" autoResize="true" />
                 <br/>
                 <p:outputLabel value="Aprobar la solicitud:" for="avalConsejero" style="font-size: 150%; font-weight:bold"/>

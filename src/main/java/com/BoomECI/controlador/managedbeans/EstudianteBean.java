@@ -341,7 +341,7 @@ public class EstudianteBean implements Serializable{
        
        root = new DefaultTreeNode("Proyeccion", null);
        for(int i=0; i<proyeccion.size(); i++){
-           TreeNode semestre = new DefaultTreeNode("en "+(i+1)+" Semestre", root);
+           TreeNode semestre = new DefaultTreeNode("en "+(i+1)+" Semestres", root);
            for(int j=0; j<proyeccion.get(i).size(); j++){
                TreeNode materia = new DefaultTreeNode(proyeccion.get(i).get(j), semestre);
            }

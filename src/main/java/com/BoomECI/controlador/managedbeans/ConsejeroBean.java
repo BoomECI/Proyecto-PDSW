@@ -7,6 +7,9 @@ package com.BoomECI.controlador.managedbeans;
 
 import com.BoomECI.entidades.Consejero;
 import com.BoomECI.entidades.Estudiante;
+import com.BoomECI.entidades.Grafo;
+import com.BoomECI.entidades.Materia;
+import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,9 +18,12 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
+import com.BoomECI.logica.services.ParserGrafo;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
 import java.util.Collections;
+import org.primefaces.model.DefaultTreeNode;
+import org.primefaces.model.TreeNode;
 
 /**
  *
@@ -39,7 +45,15 @@ public class ConsejeroBean implements Serializable{
     private long idConsejero;
     private List<String> nombresSolicitantesSi;
     private List<String> nombresSolicitantesNo;
-    
+    private int creditosRestantes;
+    private int creditosCarrera;
+    private int anoGraduacion;
+    private TreeNode root;
+    private Estudiante estudianteSolicitud;
+    private PlanDeEstudios planDeEstudiosEstudianteSolicitud;
+    private Date fechaSolicitud;
+    private String materiaCanceladaSolicitud;
+    private List<List<String>> proyeccion;
     
     public ConsejeroBean() throws ExcepcionServiciosCancelaciones{
         solicitudSeleccionada = new SolicitudCancelacion();
@@ -79,6 +93,60 @@ public class ConsejeroBean implements Serializable{
         return solicitudSeleccionada;
     }
 
+    public int getCreditosRestantes() {
+        return creditosRestantes;
+    }
+
+    public void setCreditosRestantes(int creditosRestantes) {
+        this.creditosRestantes = creditosRestantes;
+    }
+
+    public int getCreditosCarrera() {
+        return creditosCarrera;
+    }
+
+    public void setCreditosCarrera(int creditosCarrera) {
+        this.creditosCarrera = creditosCarrera;
+    }
+
+    public Estudiante getEstudianteSolicitud() {
+        return estudianteSolicitud;
+    }
+
+    public void setEstudianteSolicitud(Estudiante estudianteSolicitud) {
+        this.estudianteSolicitud = estudianteSolicitud;
+    }
+    
+    
+
+    public int getAnoGraduacion() {
+        return anoGraduacion;
+    }
+
+    public void setAnoGraduacion(int anoGraduacion) {
+        this.anoGraduacion = anoGraduacion;
+    }
+
+    public TreeNode getRoot() {
+        return root;
+    }
+
+    public void setRoot(TreeNode root) {
+        this.root = root;
+    }
+
+    public PlanDeEstudios getPlanDeEstudiosEstudianteSolicitud() {
+        return planDeEstudiosEstudianteSolicitud;
+    }
+
+    public void setPlanDeEstudiosEstudianteSolicitud(PlanDeEstudios planDeEstudiosEstudianteSolicitud) {
+        this.planDeEstudiosEstudianteSolicitud = planDeEstudiosEstudianteSolicitud;
+    }
+    
+    
+    
+    
+
     public void setSolicitudSeleccionada(SolicitudCancelacion solicitudSeleccionada) {
         this.solicitudSeleccionada = solicitudSeleccionada;
     }
@@ -106,6 +174,32 @@ public class ConsejeroBean implements Serializable{
     public void setIdConsejero(long idConsejero) {
         this.idConsejero = idConsejero;
     }
+
+    public Date getFechaSolicitud() {
+        return fechaSolicitud;
+    }
+
+    public void setFechaSolicitud(Date fechaSolicitud) {
+        this.fechaSolicitud = fechaSolicitud;
+    }
+
+    public String getMateriaCanceladaSolicitud() {
+        return materiaCanceladaSolicitud;
+    }
+
+    public void setMateriaCanceladaSolicitud(String materiaCanceladaSolicitud) {
+        this.materiaCanceladaSolicitud = materiaCanceladaSolicitud;
+    }
+
+    public List<List<String>> getProyeccion() {
+        return proyeccion;
+    }
+
+    public void setProyeccion(List<List<String>> proyeccion) {
+        this.proyeccion = proyeccion;
+    }
+    
+    
 
     public List<String> getNombresSolicitantesSi() {
         return nombresSolicitantesSi;
@@ -151,12 +245,45 @@ public class ConsejeroBean implements Serializable{
     }
     
     public String tramitarSolicitud() throws ExcepcionServiciosCancelaciones{
-        nombreEstudianteSolicitud = servCanc.consultarEstudiante(solicitudSeleccionada.getEstudiante()).getNombre();
+        ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
+        
+        estudianteSolicitud = servCanc.consultarEstudiante(solicitudSeleccionada.getEstudiante());
+        nombreEstudianteSolicitud = estudianteSolicitud.getNombre();
+        planDeEstudiosEstudianteSolicitud = estudianteSolicitud.getPlanDeEstudios();
+        Grafo grafo = p.convertStringToGrafo(planDeEstudiosEstudianteSolicitud.getGrafo());
+        creditosCarrera = planDeEstudiosEstudianteSolicitud.getNumeroDeCreditosTotales();
+        fechaSolicitud = solicitudSeleccionada.getFecha();
+        List<Materia> cancelada = new ArrayList();
+        materiaCanceladaSolicitud = solicitudSeleccionada.getMateria();
+        List<String> canceladaString = new ArrayList();
+        canceladaString.add(materiaCanceladaSolicitud);
+        cancelada.add(comparar());
+        creditosRestantes = servCanc.consultarImpacto(cancelada, estudianteSolicitud);
+        proyeccion = servCanc.calcularProyeccion(estudianteSolicitud, canceladaString, grafo);
+        root = new DefaultTreeNode("Proyeccion", null);
+        for(int i=0; i<proyeccion.size(); i++){
+           TreeNode semestre = new DefaultTreeNode("en "+(i+1)+" Semestres", root);
+           for(int j=0; j<proyeccion.get(i).size(); j++){
+               TreeNode materia = new DefaultTreeNode(proyeccion.get(i).get(j), semestre);
+           }
+        }
+        anoGraduacion = (fechaSolicitud.getYear()+1900) + (int)(proyeccion.size()/2);
+        
         return "tramitarsolicitud.xhtml";
     }
     
     public String irAtras(){
         return "listadosolcancel.xhtml";
+    }
+    
+    public Materia comparar(){
+        List<Materia> materias = estudianteSolicitud.getMateriasActuales();
+        for(Materia i: materias){
+            if(i.getNemonico().equals(materiaCanceladaSolicitud)){
+                return i;
+            }
+        }
+        return null;
     }
 
     
