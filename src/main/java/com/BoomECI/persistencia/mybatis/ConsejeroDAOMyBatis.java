@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.BoomECI.persistencia.mybatis;
+import com.BoomECI.entidades.Consejero;
 import com.google.inject.Inject;
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.util.List;
@@ -67,6 +68,15 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
             Conmaper.cambiarElAvalDeConsejero(id_soli, aval);
         }catch(Exception e){
             throw new PersistenceException("Error al cambiar el aval del consejero:"+e.getLocalizedMessage(), e);
+        }
+    }
+
+    @Override
+    public Consejero consultarConsejero(long idConsejero) {
+        try{
+            return Conmaper.consultarConsejero(idConsejero);
+        }catch(Exception e){
+            throw new PersistenceException("Error al consultar consejero:"+e.getLocalizedMessage(), e);
         }
     }
    

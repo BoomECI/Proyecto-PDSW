@@ -5,6 +5,7 @@
  */
 package com.BoomECI.logica.servicios.impl;
 
+import com.BoomECI.entidades.Consejero;
 import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.CalculoDeImpacto;
@@ -177,6 +178,16 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         try{
             return daoDir.loadSolicitudesNoTramitadas();
         }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @Override
+    public Consejero consultarConsejero(long idConsejero) throws ExcepcionServiciosCancelaciones {
+         try {
+            return daoCon.consultarConsejero(idConsejero);
+        } catch (PersistenceException ex) {
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
