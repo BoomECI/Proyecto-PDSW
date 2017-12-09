@@ -24,6 +24,7 @@ import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import com.BoomECI.seguridad.bean.ShiroLoginBean;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedProperty;
 import javax.mail.MessagingException;
 import org.primefaces.component.inputtextarea.InputTextarea;
@@ -41,10 +42,10 @@ import org.primefaces.model.TreeNode;
 @SessionScoped
 public class EstudianteBean implements Serializable{
     
-    private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
-    /*@ManagedProperty(value = "#{loginBean}")
-    private ShiroLoginBean seguridad;*/
+    @ManagedProperty(value = "#{loginBean}")
+    private ShiroLoginBean seguridad;
     
+    private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
     private Date fechaCancelacion;                         
     private List<SolicitudCancelacion> solicitudes;
     private PlanDeEstudios planDeEstudios;
@@ -69,12 +70,12 @@ public class EstudianteBean implements Serializable{
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
         
-       /* int carnetActual = Integer.parseInt(seguridad.getUsername());
-        estudianteActual= servCanc.consultarEstudiante( carnetActual);*/
+        //int carnetActual = Integer.parseInt(seguridad.getUsername());
+       // estudianteActual= servCanc.consultarEstudiante(carnetActual);
         fechaCancelacion = new Date();
         fecha = fechaCancelacion.getDate()+"-"+fechaCancelacion.getMonth()+"-"+(fechaCancelacion.getYear()+1900);
         
-        estudianteActual = servCanc.consultarEstudiante(2110432);
+        estudianteActual = servCanc.consultarEstudiante(2118270);
         materiasCursadas = estudianteActual.getMateriasCursadas();
         materiasActuales = estudianteActual.getMateriasActuales();
         planDeEstudios = estudianteActual.getPlanDeEstudios();
@@ -87,6 +88,9 @@ public class EstudianteBean implements Serializable{
         materias = new DualListModel<>(materiasActualesString, materiasSeleccionadasString);
             
     }
+    private static final Logger LOG = Logger.getLogger(EstudianteBean.class.getName());
+
+    
     
     
     
@@ -206,7 +210,13 @@ public class EstudianteBean implements Serializable{
     public int getCreditosRestantes() {
         return creditosRestantes;
     }
+    public ShiroLoginBean getSeguridad() {
+        return seguridad;
+    }
 
+    public void setSeguridad(ShiroLoginBean seguridad) {
+        this.seguridad = seguridad;
+    }
     public void setCreditosRestantes(int creditosRestantes) {
         this.creditosRestantes = creditosRestantes;
     }
