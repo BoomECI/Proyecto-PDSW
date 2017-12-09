@@ -147,8 +147,14 @@ public interface ServiciosCancelaciones {
      */
     public abstract List<SolicitudCancelacion> consultarCancelacionesNoTramitadas() throws ExcepcionServiciosCancelaciones;
 
-    public Consejero consultarConsejero(long idConsejero) throws ExcepcionServiciosCancelaciones;
+    
+    /**
+     * Consulta un consejero dado su id
+     * @param idConsejero
+     * @return un consejero 
+     * @throws ExcepcionServiciosCancelaciones 
+     */
+    public abstract Consejero consultarConsejero(long idConsejero) throws ExcepcionServiciosCancelaciones;
     
     
-        
 }    

@@ -67,16 +67,6 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     
     @Transactional
     @Override
-    public Consejero consultarConsejero(long idConsejero) throws ExcepcionServiciosCancelaciones{
-        try{
-            return daoCon.loadByID(idConsejero);
-        } catch(PersistenceException ex){
-            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
-    @Transactional
-    @Override
     public void agregarSolicitudCancelacionEstudiante(SolicitudCancelacion solicitudCancelacion) throws ExcepcionServiciosCancelaciones{
         try{            
             daoEst.save(solicitudCancelacion);
@@ -189,6 +179,17 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         try{
             return daoDir.loadSolicitudesNoTramitadas();
         }catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @Transactional
+    @Override
+    public Consejero consultarConsejero(long idConsejero) throws ExcepcionServiciosCancelaciones {
+         try {
+            return daoCon.consultarConsejero(idConsejero);
+        } catch (PersistenceException ex) {
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;

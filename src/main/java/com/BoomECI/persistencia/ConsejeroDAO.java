@@ -20,6 +20,6 @@ public interface ConsejeroDAO {
     public void cambiarEstadoSolicitud(int id_soli, String estado);
     public void agregarComentarioConsejero(int id_soli, String comentario);
     public void cambiarElAvalDeConsejero(int id_soli, boolean aval);
-    public Consejero loadByID(long idConsejero);
+    public Consejero consultarConsejero(long idConsejero);
     
 }

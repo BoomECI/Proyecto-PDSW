@@ -70,13 +70,14 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
             throw new PersistenceException("Error al cambiar el aval del consejero:"+e.getLocalizedMessage(), e);
         }
     }
-    
+
+
     @Override
-    public Consejero loadByID(long id){
+    public Consejero consultarConsejero(long idConsejero) {
         try{
-            return Conmaper.loadConsejeroById(id);
-        } catch(Exception e){
-            throw new PersistenceException("Error al cargar el consejero:"+e.getLocalizedMessage(), e);
+            return Conmaper.consultarConsejero(idConsejero);
+        }catch(Exception e){
+            throw new PersistenceException("Error al consultar consejero:"+e.getLocalizedMessage(), e);
         }
     }
    
