@@ -5,6 +5,7 @@
  */
 package com.BoomECI.logica.services;
 
+import com.BoomECI.entidades.Consejero;
 import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
@@ -145,6 +146,8 @@ public interface ServiciosCancelaciones {
      * @throws ExcepcionServiciosCancelaciones 
      */
     public abstract List<SolicitudCancelacion> consultarCancelacionesNoTramitadas() throws ExcepcionServiciosCancelaciones;
+
+    public Consejero consultarConsejero(long idConsejero) throws ExcepcionServiciosCancelaciones;
     
     
         

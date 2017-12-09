@@ -17,6 +17,7 @@ import javax.faces.bean.SessionScoped;
 import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
+import java.util.Collections;
 
 /**
  *
@@ -34,19 +35,28 @@ public class ConsejeroBean implements Serializable{
     private String nombreEstudianteSolicitud;
     private String comentario;
     private boolean aval;
+    private String nombreConsejero;
+    private long idConsejero;
+    private List<String> nombresSolicitantesSi;
+    private List<String> nombresSolicitantesNo;
     
     
     public ConsejeroBean() throws ExcepcionServiciosCancelaciones{
         solicitudSeleccionada = new SolicitudCancelacion();
-        solicitudesTramitadas = new ArrayList<>();
-        solicitudesNoTramitadas = new ArrayList<>();
-        //solicitudesTramitadas.add(new SolicitudCancelacion(new Date(117,11,22), "Tramitada",1, "No voy bien y no entiendo nada", "Vaya a clase vago", false, false, "ACFI", 1));
-        //solicitudesNoTramitadas.add(new SolicitudCancelacion(new Date(116,05,14), "Pendiente",1, "No tengo tiempo para estudiar la correccion de algoritmos", null, false, false, "TPRO", 2));
-        consejeroActual = new Consejero(222340, "Rodrigo Lopez", "rodrigo.lopez@escuelaing.edu.co", null);
-    }
-
-    public ServiciosCancelaciones getServCanc() {
-        return servCanc;
+        consejeroActual = servCanc.consultarConsejero(2345678);
+        nombreConsejero = consejeroActual.getNombre();
+        idConsejero = consejeroActual.getId();
+        solicitudesTramitadas = servCanc.consultarCancelacionesTramitadasAconsejados(idConsejero);
+        solicitudesNoTramitadas = servCanc.consultarCancelacionesNoTramitadasAconsejados(idConsejero);
+        Collections.sort(solicitudesTramitadas);
+        Collections.sort(solicitudesNoTramitadas);
+        for(SolicitudCancelacion i: solicitudesTramitadas){
+            nombresSolicitantesSi.add(servCanc.consultarEstudiante(i.getEstudiante()).getNombre());
+        }
+        for(SolicitudCancelacion j: solicitudesNoTramitadas){
+            nombresSolicitantesNo.add(servCanc.consultarEstudiante(j.getEstudiante()).getNombre());
+        }
+        
     }
 
     public Consejero getConsejeroActual() {
@@ -80,6 +90,41 @@ public class ConsejeroBean implements Serializable{
     public void setNombreEstudianteSolicitud(String nombreEstudianteSolicitud) {
         this.nombreEstudianteSolicitud = nombreEstudianteSolicitud;
     }
+
+    public String getNombreConsejero() {
+        return nombreConsejero;
+    }
+
+    public void setNombreConsejero(String nombreConsejero) {
+        this.nombreConsejero = nombreConsejero;
+    }
+
+    public long getIdConsejero() {
+        return idConsejero;
+    }
+
+    public void setIdConsejero(long idConsejero) {
+        this.idConsejero = idConsejero;
+    }
+
+    public List<String> getNombresSolicitantesSi() {
+        return nombresSolicitantesSi;
+    }
+
+    public void setNombresSolicitantesSi(List<String> nombresSolicitantesSi) {
+        this.nombresSolicitantesSi = nombresSolicitantesSi;
+    }
+
+    public List<String> getNombresSolicitantesNo() {
+        return nombresSolicitantesNo;
+    }
+
+    public void setNombresSolicitantesNo(List<String> nombresSolicitantesNo) {
+        this.nombresSolicitantesNo = nombresSolicitantesNo;
+    }
+    
+    
+    
     
     public String tramitar() throws ExcepcionServiciosCancelaciones{
         servCanc.agregarComentarioConsejero(solicitudSeleccionada.getId(), comentario);
@@ -105,11 +150,6 @@ public class ConsejeroBean implements Serializable{
         this.aval = aval;
     }
     
-    public String consultarSolicitud() throws ExcepcionServiciosCancelaciones{
-        nombreEstudianteSolicitud = servCanc.consultarEstudiante(solicitudSeleccionada.getEstudiante()).getNombre();
-        return "consultarsolicitud.xhtml";
-    }
-    
     public String tramitarSolicitud() throws ExcepcionServiciosCancelaciones{
         nombreEstudianteSolicitud = servCanc.consultarEstudiante(solicitudSeleccionada.getEstudiante()).getNombre();
         return "tramitarsolicitud.xhtml";
@@ -118,6 +158,7 @@ public class ConsejeroBean implements Serializable{
     public String irAtras(){
         return "listadosolcancel.xhtml";
     }
+
     
     
     
