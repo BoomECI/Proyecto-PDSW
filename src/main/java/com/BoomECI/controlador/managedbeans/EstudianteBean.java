@@ -71,7 +71,7 @@ public class EstudianteBean implements Serializable{
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
         
         //int carnetActual = Integer.parseInt(seguridad.getUsername());
-       // estudianteActual= servCanc.consultarEstudiante(carnetActual);
+        //estudianteActual= servCanc.consultarEstudiante(carnetActual);
         fechaCancelacion = new Date();
         fecha = fechaCancelacion.getDate()+"-"+fechaCancelacion.getMonth()+"-"+(fechaCancelacion.getYear()+1900);
         
