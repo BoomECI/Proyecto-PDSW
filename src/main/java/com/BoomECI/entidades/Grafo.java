@@ -41,20 +41,19 @@ public class Grafo {
     
     public List<List<String>> calcularPlanDeEstudios(Estudiante estudiante,List<String> materiasCanceladas){
         List<List<String>> total = new ArrayList<>();
-        List<String> semestre = new ArrayList<>();
         int creditos=0;       
         List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),this.getcorrequisito(materiasCanceladas));        
         while (!porVer.isEmpty()){
-            semestre.clear();
+            List<String> semestre = new ArrayList();
             creditos=0;
             List<Materia> posibles = new ArrayList<>();
             for (Materia i: porVer){
                 if (isPossible(i,porVer)){
                     posibles.add(i);                   
                 }
-            }            
-            for (Materia i:posibles){                
-                if((creditos+i.getCreditos()<=18)&&(semestre.size()<5)){
+            }
+            for (Materia i:posibles){
+                if((creditos+i.getCreditos()<=18)&&(semestre.size()<7)){
                     if (i.getCreditos()==3){
                         creditos+=3;
                         semestre.add(i.getNemonico());
@@ -77,7 +76,7 @@ public class Grafo {
                     }
                 }
             }
-            total.add(semestre);          
+            total.add(semestre);    
         }
         return total;
     }
@@ -142,7 +141,32 @@ public class Grafo {
         return true;
     }  
     
-    public void printGraph(){
-        
+    
+    public Materia getMateria(String materia){
+        for (Materia i :lista){
+            if (i.getNemonico().equals(materia)){
+                return i;
+            }
+        }  
+        return null;
     }
+    public int getSemestre(Estudiante estudiante){
+        int creditos=0;
+        for (Materia i: estudiante.getMateriasCursadas()){
+            creditos+=this.getMateria(i.getNemonico()).getCreditos();            
+        }       
+        double semestre= (creditos*100/estudiante.getPlanDeEstudios().getNumeroDeCreditosTotales())*0.1;        
+        int semestreAct=(int)semestre;
+        return semestreAct;
+    }
+
+    public int CalculoImpacto(List<String> canceladas, Estudiante estudiante) {
+        List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),this.getcorrequisito(canceladas)); 
+        int suma = 0;
+        for(Materia i : porVer){
+            suma+=i.getCreditos();
+        }
+        return suma;     
+    }
+
 }

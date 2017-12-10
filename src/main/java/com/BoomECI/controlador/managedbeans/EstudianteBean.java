@@ -63,7 +63,7 @@ public class EstudianteBean implements Serializable{
     private List<String> materiasSeleccionadasString;
     private String fecha;
     private List<List<String>> proyeccion;
-    private int semestresRestantes;
+    private int anoGraduacion;
     private TreeNode root;
     
     
@@ -79,13 +79,14 @@ public class EstudianteBean implements Serializable{
         materiasCursadas = estudianteActual.getMateriasCursadas();
         materiasActuales = estudianteActual.getMateriasActuales();
         planDeEstudios = estudianteActual.getPlanDeEstudios();
-        solicitudes = estudianteActual.getSolicitudes();
+        solicitudesEstudiante = estudianteActual.getSolicitudes();
         creditosCarrera = estudianteActual.getPlanDeEstudios().getNumeroDeCreditosTotales();
         tablaMaterias = new TabView();
         materiasActualesString = new ArrayList<>();
         materiasSeleccionadasString = new ArrayList<>();
         materiasActualesString = conversorActualesToString();
         materias = new DualListModel<>(materiasActualesString, materiasSeleccionadasString);
+        solicitudes = servCanc.consultarTodasLasSolicitudesCancelacion();
             
     }
     private static final Logger LOG = Logger.getLogger(EstudianteBean.class.getName());
@@ -157,12 +158,12 @@ public class EstudianteBean implements Serializable{
     
     
 
-    public int getSemestresRestantes() {
-        return semestresRestantes;
+    public int getAnoGraduacion() {
+        return anoGraduacion;
     }
 
-    public void setSemestresRestantes(int semestresRestantes) {
-        this.semestresRestantes = semestresRestantes;
+    public void setAnoGraduacion(int anoGraduacion) {
+        this.anoGraduacion = anoGraduacion;
     }
     
     
@@ -329,23 +330,23 @@ public class EstudianteBean implements Serializable{
        
        solicitudesEstudiante = new ArrayList();
        for(int i=0; i < materiasSeleccionadasString.size(); i++){
-           solicitudesEstudiante.add(new SolicitudCancelacion(fechaCancelacion,"Pendiente", solicitudes.size()+3600+i, null, "", false, false, materiasSeleccionadasString.get(i), estudianteActual.getCodigo()));
+           solicitudesEstudiante.add(new SolicitudCancelacion(fechaCancelacion,"Pendiente", solicitudes.size()+(i+1), null, "", false, false, materiasSeleccionadasString.get(i), estudianteActual.getCodigo()));
        }
        System.out.println(planDeEstudios.getGrafo());
        
        ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
        Grafo grafo = p.convertStringToGrafo(planDeEstudios.getGrafo());
-       creditosRestantes = servCanc.consultarImpacto(materiasSeleccionadas, estudianteActual);
+       creditosRestantes = servCanc.consultarImpacto(materiasSeleccionadasString, estudianteActual, grafo);
        proyeccion = servCanc.calcularProyeccion(estudianteActual, materiasSeleccionadasString, grafo);
        
        root = new DefaultTreeNode("Proyeccion", null);
        for(int i=0; i<proyeccion.size(); i++){
-           TreeNode semestre = new DefaultTreeNode("en "+(i+1)+" Semestre", root);
+           TreeNode semestre = new DefaultTreeNode("en "+(i+1)+" Semestres", root);
            for(int j=0; j<proyeccion.get(i).size(); j++){
                TreeNode materia = new DefaultTreeNode(proyeccion.get(i).get(j), semestre);
            }
        }
-       semestresRestantes = proyeccion.size();
+       anoGraduacion = (fechaCancelacion.getYear()+1900) + (int)(proyeccion.size()/2);
     }
 
     public PlanDeEstudios getPlanDeEstudios() {

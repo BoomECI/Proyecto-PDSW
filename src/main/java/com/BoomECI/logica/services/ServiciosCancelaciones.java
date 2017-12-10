@@ -72,10 +72,11 @@ public interface ServiciosCancelaciones {
      * Consulta plan de estudios si se cancela la asignatura.
      * @param canceladas materia para simular cancelar
      * @param estudiante estudiante que va consultar el impacto
+     * @param grafo
      * @return Entero que e
      * @throws ExcepcionServiciosCancelaciones Si la materia no se puede cancelar o no existe o si se genera un error de persistencia
      */
-    public abstract int consultarImpacto(List<Materia> canceladas, Estudiante estudiante) throws ExcepcionServiciosCancelaciones;    
+    public abstract int consultarImpacto(List<String> canceladas, Estudiante estudiante, Grafo grafo) throws ExcepcionServiciosCancelaciones;    
    
     
     
@@ -146,9 +147,11 @@ public interface ServiciosCancelaciones {
      * @throws ExcepcionServiciosCancelaciones 
      */
     public abstract List<SolicitudCancelacion> consultarCancelacionesNoTramitadas() throws ExcepcionServiciosCancelaciones;
+
     
     /**
      * Consulta un consejero dado su id
+     * @param idConsejero
      * @return un consejero 
      * @throws ExcepcionServiciosCancelaciones 
      */

@@ -71,6 +71,7 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
         }
     }
 
+
     @Override
     public Consejero consultarConsejero(long idConsejero) {
         try{

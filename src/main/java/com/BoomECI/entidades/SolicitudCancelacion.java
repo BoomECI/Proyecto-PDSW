@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author BoomECI
  */
-public class SolicitudCancelacion {
+public class SolicitudCancelacion implements Comparable<SolicitudCancelacion>{
     
     private String materia;
     private String justificacion;
@@ -108,6 +108,12 @@ public class SolicitudCancelacion {
     public void setEstudiante(long estudiante) {
         this.estudiante = estudiante;
     }
+
+    @Override
+    public int compareTo(SolicitudCancelacion o) {
+        return fecha.compareTo(o.getFecha());
+    }
+
     
     
     
