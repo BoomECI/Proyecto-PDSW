@@ -65,6 +65,8 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         return null;
     }
     
+  
+    
     @Transactional
     @Override
     public void agregarSolicitudCancelacionEstudiante(SolicitudCancelacion solicitudCancelacion) throws ExcepcionServiciosCancelaciones{
@@ -106,7 +108,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         return impacto.CalculoImpacto(canceladas, estudiante);
     }    
 
-    
+    @Transactional
     @Override
     public List<SolicitudCancelacion> consultarCancelacionesTramitadasAconsejados(long id) throws ExcepcionServiciosCancelaciones {
         try{            
@@ -117,6 +119,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         return null;
     }
 
+    @Transactional
     @Override
     public List<SolicitudCancelacion> consultarCancelacionesNoTramitadasAconsejados(long id) throws ExcepcionServiciosCancelaciones {
         

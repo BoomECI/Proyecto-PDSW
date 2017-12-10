@@ -37,7 +37,6 @@
         <id property='id' column='codigo'/>
         <result property='nombre' column='nombre' />
         <result property='correo' column='correo' />        
-        <collection property="estudiantesAconsejados" ofType="Estudiante" columnPrefix="eac_" resultMap="EstudianteResult"/> 
      </resultMap>
      
       <resultMap type='Acudiente' id='AcudienteResult'>
@@ -66,15 +65,15 @@
     
     <select parameterType="map" id="loadSolicitudesTramitadas" resultMap="SolicitudResult">
         select          
-        sol.id AS sol_id, 
-        sol.fecha AS sol_fecha,
-        sol.estado AS sol_estado, 
-        sol.justificacion AS sol_justificacion,
-        sol.comentario AS sol_comentario,
-        sol.avalAcudiente AS sol_avalAcudiente,
-        sol.avalConsejero AS sol_avalConsejero,
-        sol.Materia AS sol_Materia,  
-        sol.Estudiante AS sol_Estudiante,
+        sol.id, 
+        sol.fecha,
+        sol.estado, 
+        sol.justificacion,
+        sol.comentario,
+        sol.avalAcudiente,
+        sol.avalConsejero,
+        sol.Materia,  
+        sol.Estudiante,
         est.codigo,  
         est.nombre,
         est.correo,
@@ -93,15 +92,15 @@
     
     <select parameterType="map" id="loadSolicitudesNoTramitadas" resultMap="SolicitudResult">
         select          
-        sol.id AS sol_id, 
-        sol.fecha as sol_fecha,
-        sol.estado as sol_estado, 
-        sol.justificacion as sol_justificacion,
-        sol.comentario as sol_comentario,
-        sol.avalAcudiente as sol_avalAcudiente,
-        sol.avalConsejero as sol_avalConsejero,
-        sol.Materia as sol_Materia,  
-        sol.Estudiante as sol_Estudiante, 
+        sol.id, 
+        sol.fecha,
+        sol.estado, 
+        sol.justificacion,
+        sol.comentario,
+        sol.avalAcudiente,
+        sol.avalConsejero,
+        sol.Materia,  
+        sol.Estudiante, 
         est.codigo,  
         est.nombre,
         est.correo,
@@ -133,20 +132,9 @@
         select          
         con.nombre,
         con.codigo, 
-        con.correo,
-        eac.codigo AS eac_codigo,
-        eac.nombre AS eac_nombre,
-        eac.correo AS eac_correo,
-        eac.telefono AS eac_telefono,
-        eac.identificacion AS eac_identificacion,
-        eac.tipo_id AS eac_tipo_id, 
-        eac.creditos AS eac_creditos,
-        eac.Plan_ID AS eac_Plan_ID,
-        eac.consejero AS eac_consejero,
-        eac.Acudiente AS eac_Acudiente      
+        con.correo     
         from  
         Consejero AS con         
-        LEFT OUTER JOIN  Estudiante AS eac ON eac.consejero=con.codigo
         WHERE con.codigo=#{ide}
     </select>  
   
