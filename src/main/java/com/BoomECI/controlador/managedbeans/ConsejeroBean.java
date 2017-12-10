@@ -63,24 +63,9 @@ public class ConsejeroBean implements Serializable{
         nombreConsejero = consejeroActual.getNombre();
         idConsejero = consejeroActual.getId();
         solicitudesTramitadas = servCanc.consultarCancelacionesTramitadasAconsejados(idConsejero);
-        //System.out.println("TRAMITADAS"+solicitudesTramitadas.size());
-        //System.out.println(solicitudesTramitadas.get(0));
         solicitudesNoTramitadas = servCanc.consultarCancelacionesNoTramitadasAconsejados(idConsejero);
-        //System.out.println("PENDIENTES"+solicitudesNoTramitadas.size());
-        //System.out.println(solicitudesNoTramitadas.get(0).getFecha());
-        if(solicitudesTramitadas.size()>1){
-            Collections.sort(solicitudesTramitadas);
-        }
-        if(solicitudesNoTramitadas.size()>1){
-            Collections.sort(solicitudesNoTramitadas);
-        }
-        for(SolicitudCancelacion i: solicitudesTramitadas){
-            System.out.println(i+"   "+i.getEstudiante());
-            nombresSolicitantesSi.add(servCanc.consultarEstudiante(i.getEstudiante()).getNombre());
-        }
-        for(SolicitudCancelacion j: solicitudesNoTramitadas){
-            nombresSolicitantesNo.add(servCanc.consultarEstudiante(j.getEstudiante()).getNombre());
-        }
+        Collections.sort(solicitudesTramitadas);
+        Collections.sort(solicitudesNoTramitadas);
         
     }
 
@@ -295,6 +280,10 @@ public class ConsejeroBean implements Serializable{
             }
         }
         return null;
+    }
+    
+    public String consultarEstudianteNombre(long id) throws ExcepcionServiciosCancelaciones{
+        return servCanc.consultarEstudiante(id).getNombre();
     }
 
     
