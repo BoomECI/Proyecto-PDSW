@@ -350,12 +350,16 @@ public class SimpleTest {
             le.add(K);              
             
             PlanDeEstudios wqe= new PlanDeEstudios();
+            wqe.setNumeroDeCreditosTotales(148);
             Acudiente xd= new Acudiente();
             Consejero po= new Consejero();
             SolicitudCancelacion te=new SolicitudCancelacion();           
-            Estudiante lol= new Estudiante(1,"dasfsd","sdfjlasd",5465,po,xd,12123,"as",le,he,wqe,pa);  
-            new Estudiante();
-            graph.calcularPlanDeEstudios(lol, ca);  
+            Estudiante lol= new Estudiante(1,"dasfsd","sdfjlasd",5465,po,xd,12123,"as",le,he,wqe,pa);         
+            graph.calcularPlanDeEstudios(lol, ca);
+            System.out.println(graph.getMateria("PRON").getCreditos());            
+            System.out.println(graph.getSemestre(lol));
+            
+            
 
         }catch(Exception e){
             e.printStackTrace();

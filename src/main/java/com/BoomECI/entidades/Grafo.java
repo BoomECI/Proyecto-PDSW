@@ -142,7 +142,22 @@ public class Grafo {
         return true;
     }  
     
-    public void printGraph(){
-        
+    
+    public Materia getMateria(String materia){
+        for (Materia i :lista){
+            if (i.getNemonico().equals(materia)){
+                return i;
+            }
+        }  
+        return null;
+    }
+    public int getSemestre(Estudiante estudiante){
+        int creditos=0;
+        for (Materia i: estudiante.getMateriasCursadas()){
+            creditos+=this.getMateria(i.getNemonico()).getCreditos();            
+        }       
+        double semestre= (creditos*100/estudiante.getPlanDeEstudios().getNumeroDeCreditosTotales())*0.1;        
+        int semestreAct=(int)semestre;
+        return semestreAct;
     }
 }
