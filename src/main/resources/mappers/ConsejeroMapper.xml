@@ -16,9 +16,13 @@
         <association property="planDeEstudios" javaType="PlanDeEstudios" columnPrefix="pl_"  resultMap="PlanDeEstudiosResult"/>         
         <association property="consejero" javaType="Consejero" columnPrefix="con_"  resultMap="ConsejeroResult"/>
         <association property="acudiente" javaType="Acudiente"  columnPrefix="acu_" resultMap="AcudienteResult"/>  
-        <collection property="materiasActuales" ofType="Materia" columnPrefix="maa_" resultMap="MateriaResult"/> 
-        <collection property="materiasCursadas" ofType="Materia" columnPrefix="mac_" resultMap="MateriaResult"/>
-        <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"/>                    
+        <collection property="materiasActuales" ofType="java.lang.String" columnPrefix="maa_" > 
+            <result column="Materia" />
+        </collection>
+        <collection property="materiasCursadas" ofType="java.lang.String" columnPrefix="mac_">
+            <result column="Materia" />
+        </collection>
+        <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"/>                  
     </resultMap>  
     
     <resultMap type='PlanDeEstudios' id='PlanDeEstudiosResult'>
@@ -32,7 +36,8 @@
      <resultMap type='Consejero' id='ConsejeroResult'>
         <id property='id' column='codigo'/>
         <result property='nombre' column='nombre' />
-        <result property='correo' column='correo' />         
+        <result property='correo' column='correo' />        
+        <collection property="estudiantesAconsejados" ofType="Estudiante" columnPrefix="eac_" resultMap="EstudianteResult"/> 
      </resultMap>
      
       <resultMap type='Acudiente' id='AcudienteResult'>
@@ -61,15 +66,15 @@
     
     <select parameterType="map" id="loadSolicitudesTramitadas" resultMap="SolicitudResult">
         select          
-        sol.id, 
-        sol.fecha,
-        sol.estado, 
-        sol.justificacion,
-        sol.comentario,
-        sol.avalAcudiente,
-        sol.avalConsejero,
-        sol.materia,  
-        sol.estudiante  
+        sol.id AS sol_id, 
+        sol.fecha AS sol_fecha,
+        sol.estado AS sol_estado, 
+        sol.justificacion AS sol_justificacion,
+        sol.comentario AS sol_comentario,
+        sol.avalAcudiente AS sol_avalAcudiente,
+        sol.avalConsejero AS sol_avalConsejero,
+        sol.Materia AS sol_Materia,  
+        sol.Estudiante AS sol_Estudiante,
         est.codigo,  
         est.nombre,
         est.correo,
@@ -88,15 +93,15 @@
     
     <select parameterType="map" id="loadSolicitudesNoTramitadas" resultMap="SolicitudResult">
         select          
-        sol.id, 
-        sol.fecha,
-        sol.estado, 
-        sol.justificacion,
-        sol.comentario,
-        sol.avalAcudiente,
-        sol.avalConsejero,
-        sol.materia,  
-        sol.estudiante  
+        sol.id AS sol_id, 
+        sol.fecha as sol_fecha,
+        sol.estado as sol_estado, 
+        sol.justificacion as sol_justificacion,
+        sol.comentario as sol_comentario,
+        sol.avalAcudiente as sol_avalAcudiente,
+        sol.avalConsejero as sol_avalConsejero,
+        sol.Materia as sol_Materia,  
+        sol.Estudiante as sol_Estudiante, 
         est.codigo,  
         est.nombre,
         est.correo,
@@ -107,8 +112,8 @@
         mat.nemonico 
         from          
         solicitud_de_cancelacion AS sol
-        LEFT OUTER Join Materia AS mat ON  sol.materia=mat.nemonico  
-        LEFT OUTER Join Estudiante AS est ON  sol.estudiante=est.codigo  
+        LEFT OUTER Join Materia AS mat ON  sol.Materia=mat.nemonico  
+        LEFT OUTER Join Estudiante AS est ON  sol.Estudiante=est.codigo  
         WHERE est.consejero = #{ide} AND sol.estado = 'Pendiente'
     </select>  
     
@@ -126,14 +131,23 @@
     
     <select parameterType="map" id="consultarConsejero" resultMap="ConsejeroResult">
         select          
-        con.nombre AS con_nombre,
-        con.codigo AS con_codigo, 
-        con.correo AS con_correo,
-        es.Estudiante AS aconsejados,                
+        con.nombre,
+        con.codigo, 
+        con.correo,
+        eac.codigo AS eac_codigo,
+        eac.nombre AS eac_nombre,
+        eac.correo AS eac_correo,
+        eac.telefono AS eac_telefono,
+        eac.identificacion AS eac_identificacion,
+        eac.tipo_id AS eac_tipo_id, 
+        eac.creditos AS eac_creditos,
+        eac.Plan_ID AS eac_Plan_ID,
+        eac.consejero AS eac_consejero,
+        eac.Acudiente AS eac_Acudiente      
         from  
         Consejero AS con         
-        LEFT OUTER JOIN  estudiantesAconsejados AS es ON es.codigo=con.Estudiante 
-        WHERE est.codigo=#{ide}
+        LEFT OUTER JOIN  Estudiante AS eac ON eac.consejero=con.codigo
+        WHERE con.codigo=#{ide}
     </select>  
   
 </mapper>
