@@ -56,15 +56,26 @@ public class ConsejeroBean implements Serializable{
     private List<List<String>> proyeccion;
     
     public ConsejeroBean() throws ExcepcionServiciosCancelaciones{
+        nombresSolicitantesSi = new ArrayList();
+        nombresSolicitantesNo = new ArrayList();
         solicitudSeleccionada = new SolicitudCancelacion();
         consejeroActual = servCanc.consultarConsejero(2345678);
         nombreConsejero = consejeroActual.getNombre();
         idConsejero = consejeroActual.getId();
         solicitudesTramitadas = servCanc.consultarCancelacionesTramitadasAconsejados(idConsejero);
+        //System.out.println("TRAMITADAS"+solicitudesTramitadas.size());
+        //System.out.println(solicitudesTramitadas.get(0));
         solicitudesNoTramitadas = servCanc.consultarCancelacionesNoTramitadasAconsejados(idConsejero);
-        Collections.sort(solicitudesTramitadas);
-        Collections.sort(solicitudesNoTramitadas);
+        //System.out.println("PENDIENTES"+solicitudesNoTramitadas.size());
+        //System.out.println(solicitudesNoTramitadas.get(0).getFecha());
+        if(solicitudesTramitadas.size()>1){
+            Collections.sort(solicitudesTramitadas);
+        }
+        if(solicitudesNoTramitadas.size()>1){
+            Collections.sort(solicitudesNoTramitadas);
+        }
         for(SolicitudCancelacion i: solicitudesTramitadas){
+            System.out.println(i+"   "+i.getEstudiante());
             nombresSolicitantesSi.add(servCanc.consultarEstudiante(i.getEstudiante()).getNombre());
         }
         for(SolicitudCancelacion j: solicitudesNoTramitadas){
