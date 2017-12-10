@@ -24,22 +24,22 @@
  
   *Roles:*
   -------
-  #### Stakeholder:
+  #### ****Stakeholder:****
   ##### Oswaldo Castillo Navetty
   
-  #### Dueño de producto:
+  #### ****Dueño de producto:****
   #####  Héctor Fabio Cadavid Rengifo
     
-  #### Scrum Master:
+  #### ****Scrum Master:****
   #####  Juan David Ramirez Mendoza - d.ramirez 
     
-  Team:
-  -------
-    * Jonathan Cuesta Sanchez - j.cuesta
-    * Juan Nicolás Gómez Moreno - n.gomez
-    * Daniel Moreno D'Aleman - d.moreno
-    * Nicolás Osorio Arias - n.osorio
-    * Juan David Ramirez Mendoza - d.ramirez
+  #### ****Team:****
+ 
+  + Jonathan Cuesta Sanchez - j.cuesta
+  + Juan Nicolás Gómez Moreno - n.gomez
+  + Daniel Moreno D'Aleman - d.moreno
+  + Nicolás Osorio Arias - n.osorio
+  + Juan David Ramirez Mendoza - d.ramirez
 
 *_Descripción resumida del producto:_*
 ------- 
@@ -55,8 +55,11 @@ Una plataforma de gestión para el acompañamiento académico a estudiantes, con
 
 ## *Arquitectura:*
 
-#### La plataforma 
+La plataforma de gestión para el acompañamiento académico a estudiantes, consejeros y directivos divide su funcionamiento en cuatro capas:
 
+***Persistencia:*** la capa de persistencia empieza su funcionamiento en una base de datos utilizando PostgreSQL. Seguido por una extracción de los datos, y una transformación por medio de un mapper con el Framework de MyBatis, para trasformar lo que se extrae a objetos, para finalmente llevarlos a la capa de aplicación.
+
+***Aplicación:*** la capa de aplicación se encarga de procesar los objetos obtenidos después de la capa de persistencia, para finalmente poder entregar lo que se requiere en la capa de vistas. Todo empieza en una clase de servicio en la cual se establecen todas las diferentes funciones que tiene toda la aplicación, para recoger los datos que se encuentran en los distintos DAOS y extraerlos en objetos. Estos objetos están constituidos por las diferentes entidades en que se encuentran como acudiente, consejero, estudiante, materias, plan de estudios, solicitudes de cancelación. También el análisis ocurre en esta capa, se hace por medio de un grafo dirigido acíclico cuya representación se encuentra de manera ligera ya que se usa JSON. 
 
 ## *URL Heroku:*
 https://proyectopdsw.herokuapp.com/
