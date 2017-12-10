@@ -5,7 +5,7 @@
 
 [![CircleCI](https://circleci.com/gh/BoomECI/Proyecto-PDSW.svg?style=svg)](https://circleci.com/gh/BoomECI)
 
-*Proyecto desarrollado en el periodo académico 2017-2 por BOOMECI para el curso Procesos de Desarrollo de Software (PDSW) *
+*Proyecto desarrollado en el periodo académico 2017-2 por BOOMECI para el curso Procesos de Desarrollo de Software (PDSW)*
 
   Integrantes de BOOMECI:
   -------
@@ -22,30 +22,43 @@
 ****Información General:****
 ======
  
-  Roles:
+  *Roles:*
   -------
   #### Stakeholder:
-    - Oswaldo Castillo Navetty
+  ##### Oswaldo Castillo Navetty
   
   #### Dueño de producto:
-    - Héctor Fabio Cadavid Rengifo
+  #####  Héctor Fabio Cadavid Rengifo
     
   #### Scrum Master:
-    - Juan David Ramirez Mendoza - d.ramirez 
+  #####  Juan David Ramirez Mendoza - d.ramirez 
     
-  #### Team:
-   - Jonathan Cuesta Sanchez - j.cuesta
-   - Juan Nicolás Gómez Moreno - n.gomez
-   - Juan David Ramirez Mendoza - d.ramirez
-   - Daniel Moreno D'Aleman - d.moreno
-   - Nicolás Osorio Arias - n.osorio
+  Team:
+  -------
+    * Jonathan Cuesta Sanchez - j.cuesta
+    * Juan Nicolás Gómez Moreno - n.gomez
+    * Daniel Moreno D'Aleman - d.moreno
+    * Nicolás Osorio Arias - n.osorio
+    * Juan David Ramirez Mendoza - d.ramirez
+
+*_Descripción resumida del producto:_*
+------- 
+Una plataforma de gestión para el acompañamiento académico a estudiantes, consejeros y directivos, que simplifica          procesos tanto de análisis de los semestres académicos para los estudiantes, como del trámite de las solicitudes de los consejeros; Si el estudiante desea solicitar una cancelación, la plataforma acompaña todo el proceso que la involucra, junto al permiso del consejero, y la notificación por medio de un correo electrónico al acudiente. Todo esto mediante un mecanismo no acoplado para introducirlo en la institución.
   
+## *Funcionalidades:*
+![alt text][logo]
 
-*Descripción resumida del producto: *
-  -------  
-  ### Una plataforma de gestión para el acompañamiento académico a estudiantes, consejeros y directivos, que simplifica procesos tanto de análisis de los semestres académicos para los estudiantes, como del trámite de las solicitudes de los consejeros; Si el estudiante desea solicitar una cancelación, la plataforma acompaña todo el proceso que la involucra, junto al permiso del consejero, y la notificación por medio de un correo electrónico al acudiente. Todo esto mediante un mecanismo no acoplado para introducirlo en la institución.
+[logo]: https://podemoscolladomediano.files.wordpress.com/2014/09/seccion-en-construccion.jpg "En construcción"
 
-URL Heroku:
+****Descripción avanzada del producto:**** 
+------- 
+
+## *Arquitectura:*
+
+#### La plataforma 
+
+
+## *URL Heroku:*
 https://proyectopdsw.herokuapp.com/
 
 
