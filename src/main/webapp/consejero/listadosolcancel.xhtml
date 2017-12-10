@@ -34,9 +34,6 @@
                             <p:column headerText="Nombre solicitante" style="text-align: center">
                                 <h:outputText value="#{beanSolicitudConsejero.consultarEstudianteNombre(solsNo.estudiante)}" />
                             </p:column>
-                            <p:column headerText="Estado" style="text-align: center">
-                                <h:outputText value="#{solsNo.estado}" />
-                            </p:column>
                             <p:column headerText="Accion" style="width:18%;text-align: center">
                                 <h:commandButton id="tramitar" value="Tramitar" title="tramitar la solicitud seleccionada" action="#{beanSolicitudConsejero.tramitarSolicitud()}" >
                                     <f:setPropertyActionListener value="#{solsNo}" target="#{beanSolicitudConsejero.solicitudSeleccionada}" />
@@ -54,9 +51,6 @@
                             </p:column>
                             <p:column headerText="Nombre solicitante" style="text-align: center">
                                 <h:outputText value="#{beanSolicitudConsejero.consultarEstudianteNombre(solsSi.estudiante)}" />
-                            </p:column>
-                            <p:column headerText="Estado" style="text-align: center">
-                                <h:outputText value="#{solsSi.estado}" />
                             </p:column>
                             <p:column headerText="Materia" style="text-align: center">
                                 <h:outputText value="#{solsSi.materia}"/>

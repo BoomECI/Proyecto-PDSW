@@ -8,7 +8,6 @@ package com.BoomECI.logica.servicios.impl;
 import com.BoomECI.entidades.Consejero;
 import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
-import com.BoomECI.logica.services.CalculoDeImpacto;
 import com.google.inject.Inject;
 import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Grafo;
@@ -33,8 +32,6 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Inject
     private EstudianteDAO daoEst;
     
-    @Inject
-    private CalculoDeImpacto impacto;
     
     @Inject
     private ConsejeroDAO daoCon;
@@ -104,8 +101,8 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     }
 
     @Override
-    public int consultarImpacto(List<Materia> canceladas, Estudiante estudiante) throws ExcepcionServiciosCancelaciones {        
-        return impacto.CalculoImpacto(canceladas, estudiante);
+    public int consultarImpacto(List<String> canceladas, Estudiante estudiante, Grafo grafo) throws ExcepcionServiciosCancelaciones {        
+        return grafo.CalculoImpacto(canceladas, estudiante);
     }    
 
     @Transactional

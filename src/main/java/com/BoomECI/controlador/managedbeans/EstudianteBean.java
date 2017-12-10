@@ -336,7 +336,7 @@ public class EstudianteBean implements Serializable{
        
        ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
        Grafo grafo = p.convertStringToGrafo(planDeEstudios.getGrafo());
-       creditosRestantes = servCanc.consultarImpacto(materiasSeleccionadas, estudianteActual);
+       creditosRestantes = servCanc.consultarImpacto(materiasSeleccionadasString, estudianteActual, grafo);
        proyeccion = servCanc.calcularProyeccion(estudianteActual, materiasSeleccionadasString, grafo);
        
        root = new DefaultTreeNode("Proyeccion", null);
