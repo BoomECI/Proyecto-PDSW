@@ -26,7 +26,7 @@ import com.BoomECI.persistencia.EstudianteDAO;
 
 /**
  *
- * @author boomEci
+ * @author BoomEci
  */
 public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
 
