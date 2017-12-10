@@ -91,7 +91,14 @@ public class SimpleTest {
     @Test
     public void testUnaMateriaCanceladaAnteriormenteNoPuedeVolverHacerCancelada() throws ExcepcionServiciosCancelaciones{
     
-    } 
+    }
+    
+    @Test
+    public void prueba2() throws ExcepcionServiciosCancelaciones{
+        ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        a.consultarConsejero(0);
+   }
+    
    @Test
    public void prueba(){
         

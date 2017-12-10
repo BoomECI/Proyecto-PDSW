@@ -20,7 +20,6 @@ import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
 import com.BoomECI.entidades.SolicitudCancelacion;
-import com.BoomECI.entidades.SolicitudCancelacion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -38,10 +37,10 @@ import com.BoomECI.logica.services.ParserJSON;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
 import org.junit.After;
-import org.junit.Assert;
 import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -49,67 +48,72 @@ import org.junit.Test;
  * @adapted by BOOMECI
  */
 public class ServiciosCancelacionesTest{
-    public ServiciosCancelacionesTest(){
-        
-    }
+    
+    private ServiciosCancelaciones servicios;        
 
     @Before
-    public void setUp() {
+    public void setUp() {        
+        servicios = ServiciosCancelacionesFactory.getInstance().getTestingServiciosCancelaciones();
     }
-
+    
     @After
     public void clearDB() throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
-        Statement stmt = conn.createStatement();
-        stmt.execute("delete from Acudiente");
-        stmt.execute("delete from Consejero");
-        stmt.execute("delete from Estudiante");
-        stmt.execute("delete from Materia");
-        stmt.execute("delete from MateriasActuales");
-        stmt.execute("delete from MateriasCursadas");
-        stmt.execute("delete from Plan_de_Estudio");
-        stmt.execute("delete from USER");
-        stmt.execute("delete from rol");
-        stmt.execute("delete from solicitud_de_cancelacion");
-        
+        Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=PostgreSQL", "sa", "");
+        Statement stmt = conn.createStatement();  
+        stmt.execute("DELETE from ESTUDIANTE");
+        //stmt.execute("delete from COMENTARIOS");
+        //stmt.execute("delete from ENTRADAS_FOROS");
         conn.commit();
         conn.close();
     }
-
-    /**
-     * Obtiene una conexion a la base de datos de prueba
-     * @return
-     * @throws SQLException 
-     */
+    
     private Connection getConnection() throws SQLException{
-        return DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");        
+        return DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=PostgreSQL", "sa", "");        
     }
-  
     
     @Test
-    public void primeraPruebaTest() throws SQLException, ExcepcionServiciosCancelaciones {
-        //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
-        //de equivalencia correspondiente
-        /**Connection conn=getConnection();
-        Statement stmt=conn.createStatement();                
-        stmt.execute("INSERT into solicitud_de_cancelacion "
-                + "values(TO_DATE('2016-01-30 16:58:01','YYYY-MM-DD HH24:MI:SS')"
-                + ",'inactivo',1,'porque si','vale esta bien',FALSE,FALSE,'PDSW','1'");        
+    public void consultarEstudiantePorIdTest() throws ExcepcionServiciosCancelaciones, SQLException{
+        
+        Connection conn=getConnection();
+        Statement stmt=conn.createStatement();
+        stmt.execute("INSERT INTO Estudiante(Acudiente, codigo, nombre, correo, telefono, consejero, identificacion, tipo_id, Plan_ID, creditos) VALUES (134566, 2110805, 'Juan David Ramirez Mendoza', 'juan.ramirez-me@mail.escuelaing.edu.co', 3138912392, 2345678, 1019138850, 'CC', 1, 18)");
+        stmt.execute("INSERT INTO Estudiante(Acudiente, codigo, nombre, correo, telefono, consejero, identificacion, tipo_id, Plan_ID, creditos) VALUES (1904567, 2110432, 'Nicolas Osorio Arias', 'nicolas.osorio@mail.escuelaing.edu.co', 3152345671, 2345680, 1013456778, 'CC', 1, 18)");
         conn.commit();
         conn.close();
-	
-        //Realizar la operacion de la logica y la prueba
+        
+        Estudiante es = servicios.consultarEstudiante(2110805);                                
+        Estudiante es1 = servicios.consultarEstudiante(2110432);
         
         
-        ServiciosCancelacionesFactory.getInstance().getTestingServiciosCancelaciones().cambiarElestadoDeLaSolicitud(1, "tramitada");        
-        List<SolicitudCancelacion> s = ServiciosCancelacionesFactory.getInstance().getTestingServiciosCancelaciones().consultarSolicitudCancelacionEstudiante(1);
+        assertEquals(es.getNombre(),"Juan David Ramirez Mendoza"); 
+        assertEquals(es1.getNombre(),"Nicolas Osorio Arias"); 
+    }
+    
+    @Test
+    public void consultarEstudiantesTest() throws ExcepcionServiciosCancelaciones, SQLException{
+        Connection conn=getConnection();
+        Statement stmt=conn.createStatement();
+        stmt.execute("INSERT INTO Estudiante(Acudiente, codigo, nombre, correo, telefono, consejero, identificacion, tipo_id, Plan_ID, creditos) VALUES (134566, 2110805, 'Juan David Ramirez Mendoza', 'juan.ramirez-me@mail.escuelaing.edu.co', 3138912392, 2345678, 1019138850, 'CC', 1, 18)");
+        stmt.execute("INSERT INTO Estudiante(Acudiente, codigo, nombre, correo, telefono, consejero, identificacion, tipo_id, Plan_ID, creditos) VALUES (1904567, 2110432, 'Nicolas Osorio Arias', 'nicolas.osorio@mail.escuelaing.edu.co', 3152345671, 2345680, 1013456778, 'CC', 1, 18)");
+        conn.commit();
+        conn.close();
         
-        System.out.println(s);
-            
-        Assert.assertEquals(s,"YESMAN");**/
-    }    
-     
-   
+        List<Estudiante> est = servicios.consultarEstudiantes();
+        
+        assertEquals(est.size(),2);
+
+    }               
+    
+    @Test
+    public void consultarSolicitudTest() throws ExcepcionServiciosCancelaciones, SQLException{
+                       
+    }
+    
+    
+    
+    
+    
 }
 
+    
 

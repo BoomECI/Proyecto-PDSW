@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2017-11-26 00:50:54.949
+-- Last modification date: 2017-12-10 00:59:55.94
 
 -- tables
 -- Table: Acudiente
@@ -91,4 +91,5 @@ CREATE TABLE solicitud_de_cancelacion (
     Estudiante bigint  NOT NULL,
     CONSTRAINT solicitud_de_cancelacion_pk PRIMARY KEY (id)
 );
+
 
