@@ -25,14 +25,17 @@
                 <p:tabView>
                     <p:tab title="Pendientes">
                         <p:dataTable id="notram" var="solsNo" value="#{beanSolicitudConsejero.solicitudesNoTramitadas}" style="width: 100%; margin: 0 auto">
-                            <p:column headerText="Fecha Solicitud" style="text-align: center">
-                                <h:outputText value="#{solsNo.fecha}" />
+                            <p:column headerText="Fecha Solicitud" style="text-align: center; width: 10%">
+                                <h:outputText value="#{solsNo.fecha.date}-#{solsNo.fecha.month}-#{solsNo.fecha.year+1900}" />
                             </p:column>
                             <p:column headerText="Codigo solicitante" style="text-align: center">
                                 <h:outputText value="#{solsNo.estudiante}" />
                             </p:column>
                             <p:column headerText="Nombre solicitante" style="text-align: center">
                                 <h:outputText value="#{beanSolicitudConsejero.consultarEstudianteNombre(solsNo.estudiante)}" />
+                            </p:column>
+                            <p:column headerText="Materia" style="text-align: center">
+                                <h:outputText value="#{solsNo.materia}"/>
                             </p:column>
                             <p:column headerText="Accion" style="width:18%;text-align: center">
                                 <h:commandButton id="tramitar" value="Tramitar" title="tramitar la solicitud seleccionada" action="#{beanSolicitudConsejero.tramitarSolicitud()}" >
@@ -44,7 +47,7 @@
                     <p:tab title="Tramitadas">
                         <p:dataTable id="sitram" var="solsSi" value="#{beanSolicitudConsejero.solicitudesTramitadas}" style="width: 100%; margin: 0 auto">
                             <p:column headerText="Fecha Solicitud" style="text-align: center">
-                                <h:outputText value="#{solsSi.fecha}" />
+                                <h:outputText value="#{solsSi.fecha.date}-#{solsSi.fecha.month}-#{solsSi.fecha.year+1900}" />
                             </p:column>
                             <p:column headerText="Codigo solicitante" style="text-align: center">
                                 <h:outputText value="#{solsSi.estudiante}" />
@@ -59,13 +62,13 @@
                                 <h:outputText value="#{solsSi.justificacion}"/>
                             </p:column>
                             <p:column headerText="Aval consejero" style="text-align: center">
-                                <h:outputText value="#{solsSi.avalConsejero}"/>
+                                <h:outputText value="#{beanSolicitudConsejero.booleanToString(solsSi.avalConsejero)}"/>
                             </p:column>
                             <p:column headerText="Comentario consejero" style="text-align: center">
                                 <h:outputText value="#{solsSi.comentario}"/>
                             </p:column>
                             <p:column headerText="Aval acudiente" style="text-align: center">
-                                <h:outputText value="#{solsSi.avalAcudiente}"/>
+                                <h:outputText value="#{beanSolicitudConsejero.booleanToString(solsSi.avalAcudiente)}"/>
                             </p:column>
                         </p:dataTable>
                     </p:tab>

@@ -26,9 +26,9 @@
     </resultMap>  
     
     <resultMap type='PlanDeEstudios' id='PlanDeEstudiosResult'>
-        <id property='carrera' column='carrera'/>
         <id property='numeroPlanDeEstudio' column='ID'/>
-        <result property='grafo' column='grafo'/>
+        <result property='carrera' column='Carrera'/>
+        <result property='grafo' column='Grafo'/>
         <result property='numeroDeCreditosTotales' column='creditos' />   
         <result property='numeroDeAsignaturas' column='nummaterias' />         
      </resultMap>
@@ -69,8 +69,7 @@
         est.correo,
         est.telefono,
         est.identificacion,
-        est.tipo_id, 
-        est.creditos,       
+        est.tipo_id,        
         acu.nombre AS acu_nombre,
         acu.cedula AS acu_cedula,
         acu.correo AS acu_correo,
@@ -119,7 +118,19 @@
         from  
         Estudiante AS est LEFT OUTER JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante         
         WHERE est.codigo=#{ide}
-    </select>  
+    </select> 
+    
+    <select parameterType="map" id="loadPlanDeEstudiosById" resultMap="PlanDeEstudiosResult">
+        select
+        pl.Carrera as pl_Carrera,
+        pl.ID as pl_ID,
+        pl.Grafo as pl_Grafo,
+        pl.creditos as pl_creditos,
+        pl.nummaterias as pl_nummaterias
+        from
+        Estudiante as est LEFT OUTER JOIN Plan_de_Estudio AS pl ON est.Plan_ID=pl.ID
+        WHERE est.Plan_ID = #{ide}
+    </select> 
     
     <select parameterType="map" id="consultarEstudiantes" resultMap="EstudianteResult">
          select  

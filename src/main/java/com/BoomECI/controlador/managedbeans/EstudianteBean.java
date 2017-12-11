@@ -327,15 +327,17 @@ public class EstudianteBean implements Serializable{
        }
        RequestContext context = RequestContext.getCurrentInstance();
        context.update("myTabPanel");
-       
-       solicitudesEstudiante = new ArrayList();
-       for(int i=0; i < materiasSeleccionadasString.size(); i++){
-           solicitudesEstudiante.add(new SolicitudCancelacion(fechaCancelacion,"Pendiente", solicitudes.size()+(i+1), null, "", false, false, materiasSeleccionadasString.get(i), estudianteActual.getCodigo()));
-       }
-       System.out.println(planDeEstudios.getGrafo());
-       
        ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
        Grafo grafo = p.convertStringToGrafo(planDeEstudios.getGrafo());
+       
+       Boolean esMenor = grafo.getSemestre(estudianteActual) <3;
+       solicitudesEstudiante = new ArrayList();
+       for(int i=0; i < materiasSeleccionadasString.size(); i++){
+           solicitudesEstudiante.add(new SolicitudCancelacion(fechaCancelacion,"Pendiente", solicitudes.size()+(i+1), null, "", esMenor? false: null, false, materiasSeleccionadasString.get(i), estudianteActual.getCodigo()));
+       }
+       
+       
+       
        creditosRestantes = servCanc.consultarImpacto(materiasSeleccionadasString, estudianteActual, grafo);
        proyeccion = servCanc.calcularProyeccion(estudianteActual, materiasSeleccionadasString, grafo);
        

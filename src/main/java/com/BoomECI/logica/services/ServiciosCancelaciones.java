@@ -128,7 +128,7 @@ public interface ServiciosCancelaciones {
      * @param id_soli de la solicitud
      * @param aval del consejero
      */
-    public abstract void cambiarElAvalDeConsejero(int id_soli, boolean aval)throws ExcepcionServiciosCancelaciones;
+    public abstract void cambiarElAvalDeConsejero(int id_soli, Boolean aval)throws ExcepcionServiciosCancelaciones;
     
     public abstract void cambiarCreditosTotalesPorSemestre(int creditosActuales)throws ExcepcionServiciosCancelaciones;
 

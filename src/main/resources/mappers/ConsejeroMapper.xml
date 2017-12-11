@@ -79,8 +79,7 @@
         est.correo,
         est.telefono,
         est.identificacion,
-        est.tipo_id, 
-        est.creditos,   
+        est.tipo_id,   
         mat.nemonico 
         from          
         solicitud_de_cancelacion AS sol
@@ -106,8 +105,7 @@
         est.correo,
         est.telefono,
         est.identificacion,
-        est.tipo_id, 
-        est.creditos,   
+        est.tipo_id,    
         mat.nemonico 
         from          
         solicitud_de_cancelacion AS sol

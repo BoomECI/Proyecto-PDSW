@@ -7,6 +7,7 @@ package com.BoomECI.persistencia.mybatis.mappers;
 
 import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Materia;
+import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -30,4 +31,6 @@ public interface EstudianteMapper {
     //public void insertarEstudiante(@Param("est")Estudiante e);
     
     //public void actualizarEstudiante(@Param("uest") Estudiante e );
+
+    public PlanDeEstudios loadPlanDeEstudiosById(@Param("ide") long id);
 }

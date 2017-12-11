@@ -8,6 +8,7 @@ package com.BoomECI.persistencia.mybatis;
 import com.google.inject.Inject;
 import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Materia;
+import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.util.List;
 import javax.persistence.PersistenceException;
@@ -46,6 +47,12 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
             Estudiante x = Estmaper.loadEstudianteById(id);
             x.setMateriasActuales(Estmaper.loadMateriasActualesById(x.getCodigo()));
             x.setMateriasCursadas(Estmaper.loadMateriasCursadasById(x.getCodigo()));
+            PlanDeEstudios p = Estmaper.loadPlanDeEstudiosById(x.getCodigo());
+            System.out.println(p.getNumeroPlanDeEstudio());
+            System.out.println(p.getGrafo());
+            
+            System.out.println(p.getCarrera());
+            x.setPlanDeEstudios(Estmaper.loadPlanDeEstudiosById(x.getCodigo()));
             return x;
         }
         catch(Exception e){
@@ -83,5 +90,4 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
             throw new PersistenceException("Error al cargar el estudiante:"+e.getLocalizedMessage(), e);
         } 
     }
-    
 }

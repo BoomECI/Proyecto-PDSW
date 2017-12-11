@@ -7,6 +7,7 @@ package com.BoomECI.persistencia;
 
 import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Materia;
+import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.util.List;
 

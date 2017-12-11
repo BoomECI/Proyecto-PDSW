@@ -12,6 +12,7 @@ import com.google.inject.Inject;
 import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
+import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.util.List;
 import java.util.logging.Level;
@@ -44,7 +45,13 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Override
     public List<Estudiante> consultarEstudiantes() throws ExcepcionServiciosCancelaciones {
         try {
-            return daoEst.loadAll();
+            List<Estudiante> estudiantes = daoEst.loadAll();
+            for(int i=0; i<estudiantes.size(); i++){
+                PlanDeEstudios pEst = estudiantes.get(i).getPlanDeEstudios();
+                PlanDeEstudios p1 = new PlanDeEstudios(pEst.getNumeroPlanDeEstudio());
+                estudiantes.get(i).getPlanDeEstudios().setGrafo(p1.getGrafo());
+            }
+            return estudiantes;
         } catch (PersistenceException ex) {
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -55,7 +62,23 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Override
     public Estudiante consultarEstudiante(long idEstudiante) throws ExcepcionServiciosCancelaciones {
         try {
-            return daoEst.loadByID(idEstudiante);
+            Estudiante e = daoEst.loadByID(idEstudiante);
+            System.out.println(e.getCodigo());
+            System.out.println(e.getIdentificacion());
+            System.out.println(e.getPlanDeEstudios().getCarrera());
+            System.out.println(e.getPlanDeEstudios().getNumeroPlanDeEstudio());
+            
+            System.out.println("---------------------------------------------------");
+            
+            System.out.println(e.getPlanDeEstudios().getGrafo());
+            
+            
+            System.out.println("----------------------------------------------------");
+            
+            PlanDeEstudios pEst = e.getPlanDeEstudios();
+            PlanDeEstudios pl = new PlanDeEstudios(pEst.getNumeroPlanDeEstudio());
+            e.getPlanDeEstudios().setGrafo(pl.getGrafo());
+            return e;
         } catch (PersistenceException ex) {
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -132,6 +155,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     public void cambiarCreditosTotalesPorSemestre(int creditos) {
     }
 
+    @Transactional
     @Override
     public void agregarComentarioConsejero(int id_soli, String comentario) throws ExcepcionServiciosCancelaciones {
         try{
@@ -141,6 +165,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         }
     }
 
+    @Transactional
     @Override
     public void cambiarElestadoDeLaSolicitud(int id_soli, String estado) throws ExcepcionServiciosCancelaciones {
         try{
@@ -150,8 +175,9 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         }
     }
 
+    @Transactional
     @Override
-    public void cambiarElAvalDeConsejero(int id_soli, boolean aval) throws ExcepcionServiciosCancelaciones {
+    public void cambiarElAvalDeConsejero(int id_soli, Boolean aval) throws ExcepcionServiciosCancelaciones {
         try{
             daoCon.cambiarElAvalDeConsejero(id_soli, aval);
         }catch(PersistenceException ex){

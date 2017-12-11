@@ -81,8 +81,10 @@ public class ServiciosCancelacionesTest{
         conn.commit();
         conn.close();
         
-        Estudiante es = servicios.consultarEstudiante(2110805);                                
+        Estudiante es = servicios.consultarEstudiante(2110805);  
+        System.out.println(es.getNombre());
         Estudiante es1 = servicios.consultarEstudiante(2110432);
+        System.out.println(es1.getNombre());
         
         
         assertEquals(es.getNombre(),"Juan David Ramirez Mendoza"); 
@@ -99,7 +101,7 @@ public class ServiciosCancelacionesTest{
         conn.close();
         
         List<Estudiante> est = servicios.consultarEstudiantes();
-        
+        System.out.println(est.size());
         assertEquals(est.size(),2);
 
     }               

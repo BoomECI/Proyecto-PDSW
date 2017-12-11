@@ -63,7 +63,7 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
     }
 
     @Override
-    public void cambiarElAvalDeConsejero(int id_soli, boolean aval) {
+    public void cambiarElAvalDeConsejero(int id_soli, Boolean aval) {
         try{
             Conmaper.cambiarElAvalDeConsejero(id_soli, aval);
         }catch(Exception e){
