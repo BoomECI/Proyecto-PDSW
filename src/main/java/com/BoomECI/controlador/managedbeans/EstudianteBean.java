@@ -58,17 +58,16 @@ public class EstudianteBean implements Serializable{
     private DualListModel<String> materias;
     private List<String> materiasActualesString;
     private List<String> materiasSeleccionadasString;
-    private String fecha;
     private List<List<String>> proyeccion;
     private int anoGraduacion;
     private TreeNode root;
+    private Grafo grafo;
     
     private static final Logger LOG = Logger.getLogger(EstudianteBean.class.getName());
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
         
         fechaCancelacion = new Date();
-        fecha = fechaCancelacion.getDate()+"-"+fechaCancelacion.getMonth()+"-"+(fechaCancelacion.getYear()+1900);
         
         
             
@@ -83,14 +82,9 @@ public class EstudianteBean implements Serializable{
     public List<Materia> conversorStringToSeleccionadas(){
         List<Materia> mt = new ArrayList<>();
         List<String> matSelec = getMaterias().getTarget();
-        for(int k=0; k<matSelec.size(); k++){
-            for(Materia i: materiasActuales){
-                if(i.getNemonico().equals(matSelec.get(k))){
-                    mt.add(i);
-                }
-            }
+        for(String i: matSelec){
+            mt.add(grafo.getMateria(i));
         }
-       
         return mt;
     }
     
@@ -158,14 +152,6 @@ public class EstudianteBean implements Serializable{
 
     public void setMateriasActualesString(List<String> materiasActualesString) {
         this.materiasActualesString = materiasActualesString;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
     }
 
     public List<List<String>> getProyeccion() {
@@ -246,6 +232,15 @@ public class EstudianteBean implements Serializable{
         this.materiasSeleccionadas = materiasSeleccionadas;
     }
 
+    public Grafo getGrafo() {
+        return grafo;
+    }
+
+    public void setGrafo(Grafo grafo) {
+        this.grafo = grafo;
+    }
+
+    
     public List<Materia> getMateriasActuales(){
         return materiasActuales;
     }
@@ -294,8 +289,10 @@ public class EstudianteBean implements Serializable{
    }
     
     public void analizarSolicitud() throws ExcepcionServiciosCancelaciones{
-       
+       ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
+       grafo = p.convertStringToGrafo(planDeEstudios.getGrafo());
        tablaMaterias = new TabView();
+       tablaMaterias.setId("myTabPanel");
        materiasSeleccionadasString = getMaterias().getTarget();
        materiasSeleccionadas = conversorStringToSeleccionadas();
        justificacionesCancelacion = new String[materiasSeleccionadasString.size()];
@@ -324,14 +321,15 @@ public class EstudianteBean implements Serializable{
            tablaMaterias.getChildren().add(tab);
        }
        RequestContext context = RequestContext.getCurrentInstance();
-       context.update("myTabPanel");
-       ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
-       Grafo grafo = p.convertStringToGrafo(planDeEstudios.getGrafo());
+       //context.update("myTabPanel");
        
-       Boolean esMenor = grafo.getSemestre(estudianteActual) <3;
+       
+
+       Boolean esMenor = grafo.getSemestre(estudianteActual) <3? false: null;
+       
        solicitudesEstudiante = new ArrayList();
        for(int i=0; i < materiasSeleccionadasString.size(); i++){
-           solicitudesEstudiante.add(new SolicitudCancelacion(fechaCancelacion,"Pendiente", solicitudes.size()+(i+1), null, "", esMenor? false: null, false, materiasSeleccionadasString.get(i), estudianteActual.getCodigo()));
+           solicitudesEstudiante.add(new SolicitudCancelacion(fechaCancelacion,"Pendiente", solicitudes.size()+(i+2), null, "", esMenor , false, materiasSeleccionadasString.get(i), estudianteActual.getCodigo()));
        }
        
        

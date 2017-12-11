@@ -98,7 +98,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Transactional
     @Override
     public List<SolicitudCancelacion> consultarTodasLasSolicitudesCancelacion() throws ExcepcionServiciosCancelaciones {
-        return null;
+        return daoEst.loadAllSolicitudes();
     }
     @Transactional
     @Override

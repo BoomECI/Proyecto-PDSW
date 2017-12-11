@@ -31,7 +31,7 @@
                     </p:column>
                     
                     <p:column headerText="Fecha">
-                        <h:outputText value="#{beanSolicitudEstudiante.fecha}" />
+                        <h:outputText value="#{beanSolicitudEstudiante.fechaCancelacion.date}-#{beanSolicitudEstudiante.fechaCancelacion.month}-#{beanSolicitudEstudiante.fechaCancelacion.year+1900}" />
                     </p:column>
                     
                     <p:column headerText="Estado">

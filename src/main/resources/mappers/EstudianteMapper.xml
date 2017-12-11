@@ -103,6 +103,12 @@
         WHERE est.codigo = #{ide}
     </select>  
     
+    <select id ="loadSolicitudes" resultMap="SolicitudResult">
+        SELECT *
+        FROM
+        solicitud_de_cancelacion       
+    </select>
+    
     <select parameterType="map" id="loadMateriasCursadasById" resultMap="MateriaResult">
         select  
         mac.materia AS nemonico       

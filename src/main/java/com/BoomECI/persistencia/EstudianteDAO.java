@@ -24,5 +24,7 @@ public interface EstudianteDAO {
     public void save(SolicitudCancelacion solicitudCancelacion);
     
     public PlanDeEstudios consultarPlanDeEstudio(int id);
+
+    public List<SolicitudCancelacion> loadAllSolicitudes();
     
 }

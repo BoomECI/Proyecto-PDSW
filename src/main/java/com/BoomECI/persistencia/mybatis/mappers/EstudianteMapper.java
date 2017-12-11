@@ -33,4 +33,6 @@ public interface EstudianteMapper {
     //public void actualizarEstudiante(@Param("uest") Estudiante e );
 
     public PlanDeEstudios loadPlanDeEstudiosById(@Param("ide") long id);
+
+    public List<SolicitudCancelacion> loadSolicitudes();
 }

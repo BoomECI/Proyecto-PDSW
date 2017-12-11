@@ -96,4 +96,14 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
             throw new PersistenceException("Error al cargar el Plan de estudios:"+e.getLocalizedMessage(), e);
         } 
     }
+
+    @Override
+    public List<SolicitudCancelacion> loadAllSolicitudes() {
+        try{
+            return Estmaper.loadSolicitudes();
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al cargar todas las solicitudes:"+e.getLocalizedMessage(), e);
+        }
+    }
 }
