@@ -23,7 +23,6 @@ public class PlanDeEstudios {
     
     public PlanDeEstudios(){
     }
-
     public PlanDeEstudios(int numeroPlanDeEstudio) {
         this.numeroPlanDeEstudio = numeroPlanDeEstudio;
         if(numeroPlanDeEstudio ==1){
