@@ -70,7 +70,7 @@ public class ServiciosCancelacionesTest{
     private Connection getConnection() throws SQLException{
         return DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=PostgreSQL", "sa", "");        
     }
-    
+    /*
     @Test
     public void consultarEstudiantePorIdTest() throws ExcepcionServiciosCancelaciones, SQLException{
         
@@ -111,7 +111,7 @@ public class ServiciosCancelacionesTest{
                        
     }
     
-    
+    */
     
     
     

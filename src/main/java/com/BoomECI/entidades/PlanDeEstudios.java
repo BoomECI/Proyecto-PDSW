@@ -83,61 +83,191 @@ public class PlanDeEstudios {
     }
 
     public static String sistemas() {
-        return "{\"materias\": [\"CALD\",\"MMIN\","
-        + "\"ALLI\",\"IINS\",\"EALE\",\"CIED\",\"LCAL\","
-        + "\"FIMF\",\"PIMB\",\"MDIS\",\"FIEM\",\"MBDA\","
-        + "\"PIMO\",\"EHU1\",\"PDIS\",\"TPRO\",\"ARQC\","
-        + "\"ELCB\",\"POOB\",\"ESTI\",\"TCOM\",\"FRED\","
-        + "\"TSOR\",\"PDSW\",\"FUNE\",\"SEGI\",\"SOPC\","
-        + "\"PRON\",\"ARSW\",\"ACFI\",\"AREM\",\"COSW\", "
-        + "\"EHU2\",\"FGPR\",\"ET01\", \"SOSW\", \"EHU3\", "
-        + "\"ELEA\",\"ET02\", \"PGR1\", \"CRIP\", \"ET03\", "
-        + "\"CLE1\", \"PGR2\", \"CLE2\"],"
-        + "\"CALD\": {\"nombre\" : \"Calculo diferencial\",\"creditos\":\"4\", \"co\" : [], \"pre\" : []},"
-        + "\"MMIN\": {\"nombre\" : \"Modelos matematicos para informatica\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"ALLI\": {\"nombre\" : \"Algebra lineal\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"IINS\": {\"nombre\" : \"Introduccion a la ingenieria de sistemas\", \"creditos\":\"2\", \"co\" : [], \"pre\" : []},"
-        + "\"EALE\": {\"nombre\" : \"Electiva en el area de lengua espanola\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"CIED\": {\"nombre\" : \"Calculo integral y ecuaciones diferenciales\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"CALD\"]},"
-        + "\"LCAL\": {\"nombre\" : \"Logica calculativa\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"MMIN\"},"
-        + "\"FIMF\": {\"nombre\" : \"Fisica mecanica y fluidos\", \"creditos\":\"4\", \"co\" : [\"CALD\"], \"pre\" : []},"
-        + "\"PIMB\": {\"nombre\" : \"Programacion imperativa basica\", \"creditos\":\"4\", \"co\" : [], \"pre\" : []},"
-        + "\"MDIS\": {\"nombre\" : \"Matematicas discretas\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"LCAL\"]},"
-        + "\"FIEM\": {\"nombre\" : \"Fisica del electromagnetismo\", \"creditos\":\"4\", \"co\" : [\"CIED\"], \"pre\" : [\"FIMF\"]},"
-        + "\"MBDA\": {\"nombre\" : \"Modelos y bases de datos\", \"creditos\":\"4\", \"co\" : [],\"pre\" : [\"LCAL\",\"PIMB\"]},"
-        + "\"PIMO\": {\"nombre\" : \"Programacion imperativa modular\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"PIMB\"]},"
-        + "\"EHU1\": {\"nombre\" : \"Electiva humanistica 1\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"PDIS\": {\"nombre\" : \"Probabilidad discreta\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"CIED\"]},"
-        + "\"TPRO\": {\"nombre\" : \"Teoria de la programacion\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"MDIS\",\"PIMO\"]},"
-        + "\"ARQC\": {\"nombre\" : \"Arquitectura del computador\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"FIEM\"]},"
-        + "\"ELCB\": {\"nombre\" : \"Electiva en ciencias basicas\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"POOB\": {\"nombre\" : \"Programacion orientada a objetos\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"PIMO\"]},"
-        + "\"ESTI\": {\"nombre\" : \"Estadistica\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"PDIS\"]},"
-        + "\"TCOM\": {\"nombre\" : \"Teoria de la computacion\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"MDIS\",\"POOB\"]},"
-        + "\"FRED\": {\"nombre\" : \"Fundamentos de redes\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"ARQC\"]},"
-        + "\"TSOR\": {\"nombre\" : \"Teoria de sistemas y organizaciones\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"PDSW\": {\"nombre\" : \"Procesos de desarrollo de software\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"MBDA\", \"POOB\"]},"
-        + "\"FUNE\": {\"nombre\" : \"Fundamentos de economia\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"CALD\"]},"
-        + "\"SEGI\": {\"nombre\" : \"Seguridad informatica\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"FRED\"]},"
-        + "\"SOPC\": {\"nombre\" : \"Sistemas operativos y plataformas computacionales\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"ARQC\"]},"
-        + "\"PRON\": {\"nombre\" : \"Procesos de negocio\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"TSOR\"]},"
-        + "\"ARSW\": {\"nombre\" : \"Arquitectura de software\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"PDSW\", \"FRED\"]},"
-        + "\"ACFI\": {\"nombre\" : \"Analisis contable y financiero\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"FUNE\"]},"
-        + "\"AREM\": {\"nombre\" : \"Arquitecturas empresariales\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"AREM\"]},"
-        + "\"COSW\": {\"nombre\" : \"Construccion de software\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"ARSW\",\"PRON\"]},"
-        + "\"EHU2\": {\"nombre\" : \"Electiva humanistica 2\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"FGPR\": {\"nombre\" : \"Fundamentos y gerencia de proyectos\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"FGPR\"]},"
-        + "\"ET01\": {\"nombre\" : \"Electiva tecnica 1\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"SOSW\": {\"nombre\" : \"Soluciones de software\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"ARSW\",\"AREM\"]},"
-        + "\"EHU3\": {\"nombre\" : \"Electiva humanistica 3\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"ELEA\": {\"nombre\" : \"Electiva economico-administrativa\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"ET02\": {\"nombre\" : \"Electiva tecnica 2\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"PGR1\": {\"nombre\" : \"Proyecto de grado 1\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"FGPR\"]},"
-        + "\"CRIP\": {\"nombre\" : \"Colombia: realidad e instituciones politicas\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"ET03\": {\"nombre\" : \"Electiva tecnica 3\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"CLE1\": {\"nombre\" : \"Curso de libre eleccion 1\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"PGR2\": {\"nombre\" : \"Proyecto de grado 2\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"PGR1\"]},"
-        + "\"CLE2\": {\"nombre\" : \"Curso de libre eleccion 2\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []}}";
+        return "{\n" +
+"       \"materias\": [\"CALD\",\"MMIN\",\"ALLI\",\"IINS\",\"EALE\",\"CIED\",\"LCAL\",\"FIMF\",\"PIMB\",\"MDIS\",\"FIEM\",\"MBDA\",\"PIMO\",\"EHU1\",\"PDIS\",\"TPRO\",\"ARQC\",\n" +
+"       \"ELCB\",\"POOB\",\"ESTI\",\"TCOM\",\"FRED\",\"TSOR\",\"PDSW\",\"FUNE\",\"SEGI\",\"SOPC\",\"PRON\",\"ARSW\",\"ACFI\",\"AREM\",\"COSW\",\"EHU2\",\"FGPR\",\"ET01\",\n" +
+"       \"SOSW\", \"EHU3\",\"ELEA\",\"ET02\",\"PGR1\",\"CRIP\", \"ET03\",\"CLE1\", \"PGR2\", \"CLE2\"],\n" +
+"       \"CALD\": {\"nombre\" : \"Calculo diferencial\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"MMIN\": {\"nombre\" : \"Modelos matematicos para informatica\",\n"+
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"ALLI\": {\"nombre\" : \"Algebra lineal\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"IINS\": {\"nombre\" : \"Introduccion a la ingenieria de sistemas\",\n" +
+"               \"creditos\":\"2\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"EALE\": {\"nombre\" : \"Electiva en el area de lengua espanola\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"CIED\": {\"nombre\" : \"Calculo integral y ecuaciones diferenciales\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"CALD\"]},\n" +
+"       \"LCAL\": {\"nombre\" : \"Logica calculativa\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"MMIN\"]},\n" +
+"       \"FIMF\": {\"nombre\" : \"Fisica mecanica y fluidos\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [\"CALD\"],\n" +
+"               \"pre\" : []},\n" +
+"       \"PIMB\": {\"nombre\" : \"Programacion imperativa basica\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"MDIS\": {\"nombre\" : \"Matematicas discretas\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"LCAL\"]},\n" +
+"       \"FIEM\": {\"nombre\" : \"Fisica del electromagnetismo\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [\"CIED\"],\n" +
+"               \"pre\" : [\"FIMF\"]},\n" +
+"       \"MBDA\": {\"nombre\" : \"Modelos y bases de datos\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"LCAL\",\"PIMB\"]},\n" +
+"       \"PIMO\": {\"nombre\" : \"Programacion imperativa modular\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"PIMB\"]},\n" +
+"       \"EHU1\": {\"nombre\" : \"Electiva humanistica 1\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"PDIS\": {\"nombre\" : \"Probabilidad discreta\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"CIED\"]},\n" +
+"       \"TPRO\": {\"nombre\" : \"Teoria de la programacion\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"MDIS\",\"PIMO\"]},\n" +
+"       \"ARQC\": {\"nombre\" : \"Arquitectura del computador\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"FIEM\"]},\n" +
+"       \"ELCB\": {\"nombre\" : \"Electiva en ciencias basicas\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"POOB\": {\"nombre\" : \"Programacion orientada a objetos\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"PIMO\"]},\n" +
+"       \"ESTI\": {\"nombre\" : \"Estadistica\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"PDIS\"]},\n" +
+"       \"TCOM\": {\"nombre\" : \"Teoria de la computacion\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"MDIS\",\"POOB\"]},\n" +
+"       \"FRED\": {\"nombre\" : \"Fundamentos de redes\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"ARQC\"]},\n" +
+"       \"TSOR\": {\"nombre\" : \"Teoria de sistemas y organizaciones\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"PDSW\": {\"nombre\" : \"Procesos de desarrollo de software\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"MBDA\", \"POOB\"]},\n" +
+"       \"FUNE\": {\"nombre\" : \"Fundamentos de economia\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"CALD\"]},\n" +
+"       \"SEGI\": {\"nombre\" : \"Seguridad informatica\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"FRED\"]},\n" +
+"       \"SOPC\": {\"nombre\" : \"Sistemas operativos y plataformas computacionales\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"ARQC\"]},\n" +
+"       \"PRON\": {\"nombre\" : \"Procesos de negocio\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"TSOR\"]},\n" +
+"       \"ARSW\": {\"nombre\" : \"Arquitectura de software\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"PDSW\", \"FRED\"]},\n" +
+"       \"ACFI\": {\"nombre\" : \"Analisis contable y financiero\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"FUNE\"]},\n" +
+"       \"AREM\": {\"nombre\" : \"Arquitecturas empresariales\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"PRON\"]},\n" +
+"       \"COSW\": {\"nombre\" : \"Construccion de software\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"ARSW\",\"PRON\"]},\n" +
+"       \"EHU2\": {\"nombre\" : \"Electiva humanistica 2\",\n" +
+"               \"creditos\":\"3\",\n"  +
+"               \"co\" : [],\n" + 
+"               \"pre\" : []},\n" +
+"       \"FGPR\": {\"nombre\" : \"Fundamentos y gerencia de proyectos\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"ACFI\"]},\n" +
+"       \"ET01\": {\"nombre\" : \"Electiva tecnica 1\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"SOSW\": {\"nombre\" : \"Soluciones de software\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"ARSW\",\"AREM\"]},\n" +
+"       \"EHU3\": {\"nombre\" : \"Electiva humanistica 3\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"ELEA\": {\"nombre\" : \"Electiva economico-administrativa\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"ET02\": {\"nombre\" : \"Electiva tecnica 2\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"PGR1\": {\"nombre\" : \"Proyecto de grado 1\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"FGPR\"]},\n" +
+"       \"CRIP\": {\"nombre\" : \"Colombia: realidad e instituciones politicas\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"ET03\": {\"nombre\" : \"Electiva tecnica 3\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"CLE1\": {\"nombre\" : \"Curso de libre eleccion 1\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []},\n" +
+"       \"PGR2\": {\"nombre\" : \"Proyecto de grado 2\",\n" +
+"               \"creditos\":\"4\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : [\"PGR1\"]},\n" +
+"       \"CLE2\": {\"nombre\" : \"Curso de libre eleccion 2\",\n" +
+"               \"creditos\":\"3\",\n" +
+"               \"co\" : [],\n" +
+"               \"pre\" : []}\n" +
+"}";
     }
 
     public static String industrial() {

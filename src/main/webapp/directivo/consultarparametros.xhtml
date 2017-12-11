@@ -11,7 +11,35 @@
                 <br/>
                 <p:outputLabel value="Creditos que pueden cursar los estudiantes cada semestre: #{beanSolicitudDirectivo.creditosActuales}"/>
                 <br/>
-                <p:outputLabel value="Grafo de plan de estudios: ----"/>
+                <p:diagram value="#{beanSolicitudDirectivo.model}" style="height:600px" styleClass="ui-widget-content" />
+ 
+<style type="text/css">
+    .ui-diagram-element {   
+        width:3em; 
+        height:3em;
+        line-height:5em;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+        border-radius: 5em;
+        border: 1px solid #404a4e;
+        background-color: #404a4e;
+        color: #cccccc;
+    }
+ 
+    .ui-diagram-element:hover {
+        background-color: #20282b;
+    }
+</style>
+ 
+<style type="text/css">
+    .ui-diagram-element {
+        border:0.1em dotted #d4e06b;    
+        width:14em; 
+        height:4em;     
+        line-height:4em;
+        text-align: center;
+    }
+</style>
             </p:outputPanel>
         </h:body>
     </h:form>

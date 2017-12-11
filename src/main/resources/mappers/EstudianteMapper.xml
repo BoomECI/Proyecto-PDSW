@@ -120,13 +120,13 @@
         WHERE est.codigo=#{ide}
     </select> 
     
-    <select parameterType="map" id="loadPlanDeEstudiosById" resultMap="PlanDeEstudiosResult">
+    <select parameterType="long" id="loadPlanDeEstudiosById" resultMap="PlanDeEstudiosResult">
         select
-        pl.Carrera as pl_Carrera,
-        pl.ID as pl_ID,
-        pl.Grafo as pl_Grafo,
-        pl.creditos as pl_creditos,
-        pl.nummaterias as pl_nummaterias
+        pl.Carrera,
+        pl.ID,
+        pl.Grafo,
+        pl.creditos,
+        pl.nummaterias
         from
         Estudiante as est LEFT OUTER JOIN Plan_de_Estudio AS pl ON est.Plan_ID=pl.ID
         WHERE est.Plan_ID = #{ide}
