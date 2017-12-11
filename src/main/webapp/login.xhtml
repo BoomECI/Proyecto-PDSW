@@ -7,26 +7,36 @@
 </h:head>
 <h:body style="background-color: whitesmoke">
     <h:form prependId="false">
-        <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo" style="margin-left: 55%; margin-top: 0%"/>
-        <img src="\recursosVisuales\banner.jpg" alt="Logotipo" style="margin-left: 18%; margin-top: 5%"/>
-        <img src="\recursosVisuales\acreditacion.jpg" alt="Logotipo"  width="120" style="margin-left: 30%;margin-top: -11.7cm"/> 
-        <p:fieldset legend="Login" style="width: 20%; height: 40%; margin: 6% auto;">
-            <h:panelGrid columns="2" style="margin: 0 auto;margin-top: 15%">
-                <p:outputLabel value="Usuario :" for="username" style="font-family: Verdana; font-size: 18pt; font-weight: bold; color: white"/>
-                <p:inputText id="username" required="true" value="#{loginBean.username}"/>
-
-                <p:outputLabel value="Contraseña:" for="password"  style="font-family: Verdana; font-size: 15pt;font-weight: bold; color: white"/>
-                <p:password id="password" required="true" value="#{loginBean.password}"/>
-
-                <p:outputLabel value="Recordarme: " for="rememberMe" style="font-family: Verdana; font-size: 15pt;font-weight: bold; color: white"/>
+        <p:outputPanel id="hojaInterna" style=" background: white; margin-left: 30%; margin-right: 30%; height: 99% ">
+        <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo" style=" margin-right: 50%;"/>
+        <img src="\recursosVisuales\acreditacion.jpg" alt="Logotipo"  style=" width: 13%"/> 
+        <img src="\recursosVisuales\banner.jpg" alt="Logotipo" style="width:100%;"/>
+        <br/> 
+        <br/> 
+        <br/> 
+        <p:fieldset legend="Iniciar Sesión" style="width: 80%; margin: 6% auto; font-family: Verdana;  ">
+            <br/>     
+            <p:outputLabel value="Usuario :" for="username" style="font-family: Trebuchet MS; font-size: 17pt; font-weight: bold; color:  whitesmoke"/>
+                <br/>      
+                <img src="\recursosVisuales\user.png" alt="Logotipo" style="width:6%;"/>
+                <p:inputText id="username" required="true" value="#{loginBean.username}" style="font-size: 12pt; background: white; margin-left: 3%;"/>
+                <p:outputLabel value="Recordarme: " for="rememberMe" style="margin-left: 60%; font-family: Trebuchet MS; font-size: 15pt;font-weight: bold; color: white"/>
                 <p:selectBooleanCheckbox id="rememberMe" value="#{loginBean.rememberMe}"/>
-
-                <br />
-                <p:commandButton value="Ingresar" action="#{loginBean.doLogin}" style="font-weight: bold" />
-            </h:panelGrid>
-            
-        </p:fieldset>>
-        <p:messages id="messages" autoUpdate="true" closable="true" />
+                
+                <br/> 
+                <p:outputLabel value="Contraseña:" for="password"  style="font-family: Trebuchet MS; font-size: 15pt;font-weight: bold; color: white"/>
+                <br/> 
+                <img src="\recursosVisuales\pssw.png" alt="Logotipo" style="width:6%;"/>
+                <p:password id="password" required="true" value="#{loginBean.password}" style="font-size: 12pt; background: white; margin-left: 3%;"/>
+                <br/> 
+                
+                <p:commandButton value="Ingresar" action="#{loginBean.doLogin}" style="font-weight: bold; margin-left: 60%;" />
+                <p:messages id="messages" autoUpdate="true" closable="true" />
+        </p:fieldset>
+        
+        
+        </p:outputPanel>
+        
     </h:form>
 </h:body>
 </html>
