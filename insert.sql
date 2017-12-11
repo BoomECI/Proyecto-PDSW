@@ -14,6 +14,9 @@ VALUES ('Felipe Moreno', 1495412, 'felipe@hotmail.com', 313456123);
 INSERT INTO Acudiente(nombre, cedula, correo, telefono)
 VALUES ('Mauricio Cuesta', 1456763, 'mauricio@hotmail.com', 313234123);
 
+INSERT INTO Acudiente(nombre, cedula, correo, telefono)
+VALUES ('Pedro Perez', 123321, 'pedro@hotmail.com', 314567123);
+
 
 --Consejero--
 INSERT INTO Consejero(nombre, codigo, correo)
@@ -56,6 +59,9 @@ VALUES (1495412, 2108419, 'Daniel Felipe Moreno D´aleman', 'daniel.moreno-d@mai
 
 INSERT INTO Estudiante(Acudiente, codigo, nombre, correo, telefono, consejero, identificacion, tipo_id, Plan_ID)
 VALUES (134566, 2083627, 'Camilo Andres Ramirez Mendoza', 'camilo.ramirez-m@mail.escuelaing.edu.co', 312456818, 2345681, 1018345640, 'CC', 10);
+
+INSERT INTO Estudiante(Acudiente, codigo, nombre, correo, telefono, consejero, identificacion, tipo_id, plan_ID)
+VALUES (123321, 2155667, 'Pedrito Perez Ocampo', 'pedrito.perez@mail.escuelaing.edu.co', 3188888888, 2345678, 25041745532, "TI", 1);
 
 --Materia--
 INSERT INTO Materia(nemonico)
@@ -194,6 +200,135 @@ VALUES ('CLE1');
 INSERT INTO Materia(nemonico)
 VALUES ('CLE2');
 
+INSERT INTO Materia(nemonico)
+VALUES ('BIOL');
+
+INSERT INTO Materia(nemonico)
+VALUES ('EGR1');
+
+INSERT INTO Materia(nemonico)
+VALUES ('IINI');
+
+INSERT INTO Materia(nemonico)
+VALUES ('CALI');
+
+INSERT INTO Materia(nemonico)
+VALUES ('QUIM');
+
+INSERT INTO Materia(nemonico)
+VALUES ('EGR2');
+
+INSERT INTO Materia(nemonico)
+VALUES ('CALV');
+
+INSERT INTO Materia(nemonico)
+VALUES ('MSOL');
+
+INSERT INTO Materia(nemonico)
+VALUES ('HYSE');
+
+INSERT INTO Materia(nemonico)
+VALUES ('ECDI');
+
+INSERT INTO Materia(nemonico)
+VALUES ('FICO');
+
+INSERT INTO Materia(nemonico)
+VALUES ('MTRL');
+
+INSERT INTO Materia(nemonico)
+VALUES ('LMTR');
+
+INSERT INTO Materia(nemonico)
+VALUES ('SPPC');
+
+INSERT INTO Materia(nemonico)
+VALUES ('ERGO');
+
+INSERT INTO Materia(nemonico)
+VALUES ('LCTR');
+
+INSERT INTO Materia(nemonico)
+VALUES ('PRBA');
+
+INSERT INTO Materia(nemonico)
+VALUES ('TMDN');
+
+INSERT INTO Materia(nemonico)
+VALUES ('PIND');
+
+INSERT INTO Materia(nemonico)
+VALUES ('LPIN');
+
+INSERT INTO Materia(nemonico)
+VALUES ('MMAT');
+
+INSERT INTO Materia(nemonico)
+VALUES ('ELET');
+
+INSERT INTO Materia(nemonico)
+VALUES ('LETC');
+
+INSERT INTO Materia(nemonico)
+VALUES ('DPRD');
+
+INSERT INTO Materia(nemonico)
+VALUES ('LDPR');
+
+INSERT INTO Materia(nemonico)
+VALUES ('OPDO');
+
+INSERT INTO Materia(nemonico)
+VALUES ('ETTRR');
+
+INSERT INTO Materia(nemonico)
+VALUES ('GORG');
+
+INSERT INTO Materia(nemonico)
+VALUES ('CMAN');
+
+INSERT INTO Materia(nemonico)
+VALUES ('MOES');
+
+INSERT INTO Materia(nemonico)
+VALUES ('PCPI');
+
+INSERT INTO Materia(nemonico)
+VALUES ('DPIN');
+
+INSERT INTO Materia(nemonico)
+VALUES ('CLDD');
+
+INSERT INTO Materia(nemonico)
+VALUES ('GCHU');
+
+INSERT INTO Materia(nemonico)
+VALUES ('FEPR');
+
+INSERT INTO Materia(nemonico)
+VALUES ('EPF1');
+
+INSERT INTO Materia(nemonico)
+VALUES ('EPF3');
+
+INSERT INTO Materia(nemonico)
+VALUES ('ORGI1');
+
+INSERT INTO Materia(nemonico)
+VALUES ('GCAB');
+
+INSERT INTO Materia(nemonico)
+VALUES ('PMLI');
+
+INSERT INTO Materia(nemonico)
+VALUES ('EPF2');
+
+INSERT INTO Materia(nemonico)
+VALUES ('OGI2');
+
+INSERT INTO Materia(nemonico)
+VALUES ('NEGO');
+
 
 --MateriasActuales
 
@@ -277,6 +412,32 @@ VALUES (2108419, 'PDSW');
 
 INSERT INTO MateriasActuales(Estudiante, Materia)
 VALUES (2108419, 'TCOM');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2083627, 'OGI1');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2083627, 'OGI2');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2083627, 'GCAB');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2155667, 'IINS');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2155667, 'MMIN');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2155667, 'CALD');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2155667, 'ALLI');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2155667, 'EALE');
+
+
 
 
 --MateriasCursadas
@@ -606,6 +767,170 @@ VALUES (2108419, 'PRON');
 INSERT INTO MateriasCursadas(Estudiante, Materia)
 VALUES (2110805, 'CLE1');
 
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CALD');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ALLI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'BIOL');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EGR1');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'IINI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EALE');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CALI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'FIMF');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'QUIM');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EGR2');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EHU1');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CALV');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'FIEM');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'MSOL');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'HYSE');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EHU2');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ECDI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'FICO');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'MTRL');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'LMTR');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'SPPC');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ERGO');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'LCTR');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'PRBA');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'TMDN');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'PIND');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'LPIN');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'FUNE');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EHU3');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ESTI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'MMAT');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ELET');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'LETC');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'DPRD');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'LDPR');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ACFI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CLE1');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ELCB');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'OPDO');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ETTR');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'GORG');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CMAN');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CLE2');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'MOES');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'PCPI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'DPIN');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CLDD');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'GCHU');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'FEPR');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EPF1');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EPF3');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'PMLI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CRIP');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EPF2');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'NEGO');
 
 
 --Rol--
@@ -636,47 +961,53 @@ VALUES (4, 'juan.gomez-more', 'Estudiante');
 INSERT INTO "USER" (username, password, rol)
 VALUES (5, 'daniel.moreno-d', 'Estudiante');
 
+INSERT INTO "USER" (username, password, rol)
+VALUES (6, 'pedrito.ocampo', 'Estudiante');
+
 
 
 --directivo
 INSERT INTO "USER" (username, password, rol)
-VALUES (6, 'oswaldo.castillo', 'Directivo');
+VALUES (7, 'oswaldo.castillo', 'Directivo');
 
 INSERT INTO "USER" ()
-VALUES (7, 'sonia.jaimes', 'Directivo');
+VALUES (8, 'sonia.jaimes', 'Directivo');
 
 --consejeros
 INSERT INTO "USER" (username, password, rol)
-VALUES (8, 'rodrigo.lopez', 'Consejero');
+VALUES (9, 'rodrigo.lopez', 'Consejero');
 
 INSERT INTO "USER" (username, password, rol)
-VALUES (9, 'gerardo.ospina', 'Consejero');
+VALUES (10, 'gerardo.ospina', 'Consejero');
 
 INSERT INTO "USER" (username, password, rol)
-VALUES (10, 'patricia.castaneda', 'Consejero');
+VALUES (11, 'patricia.castaneda', 'Consejero');
 
 INSERT INTO "USER" (username, password, rol)
-VALUES (11, 'oswaldo.castillo', 'Consejero');
+VALUES (12, 'oswaldo.castillo', 'Consejero');
 
 INSERT INTO "USER" (username, password, rol)
-VALUES (12, 'sonia.jaimes', 'Consejero');
+VALUES (13, 'sonia.jaimes', 'Consejero');
 
 
 --solicitud_de_cancelacion
 INSERT INTO solicitud_de_cancelacion (fecha, estado, id, justificacion, comentario, avalAcudiente, avalConsejero, Materia, Estudiante)
-VALUES (TO_DATE('2017-08-25 07:45:11', 'yyyy/mm/dd hh24:mi:ss'), 'Tramitada', 1, 'No me gusta la clase y me quita tiempo para jugar lol', 'Tal vez si dejara de jugar lol podria dedicarle mas tiempo a sus asignaturas', false, false, 'APMU', 2110805);
+VALUES (TO_DATE('2017-08-25 07:45:11', 'yyyy/mm/dd hh24:mi:ss'), 'Tramitada', 1, 'No me gusta la clase y me quita tiempo para jugar lol', 'Tal vez si dejara de jugar lol podria dedicarle mas tiempo a sus asignaturas', null, false, 'APMU', 2110805);
 
 INSERT INTO solicitud_de_cancelacion (fecha, estado, id, justificacion, comentario, avalAcudiente, avalConsejero, Materia, Estudiante)
-VALUES (TO_DATE('2017-10-12 02:30:03', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 2, 'Mis notas no son buenas en esta asignatura', '', false, false, 'FRED', 2110805);
+VALUES (TO_DATE('2017-10-12 02:30:03', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 2, 'Mis notas no son buenas en esta asignatura', '', null, false, 'FRED', 2110805);
 
 INSERT INTO solicitud_de_cancelacion (fecha, estado, id, justificacion, comentario, avalAcudiente, avalConsejero, Materia, Estudiante)
-VALUES (TO_DATE('2017-07-11 10:36:10', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 3, 'No volvi a ir', '', false, false, 'PDIS', 2110432);
+VALUES (TO_DATE('2017-07-11 10:36:10', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 3, 'No volvi a ir', '', null, false, 'PDIS', 2110432);
 
 INSERT INTO solicitud_de_cancelacion (fecha, estado, id, justificacion, comentario, avalAcudiente, avalConsejero, Materia, Estudiante)
-VALUES (TO_DATE('2017-08-18 09:21:00', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 4, 'No he hecho nada del proyecto', '', false, false, 'PRON', 2118270);
+VALUES (TO_DATE('2017-08-18 09:21:00', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 4, 'No he hecho nada del proyecto', '', null, false, 'PRON', 2118270);
 
 INSERT INTO solicitud_de_cancelacion (fecha, estado, id, justificacion, comentario, avalAcudiente, avalConsejero, Materia, Estudiante)
-VALUES (TO_DATE('2017-09-14 23:21:24', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 5, 'No me gusta hacer plataformas', '', false, false, 'SOPC', 2120656);
+VALUES (TO_DATE('2017-09-14 23:21:24', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 5, 'No me gusta hacer plataformas', '', null, false, 'SOPC', 2120656);
 
 INSERT INTO solicitud_de_cancelacion (fecha, estado, id, justificacion, comentario, avalAcudiente, avalConsejero, Materia, Estudiante)
-VALUES (TO_DATE('2017-07-10 20:20:06', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 6, 'Todos mis companeros cancelaron', '', false, false, 'ESTI', 2108419);
+VALUES (TO_DATE('2017-07-10 20:20:06', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 6, 'Todos mis companeros cancelaron', '', null, false, 'ESTI', 2108419);
+
+INSERT INTO solicitud_de_cancelacion (fecha, estado, id, justificacion, comentario, avalAcudiente, avalConsejero, Materia, Estudiante)
+VALUES (TO_DATE('2017-01-01 20:51:16', 'yyyy/mm/dd hh24:mi:ss'), 'Pendiente', 7, 'No he podido acostumbrarme al ritmo de la universidad', '', false, false, 'CALD', 2155667);

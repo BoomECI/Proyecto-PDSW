@@ -6,8 +6,6 @@
 package com.BoomECI.logica.services;
 
 import com.BoomECI.entidades.Grafo;
-import com.BoomECI.entidades.PlanDeEstudios;
-import javax.json.JsonObject;
 
 /**
  *
