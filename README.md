@@ -1,10 +1,6 @@
 ***Plataforma de gestión para el acompañamiento académico de estudiantes de Pregrado de la Escuela Colombiana de Ingeniería Julio Garavito***
 ======
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b7010a5e6b454abb86b9a06d4d979168)](https://www.codacy.com/app/CAPJackie/Proyecto-PDSW?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BoomECI/Proyecto-PDSW&amp;utm_campaign=Badge_Grade)
-
-[![CircleCI](https://circleci.com/gh/BoomECI/Proyecto-PDSW.svg?style=svg)](https://circleci.com/gh/BoomECI)
-
 *Proyecto desarrollado en el periodo académico 2017-2 por BOOMECI para el curso Procesos de Desarrollo de Software (PDSW)*
 
   Integrantes de BOOMECI:
@@ -67,13 +63,29 @@ También es de gran importancia el uso del patrón de método fabrica, y las iny
 
 ***Seguridad:*** la capa de seguridad se hace gracias al uso de Apache Shiru el cual ayuda a restringir las diferentes vistas a sus correspondientes roles, también se cuenta con una protección que evita que se pueda ingresar desde el link si no pertenece al rol indicado. 
 
+## *Modelo Entidad Relación:*
+![alt text][diagramaE-R]
+
+[diagramaE-R]: https://github.com/Nixperful/BancoDeImagenes/blob/master/E-r.PNG "Diagrama E-R"
+
+
+## *Diagrama de Clases:*
 ![alt text][diagrama]
 
 [diagrama]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Class%20Diagram0.jpg "Diagrama de Clases"
+
+## *Integración Continua:*
+[![CircleCI](https://circleci.com/gh/BoomECI/Proyecto-PDSW.svg?style=svg)](https://circleci.com/gh/BoomECI)
+
+
 ## *URL Heroku:*
 https://proyectopdsw.herokuapp.com/
 
-*_Metodología usada:_*
+## *Análisis de código:*
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b7010a5e6b454abb86b9a06d4d979168)](https://www.codacy.com/app/CAPJackie/Proyecto-PDSW?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BoomECI/Proyecto-PDSW&amp;utm_campaign=Badge_Grade)
+
+
+## *_Metodología utilizada:_*
 ------- 
 La metodología usada fue un conjunto de buenas prácticas, las cuales ayudaron a la buena organización en el desarrollo del proyecto, haciéndolo de forma ágil. El uso del Framework Scrum ayudó a la administración del proceso, fortaleciendo la comunicación entre los integrantes, y mejorando la planificación para cada una de las entregas.
 
@@ -88,14 +100,41 @@ Al momento de hacer la entrega con el Dueño del producto se tienen en cuenta lo
 Enlace de Backlog elaborado en Trello: https://trello.com/b/WPZ5zuo1/2017-2-proypdsw-boomeci 
 
 ## *Sprint 1:* 
+  ### Descripción del Sprint:
+  El primer sprint concluyó de una manera adecuada, durante este tiempo se elaboró la estructura necesaria para el proyecto, además se logró tener un producto entregable para la fecha acordada, sin embargo, los últimos días antes de la entrega tuvimos un trabajo que excedió lo que habíamos planeado, ya que tuvimos grandes cambios en la estructura de la plataforma. En general tuvimos un buen desempeño donde todo el equipo trabajó constantemente y con un punto de vista de entregar un buen producto; la comunicación fue clave en este aspecto para lograr mezclar las cuatro ramas en un gran proyecto, del cual se hace el reporte GIT (anexo), el cual solo se genera con el proyecto cuando ya está unido.
+  ### Sprint-backlog:
+  ![alt text][backlog1]
+
+  [backlog1]: https://github.com/Nixperful/BancoDeImagenes/blob/master/s1.PNG "Backlog"  
+  ### Sprint-burndown Chart:
+  ![alt text][SB]
+
+  [SB]: https://github.com/Nixperful/BancoDeImagenes/blob/master/ch1.PNG "Sprint-Burndown Chart"  
+  
+  ### Reporte GIT Sprint 1:
+  http://profesores.is.escuelaing.edu.co/hcadavid/reportes/2017-2/pdsw/reports/11-14-2017-14H-38M/boomeci.repo/
+
+  
 ## *Sprint 2:* 
+  ### Descripción del Sprint:
+  
+   ### Sprint-backlog:
+  ![alt text][backlog2]
+  
+  [backlog2]: https://github.com/Nixperful/BancoDeImagenes/blob/master/s2.PNG "Backlog"  
+  
+  ### Sprint-burndown Chart:
+  ![alt text][SB2]
+
+  [SB2]: https://github.com/Nixperful/BancoDeImagenes/blob/master/ch2.PNG "Sprint-Burndown Chart"  
+  
+  ### Reporte GIT Sprint 2:
+  http://profesores.is.escuelaing.edu.co/hcadavid/reportes/2017-2/pdsw/reports/11-14-2017-14H-38M/boomeci.repo/
+  
 ## *Sprint 3:*
 
 *_Reporte de pruebas:_*
 ------- 
-
-
-
 
 
 
