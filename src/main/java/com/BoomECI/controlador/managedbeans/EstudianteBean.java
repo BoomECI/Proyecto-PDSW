@@ -321,10 +321,6 @@ public class EstudianteBean implements Serializable{
            tablaMaterias.getChildren().add(tab);
        }
        RequestContext context = RequestContext.getCurrentInstance();
-       //context.update("myTabPanel");
-       
-       
-
        Boolean esMenor = grafo.getSemestre(estudianteActual) <3? false: null;
        
        solicitudesEstudiante = new ArrayList();
