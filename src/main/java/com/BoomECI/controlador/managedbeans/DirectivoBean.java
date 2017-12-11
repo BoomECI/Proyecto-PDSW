@@ -88,7 +88,6 @@ public class DirectivoBean implements Serializable{
                     if(j==0 && k==1);
                     model.connect(new Connection(model.findEndPoint(a, idElementoActual+"-"+idPre), model.findEndPoint(prerrequisito, idPre+"-"+idElementoActual), connector));
                 }
-                
                 model.addElement(a);
                 
             }
