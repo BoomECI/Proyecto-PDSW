@@ -194,6 +194,135 @@ VALUES ('CLE1');
 INSERT INTO Materia(nemonico)
 VALUES ('CLE2');
 
+INSERT INTO Materia(nemonico)
+VALUES ('BIOL');
+
+INSERT INTO Materia(nemonico)
+VALUES ('EGR1');
+
+INSERT INTO Materia(nemonico)
+VALUES ('IINI');
+
+INSERT INTO Materia(nemonico)
+VALUES ('CALI');
+
+INSERT INTO Materia(nemonico)
+VALUES ('QUIM');
+
+INSERT INTO Materia(nemonico)
+VALUES ('EGR2');
+
+INSERT INTO Materia(nemonico)
+VALUES ('CALV');
+
+INSERT INTO Materia(nemonico)
+VALUES ('MSOL');
+
+INSERT INTO Materia(nemonico)
+VALUES ('HYSE');
+
+INSERT INTO Materia(nemonico)
+VALUES ('ECDI');
+
+INSERT INTO Materia(nemonico)
+VALUES ('FICO');
+
+INSERT INTO Materia(nemonico)
+VALUES ('MTRL');
+
+INSERT INTO Materia(nemonico)
+VALUES ('LMTR');
+
+INSERT INTO Materia(nemonico)
+VALUES ('SPPC');
+
+INSERT INTO Materia(nemonico)
+VALUES ('ERGO');
+
+INSERT INTO Materia(nemonico)
+VALUES ('LCTR');
+
+INSERT INTO Materia(nemonico)
+VALUES ('PRBA');
+
+INSERT INTO Materia(nemonico)
+VALUES ('TMDN');
+
+INSERT INTO Materia(nemonico)
+VALUES ('PIND');
+
+INSERT INTO Materia(nemonico)
+VALUES ('LPIN');
+
+INSERT INTO Materia(nemonico)
+VALUES ('MMAT');
+
+INSERT INTO Materia(nemonico)
+VALUES ('ELET');
+
+INSERT INTO Materia(nemonico)
+VALUES ('LETC');
+
+INSERT INTO Materia(nemonico)
+VALUES ('DPRD');
+
+INSERT INTO Materia(nemonico)
+VALUES ('LDPR');
+
+INSERT INTO Materia(nemonico)
+VALUES ('OPDO');
+
+INSERT INTO Materia(nemonico)
+VALUES ('ETTRR');
+
+INSERT INTO Materia(nemonico)
+VALUES ('GORG');
+
+INSERT INTO Materia(nemonico)
+VALUES ('CMAN');
+
+INSERT INTO Materia(nemonico)
+VALUES ('MOES');
+
+INSERT INTO Materia(nemonico)
+VALUES ('PCPI');
+
+INSERT INTO Materia(nemonico)
+VALUES ('DPIN');
+
+INSERT INTO Materia(nemonico)
+VALUES ('CLDD');
+
+INSERT INTO Materia(nemonico)
+VALUES ('GCHU');
+
+INSERT INTO Materia(nemonico)
+VALUES ('FEPR');
+
+INSERT INTO Materia(nemonico)
+VALUES ('EPF1');
+
+INSERT INTO Materia(nemonico)
+VALUES ('EPF3');
+
+INSERT INTO Materia(nemonico)
+VALUES ('ORGI1');
+
+INSERT INTO Materia(nemonico)
+VALUES ('GCAB');
+
+INSERT INTO Materia(nemonico)
+VALUES ('PMLI');
+
+INSERT INTO Materia(nemonico)
+VALUES ('EPF2');
+
+INSERT INTO Materia(nemonico)
+VALUES ('OGI2');
+
+INSERT INTO Materia(nemonico)
+VALUES ('NEGO');
+
 
 --MateriasActuales
 
@@ -277,6 +406,15 @@ VALUES (2108419, 'PDSW');
 
 INSERT INTO MateriasActuales(Estudiante, Materia)
 VALUES (2108419, 'TCOM');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2083627, 'OGI1');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2083627, 'OGI2');
+
+INSERT INTO MateriasActuales(Estudiante, Materia)
+VALUES (2083627, 'GCAB');
 
 
 --MateriasCursadas
@@ -606,6 +744,170 @@ VALUES (2108419, 'PRON');
 INSERT INTO MateriasCursadas(Estudiante, Materia)
 VALUES (2110805, 'CLE1');
 
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CALD');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ALLI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'BIOL');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EGR1');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'IINI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EALE');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CALI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'FIMF');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'QUIM');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EGR2');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EHU1');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CALV');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'FIEM');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'MSOL');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'HYSE');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EHU2');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ECDI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'FICO');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'MTRL');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'LMTR');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'SPPC');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ERGO');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'LCTR');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'PRBA');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'TMDN');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'PIND');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'LPIN');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'FUNE');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EHU3');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ESTI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'MMAT');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ELET');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'LETC');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'DPRD');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'LDPR');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ACFI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CLE1');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ELCB');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'OPDO');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'ETTR');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'GORG');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CMAN');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CLE2');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'MOES');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'PCPI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'DPIN');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CLDD');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'GCHU');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'FEPR');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EPF1');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EPF3');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'PMLI');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'CRIP');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'EPF2');
+
+INSERT INTO MateriasCursadas(Estudiante, Materia)
+VALUES (2083627, 'NEGO');
 
 
 --Rol--
