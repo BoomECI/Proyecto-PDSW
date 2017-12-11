@@ -42,7 +42,6 @@ public class EstudianteBean implements Serializable{
     @ManagedProperty(value = "#{loginBean}")
     private ShiroLoginBean seguridad;
     
-    private int carnetActual;
     private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
     private Date fechaCancelacion;                         
     private List<SolicitudCancelacion> solicitudes;
@@ -71,18 +70,7 @@ public class EstudianteBean implements Serializable{
         fechaCancelacion = new Date();
         fecha = fechaCancelacion.getDate()+"-"+fechaCancelacion.getMonth()+"-"+(fechaCancelacion.getYear()+1900);
         
-        estudianteActual = servCanc.consultarEstudiante(2118270);
-        materiasCursadas = estudianteActual.getMateriasCursadas();
-        materiasActuales = estudianteActual.getMateriasActuales();
-        planDeEstudios = estudianteActual.getPlanDeEstudios();
-        solicitudesEstudiante = estudianteActual.getSolicitudes();
-        creditosCarrera = estudianteActual.getPlanDeEstudios().getNumeroDeCreditosTotales();
-        tablaMaterias = new TabView();
-        materiasActualesString = new ArrayList<>();
-        materiasSeleccionadasString = new ArrayList<>();
-        materiasActualesString = conversorActualesToString();
-        materias = new DualListModel<>(materiasActualesString, materiasSeleccionadasString);
-        solicitudes = servCanc.consultarTodasLasSolicitudesCancelacion();
+        
             
     }
     
@@ -220,7 +208,20 @@ public class EstudianteBean implements Serializable{
     
     
     public Estudiante getEstudianteActual() throws ExcepcionServiciosCancelaciones {
-        estudianteActual= servCanc.consultarEstudiante(Integer.parseInt(seguridad.getUsername()));
+        if(estudianteActual==null){
+            estudianteActual= servCanc.consultarEstudiante(Integer.parseInt(seguridad.getUsername()));
+            materiasCursadas = estudianteActual.getMateriasCursadas();
+            materiasActuales = estudianteActual.getMateriasActuales();
+            planDeEstudios = estudianteActual.getPlanDeEstudios();
+            solicitudesEstudiante = estudianteActual.getSolicitudes();
+            creditosCarrera = estudianteActual.getPlanDeEstudios().getNumeroDeCreditosTotales();
+            tablaMaterias = new TabView();
+            materiasActualesString = new ArrayList<>();
+            materiasSeleccionadasString = new ArrayList<>();
+            materiasActualesString = conversorActualesToString();
+            materias = new DualListModel<>(materiasActualesString, materiasSeleccionadasString);
+            solicitudes = servCanc.consultarTodasLasSolicitudesCancelacion();
+        }
         return estudianteActual;
     }
 
