@@ -1,8 +1,5 @@
 package com.BoomECI.controlador.managedbeans;
 
-
-import com.BoomECI.entidades.Acudiente;
-import com.BoomECI.entidades.Consejero;
 import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
@@ -45,6 +42,7 @@ public class EstudianteBean implements Serializable{
     @ManagedProperty(value = "#{loginBean}")
     private ShiroLoginBean seguridad;
     
+    private int carnetActual;
     private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
     private Date fechaCancelacion;                         
     private List<SolicitudCancelacion> solicitudes;
@@ -66,12 +64,10 @@ public class EstudianteBean implements Serializable{
     private int anoGraduacion;
     private TreeNode root;
     
-    
+    private static final Logger LOG = Logger.getLogger(EstudianteBean.class.getName());
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
         
-        //int carnetActual = Integer.parseInt(seguridad.getUsername());
-        //estudianteActual= servCanc.consultarEstudiante(carnetActual);
         fechaCancelacion = new Date();
         fecha = fechaCancelacion.getDate()+"-"+fechaCancelacion.getMonth()+"-"+(fechaCancelacion.getYear()+1900);
         
@@ -89,10 +85,10 @@ public class EstudianteBean implements Serializable{
         solicitudes = servCanc.consultarTodasLasSolicitudesCancelacion();
             
     }
-    private static final Logger LOG = Logger.getLogger(EstudianteBean.class.getName());
+    
 
     
-    
+
     
     
     
@@ -223,7 +219,8 @@ public class EstudianteBean implements Serializable{
     }
     
     
-    public Estudiante getEstudianteActual() {
+    public Estudiante getEstudianteActual() throws ExcepcionServiciosCancelaciones {
+        estudianteActual= servCanc.consultarEstudiante(Integer.parseInt(seguridad.getUsername()));
         return estudianteActual;
     }
 
