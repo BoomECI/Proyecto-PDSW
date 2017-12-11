@@ -11,27 +11,40 @@ import java.util.List;
  * @author BoomEci
  */
 public class PlanDeEstudios {
+
+    public static int creditosPorSemestre = 18;
     
     
-    private String carrera;
+    private String carrera;    
+    private int numeroPlanDeEstudio;    
     private String grafo;
     private int numeroDeCreditosTotales;
-    private int numeroDeAsignaturas;
-    private int numeroPlanDeEstudio;
-    private List<Materia> materias;
-    public static final int creditosPorSemestre = 18;
+    private int numeroDeAsignaturas;        
     
     public PlanDeEstudios(){
     }
-    public PlanDeEstudios(int numeroPlanDeEstudio) {
+    
+    public PlanDeEstudios(int numeroPlanDeEstudio){
         this.numeroPlanDeEstudio = numeroPlanDeEstudio;
-        if(numeroPlanDeEstudio ==1){
+        if(numeroPlanDeEstudio ==1 ){
             grafo = sistemas();
         }
         else if(numeroPlanDeEstudio == 10){
             grafo = industrial();
         }
-        
+    }
+    
+    public PlanDeEstudios(String carrera, int numeroPlanDeEstudio, String grafo, int numeroCreditos, int numeroAsignaturas) {
+        this.numeroPlanDeEstudio = numeroPlanDeEstudio;
+        if(numeroPlanDeEstudio == 1 ){
+            grafo = sistemas();
+        }
+        else if(numeroPlanDeEstudio == 10){
+            grafo = industrial();
+        }
+        this.carrera = carrera;        
+        this.numeroDeCreditosTotales = numeroCreditos;
+        this.numeroDeAsignaturas = numeroAsignaturas;        
     }
     
     public int getNumeroDeAsignaturas() {
@@ -64,15 +77,7 @@ public class PlanDeEstudios {
 
     public void setGrafo(String grafo) {
         this.grafo = grafo;
-    }
-
-    public List<Materia> getMaterias() {
-        return materias;
-    }
-
-    public void setMaterias(List<Materia> materias) {
-        this.materias = materias;
-    }
+    }    
 
     public int getNumeroPlanDeEstudio() {
         return numeroPlanDeEstudio;

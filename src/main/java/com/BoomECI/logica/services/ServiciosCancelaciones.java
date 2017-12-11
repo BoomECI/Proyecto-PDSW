@@ -9,6 +9,7 @@ import com.BoomECI.entidades.Consejero;
 import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
+import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.util.List;
 
@@ -157,5 +158,7 @@ public interface ServiciosCancelaciones {
      */
     public abstract Consejero consultarConsejero(long idConsejero) throws ExcepcionServiciosCancelaciones;
     
+    
+    public abstract PlanDeEstudios consultarPlanDeEstudio(int id) throws ExcepcionServiciosCancelaciones;
     
 }    

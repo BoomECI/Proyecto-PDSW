@@ -46,7 +46,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     public List<Estudiante> consultarEstudiantes() throws ExcepcionServiciosCancelaciones {
         try {
             List<Estudiante> estudiantes = daoEst.loadAll();
-            for(int i=0; i<estudiantes.size(); i++){
+            for(int i=0; i<estudiantes.size(); i++){    
                 PlanDeEstudios pEst = estudiantes.get(i).getPlanDeEstudios();
                 PlanDeEstudios p1 = new PlanDeEstudios(pEst.getNumeroPlanDeEstudio());
                 estudiantes.get(i).getPlanDeEstudios().setGrafo(p1.getGrafo());
@@ -62,19 +62,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     @Override
     public Estudiante consultarEstudiante(long idEstudiante) throws ExcepcionServiciosCancelaciones {
         try {
-            Estudiante e = daoEst.loadByID(idEstudiante);
-            System.out.println(e.getCodigo());
-            System.out.println(e.getIdentificacion());
-            System.out.println(e.getPlanDeEstudios().getCarrera());
-            System.out.println(e.getPlanDeEstudios().getNumeroPlanDeEstudio());
-            
-            System.out.println("---------------------------------------------------");
-            
-            System.out.println(e.getPlanDeEstudios().getGrafo());
-            
-            
-            System.out.println("----------------------------------------------------");
-            
+            Estudiante e = daoEst.loadByID(idEstudiante);                        
             PlanDeEstudios pEst = e.getPlanDeEstudios();
             PlanDeEstudios pl = new PlanDeEstudios(pEst.getNumeroPlanDeEstudio());
             e.getPlanDeEstudios().setGrafo(pl.getGrafo());
@@ -215,6 +203,16 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
     public Consejero consultarConsejero(long idConsejero) throws ExcepcionServiciosCancelaciones {
          try {
             return daoCon.consultarConsejero(idConsejero);
+        } catch (PersistenceException ex) {
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @Override
+    public PlanDeEstudios consultarPlanDeEstudio(int id) throws ExcepcionServiciosCancelaciones {
+        try {
+            return daoEst.consultarPlanDeEstudio(id);
         } catch (PersistenceException ex) {
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

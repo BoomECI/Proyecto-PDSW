@@ -23,5 +23,6 @@ public interface EstudianteDAO {
     //public void actualizarEstudiante(Estudiante p);
     public void save(SolicitudCancelacion solicitudCancelacion);
     
+    public PlanDeEstudios consultarPlanDeEstudio(int id);
     
 }

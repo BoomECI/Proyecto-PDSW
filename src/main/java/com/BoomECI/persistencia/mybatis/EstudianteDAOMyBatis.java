@@ -47,12 +47,8 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
             Estudiante x = Estmaper.loadEstudianteById(id);
             x.setMateriasActuales(Estmaper.loadMateriasActualesById(x.getCodigo()));
             x.setMateriasCursadas(Estmaper.loadMateriasCursadasById(x.getCodigo()));
-            PlanDeEstudios p = Estmaper.loadPlanDeEstudiosById(x.getCodigo());
-            System.out.println(p.getNumeroPlanDeEstudio());
-            System.out.println(p.getGrafo());
-            
-            System.out.println(p.getCarrera());
-            x.setPlanDeEstudios(Estmaper.loadPlanDeEstudiosById(x.getCodigo()));
+            //PlanDeEstudios p = Estmaper.loadPlanDeEstudiosById(x.getCodigo());            
+            //x.setPlanDeEstudios(Estmaper.loadPlanDeEstudiosById(x.getCodigo()));
             return x;
         }
         catch(Exception e){
@@ -88,6 +84,16 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
         }
         catch(Exception e){
             throw new PersistenceException("Error al cargar el estudiante:"+e.getLocalizedMessage(), e);
+        } 
+    }
+
+    @Override
+    public PlanDeEstudios consultarPlanDeEstudio(int id) {
+        try{
+           return Estmaper.loadPlanDeEstudiosById(id);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al cargar el Plan de estudios:"+e.getLocalizedMessage(), e);
         } 
     }
 }

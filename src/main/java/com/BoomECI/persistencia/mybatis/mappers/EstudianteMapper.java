@@ -18,7 +18,7 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface EstudianteMapper {   
     
-    public Estudiante loadEstudianteById(@Param("ide")long id);
+    public Estudiante loadEstudianteById(@Param("ide") long id);
     
     public List<Estudiante> consultarEstudiantes();
     
