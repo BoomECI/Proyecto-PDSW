@@ -67,7 +67,9 @@ También es de gran importancia el uso del patrón de método fabrica, y las iny
 
 ***Seguridad:*** la capa de seguridad se hace gracias al uso de Apache Shiru el cual ayuda a restringir las diferentes vistas a sus correspondientes roles, también se cuenta con una protección que evita que se pueda ingresar desde el link si no pertenece al rol indicado. 
 
+![alt text][diagrama]
 
+[diagrama]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Class%20Diagram0.jpg "Diagrama de Clases"
 ## *URL Heroku:*
 https://proyectopdsw.herokuapp.com/
 
@@ -91,6 +93,10 @@ Enlace de Backlog elaborado en Trello: https://trello.com/b/WPZ5zuo1/2017-2-proy
 
 *_Reporte de pruebas:_*
 ------- 
+
+
+
+
 
 
 
