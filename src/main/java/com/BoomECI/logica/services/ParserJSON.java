@@ -7,14 +7,10 @@ package com.BoomECI.logica.services;
 
 import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
-import com.BoomECI.entidades.PlanDeEstudios;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import javax.json.Json;
-import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonValue;

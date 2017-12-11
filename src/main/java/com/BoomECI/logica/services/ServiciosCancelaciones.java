@@ -27,7 +27,7 @@ public interface ServiciosCancelaciones {
     public abstract Estudiante consultarEstudiante(long idEstudiante) throws ExcepcionServiciosCancelaciones;
     
     /**
-     * Agrega una consulta a un paciente ya registrado     
+     * Agrega una solicitud de cancelación a un estudiante ya registrado     
      * @param solicitudCancelacion la solicitud de cancelación a ser agregada
      * @throws ExcepcionServiciosCancelaciones si se presenta algún error de persistencia o si el paciente no existe.
      */
