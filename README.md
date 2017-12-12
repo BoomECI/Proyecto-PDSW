@@ -99,8 +99,8 @@ Una plataforma de gestión para el acompañamiento académico a estudiantes, con
 
 [8]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Captura8.PNG "wow!"
 
-### *Se puede ver el impacto y los datos más relevantes del mismo, así tenerlo muy en cuenta a la hora de aceptar o denegar una solicitud, la cual es necesario que tenga un comentario que quede evidencia de las razones de la decisión.
-### Al momento de enviar una respuesta el sistema manda un correo automáticamente al estudiante que le notifica que le han dado una respuesta a su solicitud.*
+### *Se puede ver el impacto y los datos más relevantes del mismo, así tenerlo muy en cuenta a la hora de aceptar o denegar una solicitud, la cual es necesario que tenga un comentario que quede evidencia de las razones de la decisión.*
+### *Al momento de enviar una respuesta el sistema manda un correo automáticamente al estudiante que le notifica que le han dado una respuesta a su solicitud.*
 
 
 ![alt text][9]
@@ -148,7 +148,7 @@ https://proyectopdsw.herokuapp.com/
 
 
 ## *_Metodología utilizada:_*
-------- 
+
 La metodología usada fue un conjunto de buenas prácticas, las cuales ayudaron a la buena organización en el desarrollo del proyecto, haciéndolo de forma ágil. El uso del Framework Scrum ayudó a la administración del proceso, fortaleciendo la comunicación entre los integrantes, y mejorando la planificación para cada una de las entregas.
 
 Todo el proceso de desarrollo empezó con una visión del producto que elabora el stakeholder, sin embargo lo que no es de prioridad se filtra por el Dueño del producto el cual produce un backlog (anexo) en el cual en forma de historias de usuario se plantean los requerimientos que debe tener la aplicación.
