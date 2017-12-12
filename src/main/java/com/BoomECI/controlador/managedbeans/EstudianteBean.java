@@ -357,14 +357,17 @@ public class EstudianteBean implements Serializable{
                TreeNode materia = new DefaultTreeNode(proyeccion.get(i).get(j), semestre);
            }
        }
+       anoGraduacion = (fechaCancelacion.getYear()+1900) + (int)(proyeccion.size()/2);
        ciclo = proyeccion.size()/2;
        if ((ciclo*2)==proyeccion.size()){
-           ciclo=2;     
+           ciclo=2;
+           
        }
        else{
            ciclo=1;
+           anoGraduacion+=1;
        }
-       anoGraduacion = (fechaCancelacion.getYear()+1900) + (int)(proyeccion.size()/2);
+       
        
     }
 
