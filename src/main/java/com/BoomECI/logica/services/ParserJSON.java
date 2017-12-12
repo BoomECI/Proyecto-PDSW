@@ -26,6 +26,12 @@ public class ParserJSON implements ParserGrafo{
     public PlanDeEstudios jsonToPlanDeEstudios(JsonObject js) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }*/
+    
+    /**
+     *Convierte una cadena en un JsonObject
+     * @param st cadena
+     * @return JsonObject obtenido de leer la cadena
+     */
     public JsonObject convertStringToJson(String st){
         JsonReader jsonReader = Json.createReader(new StringReader(st));
         JsonObject object = jsonReader.readObject();
@@ -35,7 +41,11 @@ public class ParserJSON implements ParserGrafo{
 
     }
     
-    
+    /**
+     *Convierte un JsonObject en el objeto Grafo
+     * @param jo JsonObject
+     * @return tipo grafo
+     */
     public Grafo convertJsonToGrafo(JsonObject jo){
         List<Materia> listaMaterias = new ArrayList();
         List<String> pre = new ArrayList();
@@ -61,11 +71,6 @@ public class ParserJSON implements ParserGrafo{
     }
     
 
-    /**
-     *
-     * @param json
-     * @return
-     */
     @Override
     public Grafo convertStringToGrafo(String str) {
         return convertJsonToGrafo(convertStringToJson(str));
