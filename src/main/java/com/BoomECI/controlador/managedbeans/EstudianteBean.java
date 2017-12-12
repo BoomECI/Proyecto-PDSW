@@ -61,9 +61,11 @@ public class EstudianteBean implements Serializable{
     private List<List<String>> proyeccion;
     private int anoGraduacion;
     private TreeNode root;
+    private int ciclo;
     private Grafo grafo;
     
     private static final Logger LOG = Logger.getLogger(EstudianteBean.class.getName());
+    
     
     public EstudianteBean() throws ExcepcionServiciosCancelaciones{
         
@@ -257,6 +259,14 @@ public class EstudianteBean implements Serializable{
         this.fechaCancelacion = fechaCancelacion;
     }
 
+    public int getCiclo() {
+        return ciclo;
+    }
+
+    public void setCiclo(int ciclo) {
+        this.ciclo = ciclo;
+    }
+
     public String[] getJustificacionesCancelacion() {
         return justificacionesCancelacion;
     }
@@ -304,17 +314,18 @@ public class EstudianteBean implements Serializable{
            ita.setValue(justificacionesCancelacion[i]);
            ita.setMaxlength(400);
            ita.setCounterTemplate("{0} restantes.");
-           ita.setTitle("¿Por que quiero cancelar esta asignatura?");
+           ita.setTitle("¿Por qué cancelar esta asignatura?");
            ita.setRows(6);
            ita.setCols(40);
            ita.setAutoResize(true);
-           ita.setCounter("display"+i);           
+           ita.setCounter("display"+i);
+           ita.setStyle("font-size: 80%; font-weight:normal; font-style: Tahoma;");
            OutputLabel ol1 = new OutputLabel();
            ol1.setValue("Justificacion:            ");
-           ol1.setStyle("font-size: 100%; font-weight:bold");
+           ol1.setStyle("font-style: Tahoma;font-size: 80%; font-weight:bold ; margin-rigth: 100% ;");
            OutputLabel ol = new OutputLabel();
            ol.setId("display"+i);
-           ol.setStyle("font-style: italic; font-size: 80%");
+           ol.setStyle("font-style: Tahoma; font-size: 70%");
            tab.getChildren().add(ol1);
            tab.getChildren().add(ita);
            tab.getChildren().add(ol);
@@ -335,12 +346,26 @@ public class EstudianteBean implements Serializable{
        
        root = new DefaultTreeNode("Proyeccion", null);
        for(int i=0; i<proyeccion.size(); i++){
-           TreeNode semestre = new DefaultTreeNode("en "+(i+1)+" Semestres", root);
+           TreeNode semestre = null;
+           if (i==0){
+               semestre = new DefaultTreeNode("Para el próximo semestre:", root);
+           }
+           else{
+               semestre = new DefaultTreeNode("Para dentro de "+(i+1)+" Semestres", root);
+           }
            for(int j=0; j<proyeccion.get(i).size(); j++){
                TreeNode materia = new DefaultTreeNode(proyeccion.get(i).get(j), semestre);
            }
        }
+       ciclo = proyeccion.size()/2;
+       if ((ciclo*2)==proyeccion.size()){
+           ciclo=2;     
+       }
+       else{
+           ciclo=1;
+       }
        anoGraduacion = (fechaCancelacion.getYear()+1900) + (int)(proyeccion.size()/2);
+       
     }
 
     public PlanDeEstudios getPlanDeEstudios() {
