@@ -276,72 +276,357 @@ public class PlanDeEstudios {
     }
 
     public static String industrial() {
-        return "{\"materias\": [\"CALD\",\"ALLI\",\"BIOL\",\"EGR1\", \"IINI\", \"EALE\",\"CALI\",\"FIMF\","
-        + "\"QUIM\",\"EGR2\",\"EHU1\",\"CALV\",\"FIEM\",\"MSOL\",\"HYSE\",\"EHU2\",\"ECDI\",\"FICO\","
-        + "\"MTRL\",\"LMTR\",\"SPPC\",\"ERGO\", \"LCTR\",\"PRBA\",\"TMDN\", \"PIND\", \"LPIN\","
-        + "\"FUNE\",\"EHU3\", \"ESTI\", \"MMAT\", \"ELET\", \"LETC\",\"DPRD\", \"LDPR\", \"ACFI\","
-        + "\"CLE1\", \"ELCB\", \"OPDO\",\"ETTR\", \"GORG\", \"CMAN\", \"CLE2\", \"MOES\", \"PCPI\","
-        + "\"DPIN\", \"CLDD\", \"GCHU\", \"FEPR\", \"EPF1\", \"EPF3\",\"OGI1\", \"GCAB\", \"PMLI\","
-        + "\"CRIP\", \"EPF2\", \"OGI2\", \"NEGO\"],"
-        + "\"CALD\": {\"nombre\" : \"Calculo diferencial\",\"creditos\":\"4\", \"co\" : [], \"pre\" : []},"
-        + "\"ALLI\": {\"nombre\" : \"Algebra lineal\",\"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"BIOL\": {\"nombre\" : \"Biologia\",\"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"EGR1\": {\"nombre\" : \"Expresion grafica 1\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"IINI\": {\"nombre\" : \"Introduccion a la ingenieria industrial\", \"creditos\":\"2\", \"co\" : [], \"pre\" : []},"
-        + "\"EALE\": {\"nombre\" : \"Electiva en el area de lengua espanola\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"CALI\": {\"nombre\" : \"Calculo integral\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"CALD\"},"
-        + "\"FIMF\": {\"nombre\" : \"Fisica mecanica y fluidos\", \"creditos\":\"4\", \"co\" : [\"CALD\"], \"pre\" : []},"
-        + "\"QUIM\": {\"nombre\" : \"Quimica\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"EGR2\": {\"nombre\" : \"Expresion grafica 2\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"EGR1\"]},"
-        + "\"EHU1\": {\"nombre\" : \"Electiva humanistica 1\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"CALV\": {\"nombre\" : \"Calculo vectorial\", \"creditos\":\"4\", \"co\" : [],\"pre\" : [\"ALLI\",\"CALI\"]},"
-        + "\"FIEM\": {\"nombre\" : \"Fisica del electromagnetismo\", \"creditos\":\"4\", \"co\" : [\"CALI\"], \"pre\" : [\"FIMF\"]},"
-        + "\"MSOL\": {\"nombre\" : \"Mecanica de solidos\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"CALD\",\"FIMF\"]},"
-        + "\"HYSE\": {\"nombre\" : \"Higiene y seguridad\", \"creditos\":\"2\", \"co\" : [], \"pre\" : [\"IINI\"]},"
-        + "\"EHU2\": {\"nombre\" : \"Electiva humanistica 2\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"ECDI\": {\"nombre\" : \"Ecuaciones diferenciales\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"CALV\"]},"
-        + "\"FICO\": {\"nombre\" : \"Fisica de calor, ondas y estr.atomica\", \"creditos\":\"4\", \"co\" : [], \"pre\" : [\"FIEM\"]},"
-        + "\"MTRL\": {\"nombre\" : \"Materiales\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"FIEM\", \"QUIM\"]},"
-        + "\"LMTR\": {\"nombre\" : \"Laboratorio de materiales\", \"creditos\":\"1\", \"co\" : [\"MTRL\"], \"pre\" : []},"
-        + "\"SPPC\": {\"nombre\" : \"Soluciones de problemas por computador\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"ALLI\",\"CALD\"]},"
-        + "\"ERGO\": {\"nombre\" : \"Ergonomia\", \"creditos\":\"2\", \"co\" : [\"LCTR\"], \"pre\" : [\"HYSE\"]},"
-        + "\"LCTR\": {\"nombre\" : \"Laboratorio condiciones de trabajo\", \"creditos\":\"1\", \"co\" : [\"ERGO\"], \"pre\" : []},"
-        + "\"PRBA\": {\"nombre\" : \"Probabilidad\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"CALV\"]},"
-        + "\"TMDN\": {\"nombre\" : \"Termodinamica\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"ECDI\",\"FICO\"]},"
-        + "\"PIND\": {\"nombre\" : \"Procesos industriales\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"MSOL\", \"LMTR\", \"MTRL\", \"EGR2\"]},"
-        + "\"LPIN\": {\"nombre\" : \"Laboratorio de procesos industriales\", \"creditos\":\"1\", \"co\" : [\"PIND\"], \"pre\" : []},"
-        + "\"FUNE\": {\"nombre\" : \"Fundamentos de economia\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"CALD\"]},"
-        + "\"EHU3\": {\"nombre\" : \"Electiva humanistica 3\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"ESTI\": {\"nombre\" : \"Estadistica\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"PRBA\"]},"
-        + "\"MMAT\": {\"nombre\" : \"Modelamiento matematico\", \"creditos\":\"2\", \"co\" : [], \"pre\" : [\"SPPC\", \"PRBA\"]},"
-        + "\"ELET\": {\"nombre\" : \"Electrotecnia\", \"creditos\":\"3\", \"co\" : [\"LETC\"], \"pre\" : [\"ECDI\",\"FIEM\"]},"
-        + "\"LETC\": {\"nombre\" : \"Laboratorio de electrotecnia\", \"creditos\":\"1\", \"co\" : [\"ELET\"], \"pre\" : []},"
-        + "\"DPRD\": {\"nombre\" : \"Desarrollo del producto\", \"creditos\":\"2\", \"co\" : [], \"pre\" : [\"PIND\", \"LPIN\"]},"
-        + "\"LDPR\": {\"nombre\" : \"Laboratorio de desarrollo del producto\", \"creditos\":\"1\", \"co\" : [\"DPRD\"], \"pre\" : []},"
-        + "\"ACFI\": {\"nombre\" : \"Analisis contable y financiero\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"FUNE\"]},"
-        + "\"CLE1\": {\"nombre\" : \"Curso de libre eleccion 1\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"ELCB\": {\"nombre\" : \"Electiva en ciencias basicas\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"OPDO\": {\"nombre\" : \"Optimizacion de operaciones\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"MMAT\"]},"
-        + "\"ETTR\": {\"nombre\" : \"Estudio del trabajo\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"DPRD\", \"LDPR\", \"ESTI\"]},"
-        + "\"GORG\": {\"nombre\" : \"Gestion organizacional\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"IINI\"]},"
-        + "\"CMAN\": {\"nombre\" : \"Costos manufactura\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"ACFI\"]},"
-        + "\"CLE2\": {\"nombre\" : \"Curso de libre eleccion 2\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"MOES\": {\"nombre\" : \"Modelos estocasticos\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"MMAT\"]},"
-        + "\"PCPI\": {\"nombre\" : \"Planeacion y Control de la Produccion e Inventarios \", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"ETTR\", \"MMAT\"]},"
-        + "\"DPIN\": {\"nombre\" : \"Diseno de plantas industriales\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"ELET\",\"ETTR\", \"TMDN\"]},"
-        + "\"CLDD\": {\"nombre\" : \"Calidad\", \"creditos\":\"3\", \"co\" : [\"ETTR\"], \"pre\" : [\"ESTI\", \"PIND\"]},"
-        + "\"GCHU\": {\"nombre\" : \"Gestion de capital humano\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"ESTI\",\"GORG\"]},"
-        + "\"FEPR\": {\"nombre\" : \"Formulacion y evaluacion de proyectos\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"ACFI\", \"GORG\"]},"
-        + "\"EPF1\": {\"nombre\" : \"Electiva de profundizacion 1\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"EPF3\": {\"nombre\" : \"Electiva de profundizacion 3\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"OGI1\": {\"nombre\" : \"Opcion de grado industrial 1\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"GCAB\": {\"nombre\" : \"Gestion de la cadena de abastecimiento\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"PCPI\"]},"
-        + "\"PMLI\": {\"nombre\" : \"Produccion mas limpia\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"BIOL\",  \"CMAN\"]},"
-        + "\"CRIP\": {\"nombre\" : \"Colombia realidad e instituciones politicas\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"EPF2\": {\"nombre\" : \"Electiva de profundizacion 2\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"OGI2\": {\"nombre\" : \"Opcion de grado industrial 2\", \"creditos\":\"3\", \"co\" : [], \"pre\" : []},"
-        + "\"NEGO\": {\"nombre\" : \"Negociacion\", \"creditos\":\"3\", \"co\" : [], \"pre\" : [\"FEPR\"]}}";
-
+        return "{\n" +
+"	\"materias\": [\"CALD\", \"ALLI\", \"BIOL\", \"EGR1\", \"IINI\", \"EALE\", \"CALI\", \"FIMF\", \"QUIM\", \"EGR2\", \"EHU1\", \"CALV\", \"FIEM\", \"MSOL\", \"HYSE\", \"EHU2\", \"ECDI\", \"FICO\", \"MTRL\", \"LMTR\", \"SPPC\", \"ERGO\", \"LCTR\", \"PRBA\", \"TMDN\", \"PIND\", \"LPIN\", \"FUNE\", \"EHU3\", \"ESTI\", \"MMAT\", \"ELET\", \"LETC\", \"DPRD\", \"LDPR\", \"ACFI\", \"CLE1\", \"ELCB\", \"OPDO\", \"ETTR\", \"GORG\", \"CMAN\", \"CLE2\", \"MOES\", \"PCPI\", \"DPIN\", \"CLDD\", \"GCHU\", \"FEPR\", \"EPF1\", \"EPF3\", \"OGI1\", \"GCAB\", \"PMLI\", \"CRIP\", \"EPF2\", \"OGI2\", \"NEGO\"],\n" +
+"	\"CALD\": {\n" +
+"		\"nombre\": \"Calculo diferencial\",\n" +
+"		\"creditos\": \"4\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"ALLI\": {\n" +
+"		\"nombre\": \"Algebra lineal\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"BIOL\": {\n" +
+"		\"nombre\": \"Biologia\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"EGR1\": {\n" +
+"		\"nombre\": \"Expresion grafica 1\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"IINI\": {\n" +
+"		\"nombre\": \"Introduccion a la ingenieria industrial\",\n" +
+"		\"creditos\": \"2\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"EALE\": {\n" +
+"		\"nombre\": \"Electiva en el area de lengua espanola\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"CALI\": {\n" +
+"		\"nombre\": \"Calculo integral\",\n" +
+"		\"creditos\": \"4\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"CALD\"]\n" +
+"	},\n" +
+"	\"FIMF\": {\n" +
+"		\"nombre\": \"Fisica mecanica y fluidos\",\n" +
+"		\"creditos\": \"4\",\n" +
+"		\"co\": [\"CALD\"],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"QUIM\": {\n" +
+"		\"nombre\": \"Quimica\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"EGR2\": {\n" +
+"		\"nombre\": \"Expresion grafica 2\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"EGR1\"]\n" +
+"	},\n" +
+"	\"EHU1\": {\n" +
+"		\"nombre\": \"Electiva humanistica 1\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"CALV\": {\n" +
+"		\"nombre\": \"Calculo vectorial\",\n" +
+"		\"creditos\": \"4\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"ALLI\", \"CALI\"]\n" +
+"	},\n" +
+"	\"FIEM\": {\n" +
+"		\"nombre\": \"Fisica del electromagnetismo\",\n" +
+"		\"creditos\": \"4\",\n" +
+"		\"co\": [\"CALI\"],\n" +
+"		\"pre\": [\"FIMF\"]\n" +
+"	},\n" +
+"	\"MSOL\": {\n" +
+"		\"nombre\": \"Mecanica de solidos\",\n" +
+"		\"creditos\": \"4\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"CALD\", \"FIMF\"]\n" +
+"	},\n" +
+"	\"HYSE\": {\n" +
+"		\"nombre\": \"Higiene y seguridad\",\n" +
+"		\"creditos\": \"2\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"IINI\"]\n" +
+"	},\n" +
+"	\"EHU2\": {\n" +
+"		\"nombre\": \"Electiva humanistica 2\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"ECDI\": {\n" +
+"		\"nombre\": \"Ecuaciones diferenciales\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"CALV\"]\n" +
+"	},\n" +
+"	\"FICO\": {\n" +
+"		\"nombre\": \"Fisica de calor, ondas y estr.atomica\",\n" +
+"		\"creditos\": \"4\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"FIEM\"]\n" +
+"	},\n" +
+"	\"MTRL\": {\n" +
+"		\"nombre\": \"Materiales\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"FIEM\", \"QUIM\"]\n" +
+"	},\n" +
+"	\"LMTR\": {\n" +
+"		\"nombre\": \"Laboratorio de materiales\",\n" +
+"		\"creditos\": \"1\",\n" +
+"		\"co\": [\"MTRL\"],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"SPPC\": {\n" +
+"		\"nombre\": \"Soluciones de problemas por computador\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"ALLI\", \"CALD\"]\n" +
+"	},\n" +
+"	\"ERGO\": {\n" +
+"		\"nombre\": \"Ergonomia\",\n" +
+"		\"creditos\": \"2\",\n" +
+"		\"co\": [\"LCTR\"],\n" +
+"		\"pre\": [\"HYSE\"]\n" +
+"	},\n" +
+"	\"LCTR\": {\n" +
+"		\"nombre\": \"Laboratorio condiciones de trabajo\",\n" +
+"		\"creditos\": \"1\",\n" +
+"		\"co\": [\"ERGO\"],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"PRBA\": {\n" +
+"		\"nombre\": \"Probabilidad\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"CALV\"]\n" +
+"	},\n" +
+"	\"TMDN\": {\n" +
+"		\"nombre\": \"Termodinamica\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"ECDI\", \"FICO\"]\n" +
+"	},\n" +
+"	\"PIND\": {\n" +
+"		\"nombre\": \"Procesos industriales\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"MSOL\", \"LMTR\", \"MTRL\", \"EGR2\"]\n" +
+"	},\n" +
+"	\"LPIN\": {\n" +
+"		\"nombre\": \"Laboratorio de procesos industriales\",\n" +
+"		\"creditos\": \"1\",\n" +
+"		\"co\": [\"PIND\"],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"FUNE\": {\n" +
+"		\"nombre\": \"Fundamentos de economia\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"CALD\"]\n" +
+"	},\n" +
+"	\"EHU3\": {\n" +
+"		\"nombre\": \"Electiva humanistica 3\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"ESTI\": {\n" +
+"		\"nombre\": \"Estadistica\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"PRBA\"]\n" +
+"	},\n" +
+"	\"MMAT\": {\n" +
+"		\"nombre\": \"Modelamiento matematico\",\n" +
+"		\"creditos\": \"2\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"SPPC\", \"PRBA\"]\n" +
+"	},\n" +
+"	\"ELET\": {\n" +
+"		\"nombre\": \"Electrotecnia\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [\"LETC\"],\n" +
+"		\"pre\": [\"ECDI\", \"FIEM\"]\n" +
+"	},\n" +
+"	\"LETC\": {\n" +
+"		\"nombre\": \"Laboratorio de electrotecnia\",\n" +
+"		\"creditos\": \"1\",\n" +
+"		\"co\": [\"ELET\"],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"DPRD\": {\n" +
+"		\"nombre\": \"Desarrollo del producto\",\n" +
+"		\"creditos\": \"2\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"PIND\", \"LPIN\"]\n" +
+"	},\n" +
+"	\"LDPR\": {\n" +
+"		\"nombre\": \"Laboratorio de desarrollo del producto\",\n" +
+"		\"creditos\": \"1\",\n" +
+"		\"co\": [\"DPRD\"],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"ACFI\": {\n" +
+"		\"nombre\": \"Analisis contable y financiero\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"FUNE\"]\n" +
+"	},\n" +
+"	\"CLE1\": {\n" +
+"		\"nombre\": \"Curso de libre eleccion 1\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"ELCB\": {\n" +
+"		\"nombre\": \"Electiva en ciencias basicas\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"OPDO\": {\n" +
+"		\"nombre\": \"Optimizacion de operaciones\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"MMAT\"]\n" +
+"	},\n" +
+"	\"ETTR\": {\n" +
+"		\"nombre\": \"Estudio del trabajo\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"DPRD\", \"LDPR\", \"ESTI\"]\n" +
+"	},\n" +
+"	\"GORG\": {\n" +
+"		\"nombre\": \"Gestion organizacional\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"IINI\"]\n" +
+"	},\n" +
+"	\"CMAN\": {\n" +
+"		\"nombre\": \"Costos manufactura\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"ACFI\"]\n" +
+"	},\n" +
+"	\"CLE2\": {\n" +
+"		\"nombre\": \"Curso de libre eleccion 2\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"MOES\": {\n" +
+"		\"nombre\": \"Modelos estocasticos\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"MMAT\"]\n" +
+"	},\n" +
+"	\"PCPI\": {\n" +
+"		\"nombre\": \"Planeacion y Control de la Produccion e Inventarios \",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"ETTR\", \"MMAT\"]\n" +
+"	},\n" +
+"	\"DPIN\": {\n" +
+"		\"nombre\": \"Diseno de plantas industriales\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"ELET\", \"ETTR\", \"TMDN\"]\n" +
+"	},\n" +
+"	\"CLDD\": {\n" +
+"		\"nombre\": \"Calidad\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [\"ETTR\"],\n" +
+"		\"pre\": [\"ESTI\", \"PIND\"]\n" +
+"	},\n" +
+"	\"GCHU\": {\n" +
+"		\"nombre\": \"Gestion de capital humano\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"ESTI\", \"GORG\"]\n" +
+"	},\n" +
+"	\"FEPR\": {\n" +
+"		\"nombre\": \"Formulacion y evaluacion de proyectos\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"ACFI\", \"GORG\"]\n" +
+"	},\n" +
+"	\"EPF1\": {\n" +
+"		\"nombre\": \"Electiva de profundizacion 1\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"EPF3\": {\n" +
+"		\"nombre\": \"Electiva de profundizacion 3\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"OGI1\": {\n" +
+"		\"nombre\": \"Opcion de grado industrial 1\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"GCAB\": {\n" +
+"		\"nombre\": \"Gestion de la cadena de abastecimiento\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"PCPI\"]\n" +
+"	},\n" +
+"	\"PMLI\": {\n" +
+"		\"nombre\": \"Produccion mas limpia\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"BIOL\", \"CMAN\"]\n" +
+"	},\n" +
+"	\"CRIP\": {\n" +
+"		\"nombre\": \"Colombia realidad e instituciones politicas\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"EPF2\": {\n" +
+"		\"nombre\": \"Electiva de profundizacion 2\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"OGI2\": {\n" +
+"		\"nombre\": \"Opcion de grado industrial 2\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": []\n" +
+"	},\n" +
+"	\"NEGO\": {\n" +
+"		\"nombre\": \"Negociacion\",\n" +
+"		\"creditos\": \"3\",\n" +
+"		\"co\": [],\n" +
+"		\"pre\": [\"FEPR\"]\n" +
+"	}\n" +
+"}";
     }
     
     

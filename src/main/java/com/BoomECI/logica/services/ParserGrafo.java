@@ -9,14 +9,14 @@ import com.BoomECI.entidades.Grafo;
 
 /**
  *
- * @author Boom
+ * @author BoomECI
  */
 public interface ParserGrafo {
     
     /**
      *
-     * @param str
-     * @return
+     * @param str estructura de grafo escrita en xml o json
+     * @return Tipo grafo con el plan de estudios obtenido de la base datos
      */
     public Grafo convertStringToGrafo(String str);
 }
