@@ -11,6 +11,11 @@ import com.BoomECI.entidades.Grafo;
 import com.BoomECI.entidades.Materia;
 import com.BoomECI.entidades.PlanDeEstudios;
 import com.BoomECI.entidades.SolicitudCancelacion;
+import com.BoomECI.javamail.core.Email;
+import com.BoomECI.javamail.core.EmailConfiguration;
+import com.BoomECI.javamail.core.EmailSender;
+import com.BoomECI.javamail.core.SimpleEmail;
+import com.BoomECI.javamail.core.SimpleEmailSender;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,7 +26,10 @@ import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
 import com.BoomECI.logica.services.ParserGrafo;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
+import com.BoomECI.seguridad.bean.ShiroLoginBean;
 import java.util.Collections;
+import javax.faces.bean.ManagedProperty;
+import javax.mail.MessagingException;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
@@ -34,6 +42,8 @@ import org.primefaces.model.TreeNode;
 @SessionScoped
 public class ConsejeroBean implements Serializable{
     private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+    @ManagedProperty(value = "#{loginBean}")
+    private ShiroLoginBean seguridad;
     private Consejero consejeroActual;
     private List<SolicitudCancelacion> solicitudesNoTramitadas;
     private List<SolicitudCancelacion> solicitudesTramitadas;
@@ -59,17 +69,22 @@ public class ConsejeroBean implements Serializable{
         nombresSolicitantesSi = new ArrayList();
         nombresSolicitantesNo = new ArrayList();
         solicitudSeleccionada = new SolicitudCancelacion();
-        consejeroActual = servCanc.consultarConsejero(2345678);
-        nombreConsejero = consejeroActual.getNombre();
-        idConsejero = consejeroActual.getId();
-        solicitudesTramitadas = servCanc.consultarCancelacionesTramitadasAconsejados(idConsejero);
-        solicitudesNoTramitadas = servCanc.consultarCancelacionesNoTramitadasAconsejados(idConsejero);
-        Collections.sort(solicitudesTramitadas);
-        Collections.sort(solicitudesNoTramitadas);
+        
         
     }
 
-    public Consejero getConsejeroActual() {
+    
+
+    public Consejero getConsejeroActual() throws ExcepcionServiciosCancelaciones {
+        if (consejeroActual==null){
+            consejeroActual = servCanc.consultarConsejero(Integer.parseInt(seguridad.getUsername()));
+            nombreConsejero = consejeroActual.getNombre();
+            idConsejero = consejeroActual.getId();
+            solicitudesTramitadas = servCanc.consultarCancelacionesTramitadasAconsejados(idConsejero);
+            solicitudesNoTramitadas = servCanc.consultarCancelacionesNoTramitadasAconsejados(idConsejero);
+            Collections.sort(solicitudesTramitadas);
+            Collections.sort(solicitudesNoTramitadas);
+        }
         return consejeroActual;
     }
 
@@ -140,7 +155,13 @@ public class ConsejeroBean implements Serializable{
     }
     
     
-    
+    public ShiroLoginBean getSeguridad() {
+        return seguridad;
+    }
+
+    public void setSeguridad(ShiroLoginBean seguridad) {
+        this.seguridad = seguridad;
+    }
     
 
     public void setSolicitudSeleccionada(SolicitudCancelacion solicitudSeleccionada) {
@@ -155,7 +176,16 @@ public class ConsejeroBean implements Serializable{
         this.nombreEstudianteSolicitud = nombreEstudianteSolicitud;
     }
 
-    public String getNombreConsejero() {
+    public String getNombreConsejero() throws ExcepcionServiciosCancelaciones {
+        if (consejeroActual==null){
+            consejeroActual = servCanc.consultarConsejero(Integer.parseInt(seguridad.getUsername()));
+            nombreConsejero = consejeroActual.getNombre();
+            idConsejero = consejeroActual.getId();
+            solicitudesTramitadas = servCanc.consultarCancelacionesTramitadasAconsejados(idConsejero);
+            solicitudesNoTramitadas = servCanc.consultarCancelacionesNoTramitadasAconsejados(idConsejero);
+            Collections.sort(solicitudesTramitadas);
+            Collections.sort(solicitudesNoTramitadas);
+        }
         return nombreConsejero;
     }
 
@@ -220,6 +250,24 @@ public class ConsejeroBean implements Serializable{
         servCanc.agregarComentarioConsejero(solicitudSeleccionada.getId(), comentario);
         servCanc.cambiarElAvalDeConsejero(solicitudSeleccionada.getId(), (Boolean)aval);
         servCanc.cambiarElestadoDeLaSolicitud(solicitudSeleccionada.getId(), "Tramitada");
+        Estudiante estudianteActual=servCanc.consultarEstudiante(solicitudSeleccionada.getEstudiante());
+        if ((Boolean)aval){
+            Email email = new SimpleEmail(estudianteActual.getConsejero().getCorreo(), estudianteActual.getCorreo(), "SOLICITUD DE CANCELACION APROVADA", "Buen dia "+estudianteActual.getNombre()+ "\n La presente es para informarle"
+                                                                                                                 + " que su solicitud de cancelación por la materia"+ solicitudSeleccionada.getMateria() +" se encuentra aprobada.\n"
+                                                                                                                 + "El consejero" + consejeroActual.getNombre() + " ha comentado:\n"
+                                                                                                                 + solicitudSeleccionada.getComentario()
+                                                                                                                 + "\n Para más información por favor ingresar a " + "https://proyectopdsw.herokuapp.com/estudiante/serviciocancelaciones.xhtml"
+                                                                                                                 + "\n Gracias por su atención."
+                                                                                                                 + "\n Este correo es autogenerado*  ");
+        EmailSender sender = new SimpleEmailSender(new EmailConfiguration());
+        try {
+            sender.send(email);
+            System.out.println("Sent message successfully!");
+        } catch (MessagingException e) {
+            System.err.println("Message not sent!");
+            e.printStackTrace();
+        }
+        }
         return "listadosolcancel.xhtml";
         
     }
