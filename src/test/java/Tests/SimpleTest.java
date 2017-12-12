@@ -18,6 +18,7 @@ import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
 import java.util.ArrayList;
 import java.util.List;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 
@@ -89,7 +90,27 @@ public class SimpleTest {
     
     @Test
     public void testUnaMateriaCanceladaAnteriormenteNoPuedeVolverHacerCancelada() throws ExcepcionServiciosCancelaciones{
+        
+    }
+    @Test
+    public void testDeberiaConsultarEstudianteporIdCorrectamente()throws ExcepcionServiciosCancelaciones{
+        /*ServiciosCancelaciones serv =ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        Estudiante e = serv.consultarEstudiante(2120656);
+        assertEquals("Juan Nicolas Gomez Moreno", e.getNombre());*/
+    }
     
+    @Test
+    public void testDeberiConslutarConsejeroCorrectamente()throws ExcepcionServiciosCancelaciones{
+        /*ServiciosCancelaciones serv =ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        Consejero c = serv.consultarConsejero(2001212);
+        assertEquals("Oswaldo Castillo Navetty", c.getNombre());*/
+    }
+    
+    @Test
+    public void testDeberiaConsultarPlanDeEstudiosCorrectamente()throws ExcepcionServiciosCancelaciones{
+        /*ServiciosCancelaciones serv =ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        PlanDeEstudios c = serv.consultarPlanDeEstudio(1);
+        assertEquals("Ingenieria De Sistemas", c.getCarrera());*/
     }
     
     @Test

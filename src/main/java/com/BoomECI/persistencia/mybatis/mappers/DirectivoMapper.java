@@ -7,12 +7,14 @@ package com.BoomECI.persistencia.mybatis.mappers;
 
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 /**
  *
  * @author BoomECI
  */
 public interface DirectivoMapper {
-    public List<SolicitudCancelacion> loadSolicitudesTramitadas();
-    public List<SolicitudCancelacion> loadSolicitudesNoTramitadas();
+    public List<SolicitudCancelacion> loadSolicitudesNoFinalizadas(@Param("ide")int carrera);
+
+    public List<SolicitudCancelacion> loadSolicitudesFinalizadas(@Param("ide")int carrera);
 }

@@ -16,15 +16,19 @@
         <association property="planDeEstudios" javaType="PlanDeEstudios" columnPrefix="pl_"  resultMap="PlanDeEstudiosResult"/>         
         <association property="consejero" javaType="Consejero" columnPrefix="con_"  resultMap="ConsejeroResult"/>
         <association property="acudiente" javaType="Acudiente"  columnPrefix="acu_" resultMap="AcudienteResult"/>  
-        <collection property="materiasActuales" ofType="Materia" columnPrefix="maa_" resultMap="MateriaResult"/> 
-        <collection property="materiasCursadas" ofType="Materia" columnPrefix="mac_" resultMap="MateriaResult"/>
-        <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"/>                    
-    </resultMap>  
+        <collection property="materiasActuales" ofType="java.lang.String" columnPrefix="maa_" > 
+            <result column="Materia" />
+        </collection>
+        <collection property="materiasCursadas" ofType="java.lang.String" columnPrefix="mac_">
+            <result column="Materia" />
+        </collection>
+        <collection property="solicitudes" ofType="SolicitudCancelacion" columnPrefix="sol_" resultMap="SolicitudResult"/>               
+    </resultMap> 
     
     <resultMap type='PlanDeEstudios' id='PlanDeEstudiosResult'>
-        <id property='carrera' column='carrera'/>
         <id property='numeroPlanDeEstudio' column='ID'/>
-        <result property='grafo' column='grafo'/>
+        <result property='carrera' column='Carrera'/>
+        <result property='grafo' column='Grafo'/>
         <result property='numeroDeCreditosTotales' column='creditos' />   
         <result property='numeroDeAsignaturas' column='nummaterias' />         
      </resultMap>
@@ -56,10 +60,10 @@
     
     <resultMap type='Materia' id='MateriaResult'>
         <id property='nemonico' column='nemonico'/>                     
-    </resultMap>   
+    </resultMap> 
     
     
-    <select parameterType="map" id="loadSolicitudesTramitadas" resultMap="SolicitudResult">
+    <select parameterType="map" id="loadSolicitudesFinalizadas" resultMap="SolicitudResult">
         select          
         sol.id, 
         sol.fecha,
@@ -68,43 +72,45 @@
         sol.comentario,
         sol.avalAcudiente,
         sol.avalConsejero,
-        sol.materia,  
-        sol.estudiante  
+        sol.Materia,  
+        sol.Estudiante, 
         est.codigo,  
         est.nombre,
         est.correo,
         est.telefono,
         est.identificacion,
-        est.tipo_id,   
-        mat.nemonico 
-        from          
-        solicitud_de_cancelacion AS sol
-        LEFT OUTER Join Materia AS mat ON  sol.materia=mat.nemonico  
-        LEFT OUTER Join Estudiante AS est ON  sol.estudiante=est.codigo                            
-    </select>  
-    
-    <select parameterType="map" id="loadSolicitudesNoTramitadas" resultMap="SolicitudResult">
-        select          
-        sol.id, 
-        sol.fecha,
-        sol.estado, 
-        sol.justificacion,
-        sol.comentario,
-        sol.avalAcudiente,
-        sol.avalConsejero,
-        sol.materia,  
-        sol.estudiante  
-        est.codigo,  
-        est.nombre,
-        est.correo,
-        est.telefono,
-        est.identificacion,
-        est.tipo_id, 
+        est.tipo_id,
         mat.nemonico 
         from          
         solicitud_de_cancelacion AS sol
         LEFT OUTER Join Materia AS mat ON  sol.Materia=mat.nemonico  
-        LEFT OUTER Join Estudiante AS est ON  sol.estudiante=est.codigo          
+        LEFT OUTER Join Estudiante AS est ON  sol.Estudiante=est.codigo  
+        WHERE est.Plan_ID = #{ide} AND sol.estado = 'Finalizada'                              
+    </select>  
+    
+    <select parameterType="map" id="loadSolicitudesNoFinalizadas" resultMap="SolicitudResult">
+        select          
+        sol.id, 
+        sol.fecha,
+        sol.estado, 
+        sol.justificacion,
+        sol.comentario,
+        sol.avalAcudiente,
+        sol.avalConsejero,
+        sol.Materia,  
+        sol.Estudiante, 
+        est.codigo,  
+        est.nombre,
+        est.correo,
+        est.telefono,
+        est.identificacion,
+        est.tipo_id,
+        mat.nemonico 
+        from          
+        solicitud_de_cancelacion AS sol
+        LEFT OUTER Join Materia AS mat ON  sol.Materia=mat.nemonico  
+        LEFT OUTER Join Estudiante AS est ON  sol.Estudiante=est.codigo  
+        WHERE est.Plan_ID = #{ide} AND sol.estado = 'Tramitada'        
     </select>      
       
 </mapper>
