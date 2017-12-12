@@ -43,7 +43,7 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
     @Override
     public Estudiante loadByID(long id) {
         try{
-        
+       
             Estudiante x = Estmaper.loadEstudianteById(id);
             x.setMateriasActuales(Estmaper.loadMateriasActualesById(x.getCodigo()));
             x.setMateriasCursadas(Estmaper.loadMateriasCursadasById(x.getCodigo()));
@@ -107,3 +107,5 @@ public class EstudianteDAOMyBatis implements EstudianteDAO {
         }
     }
 }
+
+

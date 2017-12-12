@@ -34,5 +34,8 @@ public interface EstudianteMapper {
 
     public PlanDeEstudios loadPlanDeEstudiosById(@Param("ide") long id);
 
+    
+
     public List<SolicitudCancelacion> loadSolicitudes();
+    
 }

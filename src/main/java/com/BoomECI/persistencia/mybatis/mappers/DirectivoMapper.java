@@ -17,4 +17,6 @@ public interface DirectivoMapper {
     public List<SolicitudCancelacion> loadSolicitudesNoFinalizadas(@Param("ide")int carrera);
 
     public List<SolicitudCancelacion> loadSolicitudesFinalizadas(@Param("ide")int carrera);
+
+    public void saveState(@Param("ide") int idSolicitud);
 }

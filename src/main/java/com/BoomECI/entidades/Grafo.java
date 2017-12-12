@@ -49,7 +49,9 @@ public class Grafo {
         int creditos=0;       
         List <Materia> porVer = this.getMateriasPorVer(estudiante.getMateriasActuales(),estudiante.getMateriasCursadas(),this.getcorrequisito(materiasCanceladas));        
         
+        
         while (!porVer.isEmpty()){
+            System.out.println(porVer.size());
             List<String> semestre = new ArrayList();
             creditos=0;
             List<Materia> posibles = new ArrayList<>();
@@ -57,6 +59,9 @@ public class Grafo {
                 if (isPossible(i,porVer)){
                     posibles.add(i);                   
                 }
+            }
+            for(Materia i: posibles){
+                System.out.println(i.getCreditos());
             }
             
             for (Materia i:posibles){
@@ -76,6 +81,11 @@ public class Grafo {
                         semestre.add(i.getNemonico());
                         porVer.remove(i);
                     }
+                    if (i.getCreditos()==1){
+                        creditos+=1;
+                        semestre.add(i.getNemonico());
+                        porVer.remove(i);
+                    }                  
                     if (i.getCreditos()==0){
                         creditos+=0;
                         semestre.add(i.getNemonico());
@@ -83,6 +93,7 @@ public class Grafo {
                     }
                 }
             }
+            
             total.add(semestre);    
         }
         return total;

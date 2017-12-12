@@ -221,6 +221,16 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
          return null;
     }
 
+    @Override
+    public void cambiarSolicitudAFinalizada(int idSolicitud) {
+        try{
+            daoDir.saveState(idSolicitud);            
+        } catch(PersistenceException ex){
+            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
     
     
     

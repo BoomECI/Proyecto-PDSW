@@ -42,5 +42,15 @@ public class DirectivoDAOMyBatis implements DirectivoDAO{
             throw new PersistenceException("Error al cargar las solicitudes:"+e.getLocalizedMessage(), e);
         }  
     }
+
+    @Override
+    public void saveState(int idSolicitud) {
+        try{
+            Dirmaper.saveState(idSolicitud);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al cargar la solicitud:"+e.getLocalizedMessage(), e);
+        }
+    }
     
 }

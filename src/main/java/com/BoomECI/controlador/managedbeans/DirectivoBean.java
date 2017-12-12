@@ -18,10 +18,8 @@ import com.BoomECI.logica.services.ExcepcionServiciosCancelaciones;
 import com.BoomECI.logica.services.ParserGrafo;
 import com.BoomECI.logica.services.ServiciosCancelaciones;
 import com.BoomECI.logica.services.ServiciosCancelacionesFactory;
-import com.BoomECI.seguridad.bean.ShiroLoginBean;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ManagedProperty;
 import org.primefaces.model.diagram.Connection;
 import org.primefaces.model.diagram.DefaultDiagramModel;
 import org.primefaces.model.diagram.DiagramModel;
@@ -40,8 +38,6 @@ import org.primefaces.model.diagram.endpoint.EndPointAnchor;
 @SessionScoped
 public class DirectivoBean implements Serializable{
     
-    @ManagedProperty(value = "#{loginBean}")
-    private ShiroLoginBean seguridad;
     
     
     private final ServiciosCancelaciones servCanc = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
@@ -54,54 +50,11 @@ public class DirectivoBean implements Serializable{
     private List<SolicitudCancelacion> solicitudesNoFinalizadas;
     private List<SolicitudCancelacion> solicitudesFinalizadas;
     private Estudiante estudianteAconsejado;
-    
+    private int carneDirectivo;
+    private boolean sistemas = true;
     
     public DirectivoBean() throws ExcepcionServiciosCancelaciones{
-        directivoActual = getDirectivoActual();
-        model = new DefaultDiagramModel();
-        model.setMaxConnections(-1);
-        ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
-        estudianteAconsejado = servCanc.consultarEstudiante(directivoActual.getEstudiantesAconsejados().get(0).getCodigo());
-        List<Materia> act = new ArrayList();
-        act.add(new Materia("CALD"));
-        List<Materia> vist = new ArrayList();
-        vist.add(new Materia("DEPD"));
-        estudianteAconsejado.setMateriasActuales(act);
-        estudianteAconsejado.setMateriasCursadas(vist);
-        grafoPlanDeEstudios = p.convertStringToGrafo(estudianteAconsejado.getPlanDeEstudios().getGrafo());
-        List<String> lista = new ArrayList();
-        List<Materia> materias = grafoPlanDeEstudios.getLista();
-        lista.add("CALD");
-        configuracion = servCanc.calcularProyeccion(estudianteAconsejado, lista, grafoPlanDeEstudios);
-        StraightConnector connector = new StraightConnector();
-        connector.setPaintStyle("{strokeStyle:'#404a4e', lineWidth:3}");
-        connector.setHoverPaintStyle("{strokeStyle:'#20282b'}");
-        model.setDefaultConnector(connector);
-        for(int i=0; i<configuracion.size(); i++){
-            List<String> contenedor = configuracion.get(i);
-            for(int j=0; j<contenedor.size(); j++){
-                int x =(j*15)+5;
-                int y = (i*15)+5;
-                String contenedorActual = contenedor.get(j);
-                Element a= new Element(contenedorActual, x+"em", y+"em");
-                a.setId(contenedorActual);
-                Materia materiaActual = grafoPlanDeEstudios.getMateria(contenedorActual);
-                List<String> pre = materiaActual.getPrerequisitos();
-                String idElementoActual = a.getId();
-                int k= 0;
-                for(String l: pre){
-                    Element prerrequisito = model.findElement(l);
-                    k++;
-                    String idPre = prerrequisito.getId();
-                    a.addEndPoint(createEndPoint(EndPointAnchor.TOP, idElementoActual+"-"+idPre));
-                    
-                    model.findElement(l).addEndPoint(createEndPoint(EndPointAnchor.BOTTOM,idPre+"-"+idElementoActual));
-                    model.connect(new Connection(model.findEndPoint(model.findElement(l), idPre+"-"+idElementoActual), model.findEndPoint(a, idElementoActual+"-"+idPre)));                      
-                }
-                model.addElement(a);
-            }
-        }
-        creditosActuales = PlanDeEstudios.creditosPorSemestre;
+        setProperties();
     }
     
     
@@ -149,17 +102,19 @@ public class DirectivoBean implements Serializable{
     }
     
     public Consejero getDirectivoActual() throws ExcepcionServiciosCancelaciones{
-        if(directivoActual == null){
-            
-            directivoActual= servCanc.consultarConsejero(Integer.parseInt(seguridad.getUsername()));
-            solicitudesNoFinalizadas = servCanc.consultarCancelacionesNoFinalizadas(carrera);
-            solicitudesFinalizadas = servCanc.consultarCancelacionesFinalizadas(carrera);
-        }
         return directivoActual;
     }
     
     public void setDirectivoActual(Consejero directivoActual){
         this.directivoActual = directivoActual;
+    }
+
+    public int getCarneDirectivo() {
+        return carneDirectivo;
+    }
+
+    public void setCarneDirectivo(int carneDirectivo) {
+        this.carneDirectivo = carneDirectivo;
     }
     
     
@@ -172,15 +127,6 @@ public class DirectivoBean implements Serializable{
         this.carrera = carrera;
     }
     
-    
-
-    public ShiroLoginBean getSeguridad() {
-        return seguridad;
-    }
-
-    public void setSeguridad(ShiroLoginBean seguridad) {
-        this.seguridad = seguridad;
-    }
 
     public List<List<String>> getConfiguracion() {
         return configuracion;
@@ -189,7 +135,18 @@ public class DirectivoBean implements Serializable{
     public void setConfiguracion(List<List<String>> configuracion) {
         this.configuracion = configuracion;
     }
+
+    public boolean isSistemas() {
+        return sistemas;
+    }
+
+    public void setSistemas(boolean sistemas) {
+        this.sistemas = sistemas;
+    }
     
+    public void cambiar() throws ExcepcionServiciosCancelaciones{
+        setProperties();
+    }
     
     
 
@@ -205,4 +162,73 @@ public class DirectivoBean implements Serializable{
     public DiagramModel getModel() {
         return model;
     }
+
+    private void setProperties() throws ExcepcionServiciosCancelaciones {
+        carneDirectivo = sistemas?2001212:2345681;
+        directivoActual= servCanc.consultarConsejero(carneDirectivo);           
+        model = new DefaultDiagramModel();
+        model.setMaxConnections(-1);
+        ParserGrafo p = ServiciosCancelacionesFactory.getInstance().getParserGrafo();
+        long aconsejado = directivoActual.getEstudiantesAconsejados().get(0).getCodigo();
+        estudianteAconsejado = servCanc.consultarEstudiante(aconsejado);
+        List<Materia> act = new ArrayList();
+        act.add(new Materia("CALD"));
+        List<Materia> vist = new ArrayList();
+        vist.add(new Materia("DEPD"));
+        estudianteAconsejado.setMateriasActuales(act);
+        estudianteAconsejado.setMateriasCursadas(vist);
+        carrera = estudianteAconsejado.getPlanDeEstudios().getNumeroPlanDeEstudio();
+        solicitudesNoFinalizadas = servCanc.consultarCancelacionesNoFinalizadas(carrera);
+        solicitudesFinalizadas = servCanc.consultarCancelacionesFinalizadas(carrera);
+        grafoPlanDeEstudios = p.convertStringToGrafo(estudianteAconsejado.getPlanDeEstudios().getGrafo());
+        List<String> lista = new ArrayList();
+        List<Materia> materias = grafoPlanDeEstudios.getLista();
+        lista.add("CALD");
+        configuracion = servCanc.calcularProyeccion(estudianteAconsejado, lista, grafoPlanDeEstudios);
+        StraightConnector connector = new StraightConnector();
+        connector.setPaintStyle("{strokeStyle:'#404a4e', lineWidth:3}");
+        connector.setHoverPaintStyle("{strokeStyle:'#20282b'}");
+        model.setDefaultConnector(connector);
+        for(int i=0; i<configuracion.size(); i++){
+            List<String> contenedor = configuracion.get(i);
+            for(int j=0; j<contenedor.size(); j++){
+                int x =(j*15)+5;
+                int y = (i*15)+5;
+                String contenedorActual = contenedor.get(j);
+                Element a= new Element(contenedorActual, x+"em", y+"em");
+                a.setId(contenedorActual);
+                Materia materiaActual = grafoPlanDeEstudios.getMateria(contenedorActual);
+                List<String> pre = materiaActual.getPrerequisitos();
+                String idElementoActual = a.getId();
+                int k= 0;
+                for(String l: pre){
+                    Element prerrequisito = model.findElement(l);
+                    k++;
+                    String idPre = prerrequisito.getId();
+                    a.addEndPoint(createEndPoint(EndPointAnchor.TOP, idElementoActual+"-"+idPre));
+                    
+                    model.findElement(l).addEndPoint(createEndPoint(EndPointAnchor.BOTTOM,idPre+"-"+idElementoActual));
+                    model.connect(new Connection(model.findEndPoint(model.findElement(l), idPre+"-"+idElementoActual), model.findEndPoint(a, idElementoActual+"-"+idPre)));                      
+                }
+                model.addElement(a);
+            }
+        }
+        creditosActuales = PlanDeEstudios.creditosPorSemestre;
+    }
+    
+    
+    
+    public String booleanToString(Boolean bool){
+        return bool==null? "No aplica": (bool? "Aceptada": "Rechazada");
+    }
+    
+    
+    public String consultarEstudianteNombre(long id) throws ExcepcionServiciosCancelaciones{
+        return servCanc.consultarEstudiante(id).getNombre();
+    }
+    
+    public void finalizarSolicitud(int idSolicitud){
+        servCanc.cambiarSolicitudAFinalizada(idSolicitud);
+    }
+    
 }

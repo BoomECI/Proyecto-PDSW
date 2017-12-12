@@ -17,4 +17,6 @@ public interface DirectivoDAO {
     public List<SolicitudCancelacion> loadSolicitudesNoFinalizadas(int carrera);
 
     public List<SolicitudCancelacion> loadSolicitudesFinalizadas(int carrera);
+
+    public void saveState(int idSolicitud);
 }

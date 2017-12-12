@@ -11,14 +11,25 @@
     
     <h:form id="directivoCancelaciones">
         <h:body style="background-color: seashell">
-            <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo"  height = "80" style="margin-right: 42%"/>
+            
             <p:outputPanel id="planDeEstudiosYCancelaciones" style="text-align: center; margin: auto" >                
-                <img src="\recursosVisuales\directivo.PNG" alt="Logotipo" width= "100%" height = "168"/>
+                <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo"/>
                 <br/>
-                <p:outputLabel value="Bienvenido #{beanSolicitudDirectivo.directivoActual}"/>
                 <br/>
-                <p:outputLabel value="Creditos que pueden cursar los estudiantes cada semestre: #{beanSolicitudDirectivo.creditosActuales}"/>
+                <p:selectBooleanButton id="bol"  value="#{beanSolicitudDirectivo.sistemas}" onLabel="Sistemas" offLabel="Industrial" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:150px"/>
                 <br/>
+                <p:commandButton value="Cambiar" update="basic" ajax="false" actionListener="#{beanSolicitudDirectivo.cambiar()}"/>
+                <br/>
+                <br/>
+                <h:outputLink value="/logout" style=" background-color:gainsboro ;margin-left:85%;font-size:10pt;font-family:Verdana; font-weight:bold">Salir</h:outputLink>
+                <br/>
+                <p:panel id="basic" header="Directivo" style="text-align: center; margin: auto">
+                        <img src="\recursosVisuales\directivo.PNG" alt="Logotipo"/>
+                        <br/>
+                        <p:outputLabel value="Bienvenido/a #{beanSolicitudDirectivo.directivoActual.nombre}"/>
+                        <br/>
+                        <p:outputLabel value="Creditos que pueden cursar los estudiantes cada semestre: #{beanSolicitudDirectivo.creditosActuales}"/>
+                </p:panel>
                 <p:tabView>
                     <p:tab title="Plan de Estudios">
                         <p:diagram
@@ -45,11 +56,52 @@
                     </p:tab>
                     
                     <p:tab title="Solicitudes No Tramitadas">
-                        
+                        <p:dataTable id="notram" var="solsNo" value="#{beanSolicitudDirectivo.solicitudesNoFinalizadas}" style="width: 100%; margin: 0 auto">
+                            <p:column headerText="Fecha Solicitud" style="text-align: center; width: 10%">
+                                <h:outputText value="#{solsNo.fecha.date}-#{solsNo.fecha.month}-#{solsNo.fecha.year+1900}" />
+                            </p:column>
+                            <p:column headerText="Codigo solicitante" style="text-align: center">
+                                <h:outputText value="#{solsNo.estudiante}" />
+                            </p:column>
+                            <p:column headerText="Nombre solicitante" style="text-align: center">
+                                <h:outputText value="#{beanSolicitudDirectivo.consultarEstudianteNombre(solsNo.estudiante)}" />
+                            </p:column>
+                            <p:column headerText="Materia" style="text-align: center">
+                                <h:outputText value="#{solsNo.materia}"/>
+                            </p:column>
+                            <p:column headerText="Accion" style="width:18%;text-align: center">
+                                <p:commandButton id="finalizar" value="Finalizar" title="Finalizar la solicitud seleccionada"  actionListener="#{beanSolicitudDirectivo.finalizarSolicitud(SolsNo.id)}" onclick="window.history.back();" />            
+                            </p:column>
+                        </p:dataTable>
                     </p:tab>
                     
                     <p:tab title="Solicitudes Tramitadas">
-                        
+                        <p:dataTable id="sitram" var="solsSi" value="#{beanSolicitudDirectivo.solicitudesFinalizadas}" style="width: 100%; margin: 0 auto">
+                            <p:column headerText="Fecha Solicitud" style="text-align: center">
+                                <h:outputText value="#{solsSi.fecha.date}-#{solsSi.fecha.month}-#{solsSi.fecha.year+1900}" />
+                            </p:column>
+                            <p:column headerText="Codigo solicitante" style="text-align: center">
+                                <h:outputText value="#{solsSi.estudiante}" />
+                            </p:column>
+                            <p:column headerText="Nombre solicitante" style="text-align: center">
+                                <h:outputText value="#{beanSolicitudDirectivo.consultarEstudianteNombre(solsSi.estudiante)}" />
+                            </p:column>
+                            <p:column headerText="Materia" style="text-align: center">
+                                <h:outputText value="#{solsSi.materia}"/>
+                            </p:column>
+                            <p:column headerText="Justificacion" style="text-align: center">
+                                <h:outputText value="#{solsSi.justificacion}"/>
+                            </p:column>
+                            <p:column headerText="Aval consejero" style="text-align: center">
+                                <h:outputText value="#{beanSolicitudDirectivo.booleanToString(solsSi.avalConsejero)}"/>
+                            </p:column>
+                            <p:column headerText="Comentario consejero" style="text-align: center">
+                                <h:outputText value="#{solsSi.comentario}"/>
+                            </p:column>
+                            <p:column headerText="Aval acudiente" style="text-align: center">
+                                <h:outputText value="#{beanSolicitudDirectivo.booleanToString(solsSi.avalAcudiente)}"/>
+                            </p:column>
+                        </p:dataTable>
                     </p:tab>
                 </p:tabView>
                 

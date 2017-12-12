@@ -6,6 +6,7 @@
 package com.BoomECI.persistencia.mybatis.mappers;
 
 import com.BoomECI.entidades.Consejero;
+import com.BoomECI.entidades.Estudiante;
 import com.BoomECI.entidades.SolicitudCancelacion;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -21,4 +22,6 @@ public interface ConsejeroMapper {
     public void agregarComentarioConsejero(@Param("ide")int id_soli, @Param("com")String comentario);
     public void cambiarElAvalDeConsejero(@Param("ide")int id_soli, @Param("aval")Boolean aval);  
     public Consejero consultarConsejero(@Param("ide")long idConsejero);
+
+    public List<Estudiante> consultarEstudiantesAconsejados(@Param("ide")long idConsejero);
 }

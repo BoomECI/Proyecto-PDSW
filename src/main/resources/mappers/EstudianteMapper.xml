@@ -182,6 +182,7 @@
             VALUES(#{sol.fecha},#{sol.estado},#{sol.id},#{sol.justificacion},#{sol.comentario},#{sol.avalAcudiente},#{sol.avalConsejero},#{sol.materia},#{sol.estudiante})
         
     </insert>
+    
       
    
   

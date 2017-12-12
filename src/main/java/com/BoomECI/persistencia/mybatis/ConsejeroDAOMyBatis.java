@@ -75,7 +75,9 @@ public class ConsejeroDAOMyBatis implements ConsejeroDAO{
     @Override
     public Consejero consultarConsejero(long idConsejero) {
         try{
-            return Conmaper.consultarConsejero(idConsejero);
+            Consejero c = Conmaper.consultarConsejero(idConsejero);
+            c.setEstudiantesAconsejados(Conmaper.consultarEstudiantesAconsejados(idConsejero));
+            return c;
         }catch(Exception e){
             throw new PersistenceException("Error al consultar consejero:"+e.getLocalizedMessage(), e);
         }

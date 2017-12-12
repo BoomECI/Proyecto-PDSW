@@ -112,7 +112,25 @@
         LEFT OUTER Join Materia AS mat ON  sol.Materia=mat.nemonico  
         LEFT OUTER Join Estudiante AS est ON  sol.Estudiante=est.codigo  
         WHERE est.consejero = #{ide} AND sol.estado = 'Pendiente'
-    </select>  
+    </select >
+    
+    <select parameterType = "map" id="consultarEstudiantesAconsejados" resultMap="EstudianteResult">
+        select  
+        est.codigo,
+        est.nombre,
+        est.correo,
+        est.telefono,
+        est.identificacion,
+        est.tipo_id,
+        mac.Materia AS mac_Materia,
+        maa.Materia AS maa_Materia       
+        from  
+        Consejero AS con 
+        LEFT OUTER JOIN Estudiante AS est ON con.codigo=est.consejero     
+        LEFT OUTER JOIN MateriasCursadas AS mac ON est.codigo=mac.Estudiante 
+        LEFT OUTER JOIN MateriasActuales AS maa ON est.codigo=maa.Estudiante   
+        WHERE con.codigo=#{ide}
+    </select>
     
     <update id="agregarComentarioConsejero"> 
         UPDATE solicitud_de_cancelacion SET comentario=#{com} WHERE id=#{ide};    

@@ -114,4 +114,10 @@ public class ShiroLoginBean implements Serializable {
     public void setRememberMe(Boolean lembrar) {
         this.rememberMe = lembrar;
     }
+
+
+    
+    
+    
+    
 }

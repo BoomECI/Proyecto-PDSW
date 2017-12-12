@@ -386,20 +386,4 @@ public class EstudianteBean implements Serializable{
         return "serviciocancelaciones.xhtml";
     }
 
-    /*public List<Materia> comparar(){
-        List<Materia> mt = new ArrayList<Materia>();
-        List<String> mSels = materiasSeleccionadas;
-        
-        int k = 0;
-        while (mSels.size() > 0){
-            for(Materia i: materiasActuales){
-                if(i.getNemonico().equals(mSels.get(k))){
-                    mt.add(i);
-                    mSels.remove(k);
-                }
-            }
-        }
-       
-        return mt;
-    }*/
 }

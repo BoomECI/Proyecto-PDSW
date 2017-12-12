@@ -150,5 +150,8 @@ public interface ServiciosCancelaciones {
     public List<SolicitudCancelacion> consultarCancelacionesNoFinalizadas(int carrera);
 
     public List<SolicitudCancelacion> consultarCancelacionesFinalizadas(int carrera);
+
+    public void cambiarSolicitudAFinalizada(int idSolicitud);
+
     
 }    

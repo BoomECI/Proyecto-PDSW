@@ -112,5 +112,9 @@
         LEFT OUTER Join Estudiante AS est ON  sol.Estudiante=est.codigo  
         WHERE est.Plan_ID = #{ide} AND sol.estado = 'Tramitada'        
     </select>      
+    
+    <update id="saveState"> 
+        UPDATE solicitud_de_cancelacion SET estado='Finalizada' WHERE id=#{ide};    
+    </update>
       
 </mapper>
