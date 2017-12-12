@@ -117,7 +117,7 @@ Enlace de Backlog elaborado en Trello: https://trello.com/b/WPZ5zuo1/2017-2-proy
   
 ## *Sprint 2:* 
   ### Descripción del Sprint:
-  
+  Este Sprint no terminó con los resultados esperados, en este periodo aunque se le trabajó el tiempo que se tenía disponible, las demás materias afectaron mucho al tiempo que se tenía destinado al proyecto y finalmente se redujo en gran parte el trabajo que se le hizo en esta temporada, sin embargo se hicieron grandes avances en la arquitectura de la plataforma, y se logró tener un producto entregable para las fechas acordadas.
    ### Sprint-backlog:
   ![alt text][backlog2]
   
@@ -133,11 +133,33 @@ Enlace de Backlog elaborado en Trello: https://trello.com/b/WPZ5zuo1/2017-2-proy
   
 ## *Sprint 3:*
 
+  ### Descripción del Sprint:
+En este ultimo sprint se buscaba tener lo que se había propuesto en un inicio, poder finalizar toda la plataforma con sus funciones, lo cual se completó en una gran parte, el tiempo en esta temporada fue mucho mayor, sin embargo, la cantidad de trabajo era mucho mayor, ya que en el Sprint 2 no se completaron varias tareas claves. La comunicación en equipo, y el trabajo constante fueron la clave para desarrollar este proyecto de la mejor manera.
+
+Para este punto el trabajo era superior al tiempo que realmente íbamos a tener disponible, así que fue necesario un trabajo mucho mayor, dedicado y organizado para cumplir con el objetivo propuesto.
+
+  ### Sprint-backlog:
+  ![alt text][backlog3]
+  
+  [backlog3]: https://github.com/Nixperful/BancoDeImagenes/blob/master/s3.PNG "Backlog"  
+  
+  ### Sprint-burndown Chart:
+  ![alt text][SB3]
+
+  [SB3]: https://github.com/Nixperful/BancoDeImagenes/blob/master/ch3.PNG "Sprint-Burndown Chart"  
+  
+  ### Reporte GIT:
+  http://profesores.is.escuelaing.edu.co/hcadavid/reportes/2017-2/pdsw/reports/11-14-2017-14H-38M/boomeci.repo/
+  
+
 *_Reporte de pruebas:_*
 ------- 
+  ![alt text][test]
 
+  [test]: https://github.com/Nixperful/BancoDeImagenes/blob/master/T.PNG "Test Report"  
 
-
+## *Reporte de pruebas avanzado:*
+CircleCI: [![CircleCI](https://circleci.com/gh/BoomECI/Proyecto-PDSW.svg?style=svg)](https://circleci.com/gh/BoomECI)
 
 
 
