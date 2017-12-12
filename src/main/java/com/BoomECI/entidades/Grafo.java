@@ -51,7 +51,6 @@ public class Grafo {
         
         
         while (!porVer.isEmpty()){
-            System.out.println(porVer.size());
             List<String> semestre = new ArrayList();
             creditos=0;
             List<Materia> posibles = new ArrayList<>();
@@ -59,9 +58,6 @@ public class Grafo {
                 if (isPossible(i,porVer)){
                     posibles.add(i);                   
                 }
-            }
-            for(Materia i: posibles){
-                System.out.println(i.getCreditos());
             }
             
             for (Materia i:posibles){

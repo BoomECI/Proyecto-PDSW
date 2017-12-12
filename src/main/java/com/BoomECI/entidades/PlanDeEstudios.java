@@ -407,7 +407,7 @@ public class PlanDeEstudios {
 "	\"ERGO\": {\n" +
 "		\"nombre\": \"Ergonomia\",\n" +
 "		\"creditos\": \"2\",\n" +
-"		\"co\": [\"LCTR\"],\n" +
+"		\"co\": [],\n" +
 "		\"pre\": [\"HYSE\"]\n" +
 "	},\n" +
 "	\"LCTR\": {\n" +
@@ -467,7 +467,7 @@ public class PlanDeEstudios {
 "	\"ELET\": {\n" +
 "		\"nombre\": \"Electrotecnia\",\n" +
 "		\"creditos\": \"3\",\n" +
-"		\"co\": [\"LETC\"],\n" +
+"		\"co\": [],\n" +
 "		\"pre\": [\"ECDI\", \"FIEM\"]\n" +
 "	},\n" +
 "	\"LETC\": {\n" +
