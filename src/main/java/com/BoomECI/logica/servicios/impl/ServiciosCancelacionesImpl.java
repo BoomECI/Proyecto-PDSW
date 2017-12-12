@@ -178,25 +178,7 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
         return grafo.calcularPlanDeEstudios(estudianteActual, materiasSeleccionadas);
     }
 
-    @Override
-    public List<SolicitudCancelacion> consultarCancelacionesTramitadas() throws ExcepcionServiciosCancelaciones {
-        try{
-            return daoDir.loadSolicitudesTramitadas();
-        }catch(PersistenceException ex){
-            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
 
-    @Override
-    public List<SolicitudCancelacion> consultarCancelacionesNoTramitadas() throws ExcepcionServiciosCancelaciones {
-        try{
-            return daoDir.loadSolicitudesNoTramitadas();
-        }catch(PersistenceException ex){
-            Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
 
     @Transactional
     @Override
@@ -217,6 +199,26 @@ public class ServiciosCancelacionesImpl implements ServiciosCancelaciones {
             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    @Override
+    public List<SolicitudCancelacion> consultarCancelacionesNoFinalizadas(int carrera) {
+         try{
+             return daoDir.loadSolicitudesNoFinalizadas(carrera);
+         } catch(PersistenceException ex){
+             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return null;
+    }
+
+    @Override
+    public List<SolicitudCancelacion> consultarCancelacionesFinalizadas(int carrera) {
+        try{
+             return daoDir.loadSolicitudesFinalizadas(carrera);
+         } catch(PersistenceException ex){
+             Logger.getLogger(ServiciosCancelacionesImpl.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return null;
     }
 
     

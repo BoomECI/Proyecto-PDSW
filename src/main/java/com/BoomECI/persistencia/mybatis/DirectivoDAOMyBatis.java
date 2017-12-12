@@ -22,25 +22,25 @@ public class DirectivoDAOMyBatis implements DirectivoDAO{
     DirectivoMapper Dirmaper;         
 
     @Override
-    public List<SolicitudCancelacion> loadSolicitudesTramitadas() {
+    public List<SolicitudCancelacion> loadSolicitudesNoFinalizadas(int carrera) {
         try{        
-            List<SolicitudCancelacion> solicitudes= Dirmaper.loadSolicitudesTramitadas();
-            return solicitudes;
-        }
-        catch(Exception e){
-            throw new PersistenceException("Error al cargar las solicitudes:"+e.getLocalizedMessage(), e);
-        }  
-    }
-
-    @Override
-    public List<SolicitudCancelacion> loadSolicitudesNoTramitadas() {
-        try{        
-            List<SolicitudCancelacion> solicitudes= Dirmaper.loadSolicitudesNoTramitadas();
+            List<SolicitudCancelacion> solicitudes= Dirmaper.loadSolicitudesNoFinalizadas(carrera);
             return solicitudes;
         }
         catch(Exception e){
             throw new PersistenceException("Error al cargar las solicitudes:"+e.getLocalizedMessage(), e);
         } 
+    }
+
+    @Override
+    public List<SolicitudCancelacion> loadSolicitudesFinalizadas(int carrera) {
+        try{        
+            List<SolicitudCancelacion> solicitudes= Dirmaper.loadSolicitudesFinalizadas(carrera);
+            return solicitudes;
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al cargar las solicitudes:"+e.getLocalizedMessage(), e);
+        }  
     }
     
 }

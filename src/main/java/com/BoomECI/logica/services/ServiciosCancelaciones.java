@@ -135,20 +135,6 @@ public interface ServiciosCancelaciones {
 
     public List<List<String>> calcularProyeccion(Estudiante estudianteActual, List<String> materiasSeleccionadas, Grafo grafo);
     
-    /**
-     * Da todas las solicitudes de los estudiantes que ya han sido tramitadas
-     * @return Lista de solicitudes Tramitadas de todos los estudiantes
-     * @throws ExcepcionServiciosCancelaciones 
-     */
-    public abstract List<SolicitudCancelacion> consultarCancelacionesTramitadas() throws ExcepcionServiciosCancelaciones;
-    
-    /**
-     * Da todas las solicitudes de los estudiantes que NO han sido tramitadas
-     * @return Lista de solicitudes NO tramitadas de todos los estudiantes
-     * @throws ExcepcionServiciosCancelaciones 
-     */
-    public abstract List<SolicitudCancelacion> consultarCancelacionesNoTramitadas() throws ExcepcionServiciosCancelaciones;
-
     
     /**
      * Consulta un consejero dado su id
@@ -160,5 +146,9 @@ public interface ServiciosCancelaciones {
     
     
     public abstract PlanDeEstudios consultarPlanDeEstudio(int id) throws ExcepcionServiciosCancelaciones;
+
+    public List<SolicitudCancelacion> consultarCancelacionesNoFinalizadas(int carrera);
+
+    public List<SolicitudCancelacion> consultarCancelacionesFinalizadas(int carrera);
     
 }    

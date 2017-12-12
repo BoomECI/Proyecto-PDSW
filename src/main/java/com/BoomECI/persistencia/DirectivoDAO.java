@@ -12,7 +12,9 @@ import java.util.List;
  *
  * @author BoomECI
  */
-public interface DirectivoDAO {
-    public List<SolicitudCancelacion> loadSolicitudesTramitadas();
-    public List<SolicitudCancelacion> loadSolicitudesNoTramitadas();    
+public interface DirectivoDAO {   
+
+    public List<SolicitudCancelacion> loadSolicitudesNoFinalizadas(int carrera);
+
+    public List<SolicitudCancelacion> loadSolicitudesFinalizadas(int carrera);
 }
