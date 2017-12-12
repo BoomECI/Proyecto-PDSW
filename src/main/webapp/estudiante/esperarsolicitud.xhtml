@@ -9,33 +9,32 @@
     </h:head>
     <h:form id="solicitudFinalizada">
         <h:body style="background-color: lavender">
-            <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo" style="margin-left: 55%; margin-top: 0%"/>
-            <img src="\recursosVisuales\acreditacion.jpg" alt="Logotipo"  width="120" style="margin-left: 30%;margin-top: -2.6cm"/>
-            <p:outputPanel id="detalleCancelacion" style="text-align: center; margin: auto">
-            
-                <img src="\recursosVisuales\estudiante.PNG" alt="Logotipo" style="margin-top: 3%"/>
+            <p:outputPanel id="hojaInterna" style=" background: white; margin-left: 30%; margin-right: 30%; height: 99% ">
+                <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo" style=" margin-right: 50%;"/>
+                <img src="\recursosVisuales\acreditacion.jpg" alt="Logotipo"  style=" width: 13%"/> 
+                <img src="\recursosVisuales\estudiante.PNG" alt="Logotipo" style="margin-top: 3%; width: 100%"/>
                 <br/>
                 <br/>
                 <br/>
                 <p:dataTable var="sols" value="#{beanSolicitudEstudiante.solicitudesEstudiante}">
                     <p:column headerText="Id">
-                        <h:outputText value="#{sols.id}" />
+                        <h:outputText value="#{sols.id} " style=" margin-right: 90%; text-align: left; font-family: Tahoma; font-size: 13pt;font-weight: bold; color: whitesmoke"  />
                     </p:column>
                     
                     <p:column headerText="Materia">
-                        <h:outputText value="#{sols.materia}" />
+                        <h:outputText value="#{sols.materia}" style=" margin-right: 90%; text-align: left; font-family: Tahoma; font-size: 13pt;font-weight: bold; color: whitesmoke" />
                     </p:column>
                     
                     <p:column headerText="Justificacion">
-                        <h:outputText value="#{sols.justificacion}" />
+                        <h:outputText value="#{sols.justificacion}" style=" margin-right: 90%; text-align: left; font-family: Tahoma; font-size: 13pt;font-weight: bold; color: whitesmoke"  />
                     </p:column>
                     
                     <p:column headerText="Fecha">
-                        <h:outputText value="#{beanSolicitudEstudiante.fechaCancelacion.date}-#{beanSolicitudEstudiante.fechaCancelacion.month}-#{beanSolicitudEstudiante.fechaCancelacion.year+1900}" />
+                        <h:outputText value="#{beanSolicitudEstudiante.fechaCancelacion.date}-#{beanSolicitudEstudiante.fechaCancelacion.month}-#{beanSolicitudEstudiante.fechaCancelacion.year+1900}"  style=" margin-right: 90%; text-align: left; font-family: Tahoma; font-size: 13pt;font-weight: bold; color: whitesmoke" />
                     </p:column>
                     
                     <p:column headerText="Estado">
-                        <h:outputText value="#{sols.estado}" />
+                        <h:outputText value="#{sols.estado}" style=" margin-right: 90%; text-align: left; font-family: Tahoma; font-size: 13pt;font-weight: bold; color: whitesmoke; background-color: red" />
                     </p:column>
                 </p:dataTable>
                 <br/>
