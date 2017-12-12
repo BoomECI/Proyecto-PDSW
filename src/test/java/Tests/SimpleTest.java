@@ -94,29 +94,29 @@ public class SimpleTest {
     }
     @Test
     public void testDeberiaConsultarEstudianteporIdCorrectamente()throws ExcepcionServiciosCancelaciones{
-        /*ServiciosCancelaciones serv =ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        ServiciosCancelaciones serv =ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
         Estudiante e = serv.consultarEstudiante(2120656);
-        assertEquals("Juan Nicolas Gomez Moreno", e.getNombre());*/
+        assertEquals("Juan Nicolas Gomez Moreno", e.getNombre());
     }
     
     @Test
     public void testDeberiConslutarConsejeroCorrectamente()throws ExcepcionServiciosCancelaciones{
-        /*ServiciosCancelaciones serv =ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        ServiciosCancelaciones serv =ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
         Consejero c = serv.consultarConsejero(2001212);
-        assertEquals("Oswaldo Castillo Navetty", c.getNombre());*/
+        assertEquals("Oswaldo Castillo Navetty", c.getNombre());
     }
     
     @Test
     public void testDeberiaConsultarPlanDeEstudiosCorrectamente()throws ExcepcionServiciosCancelaciones{
-        /*ServiciosCancelaciones serv =ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        ServiciosCancelaciones serv =ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
         PlanDeEstudios c = serv.consultarPlanDeEstudio(1);
-        assertEquals("Ingenieria De Sistemas", c.getCarrera());*/
+        assertEquals("Ingenieria De Sistemas", c.getCarrera());
     }
     
     @Test
     public void prueba2() throws ExcepcionServiciosCancelaciones{
-        /*ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
-        a.consultarConsejero(0);*/
+        ServiciosCancelaciones a = ServiciosCancelacionesFactory.getInstance().getServiciosCancelaciones();
+        a.consultarConsejero(0);
    }
     
    @Test

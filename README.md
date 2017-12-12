@@ -42,9 +42,71 @@
 Una plataforma de gestión para el acompañamiento académico a estudiantes, consejeros y directivos, que simplifica          procesos tanto de análisis de los semestres académicos para los estudiantes, como del trámite de las solicitudes de los consejeros; Si el estudiante desea solicitar una cancelación, la plataforma acompaña todo el proceso que la involucra, junto al permiso del consejero, y la notificación por medio de un correo electrónico al acudiente. Todo esto mediante un mecanismo no acoplado para introducirlo en la institución.
   
 ## *Funcionalidades:*
-![alt text][logo]
 
-[logo]: https://podemoscolladomediano.files.wordpress.com/2014/09/seccion-en-construccion.jpg "En construcción"
+### *Una interfaz empresarial que se puede acoplar perfectamente a la que se tiene en servicios académicos, elaborada en PrimeFaces lo cual brinda variedad de herramientas que se aprovecharon de la mejor manera.*
+
+
+![alt text][1]
+
+[1]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Captura1.PNG "wow!"
+
+### *Un calculador de impacto al momento de cancelar, el cual tiene la posibilidad de analizar situaciones de múltiples tareas, todo esto por medio de un grafo dirigido acíclico el cual permite una rápida consulta de todo el proceso; en cuanto a la presentación, enfocada para un uso sencillo para que sea lo más práctico posible.*
+
+
+
+![alt text][2]
+
+[2]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Captura2.PNG "wow!"
+
+### *Se genera un reporte de la simulación que ayuda al estudiante a darse cuenta de la mejor alternativa de escoger su malla académica, además de eso programa y avisa al estudiante dentro de cuanto tiempo podrá lograr su grado.*
+
+
+![alt text][3]
+
+[3]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Captura3.PNG "wow!"
+
+### *El sistema genera unos datos de impacto que ayudan a resumir datos importantes que el estudiante necesita observar junto al consejero en caso de querer continuar con el proceso de cancelación de las asignaturas, estos determinan el periodo del posible grado, los créditos restantes, y la cantidad de créditos que necesita para graduarse.*
+
+
+
+![alt text][4]
+
+[4]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Captura4.PNG "wow!"
+
+### *Una petición de justificación en cada una de las materias que quiera cancelar, esta justificación ayudará a guiar la charla junto al consejero y ayudará a determinar la valides de la solicitud.*
+
+
+![alt text][5]
+
+[5]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Captura5.PNG "wow!"
+
+### *Se tiene una plataforma que incluye a los consejeros en el proceso de las cancelaciones, así ellos pueden ver cuales solicitudes están pendientes, si se desea tramitar alguna solicitud en la reunión, lo pueden hacer, dejar comentarios y el aval final de la solicitud.*
+![alt text][6]
+
+[6]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Captura6.PNG "wow!"
+
+### *En caso de que se desee observar las que ya están tramitadas, se tiene otra pestaña que ayuda a la visualización de algún dato que se quiera recordar o evidenciar.*
+
+
+![alt text][7]
+
+[7]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Captura7.PNG "wow!"
+
+### *Cuenta con una ayuda virtual para la reunión que se da entre el estudiante y su consejero, les ayuda a evidenciar la justificación del estudiante y dialogar sobre los distintos problemas que ha tenido en su experiencia con esa materia.*
+
+
+![alt text][8]
+
+[8]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Captura8.PNG "wow!"
+
+### *Se puede ver el impacto y los datos más relevantes del mismo, así tenerlo muy en cuenta a la hora de aceptar o denegar una solicitud, la cual es necesario que tenga un comentario que quede evidencia de las razones de la decisión.*
+### *Al momento de enviar una respuesta el sistema manda un correo automáticamente al estudiante que le notifica que le han dado una respuesta a su solicitud.*
+
+
+![alt text][9]
+
+[9]: https://github.com/Nixperful/BancoDeImagenes/blob/master/Captura9.PNG "wow!"
+
 
 ****Descripción avanzada del producto:**** 
 ------- 
@@ -86,7 +148,7 @@ https://proyectopdsw.herokuapp.com/
 
 
 ## *_Metodología utilizada:_*
-------- 
+
 La metodología usada fue un conjunto de buenas prácticas, las cuales ayudaron a la buena organización en el desarrollo del proyecto, haciéndolo de forma ágil. El uso del Framework Scrum ayudó a la administración del proceso, fortaleciendo la comunicación entre los integrantes, y mejorando la planificación para cada una de las entregas.
 
 Todo el proceso de desarrollo empezó con una visión del producto que elabora el stakeholder, sin embargo lo que no es de prioridad se filtra por el Dueño del producto el cual produce un backlog (anexo) en el cual en forma de historias de usuario se plantean los requerimientos que debe tener la aplicación.
@@ -117,7 +179,7 @@ Enlace de Backlog elaborado en Trello: https://trello.com/b/WPZ5zuo1/2017-2-proy
   
 ## *Sprint 2:* 
   ### Descripción del Sprint:
-  
+  Este Sprint no terminó con los resultados esperados, en este periodo aunque se le trabajó el tiempo que se tenía disponible, las demás materias afectaron mucho al tiempo que se tenía destinado al proyecto y finalmente se redujo en gran parte el trabajo que se le hizo en esta temporada, sin embargo se hicieron grandes avances en la arquitectura de la plataforma, y se logró tener un producto entregable para las fechas acordadas.
    ### Sprint-backlog:
   ![alt text][backlog2]
   
@@ -133,11 +195,31 @@ Enlace de Backlog elaborado en Trello: https://trello.com/b/WPZ5zuo1/2017-2-proy
   
 ## *Sprint 3:*
 
+  ### Descripción del Sprint:
+En este ultimo sprint se buscaba tener lo que se había propuesto en un inicio, poder finalizar toda la plataforma con sus funciones, lo cual se completó en una gran parte, el tiempo en esta temporada fue mucho mayor, sin embargo, la cantidad de trabajo era mucho mayor, ya que en el Sprint 2 no se completaron varias tareas claves. La comunicación en equipo, y el trabajo constante fueron la clave para desarrollar este proyecto de la mejor manera.
+
+Para este punto el trabajo era superior al tiempo que realmente íbamos a tener disponible, así que fue necesario un trabajo mucho mayor, dedicado y organizado para cumplir con el objetivo propuesto.
+
+  ### Sprint-backlog:
+  ![alt text][backlog3]
+  
+  [backlog3]: https://github.com/Nixperful/BancoDeImagenes/blob/master/s3.PNG "Backlog"  
+  
+  ### Sprint-burndown Chart:
+  ![alt text][SB3]
+
+  [SB3]: https://github.com/Nixperful/BancoDeImagenes/blob/master/ch3.PNG "Sprint-Burndown Chart"  
+  
+  ### Reporte GIT:
+  http://profesores.is.escuelaing.edu.co/hcadavid/reportes/2017-2/pdsw/reports/11-14-2017-14H-38M/boomeci.repo/
+  
+
 *_Reporte de pruebas:_*
 ------- 
+  ![alt text][test]
 
+  [test]: https://github.com/Nixperful/BancoDeImagenes/blob/master/T.PNG "Test Report"  
 
-
-
-
+## *Reporte de pruebas avanzado:*
+CircleCI: [![CircleCI](https://circleci.com/gh/BoomECI/Proyecto-PDSW.svg?style=svg)](https://circleci.com/gh/BoomECI)
 
