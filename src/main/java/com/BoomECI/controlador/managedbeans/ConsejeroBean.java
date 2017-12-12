@@ -64,6 +64,9 @@ public class ConsejeroBean implements Serializable{
     private Date fechaSolicitud;
     private String materiaCanceladaSolicitud;
     private List<List<String>> proyeccion;
+    private int ciclo;
+
+    
     
     public ConsejeroBean() throws ExcepcionServiciosCancelaciones{
         nombresSolicitantesSi = new ArrayList();
@@ -168,6 +171,13 @@ public class ConsejeroBean implements Serializable{
         this.solicitudSeleccionada = solicitudSeleccionada;
     }
 
+    public int getCiclo() {
+        return ciclo;
+    }
+
+    public void setCiclo(int ciclo) {
+        this.ciclo = ciclo;
+    }
     public String getNombreEstudianteSolicitud() {
         return nombreEstudianteSolicitud;
     }
@@ -303,13 +313,28 @@ public class ConsejeroBean implements Serializable{
         creditosRestantes = servCanc.consultarImpacto(canceladaString, estudianteSolicitud, grafo);
         proyeccion = servCanc.calcularProyeccion(estudianteSolicitud, canceladaString, grafo);
         root = new DefaultTreeNode("Proyeccion", null);
-        for(int i=0; i<proyeccion.size(); i++){
-           TreeNode semestre = new DefaultTreeNode("en "+(i+1)+" Semestres", root);
+       for(int i=0; i<proyeccion.size(); i++){
+           TreeNode semestre = null;
+           if (i==0){
+               semestre = new DefaultTreeNode("Para el próximo semestre:", root);
+           }
+           else{
+               semestre = new DefaultTreeNode("Para dentro de "+(i+1)+" Semestres", root);
+           }
            for(int j=0; j<proyeccion.get(i).size(); j++){
                TreeNode materia = new DefaultTreeNode(proyeccion.get(i).get(j), semestre);
            }
-        }
-        anoGraduacion = (fechaSolicitud.getYear()+1900) + (int)(proyeccion.size()/2);
+       }
+       anoGraduacion = (fechaSolicitud.getYear()+1900) + (int)(proyeccion.size()/2);
+       ciclo = proyeccion.size()/2;
+       if ((ciclo*2)==proyeccion.size()){
+           ciclo=2;
+           
+       }
+       else{
+           ciclo=1;
+           anoGraduacion+=1;
+       }
         
         return "tramitarsolicitud.xhtml";
     }

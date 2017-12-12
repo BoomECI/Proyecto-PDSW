@@ -9,9 +9,11 @@
     </h:head>
     <h:form id="listadoSolicitudes">
         <h:body style="background-color: seashell ">
-            <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo"  height = "80" style="margin-left: 30%; margin-right: 18%"/>
+            <p:outputPanel id="hojaInterna" style=" background: white; margin-left: 25%; margin-right: 25%; height: 99% ">
+            <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo" style=" margin-right: 60%;"/>
+            <img src="\recursosVisuales\acreditacion.jpg" alt="Logotipo"  style=" width: 13%"/> 
             <p:outputPanel id="panelConsejero" style="text-align: center; margin: auto" >
-                <img src="\recursosVisuales\profesores.jpg" alt="Logotipo"/>
+                <img src="\recursosVisuales\profesores.jpg" alt="Logotipo" style="width: 80%; height: 2%"/>
                 <br/>
                 <h:outputLink value="/logout" style=" background-color:gainsboro ;margin-left:85%;font-size:10pt;font-family:Verdana; font-weight:bold">Salir</h:outputLink>
                 <img src="\recursosVisuales\door_out.png" alt="Logotipo"   style="margin-left: 0%; margin-right: 0%"/>   
@@ -24,20 +26,20 @@
                 
                 <p:tabView>
                     <p:tab title="Pendientes">
-                        <p:dataTable id="notram" var="solsNo" value="#{beanSolicitudConsejero.solicitudesNoTramitadas}" style="width: 100%; margin: 0 auto">
-                            <p:column headerText="Fecha Solicitud" style="text-align: center; width: 10%">
-                                <h:outputText value="#{solsNo.fecha.date}-#{solsNo.fecha.month}-#{solsNo.fecha.year+1900}" />
+                        <p:dataTable id="notram" var="solsNo" value="#{beanSolicitudConsejero.solicitudesNoTramitadas}" style="width: 100%; margin: 0 auto;font-family: Verdana; ">
+                            <p:column headerText="Fecha Solicitud" style="text-align: center; width: 10%;font-family: Tahoma; ">
+                                <h:outputText value="#{solsNo.fecha.date}-#{solsNo.fecha.month}-#{solsNo.fecha.year+1900}" style="font-family: Verdana; " />
                             </p:column>
-                            <p:column headerText="Codigo solicitante" style="text-align: center">
-                                <h:outputText value="#{solsNo.estudiante}" />
+                            <p:column headerText="Codigo solicitante" style="text-align: center ;font-family: Tahoma; ">
+                                <h:outputText value="#{solsNo.estudiante}" style="font-family: Verdana; " />
                             </p:column>
-                            <p:column headerText="Nombre solicitante" style="text-align: center">
+                            <p:column headerText="Nombre solicitante" style="text-align: center;font-family: Tahoma; ">
                                 <h:outputText value="#{beanSolicitudConsejero.consultarEstudianteNombre(solsNo.estudiante)}" />
                             </p:column>
-                            <p:column headerText="Materia" style="text-align: center">
-                                <h:outputText value="#{solsNo.materia}"/>
+                            <p:column headerText="Materia" style="text-align: center; font-family: Tahoma; ">
+                                <h:outputText value="#{solsNo.materia}" style="font-family: Verdana; "/>
                             </p:column>
-                            <p:column headerText="Accion" style="width:18%;text-align: center">
+                            <p:column headerText="Accion" style="width:18%;text-align: center; background-color: red">
                                 <h:commandButton id="tramitar" value="Tramitar" title="tramitar la solicitud seleccionada" action="#{beanSolicitudConsejero.tramitarSolicitud()}" >
                                     <f:setPropertyActionListener value="#{solsNo}" target="#{beanSolicitudConsejero.solicitudSeleccionada}" />
                                 </h:commandButton>
@@ -46,35 +48,36 @@
                     </p:tab>
                     <p:tab title="Tramitadas">
                         <p:dataTable id="sitram" var="solsSi" value="#{beanSolicitudConsejero.solicitudesTramitadas}" style="width: 100%; margin: 0 auto">
-                            <p:column headerText="Fecha Solicitud" style="text-align: center">
-                                <h:outputText value="#{solsSi.fecha.date}-#{solsSi.fecha.month}-#{solsSi.fecha.year+1900}" />
+                            <p:column headerText="Fecha Solicitud" style="text-align: center; font-family: Tahoma;">
+                                <h:outputText value="#{solsSi.fecha.date}-#{solsSi.fecha.month}-#{solsSi.fecha.year+1900}" style="font-family: Verdana;font-size: 9pt " />
                             </p:column>
-                            <p:column headerText="Codigo solicitante" style="text-align: center">
-                                <h:outputText value="#{solsSi.estudiante}" />
+                            <p:column headerText="Codigo solicitante" style="text-align: center;font-family: Tahoma;">
+                                <h:outputText value="#{solsSi.estudiante}" style="font-family: Verdana;font-size: 9pt "/>
                             </p:column>
-                            <p:column headerText="Nombre solicitante" style="text-align: center">
-                                <h:outputText value="#{beanSolicitudConsejero.consultarEstudianteNombre(solsSi.estudiante)}" />
+                            <p:column headerText="Nombre solicitante" style="text-align: center;font-family: Tahoma;">
+                                <h:outputText value="#{beanSolicitudConsejero.consultarEstudianteNombre(solsSi.estudiante)}" style="font-family: Verdana;font-size: 9pt " />
                             </p:column>
-                            <p:column headerText="Materia" style="text-align: center">
-                                <h:outputText value="#{solsSi.materia}"/>
+                            <p:column headerText="Materia" style="text-align: center;font-family: Tahoma;">
+                                <h:outputText value="#{solsSi.materia}" style="font-family: Verdana;font-size: 9pt "/>
                             </p:column>
-                            <p:column headerText="Justificacion" style="text-align: center">
-                                <h:outputText value="#{solsSi.justificacion}"/>
+                            <p:column headerText="Justificacion" style="text-align: center;font-family: Tahoma;">
+                                <h:outputText value="#{solsSi.justificacion}" style="font-family: Verdana; font-size: 9pt"/>
                             </p:column>
-                            <p:column headerText="Aval consejero" style="text-align: center">
-                                <h:outputText value="#{beanSolicitudConsejero.booleanToString(solsSi.avalConsejero)}"/>
+                            <p:column headerText="Aval consejero" style="text-align: center ; background-color: chartreuse; color: black;font-family: Tahoma;">
+                                <h:outputText value="#{beanSolicitudConsejero.booleanToString(solsSi.avalConsejero)}" style="font-family: Verdana;font-size: 9pt "/>
                             </p:column>
-                            <p:column headerText="Comentario consejero" style="text-align: center">
-                                <h:outputText value="#{solsSi.comentario}"/>
+                            <p:column headerText="Comentario consejero" style="text-align: center;font-family: Tahoma;">
+                                <h:outputText value="#{solsSi.comentario}" style="font-family: Verdana; font-size: 9pt"/>
                             </p:column>
-                            <p:column headerText="Aval acudiente" style="text-align: center">
-                                <h:outputText value="#{beanSolicitudConsejero.booleanToString(solsSi.avalAcudiente)}"/>
+                            <p:column headerText="Aval acudiente" style="text-align: center;">
+                                <h:outputText value="#{beanSolicitudConsejero.booleanToString(solsSi.avalAcudiente)}" style="font-family: Verdana; font-size: 9pt"/>
                             </p:column>
                         </p:dataTable>
                     </p:tab>
                 
                     
                 </p:tabView>
+            </p:outputPanel>
             </p:outputPanel>
             
         </h:body>

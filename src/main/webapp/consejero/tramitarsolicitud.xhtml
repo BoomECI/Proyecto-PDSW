@@ -9,30 +9,41 @@
     </h:head>
     <h:form id="tramitarConsejero" style="margin: auto">
         <h:body style="background-color: seashell ">
-            <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo"  height = "80" style="margin-left: 30%; margin-right: 18%"/>
+            <p:outputPanel id="hojaInterna" style=" background: white; margin-left: 30%; margin-right: 30%; height: 99% ">
+            <img src="\recursosVisuales\logo-login.jpg" alt="Logotipo" style=" margin-right: 50%;"/>
+            <img src="\recursosVisuales\acreditacion.jpg" alt="Logotipo"  style=" width: 13%"/> 
             <p:outputPanel id="datos" style="text-align: center; margin: auto">
                 <img src="\recursosVisuales\profesores.jpg" alt="Logotipo"/>
                 <br/>
-                <p:outputLabel value="Profesor: #{beanSolicitudConsejero.nombreConsejero}" style="font-size: 200%; font-weight:bold" />
+                <p:outputLabel value="Profesor:    " style=" margin-right: 100%; font-family: Tahoma; font-size: 15pt;font-weight: bold; color: black"/>
+                <p:outputLabel value="#{beanSolicitudConsejero.nombreConsejero}" style="text-align:left; margin-right: 100%; margin-left:4%; font-family: Verdana; font-size: 12pt;font-weight: normal; color: black"/>                                     
                 <br/>
-                <p:outputLabel value="Solicitudes de cancelacion de aconsejados pendientes" style="font-size: 150%; font-weight:bold" />
-                <br/>
-                <p:outputLabel value="Nombre: #{beanSolicitudConsejero.nombreEstudianteSolicitud}" style="font-size: 150%; font-weight:bold" />
-                <br/>
-                <p:outputLabel value="Fecha: #{beanSolicitudConsejero.solicitudSeleccionada.fecha}" style="font-size: 150%; font-weight:bold" />
-                <br/>
-                <p:outputLabel value="Codigo estudiante: #{beanSolicitudConsejero.solicitudSeleccionada.estudiante}"  style="font-size: 150%; font-weight:bold" />
-                <br/>
-                <p:outputLabel value="Materia a cancelar: #{beanSolicitudConsejero.solicitudSeleccionada.materia}"  style="font-size: 150%; font-weight:bold" />
-                <br/>
-                <p:outputLabel value="Justificacion: #{beanSolicitudConsejero.solicitudSeleccionada.justificacion}"  style="font-size: 150%; font-weight:bold" />
-                <br/>
+                <p:outputLabel value="Estudiante:    " style=" margin-right: 100%; font-family: Tahoma; font-size: 15pt;font-weight: bold; color: black"/>
+                    <p:outputLabel value="#{beanSolicitudConsejero.nombreEstudianteSolicitud}" style="text-align:left; margin-right: 100%; margin-left:4%; font-family: Verdana; font-size: 12pt;font-weight: normal; color: black"/>                                     
+                <br />
+                <p:outputLabel value="fecha:    " style=" margin-right: 100%; font-family: Tahoma; font-size: 15pt;font-weight: bold; color: black"/>
+                    <p:outputLabel value="#{beanSolicitudConsejero.solicitudSeleccionada.fecha}" style="text-align:left; margin-right: 100%; margin-left:4%; font-family: Verdana; font-size: 12pt;font-weight: normal; color: black"/>                                     
+                <br />
+                <p:outputLabel value="Codigo estudiante: " style=" margin-right: 100%; font-family: Tahoma; font-size: 15pt;font-weight: bold; color: black"/>
+                    <p:outputLabel value="#{beanSolicitudConsejero.solicitudSeleccionada.estudiante}" style="text-align:left; margin-right: 100%; margin-left:4%; font-family: Verdana; font-size: 12pt;font-weight: normal; color: black"/>                                     
+                <br />
+                <p:outputLabel value="Materia a cancelar: " style=" margin-right: 100%; font-family: Tahoma; font-size: 15pt;font-weight: bold; color: black"/>
+                    <p:outputLabel value="#{beanSolicitudConsejero.solicitudSeleccionada.materia}" style="text-align:left; margin-right: 100%; margin-left:4%; font-family: Verdana; font-size: 12pt;font-weight: normal; color: black"/>                                     
+                <br />
+                <p:outputLabel value="Justificación: " style=" margin-right: 100%; font-family: Tahoma; font-size: 15pt;font-weight: bold; color: black; background-color: red;"/>
+                    <p:outputLabel value="#{beanSolicitudConsejero.solicitudSeleccionada.justificacion}" style="text-align:left; margin-right: 100%; margin-left:4%; font-family: Verdana; font-size: 12pt;font-weight: normal; color: black"/>                                     
+                <br />
+                <br />
+                
+                
                 <p:tabView style="width: 95%; margin: auto">
-                    <p:tab title="Impacto">
-                        <h:outputText value="Creditos por ver:  #{beanSolicitudConsejero.creditosRestantes} de #{beanSolicitudConsejero.creditosCarrera}"  />
-                        <br/>
-                        <h:outputText value="Ano de graduacion: #{beanSolicitudConsejero.anoGraduacion}" />
-                    </p:tab>
+                    <p:tab title="Datos de Impacto: ">
+                            <h:outputText value="■ Al procesar las asignaturas quedarían: #{beanSolicitudConsejero.creditosRestantes}  créditos restantes." style=" margin-right: 90%; text-align: left; font-family: Tahoma; font-size: 13pt;font-weight: bold; color: whitesmoke"  />
+                            <br/>
+                            <h:outputText value="■ #{beanSolicitudConsejero.planDeEstudiosEstudianteSolicitud.carrera} tiene #{beanSolicitudConsejero.creditosCarrera} créditos." style="margin-right: 90%; text-align: left; font-family: Tahoma; font-size: 13pt;font-weight: bold; color: whitesmoke"  />
+                            <br/>
+                            <h:outputText value="■ En el mejor de los casos se graduaria en el año #{beanSolicitudConsejero.anoGraduacion}- #{beanSolicitudConsejero.ciclo}." style=" margin-right: 90%; font-family: Tahoma; font-size: 13pt;font-weight: bold; color: whitesmoke"  />
+                        </p:tab>
                     <p:tab title="Proyección">
                         <p:tree value="#{beanSolicitudConsejero.root}" var="node" dynamic="true">
                             <p:treeNode>
@@ -41,10 +52,15 @@
                         </p:tree>
                     </p:tab>
                 </p:tabView>
+                <br />
+                <br />
+                <p:outputLabel value="Comentario:" style=" margin-right: 100%; font-family: Tahoma; font-size: 18pt;font-weight: bold; color: black; background-color: red;"/>
                 <p:inputTextarea id="jus" maxlength="400" counterTemplate="{0} caracteres restantes." title="Haga un comentario acerca de la solicitud de cancelacion hecha por el estudiante" value="#{beanSolicitudConsejero.comentario}" rows="6" cols="26" autoResize="true" />
                 <br/>
-                <p:outputLabel value="Aprobar la solicitud:" for="avalConsejero" style="font-size: 150%; font-weight:bold"/>
-                <p:selectBooleanButton id="avalConsejero" value="#{beanSolicitudConsejero.aval}" onLabel="Si" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:80px"/>
+                <br/>
+                <br/>
+                <p:outputLabel value="Respuesta a la solicitud:   " for="avalConsejero" style="margin-left: -40%; margin-right: 0%;font-family: Tahoma; font-size: 15pt;font-weight: bold; color: black"/>
+                <p:selectBooleanButton id="avalConsejero" value="#{beanSolicitudConsejero.aval}" onLabel="Aprobar" offLabel="Denegado" onIcon="ui-icon-check" offIcon="ui-icon-close" style=" font-family: Verdana; font-size: 14pt;font-weight: bold; color: white; ;"/>             
                 <br/>
                 <br/>
                 <h:panelGrid columns="2" cellpadding="30" style="margin: auto" >
@@ -52,6 +68,7 @@
                     <p:commandButton value="Cancelar" resetValues="true" action="#{beanSolicitudConsejero.irAtras()}" update="@form" ajax="false"/>                   
                 </h:panelGrid>
                
+            </p:outputPanel>
             </p:outputPanel>
         </h:body>
     </h:form>
