@@ -15,7 +15,7 @@ import java.util.Set;
 
 /**
  *
- * @author USER
+ * @author BoomECI
  */
 public class Grafo {
     Map<Materia, Set<Materia>> grafo;
@@ -38,7 +38,12 @@ public class Grafo {
             System.out.println(m.getNemonico());
         }
     }
-    
+    /**
+     *Calcula plan de estudios de algun estudiante especifico
+     * @param  estudiante estudiante que va a realizar la cancelacion 
+     * @param materiasCanceladas lista con las materias que el estudiante desea cancelar
+     *  @return Una matriz con las materias que le quedarian por ver organizadas por semestre
+     */
     public List<List<String>> calcularPlanDeEstudios(Estudiante estudiante,List<String> materiasCanceladas){
         List<List<String>> total = new ArrayList<>();
         int creditos=0;       

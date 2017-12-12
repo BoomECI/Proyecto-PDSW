@@ -13,6 +13,14 @@ import java.util.List;
  * @author BoomECI
  */
 public interface DirectivoDAO {
+    /**
+     *Carga solicitudes tramitadas para el directivo
+     *  @return lista de solicitudes
+     */
     public List<SolicitudCancelacion> loadSolicitudesTramitadas();
+    /**
+     *Carga solicitudes no tramitadas para el directivo
+     *  @return lista de solicitudes
+     */
     public List<SolicitudCancelacion> loadSolicitudesNoTramitadas();    
 }
